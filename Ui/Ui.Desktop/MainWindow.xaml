@@ -50,6 +50,7 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Label Grid.ColumnSpan="10" Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Jägermeister - Das Tool für Termine und Treibjagden" FontSize="30" Foreground="White"/>
             </Grid>
