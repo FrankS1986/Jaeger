@@ -6,9 +6,10 @@
         xmlns:local="clr-namespace:Ui.Desktop"
         mc:Ignorable="d"
         DataContext="{Binding Main, Source={StaticResource Locator}}"
-        Title="{Binding WindowTitel, Mode=OneWay}" Height="450" Width="800">
+        Title="{Binding WindowTitel, Mode=OneWay}" Height="450" Width="800" MinHeight="470" MinWidth="820"  >
+
     <DockPanel>
-        <Grid x:Name="masterGrid">
+        <Grid x:Name="mainGrid">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -35,24 +36,38 @@
             </Grid.RowDefinitions>
             <Grid DockPanel.Dock="Top" Grid.ColumnSpan="10" Grid.RowSpan="2" Background="Green">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition Height="21*"/>
+                    <RowDefinition Height="33"/>
+                    <RowDefinition Height="13"/>
+                    <RowDefinition Height="16"/>
                 </Grid.RowDefinitions>
-                <Label Grid.ColumnSpan="10" Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Jägermeister - Das Tool für Termine und Treibjagden" FontSize="30" Foreground="White"/>
+                <Label Grid.ColumnSpan="9" Grid.RowSpan="2" VerticalAlignment="Top" Margin="10,0,0,0" Content="Jägermeister - Das Tool für Termine und Treibjagden" FontSize="30" Foreground="White"/>
+                <Button Content="Admin" Grid.Column="9"  Grid.RowSpan="2"  Height="20" Width="50" BorderBrush="Black" Background="White" ></Button>
+                <WrapPanel Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="10" >
+                    <Button  Content="Kalender" Margin="10,0,0,0" BorderBrush="Black" Background="White" Width="70"  />
+                    <Button Content="Termin" BorderBrush="Black" Background="White" Width="70" ></Button>
+                    <Button Content="Jägerliste"  BorderBrush="Black" Background="White" Width="70" ></Button>
+                    <Button Content="Abschlussliste" BorderBrush="Black" Background="White" Width="95" ></Button>
+                    <Button Content="Wildunfälle" BorderBrush="Black" Background="White" Width="80" ></Button>
+                    <Button Content="Einladungsübersicht" BorderBrush="Black" Background="White" Width="130" ></Button>
+                    <Button Content="Dokumente verwalten" BorderBrush="Black" Background="White" Width="140"></Button>
+                    <Button Content="Urkunde erstellen"  BorderBrush="Black" Background="White" Width="130"></Button>
+                </WrapPanel>
             </Grid>
+            <ContentControl  Grid.ColumnSpan="10" Grid.Row="2" Grid.RowSpan="10" >
+            </ContentControl>
         </Grid>
     </DockPanel>
 </Window>
