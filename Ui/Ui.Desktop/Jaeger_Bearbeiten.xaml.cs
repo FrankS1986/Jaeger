@@ -10,26 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Ui.Desktop
+namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
     /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
+    /// Interaktionslogik für Jaeger_Bearbeiten.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Jaeger_Bearbeiten : Window
     {
-        public MainWindow()
+        public Jaeger_Bearbeiten()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Bestaetigen_Click(object sender, RoutedEventArgs e)
         {
-            JaegerMeister.MvvmSample.Ui.Desktop.Jaeger_Informationen jae_inf = new JaegerMeister.MvvmSample.Ui.Desktop.Jaeger_Informationen();
 
-            MainWindowContent.Content = jae_inf.jaeger_informationen;
+        }
+
+        private void Abbrechen_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
