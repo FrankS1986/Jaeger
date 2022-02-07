@@ -70,10 +70,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Jaeger_Bearbeiten.xaml.cs">
+      <DependentUpon>Jaeger_Bearbeiten.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Jaeger_Hinzufuegen.xaml.cs">
+      <DependentUpon>Jaeger_Hinzufuegen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Jaeger_Informationen.xaml.cs">
+      <DependentUpon>Jaeger_Informationen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LogIn.xaml.cs">
       <DependentUpon>LogIn.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\SharedAssemblyInfo.cs" />
+    <Page Include="Jaeger_Bearbeiten.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Jaeger_Hinzufuegen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Jaeger_Informationen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LogIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
