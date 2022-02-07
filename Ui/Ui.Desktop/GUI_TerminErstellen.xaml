@@ -10,7 +10,7 @@
              >
 
     <ContentControl x:Name="ContentControlTerminErstellen">
-        <Grid Background="White">
+        <Grid >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="250"/>
                 <ColumnDefinition  Width="15"/>
