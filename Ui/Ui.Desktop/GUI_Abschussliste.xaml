@@ -8,7 +8,8 @@
              d:DesignHeight="450" d:DesignWidth="800"
              DataContext="{Binding LogicAbschussliste, Source={StaticResource Locator}}"
              >
-    <Grid>
+    <ContentControl x:Name="abschussliste">
+        <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="15"/>
@@ -52,4 +53,5 @@
             <Button Command="{Binding abschuesseHinzufuegen}" BorderBrush="#230C0F" HorizontalAlignment="Right" FontFamily="Gill Sans MT regular" FontSize="16" > Abschüsse hinzufügen</Button>
         </StackPanel>
     </Grid>
+    </ContentControl>
 </UserControl>
