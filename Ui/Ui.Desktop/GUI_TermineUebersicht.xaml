@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="JaegerMeister.MvvmSample.Ui.Desktop.GUI_Termine"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+              DataContext="{Binding LogicTerminUebersicht, Source={StaticResource Locator}}"
+             >
+    <ContentControl x:Name="ContentControlTermine">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition  Width="15"/>
+                <ColumnDefinition  Width="350"/>
+                <ColumnDefinition  Width="15"/>
+                <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="20"/>
+                
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Background="White">
+
+                <Label Background="#4F772D"  Foreground="White">
+                    <TextBlock FontSize="14" TextAlignment="Center" Width="240" Height="20" >anstehende Termine</TextBlock>
+                   
+                </Label>
+                <ListBox ItemsSource="{Binding anstehendeTermine }"  Height="405">
+                    
+                </ListBox>
+            </StackPanel>
+            <StackPanel Grid.Row="3">
+                <Button Command="{ Binding terminhizufuegen}"> Termin hinzufügen</Button>
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+
+                
+            </StackPanel>
+            <StackPanel  Grid.Column="4" Background="White">
+                <Label Background="#4F772D" Foreground="White" >
+                    <TextBlock FontSize="14" TextAlignment="Center" Width="140" Height="20" >Eingeladene Personen</TextBlock>
+
+                </Label>
+                <ListBox ItemsSource="{Binding listeEingeladenePersonen }" Height="405"></ListBox>
+            </StackPanel>
+            <StackPanel Grid.Column="2" Background="White">
+                <Label Background="#4F772D" Foreground="White" >
+                    <TextBlock FontSize="14" TextAlignment="Center" Width="341" Height="20" >Terminbezeichnung</TextBlock>
+
+                </Label>
+                <TextBlock HorizontalAlignment="Right">
+                    <Button Command="{Binding bearbeiten}">Bearbeiten</Button>
+                    <Button Command="{Binding loeschen}">Löschen</Button>
+                </TextBlock>
+                <Label></Label>
+                <Label></Label>
+                <Label Margin="20,1">Bezeichnung</Label>
+                <TextBox Text="{Binding bezeichnung}" Margin="20,1"></TextBox>
+                <Label Margin="20,1">Wo?</Label>
+                <TextBox Text="{Binding wo}" Margin="20,1"></TextBox>
+                <Label Margin="20,1">Datum</Label>
+                <DatePicker Margin="20,1" SelectedDate="{Binding date}"></DatePicker>
+                <Label Margin="20,1">Uhrzeit</Label>
+                <TextBox Margin="20,1" Text="{Binding uhrzeit}"></TextBox>
+
+            </StackPanel>
+
+        </Grid>
+    </ContentControl>
+</UserControl>

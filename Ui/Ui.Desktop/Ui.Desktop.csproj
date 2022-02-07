@@ -70,11 +70,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="GUI_Termine.xaml.cs">
-      <DependentUpon>GUI_Termine.xaml</DependentUpon>
+    <Compile Include="GUI_TerminErstellen.xaml.cs">
+      <DependentUpon>GUI_TerminErstellen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_TermineUebersicht.xaml.cs">
+      <DependentUpon>GUI_TermineUebersicht.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\SharedAssemblyInfo.cs" />
-    <Page Include="GUI_Termine.xaml">
+    <Page Include="GUI_TerminErstellen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI_TermineUebersicht.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -123,6 +130,12 @@
       <Project>{306896bb-46db-4c30-a279-690cf0950da7}</Project>
       <Name>Logic.Ui</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pfeillinks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pfeilrechts.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
