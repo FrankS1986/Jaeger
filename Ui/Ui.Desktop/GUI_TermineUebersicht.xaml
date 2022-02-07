@@ -11,11 +11,11 @@
     <ContentControl x:Name="ContentControlTermine">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="225"/>
                 <ColumnDefinition  Width="15"/>
-                <ColumnDefinition  Width="350"/>
+                <ColumnDefinition  Width="295"/>
                 <ColumnDefinition  Width="15"/>
-                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="245"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -25,15 +25,15 @@
             <StackPanel Grid.Row="0" Background="White">
 
                 <Label Background="#4F772D"  Foreground="White">
-                    <TextBlock FontSize="14" TextAlignment="Center" Width="240" Height="20" >anstehende Termine</TextBlock>
+                    <TextBlock FontSize="22" FontFamily="Gill Sans MT Bold" TextAlignment="Center" Width="216" Height="30" >anstehende Termine</TextBlock>
                    
                 </Label>
-                <ListBox ItemsSource="{Binding anstehendeTermine }"  Height="405">
+                <ListBox FontFamily="Gill Sans MT Regular" FontSize="12" ItemsSource="{Binding anstehendeTermine }"  Height="390">
                     
                 </ListBox>
             </StackPanel>
             <StackPanel Grid.Row="3">
-                <Button Command="{ Binding terminhizufuegen}"> Termin hinzufügen</Button>
+                <Button FontSize="16" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Command="{ Binding terminhizufuegen}"> Termin hinzufügen</Button>
             </StackPanel>
             <StackPanel Grid.Column="2">
 
@@ -41,30 +41,30 @@
             </StackPanel>
             <StackPanel  Grid.Column="4" Background="White">
                 <Label Background="#4F772D" Foreground="White" >
-                    <TextBlock FontSize="14" TextAlignment="Center" Width="140" Height="20" >Eingeladene Personen</TextBlock>
+                    <TextBlock FontSize="22" FontFamily="Gill Sans MT Bold" TextAlignment="Center" Width="240" Height="30" >Eingeladene Personen</TextBlock>
 
                 </Label>
-                <ListBox ItemsSource="{Binding listeEingeladenePersonen }" Height="405"></ListBox>
+                <ListBox FontFamily="Gill Sans MT Regular" FontSize="12" ItemsSource="{Binding listeEingeladenePersonen }" Height="388"></ListBox>
             </StackPanel>
             <StackPanel Grid.Column="2" Background="White">
                 <Label Background="#4F772D" Foreground="White" >
-                    <TextBlock FontSize="14" TextAlignment="Center" Width="341" Height="20" >Terminbezeichnung</TextBlock>
+                    <TextBlock FontSize="22" FontFamily="Gill Sans MT Bold"  TextAlignment="Center" Width="286" Height="30" >Terminbezeichnung</TextBlock>
 
                 </Label>
                 <TextBlock HorizontalAlignment="Right">
-                    <Button Command="{Binding bearbeiten}">Bearbeiten</Button>
-                    <Button Command="{Binding loeschen}">Löschen</Button>
+                    <Button FontSize="16" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Command="{Binding bearbeiten}">Bearbeiten</Button>
+                    <Button FontSize="16" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Command="{Binding loeschen}">Löschen</Button>
                 </TextBlock>
                 <Label></Label>
                 <Label></Label>
-                <Label Margin="20,1">Bezeichnung</Label>
-                <TextBox Text="{Binding bezeichnung}" Margin="20,1"></TextBox>
-                <Label Margin="20,1">Wo?</Label>
-                <TextBox Text="{Binding wo}" Margin="20,1"></TextBox>
-                <Label Margin="20,1">Datum</Label>
-                <DatePicker Margin="20,1" SelectedDate="{Binding date}"></DatePicker>
-                <Label Margin="20,1">Uhrzeit</Label>
-                <TextBox Margin="20,1" Text="{Binding uhrzeit}"></TextBox>
+                <Label FontFamily="Gill Sans MT Regular" FontSize="18" Margin="20,1">Bezeichnung</Label>
+                <TextBox FontFamily="Gill Sans MT Regular" FontSize="12"  Text="{Binding bezeichnung}" Margin="20,1"></TextBox>
+                <Label FontFamily="Gill Sans MT Regular" FontSize="18"  Margin="20,1">Wo?</Label>
+                <TextBox FontFamily="Gill Sans MT Regular" FontSize="12"  Text="{Binding wo}" Margin="20,1"></TextBox>
+                <Label FontFamily="Gill Sans MT Regular" FontSize="18" Margin="20,1">Datum</Label>
+                <DatePicker FontFamily="Gill Sans MT Regular" FontSize="12"  Margin="20,1" SelectedDate="{Binding date}"></DatePicker>
+                <Label FontFamily="Gill Sans MT Regular" FontSize="18"  Margin="20,1">Uhrzeit</Label>
+                <TextBox FontFamily="Gill Sans MT Regular" FontSize="12"  Margin="20,1" Text="{Binding uhrzeit}"></TextBox>
 
             </StackPanel>
 
