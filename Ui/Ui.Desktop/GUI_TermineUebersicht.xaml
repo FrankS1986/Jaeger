@@ -25,7 +25,7 @@
             <StackPanel Grid.Row="0" Background="White">
 
                 <Label Background="#4F772D"  Foreground="White">
-                    <TextBlock FontSize="22" FontFamily="Gill Sans MT Bold" TextAlignment="Center" Width="216" Height="30" >anstehende Termine</TextBlock>
+                    <TextBlock Foreground="#E0CBA8" FontSize="22" FontFamily="Gill Sans MT Bold" TextAlignment="Center" Width="216" Height="30" >anstehende Termine</TextBlock>
                    
                 </Label>
                 <ListBox FontFamily="Gill Sans MT Regular" FontSize="12" ItemsSource="{Binding anstehendeTermine }"  Height="390">
@@ -41,14 +41,14 @@
             </StackPanel>
             <StackPanel  Grid.Column="4" Background="White">
                 <Label Background="#4F772D" Foreground="White" >
-                    <TextBlock FontSize="22" FontFamily="Gill Sans MT Bold" TextAlignment="Center" Width="240" Height="30" >Eingeladene Personen</TextBlock>
+                    <TextBlock  Foreground="#E0CBA8" FontSize="22" FontFamily="Gill Sans MT Bold" TextAlignment="Center" Width="240" Height="30" >Eingeladene Personen</TextBlock>
 
                 </Label>
                 <ListBox FontFamily="Gill Sans MT Regular" FontSize="12" ItemsSource="{Binding listeEingeladenePersonen }" Height="388"></ListBox>
             </StackPanel>
             <StackPanel Grid.Column="2" Background="White">
                 <Label Background="#4F772D" Foreground="White" >
-                    <TextBlock FontSize="22" FontFamily="Gill Sans MT Bold"  TextAlignment="Center" Width="286" Height="30" >Terminbezeichnung</TextBlock>
+                    <TextBlock  Foreground="#E0CBA8" FontSize="22" FontFamily="Gill Sans MT Bold"  TextAlignment="Center" Width="286" Height="30" >Terminbezeichnung</TextBlock>
 
                 </Label>
                 <TextBlock HorizontalAlignment="Right">
