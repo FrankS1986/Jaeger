@@ -70,7 +70,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GUIEinladungErstellen.xaml.cs">
+      <DependentUpon>GUIEinladungErstellen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUIEinladungsuebersicht.xaml.cs">
+      <DependentUpon>GUIEinladungsuebersicht.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\SharedAssemblyInfo.cs" />
+    <Page Include="GUIEinladungErstellen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUIEinladungsuebersicht.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
