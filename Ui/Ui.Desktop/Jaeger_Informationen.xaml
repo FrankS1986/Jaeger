@@ -75,7 +75,6 @@
                     <Label x:Name="Jagdhunde" Content="1" Width="50" Margin="-65,0,0,0"/>
                 </DockPanel>
             </StackPanel>
-            <Button Command="{Binding btn_jaeger_bearbeiten}" Grid.Column="2" Content="Bearbeiten" Width="210" Height="20" Margin="310,325,10,0" Click="Jaeger_Bearbeiten_Click"/>
         </Grid>
     </ContentControl>
 </Window>
