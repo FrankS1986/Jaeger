@@ -6,9 +6,9 @@
              xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
-                DataContext="{Binding abschusslisteAktualisieren, Source={StaticResource Locator}}"
+                DataContext="{Binding LogicAbschusslisteAktualisieren, Source={StaticResource Locator}}"
              >
-    <ContentControl>
+    <ContentControl x:Name="abschusslisteAktualisieren" >
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
