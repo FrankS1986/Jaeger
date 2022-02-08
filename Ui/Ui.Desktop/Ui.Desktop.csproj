@@ -71,8 +71,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Properties\SharedAssemblyInfo.cs" />
-    <Compile Include="Wildunfaelle.xaml.cs">
-      <DependentUpon>Wildunfaelle.xaml</DependentUpon>
+    <Compile Include="Urkunden_Erstellen.xaml.cs">
+      <DependentUpon>Urkunden_Erstellen.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -86,7 +86,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Wildunfaelle.xaml">
+    <Page Include="Urkunden_Erstellen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

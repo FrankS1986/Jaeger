@@ -11,28 +11,28 @@
     <DockPanel>
         <Grid x:Name="mainGrid" Background="#7F7C81" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="82"/>
+                <ColumnDefinition Width="81*"/>
+                <ColumnDefinition Width="81*"/>
+                <ColumnDefinition Width="82*"/>
+                <ColumnDefinition Width="81*"/>
+                <ColumnDefinition Width="81*"/>
+                <ColumnDefinition Width="81*"/>
+                <ColumnDefinition Width="81*"/>
+                <ColumnDefinition Width="81*"/>
+                <ColumnDefinition Width="81*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="44"/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="43*"/>
             </Grid.RowDefinitions>
             <Grid DockPanel.Dock="Top" Grid.ColumnSpan="10" Grid.RowSpan="2" Background="#4F772D">
                 <Grid.ColumnDefinitions>
