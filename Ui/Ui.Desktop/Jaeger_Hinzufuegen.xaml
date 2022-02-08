@@ -76,8 +76,6 @@
                     <TextBox x:Name="Jagdhunde" Width="50" Margin="-80,0,0,0"/>
                 </DockPanel>
             </StackPanel>
-            <Button Command="{Binding btn_bestaetigen}" Grid.Column="2" Content="Bestätigen" Width="210" Height="20" Margin="-200,325,0,0" Click="Bestaetigen_Click"/>
-            <Button Command="{Binding btn_abbrechen}" Grid.Column="2" Content="Abbrechen" Width="210" Height="20" Margin="310,325,10,0" Click="Abbrechen_Click"/>
         </Grid>
     </ContentControl>
 </Window>
