@@ -24,5 +24,7 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         {
             InitializeComponent();
         }
+
+        
     }
 }

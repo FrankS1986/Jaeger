@@ -76,7 +76,7 @@
                     <TextBlock  Foreground="#E0CBA8" FontFamily="Gill sans MT Bold" FontSize="22" TextAlignment="Center" Width="191" Height="35" >Bereits eingladen</TextBlock>
 
                 </Label>
-                <ListBox FontSize="12" FontFamily="Gill sans MT Regular" ItemsSource="{Binding entfernen }"  Height="380"></ListBox>
+                <ListBox FontSize="12" FontFamily="Gill sans MT Regular" ItemsSource="{Binding listboxEinladen }"  Height="380" ></ListBox>
 
 
             </StackPanel>
