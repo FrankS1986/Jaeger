@@ -70,10 +70,38 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Jäger_Bearbeiten.xaml.cs">
+      <DependentUpon>Jäger_Bearbeiten.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Jäger_Hinzufügen.xaml.cs">
+      <DependentUpon>Jäger_Hinzufügen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Jäger_Informationen.xaml.cs">
+      <DependentUpon>Jäger_Informationen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LogIn.xaml.cs">
+      <DependentUpon>LogIn.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Kalender.xaml.cs">
       <DependentUpon>Kalender.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\SharedAssemblyInfo.cs" />
+    <Page Include="Jäger_Bearbeiten.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Jäger_Hinzufügen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Jäger_Informationen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LogIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Kalender.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

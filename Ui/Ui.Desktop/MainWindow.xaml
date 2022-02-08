@@ -6,34 +6,34 @@
         xmlns:local="clr-namespace:Ui.Desktop"
         mc:Ignorable="d"
         DataContext="{Binding Main, Source={StaticResource Locator}}"
-        Title="{Binding WindowTitel, Mode=OneWay}" Height="450" Width="800">
+        Title="{Binding WindowTitel, Mode=OneWay}" MaxHeight="560" MaxWidth="1100" Background="#7F7C81" FontFamily="Gill Sans MT Regular">
     <DockPanel>
         <Grid x:Name="masterGrid">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="76"/>
+                <ColumnDefinition Width="76"/>
+                <ColumnDefinition Width="76"/>
+                <ColumnDefinition Width="76"/>
+                <ColumnDefinition Width="76"/>
+                <ColumnDefinition Width="76"/>
+                <ColumnDefinition Width="76"/>
+                <ColumnDefinition Width="76"/>
+                <ColumnDefinition Width="76"/>
+                <ColumnDefinition Width="76"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="51"/>
+                <RowDefinition Height="51"/>
+                <RowDefinition Height="51"/>
+                <RowDefinition Height="51"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
-            <Grid DockPanel.Dock="Top" Grid.ColumnSpan="10" Grid.RowSpan="2" Background="Green">
+            <Grid DockPanel.Dock="Top" Grid.ColumnSpan="10" Grid.RowSpan="2" Background="#4F772D">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -50,8 +50,19 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Label Grid.ColumnSpan="10" Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Jägermeister - Das Tool für Termine und Treibjagden" FontSize="30" Foreground="White"/>
+                <Label Grid.ColumnSpan="10" Grid.RowSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,13" Content="Jägermeister - Das Tool für Termine und Treibjagden" FontSize="32" Foreground="#E0CBA8" FontFamily="Gill Sans MT Bold"/>
+                <WrapPanel Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="10" Background="{x:Null}" >
+                    <Button Height="25" Width="80" Margin="5,13,0,0" Content="Kalender" BorderBrush="Black" ></Button>
+                    <Button Height="25" Width="80" Margin="0,13,0,0" Content="Termin" ></Button>
+                    <Button Height="25" Width="80" Margin="0,13,0,0" Content="Jägerliste" ></Button>
+                    <Button Height="25" Width="80" Margin="0,13,0,0" Content="Abschussliste" ></Button>
+                    <Button Height="25" Width="80" Margin="0,13,0,0" Content="Wildunfälle" ></Button>
+                    <Button Height="25" Width="120" Margin="0,13,0,0" Content="Einladungsübersicht" ></Button>
+                    <Button Height="25" Width="120" Margin="0,13,0,0" Content="Dokumente verwalten"></Button>
+                    <Button Height="25" Width="100" Margin="0,13,0,0" Content="Urkunde erstellen"></Button>
+                </WrapPanel>
             </Grid>
         </Grid>
     </DockPanel>
