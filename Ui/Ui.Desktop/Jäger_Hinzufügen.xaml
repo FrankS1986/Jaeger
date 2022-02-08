@@ -1,41 +1,39 @@
-﻿<Window x:Class="JaegerMeister.MvvmSample.Ui.Desktop.Jaeger_Hinzufuegen"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
-        mc:Ignorable="d"
-        Title="Jaeger_Hinzufuegen" MinHeight="403" MinWidth="760" FontFamily="Gill Sans MT Regular">
-    <ContentControl x:Name="JaegerHinzufuegen">
-        <Grid>
+﻿<UserControl x:Class="JaegerMeister.MvvmSample.Ui.Desktop.Jäger_Hinzufügen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
+             mc:Ignorable="d" 
+             MinHeight="403" MinWidth="760" FontFamily="Gill Sans MT Regular">
+    <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="230"/>
                 <ColumnDefinition Width="530"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.ColumnSpan="1" Margin="10,10,0,10">
                 <Label Content="Personen" FontSize="22" FontFamily="Gill Sans MT Bold" Width="210" Foreground="#E0CBA8" Background="#4F772D" HorizontalContentAlignment="Center"/>
-                <ListBox Height="300" Width="210"/>
+                <ListBox ItemsSource="{Binding lb_jaeger}" Height="300" Width="210"/>
                 <Button Command="{Binding btn_jaeger_hinzufuegen}" Content="+" FontSize="20" Width="30" Height="30" Margin="0,-50,-150,0"/>
                 <Button Command="{Binding btn_jaeger_entfernen}" Content="Entfernen" Width="210" Height="20" Margin="0,10,0,0"/>
             </StackPanel>
-            <ContentControl x:Name="Jaeger_Bea" Grid.Column="2"/>
             <StackPanel Grid.Column="2" Margin="10,10,10,10" Background="White" Height="336" VerticalAlignment="Top">
-                <Label Content="Vor-und Nachname"  FontSize="22" FontFamily="Gill Sans MT Bold" Width="510" Foreground="#E0CBA8" Background="#4F772D" HorizontalContentAlignment="Center"/>
+                <Label Content="Jäger hinzufügen" FontSize="22" FontFamily="Gill Sans MT Bold" Width="510" Foreground="#E0CBA8" Background="#4F772D" HorizontalContentAlignment="Center"/>
                 <DockPanel Margin="0,-5,0,0">
                     <Label Content="Vorname*" FontSize="16"/>
                     <Label Content="Nachname*" FontSize="16" Margin="90,0,0,0"/>
                     <Label Content="Anrede*" FontSize="16" Margin="60,0,0,0"/>
                 </DockPanel>
                 <DockPanel Margin="0,-5,0,0">
-                    <TextBox x:Name="Vorname" Width="120"/>
-                    <TextBox x:Name="Nachname" Width="120" Margin="50,0,0,0"/>
-                    <ComboBox x:Name="Anrede" Width="60" Margin="-110,0,0,0"/>
+                    <TextBox Text="{Binding tb_vorname}" Width="120"/>
+                    <TextBox Text="{Binding tb_nachname}" Width="120" Margin="50,0,0,0"/>
+                    <ComboBox Text="{Binding cb_anrede}" Width="60" Margin="-110,0,0,0"/>
                 </DockPanel>
                 <DockPanel Margin="0,5,0,0">
                     <Label Content="Geburtstag" FontSize="16"/>
                 </DockPanel>
                 <DockPanel Margin="0,-5,0,0">
-                    <DatePicker x:Name="Geburtstag" Width="150" HorizontalAlignment="Left"/>
+                    <DatePicker DataContext="{Binding dp_geburtstag}" Width="150" HorizontalAlignment="Left"/>
                 </DockPanel>
                 <DockPanel Margin="0,5,0,0">
                     <Label Content="Straße*" FontSize="16"/>
@@ -43,17 +41,17 @@
                     <Label Content="Adresszusatz" FontSize="16" Margin="45,0,0,0"/>
                 </DockPanel>
                 <DockPanel Margin="0,-5,0,0">
-                    <TextBox x:Name="Straße" Width="150"/>
-                    <TextBox x:Name="Hausnummer" Width="100" Margin="19,0,0,0"/>
-                    <TextBox x:Name="Adresszusatz" Width="180" Margin="30,0,0,0"/>
+                    <TextBox Text="{Binding tb_straße}" Width="150"/>
+                    <TextBox Text="{Binding tb_hausnummer}" Width="100" Margin="19,0,0,0"/>
+                    <TextBox Text="{Binding tb_adresszusatz}" Width="180" Margin="30,0,0,0"/>
                 </DockPanel>
                 <DockPanel Margin="0,5,0,0">
                     <Label Content="Postleitzahl*" FontSize="16"/>
                     <Label Content="Wohnort*" FontSize="16" Margin="75,0,0,0"/>
                 </DockPanel>
                 <DockPanel Margin="0,-5,0,0">
-                    <TextBox x:Name="PLZ" Width="85"/>
-                    <TextBox x:Name="Wohnort" Width="160" Margin="-100,0,0,0"/>
+                    <TextBox Text="{Binding tb_postleitzahl}" Width="85"/>
+                    <TextBox Text="{Binding tb_wohnort}" Width="160" Margin="-100,0,0,0"/>
                 </DockPanel>
                 <DockPanel Margin="0,5,0,0">
                     <Label Content="1. Telefonnummer*" FontSize="16"/>
@@ -61,9 +59,9 @@
                     <Label Content="3. Telefonnummer" FontSize="16" Margin="17,0,0,0"/>
                 </DockPanel>
                 <DockPanel Margin="0,-5,0,0">
-                    <TextBox x:Name="FirstTele" Width="130"/>
-                    <TextBox x:Name="SecondTele" Width="130" Margin="35,0,0,0"/>
-                    <TextBox x:Name="ThirdTele" Width="130" Margin="-50,0,0,0"/>
+                    <TextBox Text="{Binding tb_telefonnummer1}" Width="130"/>
+                    <TextBox Text="{Binding tb_telefonnummer2}" Width="130" Margin="35,0,0,0"/>
+                    <TextBox Text="{Binding tb_telefonnummer3}" Width="130" Margin="-50,0,0,0"/>
                 </DockPanel>
                 <DockPanel Margin="0,5,0,0">
                     <Label Content="Email-Adresse" FontSize="16"/>
@@ -71,11 +69,13 @@
                     <Label Content="Anzahl der Jagdhunde" FontSize="16" Margin="83,0,0,0"/>
                 </DockPanel>
                 <DockPanel Margin="0,-5,0,0">
-                    <TextBox x:Name="Email" Width="150"/>
-                    <ComboBox x:Name="Funktion" Width="80" Margin="13,0,0,0"/>
-                    <TextBox x:Name="Jagdhunde" Width="50" Margin="-80,0,0,0"/>
+                    <TextBox Text="{Binding tb_email}" Width="150"/>
+                    <ComboBox Text="{Binding tb_funktion}" Width="80" Margin="13,0,0,0"/>
+                    <TextBox Text="{Binding tb_jagdhunde}" Width="50" Margin="-80,0,0,0"/>
                 </DockPanel>
-            </StackPanel>
-        </Grid>
-    </ContentControl>
-</Window>
+            <TextBox Text="*Plichtfelder" HorizontalContentAlignment="Right"/>
+        </StackPanel>
+        <Button Command="{Binding btn_jaeger_hinzufuegen}" Grid.Column="2" Content="Hinzufügen" Width="210" Height="20" Margin="-200,325,0,0"/>
+        <Button Command="{Binding btn_abbrechen}" Grid.Column="2" Content="Abbrechen" Width="210" Height="20" Margin="310,325,10,0"/>
+    </Grid>
+</UserControl>

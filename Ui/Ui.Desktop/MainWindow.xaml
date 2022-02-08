@@ -33,7 +33,6 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
-            <ContentControl x:Name="MainWindowContent" Grid.Row="2" Grid.ColumnSpan="10" Grid.RowSpan="8"/>
             <Grid DockPanel.Dock="Top" Grid.ColumnSpan="10" Grid.RowSpan="2" Background="#4F772D">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -57,7 +56,7 @@
                 <WrapPanel Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="10" Background="{x:Null}" >
                     <Button Height="25" Width="80" Margin="5,13,0,0" Content="Kalender" BorderBrush="Black" ></Button>
                     <Button Height="25" Width="80" Margin="0,13,0,0" Content="Termin" ></Button>
-                    <Button Height="25" Width="80" Margin="0,13,0,0" Content="Jägerliste" Click="Button_Click"></Button>
+                    <Button Height="25" Width="80" Margin="0,13,0,0" Content="Jägerliste" ></Button>
                     <Button Height="25" Width="80" Margin="0,13,0,0" Content="Abschussliste" ></Button>
                     <Button Height="25" Width="80" Margin="0,13,0,0" Content="Wildunfälle" ></Button>
                     <Button Height="25" Width="120" Margin="0,13,0,0" Content="Einladungsübersicht" ></Button>

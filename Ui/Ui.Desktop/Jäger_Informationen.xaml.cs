@@ -10,28 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
     /// <summary>
-    /// Interaktionslogik für Jaeger_Hinzufuegen.xaml
+    /// Interaktionslogik für Jäger_Informationen.xaml
     /// </summary>
-    public partial class Jaeger_Hinzufuegen : Window
+    public partial class Jäger_Informationen : UserControl
     {
-        public Jaeger_Hinzufuegen()
+        public Jäger_Informationen()
         {
             InitializeComponent();
-        }
-
-        private void Bestaetigen_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Abbrechen_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

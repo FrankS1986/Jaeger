@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Ui.Desktop
+namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
     /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
+    /// Interaktionslogik für Jäger_Hinzufügen.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Jäger_Hinzufügen : UserControl
     {
-        public MainWindow()
+        public Jäger_Hinzufügen()
         {
             InitializeComponent();
         }
