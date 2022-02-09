@@ -60,9 +60,9 @@
                 <Label Content="3. Telefonnummer" FontSize="16" Margin="17,0,0,0"/>
             </DockPanel>
             <DockPanel Margin="0,-13,0,0">
-                <Label Content="{Binding Lab_telefonnumer1}" Width="160" Height="24" />
-                <Label Content="{Binding Lab_telefonnumer2}" Width="150" Height="24"  Margin="3,0,0,0"/>
-                <Label Content="{Binding Lab_telefonnumer3}" Width="150" Height="24"  Margin="-52,0,0,0"/>
+                <Label Content="{Binding Lab_telefonnummer1}" Width="160" Height="24" />
+                <Label Content="{Binding Lab_telefonnummer2}" Width="150" Height="24"  Margin="3,0,0,0"/>
+                <Label Content="{Binding Lab_telefonnummer3}" Width="150" Height="24"  Margin="-52,0,0,0"/>
             </DockPanel>
             <DockPanel Margin="0,5,0,0">
                 <Label Content="Email-Adresse" FontSize="16"/>
