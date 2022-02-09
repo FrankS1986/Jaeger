@@ -31,9 +31,13 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
+
+            SimpleIoc.Default.Register<Logic_Registrierung>();
         }
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
+
+        public Logic_Registrierung logic_registrierung => ServiceLocator.Current.GetInstance<Logic_Registrierung>();
 
         public static void Cleanup()
         {
