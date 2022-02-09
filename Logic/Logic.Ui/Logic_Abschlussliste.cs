@@ -3,10 +3,11 @@ using GalaSoft.MvvmLight;
 using System.Collections.Generic;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
+using System.ComponentModel;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
-    public class Logic_Abschussliste : ViewModelBase
+    public class Logic_Abschussliste : ViewModelBase, INotifyPropertyChanged
     {
         string _abschuesse = "";
         public string Abschuesse
