@@ -14,7 +14,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
     {
         private ICommand _btn_abbrechen;
 
-        public ICommand btn_abbrechen
+        public ICommand Btn_abbrechen
         {
             get
             {
@@ -32,7 +32,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         }
         private ICommand _btn_bestaetigen;
 
-        public ICommand btn_bestaetigen
+        public ICommand Btn_bestaetigen
         {
             get
             {
@@ -51,7 +51,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _tb_vorname;
 
-        public string tb_vorname
+        public string Tb_vorname
         {
             get
             {
@@ -65,7 +65,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _tb_nachname;
 
-        public string tb_nachname
+        public string Tb_nachname
         {
             get
             {
@@ -79,7 +79,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _tb_benutzername;
 
-        public string tb_benutzername
+        public string Tb_benutzername
         {
             get
             {
@@ -93,7 +93,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _tb_passwort;
 
-        public string tb_passwort
+        public string Tb_passwort
         {
             get
             {
@@ -107,7 +107,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _tb_sicherheitsfrage_antwort;
 
-        public string tb_sicherheitsfrage_antwort
+        public string Tb_sicherheitsfrage_antwort
         {
             get
             {
@@ -121,7 +121,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _cb_sicherheitsfrage;
 
-        public string cb_sicherheitsfrage
+        public string Cb_sicherheitsfrage
         {
             get
             {
