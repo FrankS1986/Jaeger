@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
-              DataContext="{Binding LogicTerminErstellen, Source={StaticResource Locator}}"
+              DataContext="{Binding logic_TerminErstellen, Source={StaticResource Locator}}"
              >
 
     <ContentControl x:Name="ContentControlTerminErstellen">
@@ -34,15 +34,15 @@
                     <TextBlock Foreground="#E0CBA8" FontFamily="Gill Sans MT Bold" FontSize="22" TextAlignment="Center" Width="240" Height="35" >Personen</TextBlock>
 
                 </Label>
-                <ListBox FontSize="12" FontFamily="Gill sans MT Regular" ItemsSource="{Binding personen }"  Height="381">
+                <ListBox FontSize="12" FontFamily="Gill sans MT Regular" ItemsSource="{Binding List_Personen }"  Height="381">
 
                 </ListBox>
             </StackPanel>
             <StackPanel Grid.Row="3">
-                <Button FontSize="16" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Command="{ Binding hizufuegen}" Height="25">hinzufügen</Button>
+                <Button FontSize="16" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Command="{ Binding Btn_Hinzufuegen}" Height="25">hinzufügen</Button>
             </StackPanel>
             <StackPanel Grid.Row="3" Grid.Column="2">
-                <Button  FontSize="16" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Command="{ Binding entfernen}" Height="25">entfernen</Button>
+                <Button  FontSize="16" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Command="{ Binding Btn_Entfernen}" Height="25">entfernen</Button>
             </StackPanel>
             <StackPanel Grid.Column="2">
 
@@ -56,19 +56,19 @@
                 <Label></Label>
                 <Label></Label>
                 <Label FontSize="18" Margin="20,1" FontFamily="Gill Sans MT regular">Bezeichnung</Label>
-                <TextBox FontSize="12" Text="{Binding bezeichnung}" Margin="20,1" FontFamily="Gill sans MT Regular"></TextBox>
+                <TextBox FontSize="12" Text="{Binding Txt_Bezeichnung}" Margin="20,1" FontFamily="Gill sans MT Regular"></TextBox>
                 <Label FontSize="18" Margin="20,1" FontFamily="Gill Sans MT Regular">Wo?</Label>
-                <TextBox FontSize="12" Text="{Binding wo}" Margin="20,1" FontFamily="Gill sans MT Regular"></TextBox>
+                <TextBox FontSize="12" Text="{Binding Txt_Ort}" Margin="20,1" FontFamily="Gill sans MT Regular"></TextBox>
                 <Label FontSize="18" Margin="20,1" FontFamily="Gill Sans MT Regular">Datum</Label>
-                <DatePicker FontSize="12" Margin="20,1" SelectedDate="{Binding date}" FontFamily="Gill sans MT Regular"></DatePicker>
+                <DatePicker FontSize="12" Margin="20,1" SelectedDate="{Binding Datepicker_Datum}" FontFamily="Gill sans MT Regular"></DatePicker>
                 <Label FontSize="18" Margin="20,1" FontFamily="Gill Sans MT Regular">Uhrzeit</Label>
-                <TextBox FontSize="12" Margin="20,1" FontFamily="Gill Sans MT Regular" Text="{Binding uhrzeit}"></TextBox>
+                <TextBox FontSize="12" Margin="20,1" FontFamily="Gill Sans MT Regular" Text="{Binding Txt_Uhrzeit}"></TextBox>
 
             </StackPanel>
             <StackPanel Grid.Row="3" Grid.Column="4">
                 <TextBlock HorizontalAlignment="Right">
-                    <Button FontSize="16" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Margin="10,3,10,0" Command="{Binding abbruch}">Abbruch</Button>
-                    <Button FontSize="16" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Command="{Binding bestaetigen}">Bestätigen</Button>
+                    <Button FontSize="16" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Margin="10,3,10,0" Command="{Binding Btn_Abbruch}">Abbruch</Button>
+                    <Button FontSize="16" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Command="{Binding Btn_Bestaetigen}">Bestätigen</Button>
                 </TextBlock>
             </StackPanel>
             <StackPanel Grid.Column="2" Background="White">
@@ -76,13 +76,8 @@
                     <TextBlock  Foreground="#E0CBA8" FontFamily="Gill sans MT Bold" FontSize="22" TextAlignment="Center" Width="191" Height="35" >Bereits eingladen</TextBlock>
 
                 </Label>
-                <ListBox FontSize="12" FontFamily="Gill sans MT Regular" ItemsSource="{Binding listboxEinladen }"  Height="380" ></ListBox>
-
-
+                <ListBox FontSize="12" FontFamily="Gill sans MT Regular" ItemsSource="{Binding List_Einladung }"  Height="380" ></ListBox>
             </StackPanel>
-
-
-
         </Grid>
     </ContentControl>
 </UserControl>
