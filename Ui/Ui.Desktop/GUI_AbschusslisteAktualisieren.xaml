@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
-                DataContext="{Binding LogicAbschusslisteAktualisieren, Source={StaticResource Locator}}"
+                DataContext="{Binding logicAbschusslisteAktualisieren, Source={StaticResource Locator}}"
              >
     <ContentControl x:Name="abschusslisteAktualisieren" >
         <Grid>
@@ -71,7 +71,7 @@
                 <TextBox FontSize="12" Height="20" FontFamily="Gill Sans MT Regular" Text="{Binding textboxAbschuesse}" Margin="5,5"></TextBox>
             </StackPanel>
             <StackPanel Grid.Row="3"  Grid.Column="3" Background="White" >
-                <Button Command="{Binding btnAbschusslisteAkualisieren}" FontSize="16" BorderBrush="#230C0F" Background="White" HorizontalAlignment="Right" Margin="0,10" Height="34" Width="200">Abschussliste aktualisieren</Button>
+                <Button Command="{Binding btn_AbschusslisteAkualisieren}" FontSize="16" BorderBrush="#230C0F" Background="White" HorizontalAlignment="Right" Margin="0,10" Height="34" Width="200">Abschussliste aktualisieren</Button>
             </StackPanel>
         </Grid>
     </ContentControl>
