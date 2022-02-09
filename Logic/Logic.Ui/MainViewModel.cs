@@ -1,12 +1,13 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Input;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
 
-    public class MainViewModel : ViewModelBase
+    public class MainViewModel : ViewModelBase, INotifyPropertyChanged
     {
         List<string> _lb_JaegerListe;
         List<string> _lb_UrkundenErhalten;
