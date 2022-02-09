@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              DataContext="{Binding logic_urkundeErstellen, Source={StaticResource Locator}}"
              MinHeight="351" MinWidth="812" FontFamily="Gill Sans MT Regular">
-    <ContentControl>
+    <ContentControl x:Name="ContentControl_UrkundenErstellen">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
