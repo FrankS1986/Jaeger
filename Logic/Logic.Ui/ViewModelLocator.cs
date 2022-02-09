@@ -31,9 +31,11 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<Logic_Kalender>();
         }
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
+        public Logic_Kalender logic_Kalender => ServiceLocator.Current.GetInstance<Logic_Kalender>();
 
         public static void Cleanup()
         {
