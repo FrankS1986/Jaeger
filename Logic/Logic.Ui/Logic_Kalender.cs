@@ -11,7 +11,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
     public class Logic_Kalender
     {
         private ICommand _btn_TerminHinzufuegen;
-        public ICommand btn_TerminHinzufuegen
+        public ICommand Btn_TerminHinzufuegen
         {
             get
             {
@@ -27,7 +27,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         
         }
         private ICommand _dg_TermineKalender;
-        public ICommand dg_TermineKalender
+        public ICommand Dg_TermineKalender
         {
             get
             {
@@ -42,7 +42,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
         private ICommand _dg_KalenderAnzeige;
-        public ICommand dg_KalenderAnzeige
+        public ICommand Dg_KalenderAnzeige
         {
             get
             {
