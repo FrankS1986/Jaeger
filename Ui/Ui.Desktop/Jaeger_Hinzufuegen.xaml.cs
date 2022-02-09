@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
     /// <summary>
-    /// Interaktionslogik für Jäger_Hinzufügen.xaml
+    /// Interaktionslogik für Jaeger_Hinzufuegen.xaml
     /// </summary>
-    public partial class Jäger_Hinzufügen : UserControl
+    public partial class Jaeger_Hinzufuegen : UserControl
     {
-        public Jäger_Hinzufügen()
+        public Jaeger_Hinzufuegen()
         {
             InitializeComponent();
         }

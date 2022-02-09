@@ -56,6 +56,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Logic_Jaeger_Bearbeiten.cs" />
+    <Compile Include="Logic_Jaeger_Hinzufuegen.cs" />
+    <Compile Include="Logic_Jaeger_Informationen.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\SharedAssemblyInfo.cs" />

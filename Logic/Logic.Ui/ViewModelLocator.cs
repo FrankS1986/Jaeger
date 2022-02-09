@@ -31,9 +31,21 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
+
+            SimpleIoc.Default.Register<Logic_Jaeger_Informationen>();
+
+            SimpleIoc.Default.Register<Logic_Jaeger_Hinzufuegen>();
+
+            SimpleIoc.Default.Register<Logic_Jaeger_Bearbeiten>();
         }
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
+
+        public Logic_Jaeger_Informationen logic_jaeger_informationen => ServiceLocator.Current.GetInstance<Logic_Jaeger_Informationen>();
+
+        public Logic_Jaeger_Hinzufuegen logic_jaeger_hinzufuegen => ServiceLocator.Current.GetInstance<Logic_Jaeger_Hinzufuegen>();
+
+        public Logic_Jaeger_Bearbeiten logic_jaeger_bearbeiten => ServiceLocator.Current.GetInstance<Logic_Jaeger_Bearbeiten>();
 
         public static void Cleanup()
         {

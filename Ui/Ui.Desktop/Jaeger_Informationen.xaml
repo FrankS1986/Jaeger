@@ -1,10 +1,11 @@
-﻿<UserControl x:Class="JaegerMeister.MvvmSample.Ui.Desktop.Jäger_Informationen"
+﻿<UserControl x:Class="JaegerMeister.MvvmSample.Ui.Desktop.Jaeger_Informationen"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
              mc:Ignorable="d" 
+             DataContext="{Binding logic_jaeger_informationen, Source={StaticResource Locator}}"
              MinHeight="403" MinWidth="760" FontFamily="Gill Sans MT Regular">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -14,8 +15,8 @@
         <StackPanel Grid.ColumnSpan="1" Margin="10,10,0,10">
             <Label Content="Personen" FontSize="22" FontFamily="Gill Sans MT Bold" Width="210" Foreground="#E0CBA8" Background="#4F772D" HorizontalContentAlignment="Center"/>
             <ListBox ItemsSource="{Binding lb_jaeger}" Height="300" Width="210"/>
-            <Button Command="{Binding btn_jaeger_hinzufuegen}" Content="+" FontSize="20" Width="30" Height="30" Margin="0,-50,-150,0" Click="Jaeger_Hinzufuegen_Click"/>
-            <Button Command="{Binding btn_jaeger_entfernen}" Content="Entfernen" Width="210" Height="20" Margin="0,10,0,0"/>
+            <Button Command="{Binding btn_jaeger_hinzufuegen}" Content="+" Background="White" FontSize="20" Width="30" Height="30" Margin="0,-50,-150,0" Click="Jaeger_Hinzufuegen_Click"/>
+            <Button Command="{Binding btn_jaeger_entfernen}" Content="Entfernen" Background="White" Width="210" Height="20" Margin="0,10,0,0"/>
         </StackPanel>
         <StackPanel Grid.Column="2" Margin="10,10,10,10" Background="White" Height="336" VerticalAlignment="Top">
             <Label Content="{Binding lab_vor_und_nachname}"  FontSize="22" FontFamily="Gill Sans MT Bold" Width="510" Height="36" Foreground="#E0CBA8" Background="#4F772D" HorizontalContentAlignment="Center"/>
@@ -74,6 +75,6 @@
                 <Label Content="{Binding lab_jagdhunde}" Width="50" Height="24" Margin="-65,0,0,0"/>
             </DockPanel>
         </StackPanel>
-        <Button Command="{Binding btn_bearbeiten}" Grid.Column="2" Content="Bearbeiten" Width="210" Height="20" Margin="310,330,10,0"/>
+        <Button Command="{Binding btn_bearbeiten}" Grid.Column="2" Content="Bearbeiten" Background="White" Width="210" Height="20" Margin="310,330,10,0"/>
     </Grid>
 </UserControl>

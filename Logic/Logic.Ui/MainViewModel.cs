@@ -1,3 +1,4 @@
+using System.Windows.Input;
 using GalaSoft.MvvmLight;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
