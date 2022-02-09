@@ -31,9 +31,11 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<Logic_Wildunfaelle>();
         }
 
-        public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
+          public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
+        public Logic_Wildunfaelle logic_wildunfaelle => ServiceLocator.Current.GetInstance<Logic_Wildunfaelle>();
 
         public static void Cleanup()
         {
