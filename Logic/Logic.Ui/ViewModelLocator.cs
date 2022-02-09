@@ -35,7 +35,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         }
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
-        public Logic_AbschusslisteAktualisieren logicAbschusslisteAktualisieren => ServiceLocator.Current.GetInstance<Logic_AbschusslisteAktualisieren>();
+        public Logic_AbschusslisteAktualisieren logic_AbschusslisteAktualisieren => ServiceLocator.Current.GetInstance<Logic_AbschusslisteAktualisieren>();
         public static void Cleanup()
         {
             
