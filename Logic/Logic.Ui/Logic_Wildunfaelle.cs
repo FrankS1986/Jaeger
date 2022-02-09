@@ -1,10 +1,12 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
@@ -22,36 +24,50 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 _dp_StartDate = value;
                 RaisePropertyChanged("dp_StartDate");
             }
-        }
+        }                                                                                   
 
 
 
         private List<Tierart> _tb_Tierart;
-
-        private ICommand _Jaergliste;
-        public ICommand jaegerliste
+        public List<Tierart> tb_Tierart
         {
             get
             {
-                if (_Jaergliste == null)
+                return _tb_Tierart;
+            }
+
+            set
+            {
+                _tb_Tierart = value;
+                RaisePropertyChanged("tb_Tierart");
+            }
+        }
+
+        private ICommand _btn_Wildunfaelle;
+        public ICommand btn_Wildunfaelle
+        {
+            get
+            {
+                if (_btn_Wildunfaelle == null)
                 {
-                    _Jaergliste = new RelayCommand(() =>
+                    _btn_Wildunfaelle = new RelayCommand(() =>
                     {
-                        JaegerlisteFensterLogic logic = new JaegerlisteFensterLogic();
+                        Logic_Wildunfaelle logic = new Logic_Wildunfaelle();
 
 
-                        text = logic.WindowTitle;
+                        ////// logic
                     });
 
                 }
-                return _Jaergliste;
+                return _btn_Wildunfaelle;
             }
         }
 
 
         public class Tierart
         {
-            public int ID {get; set;}
+            public int ID { get; set; }
             public string name { get; set; }
+        }
     }
 }
