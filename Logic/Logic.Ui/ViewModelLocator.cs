@@ -31,9 +31,12 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<Logic_DokumenteVerwalten>();
+
         }
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
+        public Logic_DokumenteVerwalten logic_DokumenteVerwalten => ServiceLocator.Current.GetInstance<Logic_DokumenteVerwalten>();
 
         public static void Cleanup()
         {

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
-             DataContext="{Binding LogicDokumenteVerwalten, Source={StaticResource Locator}}"
+             DataContext="{Binding logic_DokumenteVerwalten, Source={StaticResource Locator}}"
              >
     <ContentControl x:Name="dokumenteVerwalten">
         <Grid>
@@ -35,7 +35,7 @@
                 </Label>
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3">
-                <ListBox  BorderBrush="#230C0F" FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding listboxDokumnete}" Height="329"></ListBox>
+                <ListBox  BorderBrush="#230C0F" FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding listboxDokumente}" Height="329"></ListBox>
             </StackPanel>
             <StackPanel Grid.Row="3" Grid.ColumnSpan="3">
                 <TextBlock HorizontalAlignment="Center">
