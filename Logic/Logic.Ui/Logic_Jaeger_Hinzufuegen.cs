@@ -11,7 +11,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private ICommand _btn_jaeger_hinzufuegen;
 
-        public ICommand btn_jaeger_hinzufuegen
+        public ICommand Btn_jaeger_hinzufuegen
         {
             get
             {
@@ -31,7 +31,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private ICommand _btn_jaeger_entfernen;
 
-        public ICommand btn_jaeger_entfernen
+        public ICommand Btn_jaeger_entfernen
         {
             get
             {
@@ -51,7 +51,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private ICommand _btn_hinzufuegen;
 
-        public ICommand btn_hinzufuegen
+        public ICommand Btn_hinzufuegen
         {
             get
             {
@@ -71,7 +71,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private ICommand _btn_abbrechen;
 
-        public ICommand btn_abbrechen
+        public ICommand Btn_abbrechen
         {
             get
             {
@@ -89,23 +89,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private string _tb_vor_und_nachname;
-
-        public string tb_vor_und_nachname
-        {
-            get
-            {
-                return _tb_vor_und_nachname;
-            }
-            set
-            {
-                //Datenbankverbindung benötigt
-            }
-        }
-
         private string _tb_vorname;
 
-        public string tb_vorname
+        public string Tb_vorname
         {
             get
             {
@@ -119,7 +105,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _tb_nachname;
 
-        public string tb_nachname
+        public string Tb_nachname
         {
             get
             {
@@ -133,7 +119,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _cb_anrede;
 
-        public string cb_anrede
+        public string Cb_anrede
         {
             get
             {
@@ -147,7 +133,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _dp_geburtstag;
 
-        public string dp_geburtstag
+        public string Dp_geburtstag
         {
             get
             {
@@ -161,7 +147,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _tb_straße;
 
-        public string tb_straße
+        public string Tb_straße
         {
             get
             {
@@ -175,7 +161,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _tb_hausnummer;
 
-        public string tb_hausnummer
+        public string Tb_hausnummer
         {
             get
             {
@@ -189,7 +175,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _tb_adresszusatz;
 
-        public string tb_adresszusatz
+        public string Tb_adresszusatz
         {
             get
             {
@@ -203,7 +189,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private int _tb_postleitzahl;
 
-        public int tb_postleitzahl
+        public int Tb_postleitzahl
         {
             get
             {
@@ -217,7 +203,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _tb_wohnort;
 
-        public string tb_wohnort
+        public string Tb_wohnort
         {
             get
             {
@@ -231,7 +217,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _tb_telefonnummer1;
 
-        public string tb_telefonnummer1
+        public string Tb_telefonnummer1
         {
             get
             {
@@ -245,7 +231,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _tb_telefonnummer2;
 
-        public string tb_telefonnummer2
+        public string Tb_telefonnummer2
         {
             get
             {
@@ -259,7 +245,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _tb_telefonnummer3;
 
-        public string tb_telefonnummer3
+        public string Tb_telefonnummer3
         {
             get
             {
@@ -271,11 +257,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-
-
         private string _tb_email;
 
-        public string tb_email
+        public string Tb_email
         {
             get
             {
@@ -287,11 +271,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-
-
         private string _cb_funktion;
 
-        public string cb_funtkion
+        public string Cb_funtkion
         {
             get
             {
@@ -303,11 +285,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-
-
         private int _tb_jagdhunde;
 
-        public int tb_jagdhunde
+        public int Tb_jagdhunde
         {
             get
             {

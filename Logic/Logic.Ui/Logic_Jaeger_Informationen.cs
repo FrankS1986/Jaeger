@@ -11,7 +11,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private ICommand _btn_jaeger_hinzufuegen;
 
-        public ICommand btn_jaeger_hinzufuegen
+        public ICommand Btn_jaeger_hinzufuegen
         {
             get
             {
@@ -31,7 +31,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private ICommand _btn_jaeger_entfernen;
 
-        public ICommand btn_jaeger_entfernen
+        public ICommand Btn_jaeger_entfernen
         {
             get
             {
@@ -51,7 +51,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private ICommand _btn_bearbeiten;
 
-        public ICommand btn_bearbeiten
+        public ICommand Btn_bearbeiten
         {
             get
             {
@@ -71,7 +71,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _lab_vor_und_nachname;
 
-        public string lab_vor_und_nachname
+        public string Lab_vor_und_nachname
         {
             get
             {
@@ -85,7 +85,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _lab_vorname;
 
-        public string lab_vorname
+        public string Lab_vorname
         {
             get
             {
@@ -99,7 +99,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _lab_nachname;
 
-        public string lab_nachname
+        public string Lab_nachname
         {
             get
             {
@@ -113,7 +113,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _lab_anrede;
 
-        public string lab_anrede
+        public string Lab_anrede
         {
             get
             {
@@ -127,7 +127,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _lab_geburtstag;
 
-        public string lab_geburtstag
+        public string Lab_geburtstag
         {
             get
             {
@@ -141,7 +141,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _lab_straße;
 
-        public string lab_straße
+        public string Lab_straße
         {
             get
             {
@@ -155,7 +155,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _lab_hausnummer;
 
-        public string lab_hausnummer
+        public string Lab_hausnummer
         {
             get
             {
@@ -169,7 +169,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _lab_adresszusatz;
 
-        public string lab_adresszusatz
+        public string Lab_adresszusatz
         {
             get
             {
@@ -183,7 +183,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private int _lab_postleitzahl;
 
-        public int lab_postleitzahl
+        public int Lab_postleitzahl
         {
             get
             {
@@ -197,7 +197,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _lab_wohnort;
 
-        public string lab_wohnort
+        public string Lab_wohnort
         {
             get
             {
@@ -211,7 +211,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _lab_telefonnummer1;
 
-        public string lab_telefonnummer1
+        public string Lab_telefonnummer1
         {
             get
             {
@@ -225,7 +225,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _lab_telefonnummer2;
 
-        public string lab_telefonnummer2
+        public string Lab_telefonnummer2
         {
             get
             {
@@ -239,7 +239,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _lab_telefonnummer3;
 
-        public string lab_telefonnummer3
+        public string Lab_telefonnummer3
         {
             get
             {
@@ -255,7 +255,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _lab_email;
 
-        public string lab_email
+        public string Lab_email
         {
             get
             {
@@ -271,7 +271,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _lab_funktion;
 
-        public string lab_funtkion
+        public string Lab_funktion
         {
             get
             {
@@ -287,7 +287,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private int _lab_jagdhunde;
 
-        public int lab_jagdhunde
+        public int Lab_jagdhunde
         {
             get
             {

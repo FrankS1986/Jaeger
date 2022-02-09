@@ -14,27 +14,27 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.ColumnSpan="1" Margin="10,10,0,10">
             <Label Content="Personen" FontSize="22" FontFamily="Gill Sans MT Bold" Width="210" Foreground="#E0CBA8" Background="#4F772D" HorizontalContentAlignment="Center"/>
-            <ListBox ItemsSource="{Binding lb_jaeger}" Height="300" Width="210"/>
-            <Button Command="{Binding btn_jaeger_hinzufuegen}" Content="+" Background="White" FontSize="20" Width="30" Height="30" Margin="0,-50,-150,0"/>
-            <Button Command="{Binding btn_jaeger_entfernen}" Content="Entfernen" Background="White" Width="210" Height="20" Margin="0,10,0,0"/>
+            <ListBox ItemsSource="{Binding Lb_jaeger}" Height="300" Width="210"/>
+            <Button Command="{Binding Btn_jaeger_hinzufuegen}" Content="+" Background="White" FontSize="20" Width="30" Height="30" Margin="0,-50,-150,0"/>
+            <Button Command="{Binding Btn_jaeger_entfernen}" Content="Entfernen" Background="White" Width="210" Height="20" Margin="0,10,0,0"/>
         </StackPanel>
         <StackPanel Grid.Column="2" Margin="10,10,10,10" Background="White" Height="336" VerticalAlignment="Top">
-            <Label Content="{Binding lab_vor_und_nachname}" FontSize="22" FontFamily="Gill Sans MT Bold" Width="510" Height="36" Foreground="#E0CBA8" Background="#4F772D" HorizontalContentAlignment="Center"/>
+            <Label Content="{Binding Lab_vor_und_nachname}" FontSize="22" FontFamily="Gill Sans MT Bold" Width="510" Height="36" Foreground="#E0CBA8" Background="#4F772D" HorizontalContentAlignment="Center"/>
             <DockPanel Margin="0,-5,0,0">
                 <Label Content="Vorname*" FontSize="16"/>
                 <Label Content="Nachname*" FontSize="16" Margin="90,0,0,0"/>
                 <Label Content="Anrede*" FontSize="16" Margin="60,0,0,0"/>
             </DockPanel>
             <DockPanel Margin="0,-5,0,0">
-                <TextBox Text="{Binding tb_vorname}" Width="120"/>
-                <TextBox Text="{Binding tb_nachname}" Width="120" Margin="50,0,0,0"/>
-                <ComboBox DataContext="{Binding cb_anrede}" Width="60" Margin="-110,0,0,0"/>
+                <TextBox Text="{Binding Tb_vorname}" Width="120"/>
+                <TextBox Text="{Binding Tb_nachname}" Width="120" Margin="50,0,0,0"/>
+                <ComboBox DataContext="{Binding Cb_anrede}" Width="60" Margin="-110,0,0,0"/>
             </DockPanel>
             <DockPanel Margin="0,5,0,0">
                 <Label Content="Geburtstag" FontSize="16"/>
             </DockPanel>
             <DockPanel Margin="0,-5,0,0">
-                <DatePicker DataContext="{Binding dp_geburtstag}" Width="150" HorizontalAlignment="Left"/>
+                <DatePicker DataContext="{Binding Dp_geburtstag}" Width="150" HorizontalAlignment="Left"/>
             </DockPanel>
             <DockPanel Margin="0,5,0,0">
                 <Label Content="Straße*" FontSize="16"/>
@@ -42,17 +42,17 @@
                 <Label Content="Adresszusatz" FontSize="16" Margin="45,0,0,0"/>
             </DockPanel>
             <DockPanel Margin="0,-5,0,0">
-                <TextBox Text="{Binding tb_straße}" Width="150"/>
-                <TextBox Text="{Binding tb_hausnummer}" Width="100" Margin="19,0,0,0"/>
-                <TextBox Text="{Binding tb_adresszusatz}" Width="180" Margin="30,0,0,0"/>
+                <TextBox Text="{Binding Tb_straße}" Width="150"/>
+                <TextBox Text="{Binding Tb_hausnummer}" Width="100" Margin="19,0,0,0"/>
+                <TextBox Text="{Binding Tb_adresszusatz}" Width="180" Margin="30,0,0,0"/>
             </DockPanel>
             <DockPanel Margin="0,5,0,0">
                 <Label Content="Postleitzahl*" FontSize="16"/>
                 <Label Content="Wohnort*" FontSize="16" Margin="75,0,0,0"/>
             </DockPanel>
             <DockPanel Margin="0,-5,0,0">
-                <TextBox Text="{Binding tb_postleitzahl}" Width="85"/>
-                <TextBox Text="{Binding tb_wohnort}" Width="160" Margin="-100,0,0,0"/>
+                <TextBox Text="{Binding Tb_postleitzahl}" Width="85"/>
+                <TextBox Text="{Binding Tb_wohnort}" Width="160" Margin="-100,0,0,0"/>
             </DockPanel>
             <DockPanel Margin="0,5,0,0">
                 <Label Content="1. Telefonnummer*" FontSize="16"/>
@@ -60,9 +60,9 @@
                 <Label Content="3. Telefonnummer" FontSize="16" Margin="17,0,0,0"/>
             </DockPanel>
             <DockPanel Margin="0,-5,0,0">
-                <TextBox Text="{Binding tb_telefonnummer1}" Width="130"/>
-                <TextBox Text="{Binding tb_telefonnummer2}" Width="130" Margin="35,0,0,0"/>
-                <TextBox Text="{Binding tb_telefonnummer3}" Width="130" Margin="-50,0,0,0"/>
+                <TextBox Text="{Binding Tb_telefonnummer1}" Width="130"/>
+                <TextBox Text="{Binding Tb_telefonnummer2}" Width="130" Margin="35,0,0,0"/>
+                <TextBox Text="{Binding Tb_telefonnummer3}" Width="130" Margin="-50,0,0,0"/>
             </DockPanel>
             <DockPanel Margin="0,5,0,0">
                 <Label Content="Email-Adresse" FontSize="16"/>
@@ -70,13 +70,13 @@
                 <Label Content="Anzahl der Jagdhunde" FontSize="16" Margin="83,0,0,0"/>
             </DockPanel>
             <DockPanel Margin="0,-5,0,0">
-                <TextBox Text="{Binding tb_email}" Width="150"/>
-                <ComboBox DataContext="{Binding cb_funktion}" Width="80" Margin="13,0,0,0"/>
-                <TextBox Text="{Binding tb_jagdhunde}" Width="50" Margin="-80,0,0,0"/>
+                <TextBox Text="{Binding Tb_email}" Width="150"/>
+                <ComboBox DataContext="{Binding Cb_funktion}" Width="80" Margin="13,0,0,0"/>
+                <TextBox Text="{Binding Tb_jagdhunde}" Width="50" Margin="-80,0,0,0"/>
             </DockPanel>
             <Label Content="*Plichtfelder" HorizontalContentAlignment="Right"/>
         </StackPanel>
-        <Button Command="{Binding btn_bestaetigen}" Grid.Column="2" Content="Bestätigen" Background="White" Width="210" Height="20" Margin="-200,325,0,0"/>
-        <Button Command="{Binding btn_abbrechen}" Grid.Column="2" Content="Abbrechen" Background="White" Width="210" Height="20" Margin="310,325,10,0"/>
+        <Button Command="{Binding Btn_bestaetigen}" Grid.Column="2" Content="Bestätigen" Background="White" Width="210" Height="20" Margin="-200,325,0,0"/>
+        <Button Command="{Binding Btn_abbrechen}" Grid.Column="2" Content="Abbrechen" Background="White" Width="210" Height="20" Margin="310,325,10,0"/>
     </Grid>
 </UserControl>
