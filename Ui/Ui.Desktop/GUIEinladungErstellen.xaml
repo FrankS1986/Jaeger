@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"       
-             DataContext="{Binding LogicEinladungErstellen, Source={StaticResource Locator}}"
+             DataContext="{Binding logic_einladungErstellen, Source={StaticResource Locator}}"
              >
     <ContentControl x:Name="ContenControlEinladungErstellen">
         <Grid>
@@ -41,20 +41,20 @@
                 </Label>
             </StackPanel>
             <StackPanel Grid.Row="1">
-                <ListBox FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" ItemsSource="{Binding listboxTermine}" Height="348"></ListBox>
+                <DataGrid FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" AutoGenerateColumns="False" ItemsSource="{Binding dg_Termine}" Height="348"></DataGrid>
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="2">
-                <ListBox FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" ItemsSource="{Binding listboxBereitsEingeladen}" Height="348"></ListBox>
+                <DataGrid FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" ItemsSource="{Binding dg_BereitsEingeladen}" Height="348"></DataGrid>
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="3">
-                <ListBox FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" ItemsSource="{Binding listboxEinladen}" Height="348"></ListBox>
+                <DataGrid FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" ItemsSource="{Binding dg_Einladen}" Height="348"></DataGrid>
 
             </StackPanel>
 
             <StackPanel Grid.Row="2" Grid.Column="3">
                 <TextBlock HorizontalAlignment="Right">
-                <Button Background="White" FontSize="16" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Right" Margin="10,10" Command="{Binding btn_Abbrechen}">Abbrechen</Button>
-                <Button Background="White" FontSize="16" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Right" Margin="10,10" Command="{Binding btn_EinlandungSenden}">Einladungen senden</Button>
+                <Button Background="White" FontSize="16" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Right" Margin="10,10" Command="{Binding btn_Abbrechen}">Abbrechen</Button>
+                <Button Background="White" FontSize="16" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Right" Margin="10,10" Command="{Binding btn_EinlandungSenden}">Einladungen senden</Button>
                 </TextBlock>
             </StackPanel>
         </Grid>
