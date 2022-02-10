@@ -31,11 +31,11 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
-            SimpleIoc.Default.Register<Logic_PasswortVergessen>();
+            SimpleIoc.Default.Register<Logic_PasswortErneuern>();
         }
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
-        public Logic_PasswortVergessen logic_passwortVergessen => ServiceLocator.Current.GetInstance<Logic_PasswortVergessen>();
+        public Logic_PasswortErneuern logic_passwortErneuern => ServiceLocator.Current.GetInstance<Logic_PasswortErneuern>();
 
         public static void Cleanup()
         {

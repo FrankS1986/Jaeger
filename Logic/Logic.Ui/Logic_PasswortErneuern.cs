@@ -10,11 +10,11 @@ using GalaSoft.MvvmLight.Command;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
-    public class Logic_PasswortVergessen : ViewModelBase, INotifyPropertyChanged
+    public class Logic_PasswortErneuern : ViewModelBase, INotifyPropertyChanged
     {
 
         private string _tbPw_Benutzername;
-        public string tbPw_Benutzername
+        public string TbPw_Benutzername
         {
             get
             {
@@ -32,7 +32,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         
 
         private string _neuespasswort;
-        public string neuespasswort
+        public string Neuespasswort
         {
             get
             {
@@ -47,7 +47,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
         private string _passwortbestaetigen;
-        public string passwortbestaetigen
+        public string Passwortbestaetigen
         {
             get
             {
@@ -63,7 +63,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         }
 
         private ICommand _btnPw_Abbruch;
-        public ICommand btnPw_Abbruch
+        public ICommand BtnPw_Abbruch
         {
             get
             {
@@ -71,7 +71,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btnPw_Abbruch = new RelayCommand(() =>
                     {
-                        Logic_PasswortVergessen logic = new Logic_PasswortVergessen();
+                        Logic_PasswortErneuern logic = new Logic_PasswortErneuern();
 
 
                         
@@ -83,7 +83,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         }
 
         private ICommand _btnPw_Bestaetigen;
-        public ICommand btnPw_Bestaetigen
+        public ICommand BtnPw_Bestaetigen
         {
             get
             {
@@ -91,7 +91,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btnPw_Bestaetigen = new RelayCommand(() =>
                     {
-                        Logic_PasswortVergessen logic = new Logic_PasswortVergessen();
+                        Logic_PasswortErneuern logic = new Logic_PasswortErneuern();
 
 
 
