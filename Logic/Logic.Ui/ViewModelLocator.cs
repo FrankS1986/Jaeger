@@ -32,10 +32,12 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<Logic_EinladungErstellen>();
+            SimpleIoc.Default.Register<Logic_Einladungsuebersicht>();
         }
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
-        public MainViewModel logic_einladungErstellen => ServiceLocator.Current.GetInstance<MainViewModel>();
+        public MainViewModel Logic_EinladungErstellen => ServiceLocator.Current.GetInstance<MainViewModel>();
+        public MainViewModel Logic_Einladungsuebersicht => ServiceLocator.Current.GetInstance<MainViewModel>();
         public static void Cleanup()
         {
             

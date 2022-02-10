@@ -21,7 +21,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_einlandungSenden = new RelayCommand(() =>
                     {
-                        
+
 
                         ///Logic
                     });
@@ -30,7 +30,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-       
+
         private ICommand _btn_abbrechen;
         public ICommand btn_Abbrechen
         {
@@ -40,7 +40,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_abbrechen = new RelayCommand(() =>
                     {
-                       
+
 
                         ///Logic
                     });
@@ -49,7 +49,15 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private ObservableCollection<Logic_EinladungErstellen> _dg_Termine;
-        public
+        private ObservableCollection<Logic_EinladungErstellen> _dg_termine;
+        public ObservableCollection<Logic_EinladungErstellen> dg_Termine
+        {
+            get { return _dg_termine; }
+            set
+            {
+                _dg_termine = value;
+                
+            }
+        }
     }
 }

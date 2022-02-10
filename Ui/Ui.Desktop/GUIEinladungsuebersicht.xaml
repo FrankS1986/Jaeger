@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
-              DataContext="{Binding LogicEinladungsuebersicht, Source={StaticResource Locator}}"
+              DataContext="{Binding Logic_Einladungsuebersicht, Source={StaticResource Locator}}"
              >
     <ContentControl x:Name="ContenControlEinladungsuebersicht">
         <Grid>
@@ -41,18 +41,18 @@
                 </Label>
             </StackPanel>
             <StackPanel Grid.Row="1">
-                <ListBox FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" ItemsSource="{Binding listboxTermine}" Height="348"></ListBox>
+                <DataGrid FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" ItemsSource="{Binding dg_TermineSicht}" Height="348"></DataGrid>
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="2">
-                <ListBox FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" ItemsSource="{Binding listboxGesendeteEinladungen}" Height="348"></ListBox>
+                <DataGrid FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" ItemsSource="{Binding dg_GesendeteEinladungenSicht}" Height="348"></DataGrid>
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="3">
-                <ListBox FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" ItemsSource="{Binding listboxRueckmeldungen}" Height="348"></ListBox>
+                <DataGrid FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" ItemsSource="{Binding dg_RueckmeldungenSicht}" Height="348"></DataGrid>
                
             </StackPanel>
 
             <StackPanel Grid.Row="2" Grid.Column="3">
-                <Button Background="White" FontSize="16" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Right" Margin="10,10" Command="{Binding btn_EinlandungVerschicken}">Einladung verschicken</Button>
+                <Button Background="White" FontSize="16" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Right" Margin="10,10" Command="{Binding btn_EinlandungSicht}">Einladung verschicken</Button>
             </StackPanel>
         </Grid>
 
