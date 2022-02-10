@@ -1,0 +1,21 @@
+﻿<Page x:Class="JaegerMeister.MvvmSample.Ui.Desktop.Sicherheitsfrage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="550"
+      DataContext="{Binding logic_sicherheitsfrage, Source={StaticResource Locator}}"
+      Title="Sicherheitsfrage" Background="#7F7C81" FontFamily="Gill Sans MT Regular">
+
+    <Grid>
+        <StackPanel>
+            <Label Content="Sicherheitsfrage" HorizontalContentAlignment="Center" Background="#4F772D" Foreground="#E0CBA8" FontFamily="Gill Sans MT Bold" FontSize="22"/>
+            <Label Content="{Binding Lb_sicherheitsfrage}" FontSize="32" Height="30" Width="250" Margin="0,150,150,10"/>
+            <TextBox Text="{Binding Tb_antwort}" FontSize="18" Height="30" Width="400"/>
+        </StackPanel>
+        <Button Height="25" Width="150" Margin="350,390,0,0" Content="Bestätigen" Command="{Binding Btn_bestaetigen}" FontSize="16"/>
+        <Button Height="25" Width="150" Margin="0,390,0,0" Content="Abbruch" Command="{Binding Btn_abbrechen}" FontSize="16"/>
+    </Grid>
+</Page>
