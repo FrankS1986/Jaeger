@@ -12,7 +12,8 @@
             <RowDefinition Height="50"/>
             <RowDefinition  Height="50"/>
             <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -20,6 +21,13 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="3" HorizontalAlignment="Center">
+            <Label FontSize="12" FontFamily="Gill Sans MT Regular">Noch kein Benutzer?</Label>
+        </StackPanel>
+        <StackPanel Grid.Row="4" >
+            
+            <Button Background="White" Margin="10,0" Command="{Binding btn_Registrieren}">Registrieren</Button>
+        </StackPanel>
         <StackPanel Grid.ColumnSpan="4" Background="ForestGreen">
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.ColumnSpan="2">
@@ -34,11 +42,11 @@
                 <TextBlock TextDecorations="Underline" Foreground="DarkBlue" FontSize="10" DataContext="{Binding btn_Passwortvergessen}" Height="19"  >Passwort vergessen?</TextBlock>
             </Button>
         </StackPanel>
-        <StackPanel Grid.Row="3" Grid.Column="2"  VerticalAlignment="Center">
-            <Button Margin="10,5" Command="{Binding btn_Abbruch}">Abbruch</Button>
+        <StackPanel Grid.Row="4" Grid.Column="2"  >
+            <Button Background="White" Margin="10,0" Command="{Binding btn_Abbruch}">Abbruch</Button>
         </StackPanel>
-        <StackPanel Grid.Row="3" Grid.Column="3"  VerticalAlignment="Center">
-            <Button Margin="10,5" Command="{Binding btn_Bestaetigen}">Bestätigen</Button>
+        <StackPanel Grid.Row="4" Grid.Column="3" >
+            <Button Background="White" Margin="10,0" Command="{Binding btn_Bestaetigen}">Bestätigen</Button>
         </StackPanel>
     </Grid>
 </Window>
