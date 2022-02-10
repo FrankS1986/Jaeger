@@ -23,5 +23,15 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         {
             InitializeComponent();
         }
+
+        private void neuespasswort_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void passwortbestaetigen_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

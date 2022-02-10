@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Logic_AbschusslisteAktualisieren.cs" />
+    <Compile Include="Logic_NeuesPasswort.cs" />
     <Compile Include="UrkundeErstellenViewModel.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
