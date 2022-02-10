@@ -11,7 +11,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
     public class Logic_Termine
     {
-        ICommand _btn_UebersichtTerminhinzufuegen, _btn_UebersichtLoeschen, _btn_hinzufuegen, _btn_entfernen, _btn_Abbruch, _btn_Bestaetigen;
+        ICommand _btn_UebersichtTerminhinzufuegen, _btn_UebersichtLoeschen, _btn_hinzufuegen, _btn_entfernen, _btn_Abbruch, _btn_Bestaetigen, _btn_UebersichtRueckmeldungen;
         string _txt_UebersichtBezeichnung, _txt_UebersichtOrt, _txt_UebersichtUhrzeit, _txt_bezeichnung, _txt_Ort, _txt_Uhrzeit;
         DateTime _datepicker_UebersichtDatum, _datepicker_Datum;
         List<ClassListTermine> _list_UebersichtAnstehendeTermine;
@@ -60,6 +60,21 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 _list_UebersichtEingeladenePersonen = value;
             }
         }
+        public ICommand Btn_UebersichtRueckmeldungen
+        {
+            get
+            {
+                if (_btn_UebersichtRueckmeldungen==null)
+                {
+                    _btn_UebersichtRueckmeldungen = new RelayCommand(() =>
+                    {
+
+                    });
+                }
+                return _btn_UebersichtRueckmeldungen;
+            }
+        }
+
         public ICommand Btn_UebersichtTerminhinzufuegen
         {
             get

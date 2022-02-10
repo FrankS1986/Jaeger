@@ -39,6 +39,9 @@
 
                 
             </StackPanel>
+            <StackPanel Grid.Row="3" Grid.Column="4">
+                <Button x:Name="Btn_ÜbersichtRueckmeldungen" Content="Rückmeldungen" FontSize="16" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Command="{ Binding Btn_UebersichtRueckmeldungen}"></Button>
+            </StackPanel>
             <StackPanel  Grid.Column="4" Background="White">
                 <Label Background="#4F772D" Foreground="White" >
                     <TextBlock  Foreground="#E0CBA8" FontSize="22" FontFamily="Gill Sans MT Bold" TextAlignment="Center" Width="240" Height="30" >Eingeladene Personen</TextBlock>
