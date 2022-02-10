@@ -15,7 +15,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
     {
 
         private ICommand _btnUserEntfernen;
-        public ICommand btnUserEntfernen
+        public ICommand BtnUserEntfernen
         {
             get
             {
@@ -31,7 +31,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         }
 
         private ICommand _btnPasswortZurueck;
-        public ICommand btnPasswortZurueck
+        public ICommand BtnPasswortZurueck
         {
             get
             {
@@ -48,7 +48,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
 
         private ICommand _btnSichFrageZurueck;
-        public ICommand btnSichFrageZurueck
+        public ICommand BtnSichFrageZurueck
         {
             get
             {
@@ -64,7 +64,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         }
 
         private string _lbNameAnzeigen;
-        public string lbNameAnzeigen
+        public string LbNameAnzeigen
         {
             get
             {
@@ -77,7 +77,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         }
 
         private string _lbVorname;
-        public string lbVorname
+        public string LbVorname
         {
             get
             {
@@ -90,7 +90,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         }
 
         private string _lbNachname;
-        public string lbNachname
+        public string LbNachname
         {
             get
             {
