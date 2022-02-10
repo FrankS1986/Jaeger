@@ -81,6 +81,19 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 RaisePropertyChanged("tb_Benutzername");
             }
         }
+        private string _passwort;
+        public string passwort
+        {
+            get
+            {
+                return _passwort;
+            }
+            set
+            {
+                _passwort = value;
+                RaisePropertyChanged("passwort");
+            }
+        }
 
         private ICommand _btn_passwortvergessen;
         public ICommand btn_Passwortvergessen

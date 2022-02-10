@@ -5,8 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="800">
-    <Grid>
+       DataContext="{Binding logic_login, Source={StaticResource Locator}}"
+        Title="Anmeldung" Height="500" Width="650">
+    <Grid Background="#7F7C81" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.ColumnSpan="3" Background="#4F772D" >
+            <Label Content="Anmeldung" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#E0CBA8" FontSize="32" FontFamily="Gill Sans MT" FontWeight="Bold" />
+        </Grid>
+
+
+        <Label Grid.Column="1" Grid.Row="2" Content="Benutzername*" FontSize="16" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Left" VerticalAlignment="Bottom"></Label>
+        <TextBox Text="{Binding tb_Benutzername}" Grid.Column="1" Grid.Row="3" Height="30" Width="214" BorderBrush="#230C0F" HorizontalAlignment="Left" VerticalAlignment="Top" ></TextBox>
+       
+        <Label Grid.Row="3" Grid.Column="1"  Content="Passwort*" FontSize="16" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Left" VerticalAlignment="Bottom"></Label>
+        <StackPanel Grid.Row="4" Grid.Column="1">
         
+        <PasswordBox x:Name="Passwort"   Height="30" Width="214" BorderBrush="#230C0F" HorizontalAlignment="Left" VerticalAlignment="Top" ></PasswordBox>
+            <Button FontFamily="Gill Sans MT Regular" FontSize="12" Command="{Binding btn_Passwortvergessen}" HorizontalAlignment="Right" Background="Transparent">
+                <TextBlock  TextDecorations="Underline" Foreground="DarkBlue" Width="109" RenderTransformOrigin="0.652,0.464">Passwort vergessen?</TextBlock>
+            </Button>
+        </StackPanel>
+        <Button Grid.Column="1" Grid.Row="6" HorizontalAlignment="Right" BorderBrush="#230C0F" Background="White" VerticalAlignment="Top" Height="30" Width="100"  Content="Abbruch" FontSize="16" FontFamily="Gill Sans MT Regular" Command="{Binding btn_Abbruch}" ></Button>
+        <Button Grid.Column="2" Grid.Row="6" HorizontalAlignment="Left" BorderBrush="#230C0F" Background="White" VerticalAlignment="Top" Height="30" Width="100" Margin="10,0,0,0" Content="Bestätigen" FontSize="16" FontFamily="Gill Sans MT Regular" Command="{Binding btn_Bestaetigen}"   ></Button>
+        <StackPanel VerticalAlignment="Bottom" Grid.Row="5">
+            <Label  HorizontalAlignment="Center" FontSize="16" FontFamily="Gill Sans MT Regular" >Noch kein Benutzer?</Label>
+        </StackPanel>
+        <StackPanel Grid.Row="6">
+            <Button Height="30" BorderBrush="#230C0F" Command="{Binding btn_Registrieren}" Width="150" Background="White" FontSize="16" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Center">Registrieren</Button>
+        </StackPanel>
     </Grid>
 </Window>
