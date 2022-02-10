@@ -20,7 +20,5 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 WindowTitel = "Jaegermeister";
             }
         }
-
-        public string WindowTitel { get; private set; }
     }
 }
