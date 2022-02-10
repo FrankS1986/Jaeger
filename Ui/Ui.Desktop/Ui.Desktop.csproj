@@ -88,6 +88,9 @@
     <Compile Include="Kalender.xaml.cs">
       <DependentUpon>Kalender.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NeuesPasswort.xaml.cs">
+      <DependentUpon>NeuesPasswort.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\SharedAssemblyInfo.cs" />
     <Page Include="GUI_AbschusslisteAktualisieren.xaml">
       <SubType>Designer</SubType>
@@ -131,6 +134,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NeuesPasswort.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Regestrierung.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
