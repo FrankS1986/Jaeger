@@ -70,9 +70,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Login.xaml.cs">
-      <DependentUpon>Login.xaml</DependentUpon>
-    </Compile>
     <Compile Include="GUI_AbschusslisteAktualisieren.xaml.cs">
       <DependentUpon>GUI_AbschusslisteAktualisieren.xaml</DependentUpon>
     </Compile>
@@ -87,6 +84,9 @@
     </Compile>
     <Compile Include="Kalender.xaml.cs">
       <DependentUpon>Kalender.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="NeuesPasswort.xaml.cs">
       <DependentUpon>NeuesPasswort.xaml</DependentUpon>
