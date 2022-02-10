@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="JaegerMeister.MvvmSample.Ui.Desktop.GUI_Abschussliste"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             DataContext="{Binding logic_abschussliste, Source={StaticResource Locator}}"
+             >
+    <ContentControl x:Name="abschussliste">
+        <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <Label Background="#4F772D">
+                <TextBlock FontFamily="Gill Sans MT Bold" TextAlignment="Center" FontSize="22"  Foreground="#E0CBA8" Width="398" RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-0.016"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform>Jägerbezogene Abschüsse</TextBlock>
+            </Label>
+            <ListBox ItemsSource="{Binding JaegerBezogeneAbschuesse}" FontSize="12" FontFamily="Gill Sans MT Regular" Height="356"></ListBox>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Background="White" Margin="0,10" VerticalAlignment="Center">
+            <TextBlock>
+            <Label FontFamily="Gill Sans MT Regular" FontSize="18" Background="White" Width="223" Height="52"  >Abschüsse im Revier gesamt:</Label>
+                 <Label FontFamily="Gill Sans MT Regular" FontSize="18" Background="White" Margin="0,15" Width="168" ><TextBlock Text="{Binding Abschuesse}" TextAlignment="Center" Width="158" RenderTransformOrigin="-0.416,0.5" Height="28"> </TextBlock></Label>
+            </TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Column="3" >
+            
+            <Label Background="#4F772D" >
+                <TextBlock FontFamily="Gill Sans MT Bold"  TextAlignment="Center" FontSize="22"  Foreground="#E0CBA8" Width="382">Tierartbezogene Abschüsse</TextBlock>
+            </Label>
+            <ComboBox ItemsSource="{Binding DropDownTiere}" FontFamily="Gill Sans MT regular" FontSize="12" Margin="0,5"></ComboBox>
+            <ListBox FontFamily="Gill Sans MT regular" FontSize="12" ItemsSource="{Binding TierartBezogeneAbschuesse}" Height="324"></ListBox>  
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="2" Margin="0,10" VerticalAlignment="Center">
+            <Button Command="{Binding AbschuesseHinzufuegen}" BorderBrush="#230C0F" HorizontalAlignment="Right" FontFamily="Gill Sans MT regular" FontSize="16" > Abschüsse hinzufügen</Button>
+        </StackPanel>
+    </Grid>
+    </ContentControl>
+</UserControl>
