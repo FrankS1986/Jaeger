@@ -31,9 +31,11 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<Logic_Termine>();
         }
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
+        public Logic_Termine logic_Termine => ServiceLocator.Current.GetInstance<Logic_Termine>();
 
         public static void Cleanup()
         {
