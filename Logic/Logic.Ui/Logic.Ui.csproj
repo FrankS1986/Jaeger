@@ -56,6 +56,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Logic_Sicherheitsfrage_zuruecksetzen.cs" />
+    <Compile Include="Logic_Abschlussliste.cs" />
+    <Compile Include="Logic_Registrierung.cs" />
     <Compile Include="Logic_AbschusslisteAktualisieren.cs" />
     <Compile Include="Logic_NeuesPasswort.cs" />
     <Compile Include="UrkundeErstellenViewModel.cs" />

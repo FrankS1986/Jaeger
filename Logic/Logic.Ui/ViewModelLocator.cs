@@ -1,5 +1,3 @@
-
-
 using CommonServiceLocator;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
@@ -31,16 +29,26 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
+
+            SimpleIoc.Default.Register<Logic_Sicherheitsfrage_zuruecksetzen>();
+            SimpleIoc.Default.Register<Logic_Abschussliste>();
+
+            SimpleIoc.Default.Register<Logic_Registrierung>();
             SimpleIoc.Default.Register<UrkundeErstellenViewModel>();
             SimpleIoc.Default.Register<Logic_AbschusslisteAktualisieren>();
             SimpleIoc.Default.Register<Logic_NeuesPasswort>();
         }
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
+        public Logic_Abschussliste logic_abschussliste => ServiceLocator.Current.GetInstance<Logic_Abschussliste>();
         public Logic_AbschusslisteAktualisieren logic_AbschusslisteAktualisieren => ServiceLocator.Current.GetInstance<Logic_AbschusslisteAktualisieren>();
         public UrkundeErstellenViewModel UrkundeErstellen => ServiceLocator.Current.GetInstance<UrkundeErstellenViewModel>();
 
         public Logic_NeuesPasswort logic_neuespasswort => ServiceLocator.Current.GetInstance<Logic_NeuesPasswort>();
+
+        public Logic_Registrierung logic_registrierung => ServiceLocator.Current.GetInstance<Logic_Registrierung>();
+
+        public Logic_Sicherheitsfrage_zuruecksetzen logic_sicherheitsfrage_zuruecksetzen => ServiceLocator.Current.GetInstance<Logic_Sicherheitsfrage_zuruecksetzen>();
 
         public static void Cleanup()
         {
