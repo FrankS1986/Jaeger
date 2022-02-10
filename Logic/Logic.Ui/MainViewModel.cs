@@ -11,16 +11,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         /// </summary>
         public MainViewModel()
         {
-            if (IsInDesignMode)
-            {
-                WindowTitel = "JaegerMeister (Design)";
-            }
-            else
-            {
-                WindowTitel = "Jaegermeister";
-            }
-        }
 
-        public string WindowTitel { get; private set; }
+            
+        }
     }
 }
