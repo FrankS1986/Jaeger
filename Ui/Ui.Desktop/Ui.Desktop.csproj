@@ -70,6 +70,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Einladungsrueckmeldung.xaml.cs">
+      <DependentUpon>Einladungsrueckmeldung.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI_AbschusslisteAktualisieren.xaml.cs">
       <DependentUpon>GUI_AbschusslisteAktualisieren.xaml</DependentUpon>
     </Compile>
@@ -89,6 +92,10 @@
       <DependentUpon>Kalender.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\SharedAssemblyInfo.cs" />
+    <Page Include="Einladungsrueckmeldung.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI_AbschusslisteAktualisieren.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
