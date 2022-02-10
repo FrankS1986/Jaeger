@@ -6,8 +6,7 @@
         xmlns:local="clr-namespace:Ui.Desktop"
         mc:Ignorable="d"
         DataContext="{Binding Main, Source={StaticResource Locator}}"
-        Title="{Binding WindowTitel, Mode=OneWay}" Height="450" Width="800" MinHeight="470" MinWidth="820"  >
-
+        Title="{Binding WindowTitel, Mode=OneWay}" MaxHeight="560" MaxWidth="1100" Background="#7F7C81" FontFamily="Gill Sans MT Regular">
     <DockPanel>
         <Grid x:Name="mainGrid" Background="#7F7C81" >
             <Grid.ColumnDefinitions>

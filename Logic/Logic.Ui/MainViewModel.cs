@@ -9,6 +9,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
     public class MainViewModel : ViewModelBase, INotifyPropertyChanged
     {
+        public string WindowTitel { get; private set; }
+      
+
         List<string> _lb_JaegerListe;
         List<string> _lb_UrkundenErhalten;
         ICommand _btn_Abbrechen;
@@ -48,7 +51,16 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         public MainViewModel()
         {
             _lb_JaegerListe = new List<string> { };
-            _lb_UrkundenErhalten = new List<string> { };           
+            _lb_UrkundenErhalten = new List<string> { };
+            
+            if (IsInDesignMode)
+            {
+                WindowTitel = "JaegerMeister (Design)";
+            }
+            else
+            {
+                WindowTitel = "Jaegermeister";
+            }
         }
     }
 }
