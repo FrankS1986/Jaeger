@@ -33,11 +33,14 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<UrkundeErstellenViewModel>();
             SimpleIoc.Default.Register<Logic_AbschusslisteAktualisieren>();
+            SimpleIoc.Default.Register<Logic_Einladungsrueckmeldung>();
         }
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
         public Logic_AbschusslisteAktualisieren logic_AbschusslisteAktualisieren => ServiceLocator.Current.GetInstance<Logic_AbschusslisteAktualisieren>();
         public UrkundeErstellenViewModel UrkundeErstellen => ServiceLocator.Current.GetInstance<UrkundeErstellenViewModel>();
+
+        public Logic_Einladungsrueckmeldung Einladungsrueckmeldung => ServiceLocator.Current.GetInstance<UrkundeErstellenViewModel>(); 
 
         public static void Cleanup()
         {

@@ -65,15 +65,14 @@
             <DataGrid>
 
                 
-                
             </DataGrid>
         </Grid>
         <Grid Grid.Row="2" Grid.Column="8">
             <ScrollBar/>
         </Grid>
         <Grid x:Name="grid_Buttons" Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="2">
-            <Button x:Name="btn_aktualisieren" Content="Aktualisieren" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,7,10,13" Width="116" Height="30"/>
-            <Button x:Name="btn_abbrechen" Content="Abbrechen" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,7,156,13" Width="116" Height="30"/>
+            <Button x:Name="btn_Einladungsrueckmeldungaktualisieren" Content="Aktualisieren" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,7,10,13" Width="116" Height="30" Command="{Binding btn_Einladungsrueckmeldung_Aktualisieren}"/>
+            <Button x:Name="btn_EinladungsrueckmeldungAbbrechen" Content="Abbrechen" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,7,156,13" Width="116" Height="30" Command="{Binding btn_Einladungsrueckmeldung_Abbrechen}"/>
         </Grid>
         
     </Grid>
