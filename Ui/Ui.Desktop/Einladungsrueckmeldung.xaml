@@ -26,22 +26,22 @@
             <RowDefinition Height="10"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="1" x:Name="Grid_Termine" Background="#4F772D">
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="1" x:Name="grid_Termine" Background="#4F772D">
             <Label Content="Termine" Foreground="#E0CBA8" FontSize="22" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Center" VerticalAlignment="Center" ></Label>
         </Grid>
         <Grid x:Name="liB_Termine" Grid.Row="2" Grid.Column="1">
             <ListBox>
-                
-                
+
+
             </ListBox>
         </Grid>
         <Grid Grid.Row="2" Grid.Column="5">
             <ScrollBar/>
         </Grid>
-        
-        
-        
-        <Grid Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="4" x:Name="Grid_Rueckmeldungen" Background="#4F772D">
+
+
+
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="4" x:Name="grid_Rueckmeldungen" Background="#4F772D">
             <Label Content="Rückmeldungen" Foreground="#E0CBA8" FontSize="22" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Center" VerticalAlignment="Center" ></Label>
         </Grid>
         <Grid x:Name="liB_Rückmeldungen" Grid.Row="2" Grid.Column="4">
@@ -53,23 +53,30 @@
         <Grid Grid.Row="2" Grid.Column="2">
             <ScrollBar/>
         </Grid>
-        
-        
-        
-        
+
+
+
+
         <Grid Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="7" x:Name="Grid_EingeladenePersonen" Background="#4F772D">
             <Label Content="Eingeladene Personen" Foreground="#E0CBA8" FontSize="22" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Center" VerticalAlignment="Center" ></Label>
         </Grid>
         <Grid x:Name="liB_EingeladenePersonen" Grid.Row="2" Grid.Column="7">
-            <ListBox>
+          
+            <DataGrid>
 
-
-            </ListBox>
+                
+                
+            </DataGrid>
         </Grid>
         <Grid Grid.Row="2" Grid.Column="8">
             <ScrollBar/>
         </Grid>
+        <Grid x:Name="grid_Buttons" Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="2">
+            <Button x:Name="btn_aktualisieren" Content="Aktualisieren" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,7,10,13" Width="116" Height="30"/>
+            <Button x:Name="btn_abbrechen" Content="Abbrechen" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,7,156,13" Width="116" Height="30"/>
+        </Grid>
+        
     </Grid>
 
-    
+
 </UserControl>
