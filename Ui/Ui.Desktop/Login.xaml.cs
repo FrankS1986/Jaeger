@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
     /// <summary>
-    /// Interaktionslogik für Login.xaml
+    /// Interaktionslogik für LogIn.xaml
     /// </summary>
-    public partial class Login : Window
+    public partial class LogIn : Window
     {
-        public Login()
+        public LogIn()
         {
             InitializeComponent();
         }
