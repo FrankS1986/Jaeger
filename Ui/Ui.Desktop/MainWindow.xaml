@@ -6,53 +6,68 @@
         xmlns:local="clr-namespace:Ui.Desktop"
         mc:Ignorable="d"
         DataContext="{Binding Main, Source={StaticResource Locator}}"
-        Title="{Binding WindowTitel, Mode=OneWay}" Height="450" Width="800">
+        Title="{Binding WindowTitel, Mode=OneWay}" MaxHeight="560" MaxWidth="1100" Background="#7F7C81" FontFamily="Gill Sans MT Regular">
     <DockPanel>
-        <Grid x:Name="masterGrid">
+        <Grid x:Name="mainGrid" Background="#7F7C81" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="82"/>
+                <ColumnDefinition Width="81*"/>
+                <ColumnDefinition Width="81*"/>
+                <ColumnDefinition Width="82*"/>
+                <ColumnDefinition Width="81*"/>
+                <ColumnDefinition Width="81*"/>
+                <ColumnDefinition Width="81*"/>
+                <ColumnDefinition Width="81*"/>
+                <ColumnDefinition Width="81*"/>
+                <ColumnDefinition Width="81*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="44"/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="43*"/>
             </Grid.RowDefinitions>
-            <Grid DockPanel.Dock="Top" Grid.ColumnSpan="10" Grid.RowSpan="2" Background="Green">
+            <Grid DockPanel.Dock="Top" Grid.ColumnSpan="10" Grid.RowSpan="2" Background="#4F772D">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition Height="21*"/>
+                    <RowDefinition Height="33"/>
+                    <RowDefinition Height="13"/>
+                    <RowDefinition Height="16"/>
                 </Grid.RowDefinitions>
-                <Label Grid.ColumnSpan="10" Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Jägermeister - Das Tool für Termine und Treibjagden" FontSize="30" Foreground="White"/>
+                <Label Grid.Column="1" Grid.ColumnSpan="9" Grid.RowSpan="2" VerticalAlignment="Top" Margin="10,0,0,0" Content="Kimme &amp; Korn Corporate Identity" FontSize="32" Foreground="#E0CDA8" FontFamily="Gill Sans MT " FontWeight="Bold"/>
+                <Image Grid.RowSpan="2" HorizontalAlignment="Left" Source="Logo.png" Height="50" Width="61" Margin="12,5,0,5" />
+                <WrapPanel Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="10" >
+                    <Button Content="Kalender" Margin="10,0,0,0" BorderBrush="#230C0F" Background="White" Width="60" FontSize="12" Command="{Binding btn_Kalender}" FontFamily="Gill Sans MT" />
+                    <Button Content="Termin" BorderBrush="#230C0F" Background="White" Width="50" FontSize="12" Command="{Binding btn_Termin}" FontFamily="Gill Sans MT" ></Button>
+                    <Button Content="Jägerliste"  BorderBrush="#230C0F" Background="White" Width="70" FontSize="12" Command="{Binding btn_Jaegerliste}" FontFamily="Gill Sans MT" ></Button>
+                    <Button Content="Abschlussliste" BorderBrush="#230C0F" Background="White" Width="95" FontSize="12" Command="{Binding btn_Abschussliste}" FontFamily="Gill Sans MT" ></Button>
+                    <Button Content="Wildunfälle" BorderBrush="#230C0F" Background="White" Width="80" FontSize="12" Command="{Binding btn_Wildunfaelle}" FontFamily="Gill Sans MT" ></Button>
+                    <Button Content="Einladungsübersicht" BorderBrush="#230C0F" Background="White" Width="130" FontSize="12" Command="{Binding btn_Einladungsuebersicht}" FontFamily="Gill Sans MT" ></Button>
+                    <Button Content="Dokumente verwalten" BorderBrush="Black" Background="White" Width="140" FontSize="12" Command="{Binding btn_Dokumenteverwalten}" FontFamily="Gill Sans MT" ></Button>
+                    <Button Content="Urkunde erstellen"  BorderBrush="#230C0F" Background="White" Width="120" FontSize="12" Command="{Binding btn_Urkundeerstellen}" FontFamily="Gill Sans MT" ></Button>
+                    <Button Content="Admin" BorderBrush="#230C0F" Background="White" Width="50" FontSize="12" Command="{Binding btn_Admin}" FontFamily="Gill Sans MT" ></Button>
+                </WrapPanel>
             </Grid>
+            <ContentControl  Grid.ColumnSpan="10" Grid.Row="2" Grid.RowSpan="10" >
+            </ContentControl>
         </Grid>
     </DockPanel>
 </Window>
