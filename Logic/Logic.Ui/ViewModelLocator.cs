@@ -30,10 +30,18 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<Logic_Abschussliste>();
+
+            SimpleIoc.Default.Register<Logic_Registrierung>();
+            SimpleIoc.Default.Register<UrkundeErstellenViewModel>();
+            SimpleIoc.Default.Register<Logic_AbschusslisteAktualisieren>();
         }
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
         public Logic_Abschussliste logic_abschussliste => ServiceLocator.Current.GetInstance<Logic_Abschussliste>();
+        public Logic_AbschusslisteAktualisieren logic_AbschusslisteAktualisieren => ServiceLocator.Current.GetInstance<Logic_AbschusslisteAktualisieren>();
+        public UrkundeErstellenViewModel UrkundeErstellen => ServiceLocator.Current.GetInstance<UrkundeErstellenViewModel>();
+
+        public Logic_Registrierung logic_registrierung => ServiceLocator.Current.GetInstance<Logic_Registrierung>();
 
         public static void Cleanup()
         {
