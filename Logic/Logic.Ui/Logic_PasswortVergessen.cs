@@ -29,21 +29,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private string _altespasswort;
-        public string altespasswort
-        {
-            get
-            {
-                return _altespasswort;
-
-            }
-
-            set
-            {
-                _altespasswort = value;
-                RaisePropertyChanged("altespasswort");
-            }
-        }
+        
 
         private string _neuespasswort;
         public string neuespasswort
@@ -116,7 +102,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        // Binding für Commandparameter
+        
 
     }
 }

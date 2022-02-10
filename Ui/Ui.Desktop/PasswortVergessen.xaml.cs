@@ -23,5 +23,17 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         {
             InitializeComponent();
         }
+
+        
+
+        private void PwtNeu_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PwtNeuBe_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
