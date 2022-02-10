@@ -71,8 +71,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Properties\SharedAssemblyInfo.cs" />
-    <Compile Include="Sicherheitsfrage.xaml.cs">
-      <DependentUpon>Sicherheitsfrage.xaml</DependentUpon>
+    <Compile Include="Sicherheitsfrage_zuruecksetzen.xaml.cs">
+      <DependentUpon>Sicherheitsfrage_zuruecksetzen.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -86,7 +86,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Sicherheitsfrage.xaml">
+    <Page Include="Sicherheitsfrage_zuruecksetzen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
