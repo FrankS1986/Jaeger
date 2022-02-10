@@ -43,7 +43,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
 
         private ICommand _btnPw_Abbruch;
-        public ICommand btnPw_Abbruch
+        public ICommand BtnPw_Abbruch
         {
             get
             {
@@ -63,7 +63,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         }
 
         private ICommand _btnPw_Bestaetigen;
-        public ICommand btnPw_Bestaetigen
+        public ICommand BtnPw_Bestaetigen
         {
             get
             {

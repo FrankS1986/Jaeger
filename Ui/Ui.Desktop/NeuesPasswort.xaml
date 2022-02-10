@@ -35,8 +35,8 @@
         <Label Grid.Column="1" Grid.Row="3" Content="Neues Passwort bestätigen*" FontSize="16" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Left" VerticalAlignment="Bottom"></Label>
         <PasswordBox x:Name="passwortbestaetigen" PasswordChanged="passwortbestaetigen_PasswordChanged" Grid.Column="1" Grid.Row="4" Height="30" Width="214" BorderBrush="#230C0F" HorizontalAlignment="Left" VerticalAlignment="Top" ></PasswordBox>
         
-        <Button Grid.Column="1" Grid.Row="6" HorizontalAlignment="Right" BorderBrush="#230C0F" Background="White" VerticalAlignment="Top" Height="30" Width="100"  Content="Abbruch" FontSize="12" FontFamily="Gill Sans MT Regular" Command="{Binding btnPw_Abbruch}" ></Button>
-        <Button Grid.Column="2" Grid.Row="6" HorizontalAlignment="Left" BorderBrush="#230C0F" Background="White" VerticalAlignment="Top" Height="30" Width="100" Margin="10,0,0,0" Content="Bestätigen" FontSize="12" FontFamily="Gill Sans MT Regular" Command="{Binding btnPw_Bestaetigen}"   ></Button>
+        <Button Grid.Column="1" Grid.Row="6" HorizontalAlignment="Right" BorderBrush="#230C0F" Background="White" VerticalAlignment="Top" Height="30" Width="100"  Content="Abbruch" FontSize="12" FontFamily="Gill Sans MT Regular" Command="{Binding BtnPw_Abbruch}" ></Button>
+        <Button Grid.Column="2" Grid.Row="6" HorizontalAlignment="Left" BorderBrush="#230C0F" Background="White" VerticalAlignment="Top" Height="30" Width="100" Margin="10,0,0,0" Content="Bestätigen" FontSize="12" FontFamily="Gill Sans MT Regular" Command="{Binding BtnPw_Bestaetigen}"   ></Button>
 
     </Grid>
 </Window>
