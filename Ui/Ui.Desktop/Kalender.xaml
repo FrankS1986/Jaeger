@@ -7,7 +7,8 @@
              mc:Ignorable="d" 
              DataContext="{Binding logic_Kalender, Source={StaticResource Locator}}"
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Name="Grid_Kalender" >
+    <ContentControl x:Name="ContentControl_Kalender">
+        <Grid Name="Grid_Kalender" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -39,4 +40,5 @@
         </Viewbox>
         <DataGrid Name="dg_KalenderAnzeige" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" Margin="10,0,10,10" DataContext="{Binding Dg_KalenderAnzeige}" ></DataGrid>
     </Grid>
+    </ContentControl>
 </UserControl>
