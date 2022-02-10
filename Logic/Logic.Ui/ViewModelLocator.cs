@@ -29,6 +29,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<Logic_Login>();
 
             SimpleIoc.Default.Register<Logic_Sicherheitsfrage_zuruecksetzen>();
             SimpleIoc.Default.Register<Logic_Abschussliste>();
@@ -40,6 +41,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         }
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
+        public Logic_Login logic_termine => ServiceLocator.Current.GetInstance<Logic_Login>();
         public Logic_Abschussliste logic_abschussliste => ServiceLocator.Current.GetInstance<Logic_Abschussliste>();
         public Logic_AbschusslisteAktualisieren logic_AbschusslisteAktualisieren => ServiceLocator.Current.GetInstance<Logic_AbschusslisteAktualisieren>();
         public UrkundeErstellenViewModel UrkundeErstellen => ServiceLocator.Current.GetInstance<UrkundeErstellenViewModel>();
