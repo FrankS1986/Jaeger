@@ -109,8 +109,8 @@
     <Compile Include="Regestrierung.xaml.cs">
       <DependentUpon>Regestrierung.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Urkunden_Erstellen.xaml.cs">
-      <DependentUpon>Urkunden_Erstellen.xaml</DependentUpon>
+    <Compile Include="UrkundeErstellen.xaml.cs">
+      <DependentUpon>UrkundeErstellen.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -128,7 +128,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Urkunden_Erstellen.xaml">
+    <Page Include="UrkundeErstellen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

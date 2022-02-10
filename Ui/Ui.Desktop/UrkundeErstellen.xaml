@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
              mc:Ignorable="d" 
-             DataContext="{Binding logic_urkundeErstellen, Source={StaticResource Locator}}"
+             DataContext="{Binding UrkundeErstellen, Source={StaticResource Locator}}"
              MinHeight="351" MinWidth="812" FontFamily="Gill Sans MT Regular">
     <ContentControl x:Name="ContentControl_UrkundenErstellen">
         <Grid>

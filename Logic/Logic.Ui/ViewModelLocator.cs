@@ -31,11 +31,11 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
-            SimpleIoc.Default.Register<Logic_UrkundeErstellen>();
+            SimpleIoc.Default.Register<UrkundeErstellenViewModel>();
         }
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
-        public Logic_UrkundeErstellen logic_urkundeErstellen => ServiceLocator.Current.GetInstance<Logic_UrkundeErstellen>();
+        public UrkundeErstellenViewModel UrkundeErstellen => ServiceLocator.Current.GetInstance<UrkundeErstellenViewModel>();
 
         public static void Cleanup()
         {
