@@ -40,8 +40,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         public Logic_AbschusslisteAktualisieren logic_AbschusslisteAktualisieren => ServiceLocator.Current.GetInstance<Logic_AbschusslisteAktualisieren>();
         public UrkundeErstellenViewModel UrkundeErstellen => ServiceLocator.Current.GetInstance<UrkundeErstellenViewModel>();
 
-        public Logic_Einladungsrueckmeldung Einladungsrueckmeldung => ServiceLocator.Current.GetInstance<UrkundeErstellenViewModel>(); 
-
+        public Logic_Einladungsrueckmeldung Einladungsrueckmeldung => ServiceLocator.Current.GetInstance<Logic_Einladungsrueckmeldung>();
         public static void Cleanup()
         {
             
