@@ -9,10 +9,21 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
+        /// 
+        public string WindowTitle { get; private set; }
         public MainViewModel()
         {
-
-            
+                              
+            if (IsInDesignMode)
+            {
+                WindowTitle = "MvvSample (Designmode)";
+                
+            }
+            else
+            {
+                WindowTitle = "MvvSample";
+               
+            }
         }
     }
 }
