@@ -4,8 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
+              Height="360" Width="800"
+             d:DesignHeight="360" d:DesignWidth="800"  
               DataContext="{Binding Logic_Einladungsuebersicht, Source={StaticResource Locator}}"
              >
     <ContentControl x:Name="ContenControlEinladungsuebersicht">
@@ -15,12 +15,14 @@
                 <ColumnDefinition Width="15"/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 
                 <RowDefinition/>
-                <RowDefinition Height="60"/>
+                <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
 
             <StackPanel Background="#4F772D">
@@ -28,32 +30,33 @@
                     <TextBlock Foreground="#E0CBA8" TextAlignment="Center" FontSize="22" FontFamily="Gill Sans MT Bold" Width="140">Termine</TextBlock>
                 </Label>
             </StackPanel>
-            
-            <StackPanel Grid.Column="2" Background="#4F772D">
+
+            <StackPanel Grid.Column="2" Grid.ColumnSpan="2" Background="#4F772D">
                 <Label>
                     <TextBlock Foreground="#E0CBA8" TextAlignment="Center" FontSize="22" FontFamily="Gill Sans MT Bold" Width="308">Gesendete Einladungen</TextBlock>
                 </Label>
             </StackPanel>
 
-            <StackPanel Grid.Column="3" Background="#4F772D">
+            <StackPanel Grid.Column="4" Grid.ColumnSpan="2" Background="#4F772D">
                 <Label>
                     <TextBlock Foreground="#E0CBA8" TextAlignment="Center" FontSize="22" FontFamily="Gill Sans MT Bold" Width="307">Rückmeldungen</TextBlock>
                 </Label>
             </StackPanel>
             <StackPanel Grid.Row="1">
-                <DataGrid FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" ItemsSource="{Binding dg_TermineSicht}" Height="348"></DataGrid>
+                <DataGrid FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" ItemsSource="{Binding dg_TermineSicht}" Height="261"></DataGrid>
             </StackPanel>
-            <StackPanel Grid.Row="1" Grid.Column="2">
-                <DataGrid FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" ItemsSource="{Binding dg_GesendeteEinladungenSicht}" Height="348"></DataGrid>
+            <StackPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2">
+                <DataGrid FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" ItemsSource="{Binding dg_GesendeteEinladungenSicht}" Height="261"></DataGrid>
             </StackPanel>
-            <StackPanel Grid.Row="1" Grid.Column="3">
-                <DataGrid FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" ItemsSource="{Binding dg_RueckmeldungenSicht}" Height="348"></DataGrid>
+            <StackPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2">
+                <DataGrid FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" ItemsSource="{Binding dg_RueckmeldungenSicht}" Height="262"></DataGrid>
                
             </StackPanel>
 
-            <StackPanel Grid.Row="2" Grid.Column="3">
-                <Button Background="White" FontSize="16" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Right" Margin="10,10" Command="{Binding btn_EinlandungSicht}">Einladung verschicken</Button>
-            </StackPanel>
+
+            <Button Grid.Row="2" Grid.Column="5" Background="White" FontSize="12" Height="30" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Stretch" Margin="5,5" Command="{Binding btn_EinlandungSicht}">
+                <TextBlock>Einladung<LineBreak/> verschicken</TextBlock></Button>
+            
         </Grid>
 
        
