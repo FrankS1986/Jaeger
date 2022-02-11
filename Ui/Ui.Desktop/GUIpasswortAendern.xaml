@@ -4,9 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
-        mc:Ignorable="d"
+        mc:Ignorable="d" 
         DataContext="{Binding logic_passwortAendern, Source={StaticResource Locator}}"
-        Title="Passwort ändern" Height="500" Width="650">
+        Title="Passwort ändern" Height="450" Width="800" 
+        MinHeight="450" MinWidth="800"> 
     <Grid Background="#7F7C81" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -33,7 +34,7 @@
         <Label Grid.Column="1" Grid.Row="2" Content="Altes Passwort*" FontSize="16" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Left" VerticalAlignment="Bottom"></Label>
         <PasswordBox PasswordChanged="PasswordBox_PasswordChanged" FontSize="12" Grid.Column="1" Grid.Row="3" Height="25" BorderBrush="#230C0F" HorizontalAlignment="Stretch" VerticalAlignment="Top" ></PasswordBox>
 
-        <Label Grid.Column="1" Grid.Row="3" Content="Neues Passwort*" FontSize="16" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Left" Margin="0,38,0,0"/>
+        <Label Grid.Column="1" Grid.Row="3" Content="Neues Passwort*" FontSize="16" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
         <PasswordBox PasswordChanged="PwtNeu_PasswordChanged" FontSize="12" Name="PwtNeu" Grid.Column="1" Grid.Row="4" Height="25" BorderBrush="#230C0F" HorizontalAlignment="Stretch" VerticalAlignment="Top" ></PasswordBox>
         <Label Grid.Column="1" Grid.Row="4" Content="Neues Passwort bestätigen*" FontSize="16" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Left" VerticalAlignment="Bottom"></Label>
         <PasswordBox PasswordChanged="PwtNeuBe_PasswordChanged" FontSize="12" Name="PwtNeuBe" Grid.Column="1" Grid.Row="5" Height="25" HorizontalAlignment="Stretch" BorderBrush="#230C0F" VerticalAlignment="Top" ></PasswordBox>
