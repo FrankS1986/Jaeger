@@ -28,12 +28,12 @@
 
 
         <Label Grid.Column="1" Grid.Row="2" Content="Benutzername*" FontSize="16" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Left" VerticalAlignment="Bottom"></Label>
-        <TextBox Text="{Binding tb_Benutzername}" Grid.Column="1" Grid.Row="3" Height="25" BorderBrush="#230C0F" HorizontalAlignment="Stretch" VerticalAlignment="Top" ></TextBox>
+        <TextBox Text="{Binding tb_Benutzername}" Grid.Column="1" Grid.Row="3" Height="30" BorderBrush="#230C0F" HorizontalAlignment="Stretch" VerticalAlignment="Top" ></TextBox>
        
         <Label Grid.Row="3" Grid.Column="1"  Content="Passwort*" FontSize="16" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Left" VerticalAlignment="Bottom"></Label>
         <StackPanel Grid.Row="4" Grid.Column="1">
         
-        <PasswordBox x:Name="Passwort"   Height="25" BorderBrush="#230C0F" HorizontalAlignment="Stretch" VerticalAlignment="Top" ></PasswordBox>
+        <PasswordBox x:Name="Passwort"   Height="30" BorderBrush="#230C0F" HorizontalAlignment="Stretch" VerticalAlignment="Top" ></PasswordBox>
             <Button FontFamily="Gill Sans MT Regular" FontSize="12" Command="{Binding btn_Passwortvergessen}" HorizontalAlignment="Right" Background="Transparent">
                 <TextBlock  TextDecorations="Underline" Foreground="DarkBlue" Width="109" RenderTransformOrigin="0.652,0.464">Passwort vergessen?</TextBlock>
             </Button>
