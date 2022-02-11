@@ -35,7 +35,7 @@
             
         </Label>
         <TextBox HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" FontSize="12" Text="{Binding Tb_antwort}"  Height="25" />
-        <Button HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="2"  FontSize="12" Height="30" Content="Bestätigen" Margin="5" Command="{Binding Btn_bestaetigen}" />
-        <Button HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="3"  FontSize="12" Height="30"  Margin="5" Content="Abbruch" Command="{Binding Btn_abbrechen}" />
+        <Button Background="White" HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="2"  FontSize="12" Height="30" Content="Bestätigen" Margin="5" Command="{Binding Btn_bestaetigen}" />
+        <Button Background="White" HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="3"  FontSize="12" Height="30"  Margin="5" Content="Abbruch" Command="{Binding Btn_abbrechen}" />
     </Grid>
 </Page>
