@@ -53,7 +53,7 @@
                     <RowDefinition Height="16"/>
                 </Grid.RowDefinitions>
                 
-                <Label Grid.Column="2" Grid.ColumnSpan="6" Grid.RowSpan="1" VerticalAlignment="Bottom" Margin="5,0,0,0"  Content="Kimme &amp; Korn Corporate Identity" FontSize="32" Foreground="#E0CDA8" FontFamily="Gill Sans MT " FontWeight="Bold" Height="47"/>
+                <Label Grid.Column="2" Grid.ColumnSpan="6" Grid.RowSpan="1" VerticalAlignment="Bottom" Margin="5,0,0,0"  Content="Kimme &amp; Korn GmbH" FontSize="32" Foreground="#E0CDA8" FontFamily="Gill Sans MT " FontWeight="Bold" Height="47"/>
                 <Image Grid.RowSpan="3" Grid.ColumnSpan="2" HorizontalAlignment="Left" Source="Logo.png" Width="134" Margin="10,4,0,0" />
                 <WrapPanel Grid.Row="2" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="8" HorizontalAlignment="Left" Width="805"  >
                     <Button Content="Kalender" Margin="10,0,0,0" BorderBrush="#230C0F" Background="White" Width="60" Height="25" FontSize="12" Click="btn_Kalender" FontFamily="Gill Sans MT" />
