@@ -16,7 +16,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="100"/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -25,7 +25,7 @@
             
         </Grid.RowDefinitions>
         <Grid Grid.ColumnSpan="5" Background="#4F772D" >
-            <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Foreground="#E0CBA8" FontFamily="Gill Sans MT Bold" Content="Registrierung"  ></Label>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32" Foreground="#E0CBA8" FontFamily="Gill Sans MT Bold" Content="Registrierung"  ></Label>
         </Grid>
         <Label Grid.Row="1"  Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16" FontFamily="Gill Sans MT Regular" Foreground="Black"  Content="Vorname*"  ></Label>
         <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Height="30" Width="200" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,0,118,0" BorderBrush="#230C0F" Text="{Binding Tb_vorname}"></TextBox>

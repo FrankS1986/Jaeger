@@ -10,23 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
     /// <summary>
-    /// Interaktionslogik für Regestrierung.xaml
+    /// Interaktionslogik für Jäger_Bearbeiten.xaml
     /// </summary>
-    public partial class Regestrierung : Window
+    public partial class Jäger_Bearbeiten : UserControl
     {
-        public Regestrierung()
+        public Jäger_Bearbeiten()
         {
             InitializeComponent();
-        }
-
-        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

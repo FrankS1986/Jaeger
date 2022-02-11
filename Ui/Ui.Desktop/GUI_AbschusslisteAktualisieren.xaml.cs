@@ -10,23 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
     /// <summary>
-    /// Interaktionslogik für Regestrierung.xaml
+    /// Interaktionslogik für GUI_AbschusslisteAktualisieren.xaml
     /// </summary>
-    public partial class Regestrierung : Window
+    public partial class GUI_AbschusslisteAktualisieren : UserControl
     {
-        public Regestrierung()
+        public GUI_AbschusslisteAktualisieren()
         {
             InitializeComponent();
-        }
-
-        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
