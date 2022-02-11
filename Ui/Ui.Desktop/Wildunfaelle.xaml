@@ -27,7 +27,7 @@
             <DatePicker Name="DatePiker" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Height="30"  SelectedDate="{Binding dp_StartDate}" ></DatePicker>
             <Label Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" Foreground="Black" FontSize="16" Content="Tierart:" Height="39" ></Label>
             <ComboBox Name="tb_Tierart" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Height="25" FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding tb_Tierart}" ></ComboBox>
-            <Button  HorizontalAlignment="Center"  Name="btn_BestaetigungWildunfaelle" Content="Bestätigen" FontFamily="Gill Sans MT Regular" FontSize="12" BorderBrush="#230C0F" Background="White"  Grid.Column="2" Grid.Row="3"  Height="30" Command="{Binding btn_Wildunfaelle}" ></Button>
+            <Button  HorizontalAlignment="Stretch" Margin="5"  Name="btn_BestaetigungWildunfaelle" Content="Bestätigen" FontFamily="Gill Sans MT Regular" FontSize="12" BorderBrush="#230C0F" Background="White"  Grid.Column="2" Grid.Row="3"  Height="30" Command="{Binding btn_Wildunfaelle}" ></Button>
         </Grid>
 
     </ContentControl>
