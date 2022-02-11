@@ -16,9 +16,13 @@
             <ColumnDefinition />
             <ColumnDefinition/>
             <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
             <ColumnDefinition/>
-            <ColumnDefinition />
-            <ColumnDefinition />
+           
+           
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -33,9 +37,10 @@
             <RowDefinition  />
             <RowDefinition  />
             <RowDefinition  />
+           
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.RowSpan="4" Grid.ColumnSpan="10" Background="#4F772D">
+        <StackPanel Grid.RowSpan="4" Grid.ColumnSpan="14" Background="#4F772D">
             <TextBlock Padding="10,10,10,10" >
             <Image   Source="Logo.png" Width="110"  />
             </TextBlock>
@@ -43,22 +48,22 @@
         <StackPanel>
             
         </StackPanel>
-        <WrapPanel Margin="0,0,0,5" VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="8" Grid.RowSpan="2">
+        
 
             
-                <Button  Content="Kalender"  BorderBrush="#230C0F" Background="White"  Height="30" FontSize="12" Click="btn_Kalender" FontFamily="Gill Sans MT" />
-                <Button Content="Termin" BorderBrush="#230C0F" Background="White" FontSize="12" Height="30" Click="btn_Termin" FontFamily="Gill Sans MT" ></Button>
-                <Button Content="Jägerliste"  BorderBrush="#230C0F" Background="White" Height="30" FontSize="12" Click="btn_Jaegerliste" FontFamily="Gill Sans MT" ></Button>
-                <Button Content="Abschlussliste" BorderBrush="#230C0F" Background="White" Height="30"  FontSize="12" Click="btn_Abschussliste" FontFamily="Gill Sans MT" ></Button>
-                <Button Content="Wildunfälle" BorderBrush="#230C0F" Background="White" Height="30" FontSize="12" Click="btn_Wildunfaelle" FontFamily="Gill Sans MT" ></Button>
-                <Button Content="Einladungsübersicht" BorderBrush="#230C0F" Background="White" Height="30" FontSize="12" Click="btn_Einladungsuebersicht" FontFamily="Gill Sans MT" ></Button>
-                <Button Content="Dokumente verwalten" BorderBrush="Black" Background="White" Height="30" FontSize="12" Click="btn_Dokumente" FontFamily="Gill Sans MT" ></Button>
-                <Button Content="Urkunde erstellen"  BorderBrush="#230C0F" Background="White" Height="30" FontSize="12" Click="btn_Urkundeerstellen" FontFamily="Gill Sans MT" ></Button>
-                <Button Content="Admin" BorderBrush="#230C0F" Background="White" Width="50" Height="30" FontSize="12" Click="btn_Admin" FontFamily="Gill Sans MT" ></Button>
+                <Button HorizontalAlignment="Stretch" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" Content="Kalender"  BorderBrush="#230C0F" Background="White"  Height="30" FontSize="12" Click="btn_Kalender" FontFamily="Gill Sans MT" />
+        <Button HorizontalAlignment="Stretch" Grid.Column="3" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" Content="Termin" BorderBrush="#230C0F" Background="White" FontSize="12" Height="30" Click="btn_Termin" FontFamily="Gill Sans MT" ></Button>
+        <Button HorizontalAlignment="Stretch" Grid.Column="4" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" Content="Jägerliste"  BorderBrush="#230C0F" Background="White" Height="30" FontSize="12" Click="btn_Jaegerliste" FontFamily="Gill Sans MT" ></Button>
+        <Button HorizontalAlignment="Stretch" Grid.Column="5" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" Content="Abschlussliste" BorderBrush="#230C0F" Background="White" Height="30"  FontSize="12" Click="btn_Abschussliste" FontFamily="Gill Sans MT" ></Button>
+        <Button HorizontalAlignment="Stretch" Grid.Column="6" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" Content="Wildunfälle" BorderBrush="#230C0F" Background="White" Height="30" FontSize="12" Click="btn_Wildunfaelle" FontFamily="Gill Sans MT" ></Button>
+        <Button HorizontalAlignment="Stretch" Grid.Column="7" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" BorderBrush="#230C0F" Background="White" Height="30" FontSize="12" Click="btn_Einladungsuebersicht" FontFamily="Gill Sans MT" ><TextBlock> Einladungs- <LineBreak/>übersicht</TextBlock></Button>
+        <Button HorizontalAlignment="Stretch" Grid.Column="8" Grid.Row="2" Grid.RowSpan="2" Margin="0,5"  BorderBrush="Black" Background="White" Height="30" FontSize="12" Click="btn_Dokumente" FontFamily="Gill Sans MT" ><TextBlock> Dokumente- <LineBreak/>verwalten</TextBlock></Button>
+        <Button HorizontalAlignment="Stretch" Grid.Column="9" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" Content="Urkunde erstellen"  BorderBrush="#230C0F" Background="White" Height="30" FontSize="12" Click="btn_Urkundeerstellen" FontFamily="Gill Sans MT" ></Button>
+        <Button HorizontalAlignment="Stretch" Grid.Column="10" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" Content="Admin" BorderBrush="#230C0F" Background="White" Height="30" FontSize="12" Click="btn_Admin" FontFamily="Gill Sans MT" ></Button>
 
             
 
-        </WrapPanel>
+        
 
 
 
