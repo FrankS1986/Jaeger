@@ -99,7 +99,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         {
             get
             {
-                if (btnPw_Abbruch == null)
+                if (_btnPw_Abbruch == null)
                 {
                     _btnPw_Abbruch = new RelayCommand(() =>
                     {
