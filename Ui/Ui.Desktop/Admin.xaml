@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
              mc:Ignorable="d" 
              DataContext="{Binding AdminFunktion, Source={StaticResource Locator} }"
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="360" d:DesignWidth="800">
              
     <Grid>
         <Grid.ColumnDefinitions>
@@ -25,9 +25,9 @@
                 <RowDefinition Height="351*"/>
             </Grid.RowDefinitions>
             <Label Content="User-Liste" FontSize="22" FontFamily="Gill Sans MT Regular" Foreground="#E0CBA8" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
-            <DataGrid Grid.Row="1" />
+            <DataGrid Grid.Row="1"/>
         </Grid>
-        <Button Grid.Row="2" Height="25" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" Background="White" Content="User entfernen" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" FontSize="16" Command="{Binding BtnUserEntfernen}" ></Button>
+        <Button Grid.Row="2" Height="30" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" Background="White" Content="User entfernen" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" FontSize="12" Command="{Binding BtnUserEntfernen}" ></Button>
         <Grid Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="10,10,10,0" Background="White" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -40,14 +40,14 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Label Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Gill Sans MT Regular" FontSize="22" Foreground="Black"  Name="UserName" Content="{Binding LbNameAnzeige}" ></Label>
-            <Label Content="Vorname:" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Gill Sans MT Regular" FontSize="18" Foreground="Black"  ></Label>
-            <Label Content="Nachname::" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Gill Sans MT Regular" FontSize="18" Foreground="Black"  ></Label>
-            <Label Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Gill Sans MT Regular" FontSize="18" Foreground="Black" Name="UserVornameAnz" Content="{Binding LbVorname}" ></Label>
-            <Label Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Gill Sans MT Regular" FontSize="18" Foreground="Black" Name="UserNachnameAnz" Content="{Binding LbNachname}" ></Label>
-            <Label Content="Passwort" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Gill Sans MT Regular" FontSize="18" Foreground="Black"></Label>
-            <Button Content="Zurücksetzen" Grid.Row="2" Width="120" Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Gill Sans MT Regular" FontSize="16" Foreground="White" Background="Red" Margin="5,0,0,0" Command="{Binding BtnPasswortZurueck}" ></Button>
-            <Label Content="Sicherheitsfrage" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Gill Sans MT Regular" FontSize="18" Foreground="Black"></Label>
-            <Button Content="Zurücksetzen" Grid.Row="2" Grid.Column="1" Width="120" Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Gill Sans MT Regular" FontSize="16" Foreground="White" Background="Red" Margin="5,0,0,0" Command="{Binding BtnSichFrageZurueck}" ></Button>
+            <Label Content="Vorname:" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Gill Sans MT Regular" FontSize="16" Foreground="Black"  ></Label>
+            <Label Content="Nachname::" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Gill Sans MT Regular" FontSize="16" Foreground="Black"  ></Label>
+            <Label Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Gill Sans MT Regular" FontSize="16" Foreground="Black" Name="UserVornameAnz" Content="{Binding LbVorname}" ></Label>
+            <Label Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Gill Sans MT Regular" FontSize="16" Foreground="Black" Name="UserNachnameAnz" Content="{Binding LbNachname}" ></Label>
+            <Label Content="Passwort" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Gill Sans MT Regular" FontSize="16" Foreground="Black"></Label>
+            <Button Content="Zurücksetzen" Grid.Row="2" Width="120" Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Gill Sans MT Regular" FontSize="12" Foreground="White" Background="Red" Margin="5,0,0,0" Command="{Binding BtnPasswortZurueck}" ></Button>
+            <Label Content="Sicherheitsfrage" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Gill Sans MT Regular" FontSize="16" Foreground="Black"></Label>
+            <Button Content="Zurücksetzen" Grid.Row="2" Grid.Column="1" Width="120" Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Gill Sans MT Regular" FontSize="12" Foreground="White" Background="Red" Margin="5,0,0,0" Command="{Binding BtnSichFrageZurueck}" ></Button>
         </Grid>
     </Grid>
 </UserControl>
