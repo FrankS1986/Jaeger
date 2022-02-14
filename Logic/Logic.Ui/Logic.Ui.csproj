@@ -56,11 +56,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Logic_Wildunfaelle.cs" />
+    <Compile Include="Logic_PasswortErneuern.cs" />
+    <Compile Include="Logic_Jaeger_Bearbeiten.cs" />
+    <Compile Include="Logic_Jaeger_Hinzufuegen.cs" />
+    <Compile Include="Logic_Jaeger_Informationen.cs" />
+    <Compile Include="Logic_EinladungErstellen.cs" />
+    <Compile Include="Logic_Einladungsuebersicht.cs" />
     <Compile Include="Logic_Login.cs" />
     <Compile Include="Logic_Sicherheitsfrage_zuruecksetzen.cs" />
     <Compile Include="Logic_Abschlussliste.cs" />
     <Compile Include="Logic_Registrierung.cs" />
     <Compile Include="Logic_AbschusslisteAktualisieren.cs" />
+    <Compile Include="Logic_PasswortAendern.cs" />
     <Compile Include="Logic_NeuesPasswort.cs" />
     <Compile Include="UrkundeErstellenViewModel.cs" />
     <Compile Include="MainViewModel.cs" />

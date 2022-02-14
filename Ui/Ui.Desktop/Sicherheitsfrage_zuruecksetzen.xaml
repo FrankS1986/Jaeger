@@ -4,18 +4,38 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="550"
+      mc:Ignorable="d"
+      Height="450" Width="800"
+      d:DesignHeight="450" d:DesignWidth="800"
       DataContext="{Binding logic_sicherheitsfrage, Source={StaticResource Locator}}"
       Title="Sicherheitsfrage" Background="#7F7C81" FontFamily="Gill Sans MT Regular">
 
     <Grid>
-        <StackPanel>
-            <Label Content="Sicherheitsfrage erneuern" HorizontalContentAlignment="Center" Background="#4F772D" Foreground="#E0CBA8" FontFamily="Gill Sans MT Bold" FontSize="22"/>
-            <ComboBox DataContext="{Binding Lb_sicherheitsfrage}" FontSize="32" Height="30" Width="250" Margin="0,150,150,10"/>
-            <TextBox Text="{Binding Tb_antwort}" FontSize="18" Height="30" Width="400"/>
-        </StackPanel>
-        <Button Height="25" Width="150" Margin="350,390,0,0" Content="Bestätigen" Command="{Binding Btn_bestaetigen}" FontSize="16"/>
-        <Button Height="25" Width="150" Margin="0,390,0,0" Content="Abbruch" Command="{Binding Btn_abbrechen}" FontSize="16"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+            <Label Grid.ColumnSpan="6" Height="100" Content="Sicherheitsfrage" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#4F772D" Foreground="#E0CBA8" FontFamily="Gill Sans MT Bold" FontSize="32"> </Label>
+
+
+        <Label HorizontalAlignment="Center" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" FontSize="16" Content="{Binding Lb_sicherheitsfrage}" >
+            
+        </Label>
+        <TextBox HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" FontSize="12" Text="{Binding Tb_antwort}"  Height="25" />
+        <Button Background="White" HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="2"  FontSize="12" Height="30" Content="Bestätigen" Margin="5" Command="{Binding Btn_bestaetigen}" />
+        <Button Background="White" HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="3"  FontSize="12" Height="30"  Margin="5" Content="Abbruch" Command="{Binding Btn_abbrechen}" />
     </Grid>
 </Window>
