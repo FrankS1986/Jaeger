@@ -10,7 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-
+using JaegerMeister.MvvmSample.Ui.Desktop;
 
 namespace Ui.Desktop
 {
@@ -22,11 +22,13 @@ namespace Ui.Desktop
         public MainWindow()
         {
             InitializeComponent();
+            Kalender kalender = new Kalender();
+            Contmain.Content = kalender;
         }
 
         private void btn_Kalender(object sender, RoutedEventArgs e)
         {
-
+                
         }
 
         private void btn_Termin(object sender, RoutedEventArgs e)
