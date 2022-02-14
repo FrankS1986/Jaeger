@@ -40,7 +40,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             SimpleIoc.Default.Register<Logic_Einladungsuebersicht>();
             SimpleIoc.Default.Register<Logic_Login>();
 
-            SimpleIoc.Default.Register<Logic_Sicherheitsfrage_zuruecksetzen>();
+            SimpleIoc.Default.Register<Logic_Sicherheitsfrage>();
             SimpleIoc.Default.Register<Logic_Abschussliste>();
 
             SimpleIoc.Default.Register<Logic_Registrierung>();
@@ -64,7 +64,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         public Logic_Registrierung logic_registrierung => ServiceLocator.Current.GetInstance<Logic_Registrierung>();
 
-        public Logic_Sicherheitsfrage_zuruecksetzen logic_sicherheitsfrage_zuruecksetzen => ServiceLocator.Current.GetInstance<Logic_Sicherheitsfrage_zuruecksetzen>();
+        public Logic_Sicherheitsfrage logic_sicherheitsfrage_zuruecksetzen => ServiceLocator.Current.GetInstance<Logic_Sicherheitsfrage>();
 
         public Logic_Jaeger_Informationen logic_jaeger_informationen => ServiceLocator.Current.GetInstance<Logic_Jaeger_Informationen>();
 
