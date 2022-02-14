@@ -6,53 +6,57 @@
         xmlns:local="clr-namespace:Ui.Desktop"
         mc:Ignorable="d"
         DataContext="{Binding Main, Source={StaticResource Locator}}"
-        Title="{Binding WindowTitel, Mode=OneWay}" Height="450" Width="800">
-    <DockPanel>
-        <Grid x:Name="masterGrid">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid DockPanel.Dock="Top" Grid.ColumnSpan="10" Grid.RowSpan="2" Background="Green">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Label Grid.ColumnSpan="10" Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Jägermeister - Das Tool für Termine und Treibjagden" FontSize="30" Foreground="White"/>
-            </Grid>
-        </Grid>
-    </DockPanel>
+        Title="{Binding WindowTitel, Mode=OneWay}" Height="660" Width="1100" MinHeight="660" MinWidth="1100" Background="#7F7C81" FontFamily="Gill Sans MT Regular">
+
+    <Grid x:Name="mainGrid" Background="#7F7C81" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"  />
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.RowSpan="4" Grid.ColumnSpan="14" Background="#4F772D">
+            <TextBlock Padding="10,10,10,10" >
+            <Image   Source="Logo.png" Width="110"  />
+            </TextBlock>
+        </StackPanel>
+        <Button HorizontalAlignment="Stretch" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" Content="Kalender"  BorderBrush="#230C0F" Background="White"  Height="30" FontSize="12" Click="btn_Kalender" FontFamily="Gill Sans MT" />
+        <Button HorizontalAlignment="Stretch" Grid.Column="3" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" Content="Termin" BorderBrush="#230C0F" Background="White" FontSize="12" Height="30" Click="btn_Termin" FontFamily="Gill Sans MT" ></Button>
+        <Button HorizontalAlignment="Stretch" Grid.Column="4" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" Content="Jägerliste"  BorderBrush="#230C0F" Background="White" Height="30" FontSize="12" Click="btn_Jaegerliste" FontFamily="Gill Sans MT" ></Button>
+        <Button HorizontalAlignment="Stretch" Grid.Column="5" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" Content="Abschlussliste" BorderBrush="#230C0F" Background="White" Height="30"  FontSize="12" Click="btn_Abschussliste" FontFamily="Gill Sans MT" ></Button>
+        <Button HorizontalAlignment="Stretch" Grid.Column="6" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" Content="Wildunfälle" BorderBrush="#230C0F" Background="White" Height="30" FontSize="12" Click="btn_Wildunfaelle" FontFamily="Gill Sans MT" ></Button>
+        <Button HorizontalAlignment="Stretch" Grid.Column="7" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" BorderBrush="#230C0F" Background="White" Height="30" FontSize="12" Click="btn_Einladungsuebersicht" FontFamily="Gill Sans MT" >
+            <TextBlock> Einladungs- <LineBreak/>übersicht</TextBlock>
+        </Button>
+        <Button HorizontalAlignment="Stretch" Grid.Column="8" Grid.Row="2" Grid.RowSpan="2" Margin="0,5"  BorderBrush="Black" Background="White" Height="30" FontSize="12" Click="btn_Dokumente" FontFamily="Gill Sans MT" >
+            <TextBlock> Dokumente- <LineBreak/>verwalten</TextBlock>
+        </Button>
+        <Button HorizontalAlignment="Stretch" Grid.Column="9" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" Content="Urkunde erstellen"  BorderBrush="#230C0F" Background="White" Height="30" FontSize="12" Click="btn_Urkundeerstellen" FontFamily="Gill Sans MT" ></Button>
+        <Button HorizontalAlignment="Stretch" Grid.Column="10" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" Content="Admin" BorderBrush="#230C0F" Background="White" Height="30" FontSize="12" Click="btn_Admin" FontFamily="Gill Sans MT" ></Button>
+        <Label Grid.Column="2" Grid.ColumnSpan="5" Grid.RowSpan="2" VerticalAlignment="Bottom"   Content="Kimme &amp; Korn GmbH" FontSize="32" Foreground="#E0CDA8" FontFamily="Gill Sans MT " FontWeight="Bold" Height="47"/>
+        <!--<ContentControl Height="360" Width="800" x:Name="Contmain" Grid.Column="1"  Grid.ColumnSpan="8" Grid.Row="5" Grid.RowSpan="6" Margin="36,0,37,18" > -->
+            <ContentControl x:Name="Contmain" Grid.Column="1"  Grid.ColumnSpan="10" Grid.Row="5" Grid.RowSpan="5"  >
+            </ContentControl>
+    </Grid>
 </Window>
