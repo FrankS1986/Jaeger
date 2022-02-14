@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
              mc:Ignorable="d" 
+             Height="360" Width="800"
              d:DesignHeight="360" d:DesignWidth="800"
               DataContext="{Binding logic_Termine, Source={StaticResource Locator}}"
              >
@@ -13,56 +14,59 @@
         <Grid >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition  Width="50"/>
                 <ColumnDefinition/>
-                <ColumnDefinition  Width="15"/>
+                <ColumnDefinition Width="15"/>
+                <ColumnDefinition />
+                <ColumnDefinition/>
+                <ColumnDefinition Width="15"/>
+                <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition Height="29"/>
             </Grid.RowDefinitions>
-            <StackPanel Grid.Column="1" VerticalAlignment="Center" Background="Transparent" Height="140">
+            <StackPanel Grid.Column="2" VerticalAlignment="Center" Background="Transparent" Height="140">
                 <Image Source="pfeillinks.png" Height="70" Margin="-63,0,-72,0" RenderTransformOrigin="0.493,0.757"  />
                 <Image  Height="70" Margin="-91,0,-82,0" Source="pfeilrechts.png"  />
             </StackPanel>
-            <StackPanel Grid.Row="0"  Background="White">
+            <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Background="White">
                 <Label Background="#4F772D"  Foreground="White" Height="40" >
                     <TextBlock Foreground="#E0CBA8" FontFamily="Gill Sans MT Bold" FontSize="22" TextAlignment="Center" Width="240" Height="35" >Personen</TextBlock>
                 </Label>
                 <ListBox FontSize="12" FontFamily="Gill sans MT Regular" ItemsSource="{Binding List_Personen }"  >
                 </ListBox>
             </StackPanel>
-            <StackPanel Grid.Row="1">
-                <Button FontSize="16" BorderBrush="#230C0F" Background="White" FontFamily="Gill Sans MT Regular" Command="{ Binding Btn_Hinzufuegen}" Height="30">hinzufügen</Button>
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
+                <Button Margin="2" FontSize="12" HorizontalAlignment="Stretch" BorderBrush="#230C0F" Background="White" FontFamily="Gill Sans MT Regular" Command="{ Binding Btn_Hinzufuegen}" Height="30">hinzufügen</Button>
             </StackPanel>
-            <StackPanel Grid.Row="1" Grid.Column="2">
-                <Button  FontSize="16" BorderBrush="#230C0F" Background="White" FontFamily="Gill Sans MT Regular" Command="{ Binding Btn_Entfernen}" Height="30">entfernen</Button>
+            <StackPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Margin="2">
+                <Button HorizontalAlignment="Stretch"  FontSize="12" BorderBrush="#230C0F" Background="White" FontFamily="Gill Sans MT Regular" Command="{ Binding Btn_Entfernen}" Height="30">entfernen</Button>
             </StackPanel>
             <StackPanel Grid.Column="2">
             </StackPanel>
-            <StackPanel  Grid.Column="4" Background="White" >
+            <StackPanel  Grid.Column="6" Grid.ColumnSpan="2" Background="White" >
                 <Label Background="#4F772D" Foreground="White" Height="40" >
                     <TextBlock  Foreground="#E0CBA8" FontFamily="Gill Sans MT Bold" FontSize="22" TextAlignment="Center"  Height="35" Width="235" >Termin erstellen</TextBlock>
                 </Label>
                 <Label></Label>
                 <Label></Label>
-                <Label FontSize="18" Margin="20,1" FontFamily="Gill Sans MT regular">Bezeichnung</Label>
-                <TextBox FontSize="12" Text="{Binding Txt_Bezeichnung}" Margin="20,1" FontFamily="Gill sans MT Regular"></TextBox>
-                <Label FontSize="18" Margin="20,1" FontFamily="Gill Sans MT Regular">Wo?</Label>
-                <TextBox FontSize="12" Text="{Binding Txt_Ort}" Margin="20,1" FontFamily="Gill sans MT Regular"></TextBox>
-                <Label FontSize="18" Margin="20,1" FontFamily="Gill Sans MT Regular">Datum</Label>
+                <Label FontSize="16" Margin="20,1" FontFamily="Gill Sans MT regular">Bezeichnung</Label>
+                <TextBox Height="25" FontSize="12" Text="{Binding Txt_Bezeichnung}" Margin="20,1" FontFamily="Gill sans MT Regular"></TextBox>
+                <Label FontSize="16" Margin="20,1" FontFamily="Gill Sans MT Regular">Wo?</Label>
+                <TextBox Height="25" FontSize="12" Text="{Binding Txt_Ort}" Margin="20,1" FontFamily="Gill sans MT Regular"></TextBox>
+                <Label FontSize="16" Margin="20,1" FontFamily="Gill Sans MT Regular">Datum</Label>
                 <DatePicker FontSize="12" Margin="20,1" SelectedDate="{Binding Datepicker_Datum}" FontFamily="Gill sans MT Regular"></DatePicker>
-                <Label FontSize="18" Margin="20,1" FontFamily="Gill Sans MT Regular">Uhrzeit</Label>
-                <TextBox FontSize="12" Margin="20,1" FontFamily="Gill Sans MT Regular" Text="{Binding Txt_Uhrzeit}"></TextBox>
+                <Label FontSize="16" Margin="20,1" FontFamily="Gill Sans MT Regular">Uhrzeit</Label>
+                <TextBox Height="25" FontSize="12" Margin="20,1" FontFamily="Gill Sans MT Regular" Text="{Binding Txt_Uhrzeit}"></TextBox>
             </StackPanel>
-            <StackPanel Grid.Row="1" Grid.Column="4">
-                <TextBlock HorizontalAlignment="Right">
-                    <Button Background="White" FontSize="16" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Margin="10,3,10,0" Height="30" Command="{Binding Btn_Abbruch}">Abbruch</Button>
-                    <Button Background="White" FontSize="16" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Height="30" Command="{Binding Btn_Bestaetigen}">Bestätigen</Button>
-                </TextBlock>
-            </StackPanel>
-            <StackPanel Grid.Column="2" Background="White">
+            
+                
+                    <Button Grid.Column="6" Grid.Row="4" Margin="2"  Background="White" FontSize="12" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Height="30" Command="{Binding Btn_Abbruch}">Abbruch</Button>
+            <Button Grid.Column="7" Grid.Row="4"  Margin="2" Background="White" FontSize="12" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Height="30" Command="{Binding Btn_Bestaetigen}">Bestätigen</Button>
+                
+            
+            <StackPanel Grid.Column="3" Grid.ColumnSpan="2" Background="White">
                 <Label Background="#4F772D" Foreground="White" Height="40" >
                     <TextBlock  Foreground="#E0CBA8" FontFamily="Gill sans MT Bold" FontSize="22" TextAlignment="Center" Width="235" Height="35" >Bereits eingladen</TextBlock>
                 </Label>
