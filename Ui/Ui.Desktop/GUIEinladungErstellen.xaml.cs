@@ -10,23 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
     /// <summary>
-    /// Interaktionslogik für Regestrierung.xaml
+    /// Interaktionslogik für GUIEinladungErstellen.xaml
     /// </summary>
-    public partial class Regestrierung : Window
+    public partial class GUIEinladungErstellen : UserControl
     {
-        public Regestrierung()
+        public GUIEinladungErstellen()
         {
             InitializeComponent();
-        }
-
-        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

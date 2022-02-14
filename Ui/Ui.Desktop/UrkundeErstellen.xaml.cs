@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
     /// <summary>
-    /// Interaktionslogik für Jäger_Informationen.xaml
+    /// Interaktionslogik für Urkunden_Erstellen.xaml
     /// </summary>
-    public partial class Jäger_Informationen : UserControl
+    public partial class Urkunden_Erstellen : UserControl
     {
-        public Jäger_Informationen()
+        public Urkunden_Erstellen()
         {
             InitializeComponent();
-        }
-
-        private void Jaeger_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

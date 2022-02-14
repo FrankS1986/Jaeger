@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
     /// <summary>
-    /// Interaktionslogik für Jäger_Bearbeiten.xaml
+    /// Interaktionslogik für Jaeger_Bearbeiten.xaml
     /// </summary>
-    public partial class Jäger_Bearbeiten : UserControl
+    public partial class Jaeger_Bearbeiten : UserControl
     {
-        public Jäger_Bearbeiten()
+        public Jaeger_Bearbeiten()
         {
             InitializeComponent();
         }

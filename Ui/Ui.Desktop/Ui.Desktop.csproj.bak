@@ -70,17 +70,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Admin.xaml.cs">
-      <DependentUpon>Admin.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Jäger_Bearbeiten.xaml.cs">
-      <DependentUpon>Jäger_Bearbeiten.xaml</DependentUpon>
     <Compile Include="Einladungsrueckmeldung.xaml.cs">
       <DependentUpon>Einladungsrueckmeldung.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI_AbschusslisteAktualisieren.xaml.cs">
       <DependentUpon>GUI_AbschusslisteAktualisieren.xaml</DependentUpon>
-	  </Compile>
     <Compile Include="PasswortErneuern.xaml.cs">
       <DependentUpon>PasswortErneuern.xaml</DependentUpon>
     </Compile>
@@ -115,11 +109,6 @@
       <DependentUpon>NeuesPasswort.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\SharedAssemblyInfo.cs" />
-    <Page Include="Admin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Jäger_Bearbeiten.xaml">
     <Page Include="Einladungsrueckmeldung.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
