@@ -1,3 +1,4 @@
+using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using System.ComponentModel;
 
@@ -9,15 +10,20 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
+        /// 
+        public string WindowTitle { get; private set; }
         public MainViewModel()
         {
+                              
             if (IsInDesignMode)
             {
-                WindowTitel = "JaegerMeister (Design)";
+                WindowTitle = "MvvSample (Designmode)";
+                
             }
             else
             {
-                WindowTitel = "Jaegermeister";
+                WindowTitle = "MvvSample";
+               
             }
         }
     }

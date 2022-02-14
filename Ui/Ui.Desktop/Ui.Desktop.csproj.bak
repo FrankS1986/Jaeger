@@ -223,7 +223,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Resource Include="Icons\HinzufügenIcon.png" />
+=======
+    <Resource Include="HinzufügenIcon.png" />
+>>>>>>> master
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
