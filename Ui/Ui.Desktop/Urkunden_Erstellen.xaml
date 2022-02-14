@@ -4,25 +4,29 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
-             mc:Ignorable="d" 
-             MinHeight="351" MinWidth="812" FontFamily="Gill Sans MT Regular">
+             mc:Ignorable="d"
+             DataContext="{Binding logic_urkunden_erstellen, Source={StaticResource Locator}}"
+             Height="360" MinHeight="360" Width="800" MinWidth="800" FontFamily="Gill Sans MT Regular">
     <ContentControl>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="375"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="225"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.ColumnSpan="2" Command="{Binding btn_Jaeger_bewegen}" Content="~>" Width="20" Height="20" Margin="0,0,0,150" />
-            <StackPanel>
-                <Label Content="Jäger" FontSize="22" FontFamily="Gill Sans MT Bold" MaxWidth="330" HorizontalContentAlignment="Center" Background="#4F772D" Foreground="#E0CBA8" Margin="10,10,10,0"/>
-                <ListBox MinHeight="320" MaxWidth="330" FontSize="16" DataContext="{Binding lb_JaegerListe}"/>
-            </StackPanel>
-            <StackPanel Grid.Column="2">
-                <Label Content="Jäger, die Urkunden erhalten" FontSize="22" FontFamily="Gill Sans MT Bold" Height="36" Width="330" HorizontalContentAlignment="Center" Background="#4F772D" Foreground="#E0CBA8" Margin="10,10,10,0"/>
-                <ListBox MinHeight="290" MaxWidth="330" FontSize="16" DataContext="{Binding lb_UrkundenErhalten}"/>
-                <Button Content="Abbrechen" Width="110" FontSize="16" Height="25" Command="{Binding btn_Abbrechen}" Margin="-110,10,0,0"/>
-                <Button Content="Urkunden erstellen" Width="150" FontSize="16" Height="25" Command="{Binding btn_Urkunden_erstellen}" Margin="180,-25,0,0"/>
-            </StackPanel>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="280"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Grid.Column="1" Grid.Row="1" Command="{Binding Btn_jaeger_bewegen}" Content="~>" Width="20" Height="20"/>
+            <Label Content="Jäger" FontSize="22" FontFamily="Gill Sans MT Bold" Height="40" MinHeight="40" Width="360" MinWidth="360" HorizontalContentAlignment="Center" Background="#4F772D" Foreground="#E0CBA8" Margin="10,0,0,0"/>
+            <DataGrid Grid.Row="1" Width="360" MinWidth="360" FontSize="16" DataContext="{Binding Dg_jaegerliste}"  Margin="10,0,0,0"/>
+            <Label Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="0" Content="Jäger, die Urkunden erhalten" FontSize="22" FontFamily="Gill Sans MT Bold" Height="40" MinHeight="40" Width="360" HorizontalContentAlignment="Center" Background="#4F772D" Foreground="#E0CBA8" Margin="0,0,10,0"/>
+            <DataGrid Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="1" Width="360" MinWidth="360" FontSize="16" DataContext="{Binding Dg_urkunden_erhalten}" Margin="0,0,10,0"/>
+            <Button Grid.Column="2" Grid.Row="2" Content="Abbrechen" HorizontalAlignment="Stretch" FontSize="12" Height="30" Command="{Binding Btn_abbrechen}" Margin="10,0,10,0"/>
+            <Button Grid.Column="3" Grid.Row="2" Content="Urkunden erstellen" HorizontalAlignment="Stretch" FontSize="12" Height="30" Command="{Binding Btn_urkunden_erstellen}" Margin="10,0,20,0"/>
         </Grid>
     </ContentControl>
 </UserControl>

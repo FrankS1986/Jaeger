@@ -31,9 +31,12 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<Logic_Urkunden_Erstellen>();
         }
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
+
+        public Logic_Urkunden_Erstellen logic_urkunden_erstellen => ServiceLocator.Current.GetInstance<Logic_Urkunden_Erstellen>();
 
         public static void Cleanup()
         {
