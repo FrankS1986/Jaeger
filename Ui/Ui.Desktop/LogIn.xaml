@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
         mc:Ignorable="d"
-        Title="LogIn" Height="350" Width="550">
-    <Grid Background="LightGray" >
+ DataContext="{Binding logic_login, Source={StaticResource Locator}}"
+        Title="Anmeldung" Height="450" Width="800">
+       
+    
+
+      
+    <Grid Background="#7F7C81" >
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition/>
@@ -33,6 +39,40 @@
             <Label Content="Anmeldung" FontSize="25" Foreground="White" Grid.RowSpan="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" ></Label>
 
         </Grid>
+
+
+
+        <Label Grid.Column="1" Grid.Row="2" Content="Benutzername*" FontSize="16" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Left" VerticalAlignment="Bottom"></Label>
+        <TextBox Text="{Binding tb_Benutzername}" Grid.Column="1" Grid.Row="3" Height="30" BorderBrush="#230C0F" HorizontalAlignment="Stretch" VerticalAlignment="Top" ></TextBox>
+       
+        <Label Grid.Row="3" Grid.Column="1"  Content="Passwort*" FontSize="16" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Left" VerticalAlignment="Bottom"></Label>
+        <StackPanel Grid.Row="4" Grid.Column="1">
+        
+        <PasswordBox x:Name="Passwort"   Height="30" BorderBrush="#230C0F" HorizontalAlignment="Stretch" VerticalAlignment="Top" ></PasswordBox>
+            <Button FontFamily="Gill Sans MT Regular" FontSize="12" Command="{Binding btn_Passwortvergessen}" HorizontalAlignment="Right" Background="Transparent">
+                <TextBlock  TextDecorations="Underline" Foreground="DarkBlue" Width="109" RenderTransformOrigin="0.652,0.464">Passwort vergessen?</TextBlock>
+            </Button>
+        </StackPanel>
+        <Grid Grid.Column="1" Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button HorizontalAlignment="Stretch" Grid.Column="1" BorderBrush="#230C0F" Background="White" VerticalAlignment="Top" Height="30" Margin ="5,5,5,5" Content="Abbruch" FontSize="12" FontFamily="Gill Sans MT Regular" Command="{Binding btn_Abbruch}" ></Button>
+        </Grid>
+        <Grid Grid.Column="2" Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" HorizontalAlignment="Stretch" BorderBrush="#230C0F" Background="White" VerticalAlignment="Top" Height="30" Margin="5,5,5,5" Content="Bestätigen" FontSize="12" FontFamily="Gill Sans MT Regular" Command="{Binding btn_Bestaetigen}"   ></Button>
+        </Grid>
+        <StackPanel VerticalAlignment="Bottom" Grid.Row="5">
+            <Label  HorizontalAlignment="Center" FontSize="16" FontFamily="Gill Sans MT Regular" >Noch kein Benutzer?</Label>
+        </StackPanel>
+        <StackPanel Grid.Row="6">
+        <Button Height="30" BorderBrush="#230C0F" Command="{Binding btn_Registrieren}" HorizontalAlignment="Stretch" Background="White" FontSize="12" FontFamily="Gill Sans MT Regular" Margin="5,5,5,5">Registrieren</Button>
+        </StackPanel>
 
     </Grid>
 </Window>

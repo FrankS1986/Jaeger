@@ -10,7 +10,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
     {
         
        private  List<Jaeger> _listboxJaeger;
-       public List<Jaeger> listboxJaeger
+       public List<Jaeger> ListboxJaeger
 
         { 
         
@@ -28,7 +28,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         }
 
         private List<Jaeger> _listboxTermine;
-        public List<Jaeger> listboxTermine
+        public List<Jaeger> ListboxTermine
 
         {
 
@@ -47,7 +47,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
 
         private List<Tierart> _comboBoxTierart;
-        public List<Tierart> comboBoxTierart
+        public List<Tierart> ComboBoxTierart
 
         {
             get
@@ -63,7 +63,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         }
 
         private string _textboxAbschuesse;
-        public string textboxAbschuesse
+        public string TextboxAbschuesse
 
         {
             get
@@ -81,7 +81,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
 
         private ICommand _btn_AbschusslisteAkualisieren;
-        public ICommand btn_AbschusslisteAkualisiere
+        public ICommand Btn_AbschusslisteAkualisieren
         {
             get
             {
