@@ -30,6 +30,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<Logic_Admin>();
+            SimpleIoc.Default.Register<Logic_Termine>();
             SimpleIoc.Default.Register<Logic_Abschussliste>();
             SimpleIoc.Default.Register<Logic_Wildunfaelle>();
             SimpleIoc.Default.Register<Logic_PasswortErneuern>();
@@ -56,6 +57,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
         public Logic_Admin AdminFunktion => ServiceLocator.Current.GetInstance<Logic_Admin>();
+        public Logic_Termine logic_Termine => ServiceLocator.Current.GetInstance<Logic_Termine>();
         public Logic_Abschussliste logic_abschussliste => ServiceLocator.Current.GetInstance<Logic_Abschussliste>();
         
         public Logic_Wildunfaelle logic_wildunfaelle => ServiceLocator.Current.GetInstance<Logic_Wildunfaelle>();

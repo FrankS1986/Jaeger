@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Logic_Admin.cs" />
+    <Compile Include="Logic_Termine.cs" />
     <Compile Include="Logic_Wildunfaelle.cs" />
     <Compile Include="Logic_PasswortErneuern.cs" />
     <Compile Include="Logic_Jaeger_Bearbeiten.cs" />
