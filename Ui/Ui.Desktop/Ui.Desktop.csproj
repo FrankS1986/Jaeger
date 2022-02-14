@@ -35,8 +35,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CommonServiceLocator.2.0.2\lib\net47\CommonServiceLocator.dll</HintPath>
+    <Reference Include="CommonServiceLocator, Version=2.0.6.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CommonServiceLocator.2.0.6\lib\net47\CommonServiceLocator.dll</HintPath>
     </Reference>
     <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>..\..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
@@ -72,6 +72,17 @@
     </ApplicationDefinition>
     <Compile Include="Jaeger_Bearbeiten.xaml.cs">
       <DependentUpon>Jaeger_Bearbeiten.xaml</DependentUpon>
+    <Compile Include="GUIEinladungErstellen.xaml.cs">
+      <DependentUpon>GUIEinladungErstellen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUIEinladungsuebersicht.xaml.cs">
+      <DependentUpon>GUIEinladungsuebersicht.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_AbschusslisteAktualisieren.xaml.cs">
+      <DependentUpon>GUI_AbschusslisteAktualisieren.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Jäger_Bearbeiten.xaml.cs">
+      <DependentUpon>Jäger_Bearbeiten.xaml</DependentUpon>
     </Compile>
     <Compile Include="Jaeger_Hinzufuegen.xaml.cs">
       <DependentUpon>Jaeger_Hinzufuegen.xaml</DependentUpon>
@@ -79,11 +90,30 @@
     <Compile Include="Jaeger_Informationen.xaml.cs">
       <DependentUpon>Jaeger_Informationen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LogIn.xaml.cs">
-      <DependentUpon>LogIn.xaml</DependentUpon>
+    <Compile Include="Kalender.xaml.cs">
+      <DependentUpon>Kalender.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NeuesPasswort.xaml.cs">
+      <DependentUpon>NeuesPasswort.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\SharedAssemblyInfo.cs" />
     <Page Include="Jaeger_Bearbeiten.xaml">
+    <Page Include="GUIEinladungErstellen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUIEinladungsuebersicht.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI_AbschusslisteAktualisieren.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Jäger_Bearbeiten.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -95,7 +125,20 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LogIn.xaml">
+    <Page Include="Kalender.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="Regestrierung.xaml.cs">
+      <DependentUpon>Regestrierung.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UrkundeErstellen.xaml.cs">
+      <DependentUpon>UrkundeErstellen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sicherheitsfrage_zuruecksetzen.xaml.cs">
+      <DependentUpon>Sicherheitsfrage_zuruecksetzen.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -111,6 +154,22 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NeuesPasswort.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Regestrierung.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UrkundeErstellen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sicherheitsfrage_zuruecksetzen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
