@@ -56,7 +56,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             set
             {
                 _cb_sicherheitsfrage = value;
-                RaisePropertyChanged("");
+                RaisePropertyChanged("cb_sicherheitsfrage");
             }
         }
 
@@ -71,7 +71,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             set
             {
                 _tb_antwort = value;
-                RaisePropertyChanged("");
+                RaisePropertyChanged("tb_antwort");
             }
         }
     }
