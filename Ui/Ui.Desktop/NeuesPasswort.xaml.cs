@@ -10,22 +10,26 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
     /// <summary>
-    /// Interaktionslogik für GUI_Abschussliste.xaml
+    /// Interaktionslogik für NeuesPasswort.xaml
     /// </summary>
-    public partial class GUI_Abschussliste : UserControl
+    public partial class NeuesPasswort : Window
     {
-        public GUI_Abschussliste()
+        public NeuesPasswort()
         {
             InitializeComponent();
         }
 
-        private void Jaeger_Click(object sender, RoutedEventArgs e)
+        private void neuespasswort_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void passwortbestaetigen_PasswordChanged(object sender, RoutedEventArgs e)
         {
 
         }

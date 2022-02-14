@@ -6,69 +6,57 @@
         xmlns:local="clr-namespace:Ui.Desktop"
         mc:Ignorable="d"
         DataContext="{Binding Main, Source={StaticResource Locator}}"
-        Title="{Binding WindowTitel, Mode=OneWay}" MaxHeight="560" MaxWidth="1100" Background="#7F7C81" FontFamily="Gill Sans MT Regular">
-    <DockPanel>
-        <Grid x:Name="mainGrid" Background="#7F7C81" >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="82"/>
-                <ColumnDefinition Width="81*"/>
-                <ColumnDefinition Width="81*"/>
-                <ColumnDefinition Width="82*"/>
-                <ColumnDefinition Width="81*"/>
-                <ColumnDefinition Width="81*"/>
-                <ColumnDefinition Width="81*"/>
-                <ColumnDefinition Width="81*"/>
-                <ColumnDefinition Width="81*"/>
-                <ColumnDefinition Width="81*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="44*"/>
-                <RowDefinition Height="44*"/>
-                <RowDefinition Height="44"/>
-                <RowDefinition Height="44*"/>
-                <RowDefinition Height="44*"/>
-                <RowDefinition Height="44*"/>
-                <RowDefinition Height="44*"/>
-                <RowDefinition Height="44*"/>
-                <RowDefinition Height="44*"/>
-                <RowDefinition Height="43*"/>
-            </Grid.RowDefinitions>
-            <Grid DockPanel.Dock="Top" Grid.ColumnSpan="10" Grid.RowSpan="3" Background="#4F772D">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="82*" />
-                    <ColumnDefinition Width="81*" />
-                    <ColumnDefinition Width="135*" />
-                    <ColumnDefinition Width="100*" />
-                    <ColumnDefinition Width="99*" />
-                    <ColumnDefinition Width="99*" />
-                    <ColumnDefinition Width="99*" />
-                    <ColumnDefinition Width="99*" />
-                    <ColumnDefinition Width="99*" />
-                    <ColumnDefinition Width="99*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition Height="28"/>
-                    <RowDefinition Height="18"/>
-                    <RowDefinition Height="16"/>
-                </Grid.RowDefinitions>
-                
-                <Label Grid.Column="2" Grid.ColumnSpan="6" Grid.RowSpan="1" VerticalAlignment="Bottom" Margin="5,0,0,0"  Content="Kimme &amp; Korn Corporate Identity" FontSize="32" Foreground="#E0CDA8" FontFamily="Gill Sans MT " FontWeight="Bold" Height="47"/>
-                <Image Grid.RowSpan="3" Grid.ColumnSpan="2" HorizontalAlignment="Left" Source="Logo.png" Width="134" Margin="10,4,0,0" />
-                <WrapPanel Grid.Row="2" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="8" HorizontalAlignment="Left" Width="805"  >
-                    <Button Content="Kalender" Margin="10,0,0,0" BorderBrush="#230C0F" Background="White" Width="60" Height="25" FontSize="12" Click="btn_Kalender" FontFamily="Gill Sans MT" />
-                    <Button Content="Termin" BorderBrush="#230C0F" Background="White" Width="50" FontSize="12" Click="btn_Termin" FontFamily="Gill Sans MT" ></Button>
-                    <Button Content="Jägerliste"  BorderBrush="#230C0F" Background="White" Width="70" FontSize="12" Click="btn_Jaegerliste" FontFamily="Gill Sans MT" ></Button>
-                    <Button Content="Abschlussliste" BorderBrush="#230C0F" Background="White" Width="95" FontSize="12" Click="btn_Abschussliste" FontFamily="Gill Sans MT" ></Button>
-                    <Button Content="Wildunfälle" BorderBrush="#230C0F" Background="White" Width="80" FontSize="12" Click="btn_Wildunfaelle" FontFamily="Gill Sans MT" ></Button>
-                    <Button Content="Einladungsübersicht" BorderBrush="#230C0F" Background="White" Width="130" FontSize="12" Click="btn_Einladungsuebersicht" FontFamily="Gill Sans MT" ></Button>
-                    <Button Content="Dokumente verwalten" BorderBrush="Black" Background="White" Width="140" FontSize="12" Click="btn_Dokumente" FontFamily="Gill Sans MT" ></Button>
-                    <Button Content="Urkunde erstellen"  BorderBrush="#230C0F" Background="White" Width="120" FontSize="12" Click="btn_Urkundeerstellen" FontFamily="Gill Sans MT" ></Button>
-                    <Button Content="Admin" BorderBrush="#230C0F" Background="White" Width="50" FontSize="12" Click="btn_Admin" FontFamily="Gill Sans MT" ></Button>
-                </WrapPanel>
-            </Grid>
-            <ContentControl  Grid.ColumnSpan="10" Grid.Row="3" Grid.RowSpan="10" >
+        Title="{Binding WindowTitel, Mode=OneWay}" Height="660" Width="1100" MinHeight="660" MinWidth="1100" Background="#7F7C81" FontFamily="Gill Sans MT Regular">
+
+    <Grid x:Name="mainGrid" Background="#7F7C81" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"  />
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.RowSpan="4" Grid.ColumnSpan="14" Background="#4F772D">
+            <TextBlock Padding="10,10,10,10" >
+            <Image   Source="Logo.png" Width="110"  />
+            </TextBlock>
+        </StackPanel>
+        <Button HorizontalAlignment="Stretch" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" Content="Kalender"  BorderBrush="#230C0F" Background="White"  Height="30" FontSize="12" Click="btn_Kalender" FontFamily="Gill Sans MT" />
+        <Button HorizontalAlignment="Stretch" Grid.Column="3" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" Content="Termin" BorderBrush="#230C0F" Background="White" FontSize="12" Height="30" Click="btn_Termin" FontFamily="Gill Sans MT" ></Button>
+        <Button HorizontalAlignment="Stretch" Grid.Column="4" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" Content="Jägerliste"  BorderBrush="#230C0F" Background="White" Height="30" FontSize="12" Click="btn_Jaegerliste" FontFamily="Gill Sans MT" ></Button>
+        <Button HorizontalAlignment="Stretch" Grid.Column="5" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" Content="Abschlussliste" BorderBrush="#230C0F" Background="White" Height="30"  FontSize="12" Click="btn_Abschussliste" FontFamily="Gill Sans MT" ></Button>
+        <Button HorizontalAlignment="Stretch" Grid.Column="6" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" Content="Wildunfälle" BorderBrush="#230C0F" Background="White" Height="30" FontSize="12" Click="btn_Wildunfaelle" FontFamily="Gill Sans MT" ></Button>
+        <Button HorizontalAlignment="Stretch" Grid.Column="7" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" BorderBrush="#230C0F" Background="White" Height="30" FontSize="12" Click="btn_Einladungsuebersicht" FontFamily="Gill Sans MT" >
+            <TextBlock> Einladungs- <LineBreak/>übersicht</TextBlock>
+        </Button>
+        <Button HorizontalAlignment="Stretch" Grid.Column="8" Grid.Row="2" Grid.RowSpan="2" Margin="0,5"  BorderBrush="Black" Background="White" Height="30" FontSize="12" Click="btn_Dokumente" FontFamily="Gill Sans MT" >
+            <TextBlock> Dokumente- <LineBreak/>verwalten</TextBlock>
+        </Button>
+        <Button HorizontalAlignment="Stretch" Grid.Column="9" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" Content="Urkunde erstellen"  BorderBrush="#230C0F" Background="White" Height="30" FontSize="12" Click="btn_Urkundeerstellen" FontFamily="Gill Sans MT" ></Button>
+        <Button HorizontalAlignment="Stretch" Grid.Column="10" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" Content="Admin" BorderBrush="#230C0F" Background="White" Height="30" FontSize="12" Click="btn_Admin" FontFamily="Gill Sans MT" ></Button>
+        <Label Grid.Column="2" Grid.ColumnSpan="5" Grid.RowSpan="2" VerticalAlignment="Bottom"   Content="Kimme &amp; Korn GmbH" FontSize="32" Foreground="#E0CDA8" FontFamily="Gill Sans MT " FontWeight="Bold" Height="47"/>
+        <!--<ContentControl Height="360" Width="800" x:Name="Contmain" Grid.Column="1"  Grid.ColumnSpan="8" Grid.Row="5" Grid.RowSpan="6" Margin="36,0,37,18" > -->
+            <ContentControl x:Name="Contmain" Grid.Column="1"  Grid.ColumnSpan="10" Grid.Row="5" Grid.RowSpan="5"  >
             </ContentControl>
-        </Grid>
-    </DockPanel>
+    </Grid>
 </Window>
