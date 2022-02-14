@@ -56,7 +56,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Logic_Abschussliste.cs" />
     <Compile Include="Logic_Wildunfaelle.cs" />
     <Compile Include="Logic_PasswortErneuern.cs" />
     <Compile Include="Logic_Jaeger_Bearbeiten.cs" />

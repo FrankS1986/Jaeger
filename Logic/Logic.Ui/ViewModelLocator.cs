@@ -54,14 +54,14 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
         public Logic_Abschussliste logic_abschussliste => ServiceLocator.Current.GetInstance<Logic_Abschussliste>();
-          public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
+        
         public Logic_Wildunfaelle logic_wildunfaelle => ServiceLocator.Current.GetInstance<Logic_Wildunfaelle>();
         
         public Logic_PasswortErneuern logic_passwortErneuern => ServiceLocator.Current.GetInstance<Logic_PasswortErneuern>();
         public MainViewModel Logic_EinladungErstellen => ServiceLocator.Current.GetInstance<MainViewModel>();
         public MainViewModel Logic_Einladungsuebersicht => ServiceLocator.Current.GetInstance<MainViewModel>();
         public Logic_Login logic_login => ServiceLocator.Current.GetInstance<Logic_Login>();
-        public Logic_Abschussliste logic_abschussliste => ServiceLocator.Current.GetInstance<Logic_Abschussliste>();
+       
         public Logic_AbschusslisteAktualisieren logic_AbschusslisteAktualisieren => ServiceLocator.Current.GetInstance<Logic_AbschusslisteAktualisieren>();
         public UrkundeErstellenViewModel UrkundeErstellen => ServiceLocator.Current.GetInstance<UrkundeErstellenViewModel>();
         public Logic_PasswortAendern logic_passwortAendern => ServiceLocator.Current.GetInstance<Logic_PasswortAendern>();
