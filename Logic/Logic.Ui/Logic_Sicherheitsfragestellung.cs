@@ -1,16 +1,13 @@
-﻿using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
-using System;
+﻿using System;
+using GalaSoft.MvvmLight;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
+using GalaSoft.MvvmLight.Command;
+using System.ComponentModel;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
-    public class Logic_Sicherheitsfrage : ViewModelBase, INotifyPropertyChanged
+    public class Logic_Sicherheitsfragestellung : ViewModelBase, INotifyPropertyChanged
     {
         private ICommand _btn_bestaetigen;
 
@@ -18,11 +15,11 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         {
             get
             {
-                if(_btn_bestaetigen==null)
+                if (_btn_bestaetigen == null)
                 {
                     _btn_bestaetigen = new RelayCommand(() =>
                     {
-                        Logic_Sicherheitsfrage logic = new Logic_Sicherheitsfrage();
+                        Logic_Sicherheitsfragestellung logic = new Logic_Sicherheitsfragestellung();
                     });
                 }
                 return _btn_bestaetigen;
@@ -38,25 +35,25 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_abbrechen = new RelayCommand(() =>
                     {
-                        Logic_Sicherheitsfrage logic = new Logic_Sicherheitsfrage();
+                       Logic_Sicherheitsfragestellung logic = new Logic_Sicherheitsfragestellung();
                     });
                 }
                 return _btn_abbrechen;
             }
         }
 
-        private string _cb_sicherheitsfrage;
+        private string _lb_sicherheitsfrage;
 
-        public string cb_sicherheitsfrage
+        public string lb_sicherheitsfrage
         {
             get
             {
-                return _cb_sicherheitsfrage;
+                return _lb_sicherheitsfrage;
             }
             set
             {
-                _cb_sicherheitsfrage = value;
-                RaisePropertyChanged("cb_sicherheitsfrage");
+                _lb_sicherheitsfrage = value;
+                RaisePropertyChanged("");
             }
         }
 
@@ -71,8 +68,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             set
             {
                 _tb_antwort = value;
-                RaisePropertyChanged("tb_antwort");
+                RaisePropertyChanged("");
             }
         }
+
     }
 }
