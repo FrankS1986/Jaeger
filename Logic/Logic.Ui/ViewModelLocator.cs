@@ -56,6 +56,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             SimpleIoc.Default.Register<Logic_Einladungsrueckmeldung>();
             SimpleIoc.Default.Register<Logic_PasswortAendern>();
             SimpleIoc.Default.Register<Logic_NeuesPasswort>();
+            SimpleIoc.Default.Register<Logic_Sicherheitsfragestellung>();
+
+            
         }
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
@@ -90,6 +93,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         public Logic_Jaeger_Bearbeiten logic_jaeger_bearbeiten => ServiceLocator.Current.GetInstance<Logic_Jaeger_Bearbeiten>();
 
         public Logic_Einladungsrueckmeldung Einladungsrueckmeldung => ServiceLocator.Current.GetInstance<Logic_Einladungsrueckmeldung>();
+        public Logic_Sicherheitsfragestellung logic_sicherheitsfrage_fragestellung => ServiceLocator.Current.GetInstance<Logic_Sicherheitsfragestellung>();
         public static void Cleanup()
         {
             
