@@ -1,0 +1,78 @@
+﻿<UserControl x:Class="JaegerMeister.MvvmSample.Ui.Desktop.GUI_AbschusslisteAktualisieren"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
+             mc:Ignorable="d" 
+             d:DesignHeight="360" d:DesignWidth="800"
+                DataContext="{Binding logic_AbschusslisteAktualisieren, Source={StaticResource Locator}}"
+             >
+    <ContentControl x:Name="abschusslisteAktualisieren" >
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="250"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.ColumnSpan="4" Background="#4F772D" Height="40">
+
+                <Label>
+                    <TextBlock TextAlignment="Center" FontSize="22" FontFamily="Gill Sans MT Bold" Foreground="#E0CBA8" Width="790">Abschussliste</TextBlock>
+                </Label>
+            </StackPanel>
+            <StackPanel Grid.Row="1"  Background="White">
+                <Label>
+                    <TextBlock TextAlignment="Center" FontSize="22" FontFamily="Gill Sans MT Bold" Width="174" >Termine</TextBlock>
+                </Label>
+
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="1" Background="White" >
+                <Label>
+                    <TextBlock TextAlignment="Center" FontSize="22" FontFamily="Gill Sans MT Bold" Width="174" >Jäger</TextBlock>
+                </Label>
+
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="2" Background="White" >
+                <Label>
+                    <TextBlock TextAlignment="Center" FontSize="22" FontFamily="Gill Sans MT Bold" Width="173" >Tierart</TextBlock>
+                </Label>
+
+            </StackPanel>
+            
+            <StackPanel Grid.Row="1" Grid.Column="3" Background="White" >
+                <Label>
+                    <TextBlock TextAlignment="Center" FontSize="22" FontFamily="Gill Sans MT Bold" Width="240" >Abschüsse hinzufügen</TextBlock>
+                </Label>
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" >
+                <ListBox FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding ListboxJaeger}" Height="280"></ListBox>
+            </StackPanel>
+            
+            <StackPanel Grid.Row="2" Grid.RowSpan="2"  >
+                <ListBox FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding ListboxTermine}" Height="280"></ListBox>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Grid.RowSpan="2" Grid.Column="2" Background="White" >
+                <ComboBox FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding ComboBoxTierart}" Margin="5,5"></ComboBox>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Grid.RowSpan="1" Grid.Column="3" Background="White" >
+                <TextBox FontSize="12" Height="20" FontFamily="Gill Sans MT Regular" Text="{Binding TextboxAbschuesse}" Margin="5,5"></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Row="3"  Grid.Column="3" Background="White" >
+                <Button Command="{Binding Btn_AbschusslisteAkualisieren}" FontSize="12" BorderBrush="#230C0F" Background="White" HorizontalAlignment="Stretch" Margin="0,10" Height="30">Abschussliste aktualisieren</Button>
+            </StackPanel>
+        </Grid>
+    </ContentControl>
+</UserControl>
