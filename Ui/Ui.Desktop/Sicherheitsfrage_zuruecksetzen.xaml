@@ -23,16 +23,15 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label> </Label>
         <!--<Label Content="Termine" Foreground="#E0CBA8" FontSize="22" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Center" VerticalAlignment="Center" ></Label>-->
         <Label VerticalAlignment="Stretch" Grid.ColumnSpan="4" Content="" HorizontalContentAlignment="Center" Background="#4F772D" FontFamily="Gill Sans MT Bold" FontSize="32"/>
         <Label VerticalAlignment="Center" Grid.ColumnSpan="4" Content="Sicherheitsfrage erneuern" HorizontalContentAlignment="Center" Background="#4F772D" Foreground="#E0CBA8" FontFamily="Gill Sans MT Bold" FontSize="32"/>
         <Label VerticalAlignment="Center" Content="Frage auswählen" HorizontalContentAlignment="Center"  FontFamily="Gill Sans MT Bold" FontSize="16" Grid.Row="1" Grid.Column="1"/>
         <Label VerticalAlignment="Center" Content="Antwort eingeben" HorizontalContentAlignment="Center"  FontFamily="Gill Sans MT Bold" FontSize="16" Grid.Row="2" Grid.Column="1"/>
-        <ComboBox Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" DataContext="{Binding Cb_sicherheitsfrage}" FontSize="12" Height="25" />
-        <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Tb_antwort}" FontSize="12" Height="25" HorizontalAlignment="Stretch"/>
+        <ComboBox Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" DataContext="{Binding cb_sicherheitsfrage}" FontSize="12" Height="25" />
+        <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding tb_antwort}" FontSize="12" Height="25" HorizontalAlignment="Stretch"/>
 
-        <Button Height="25" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Stretch" Content="Bestätigen" Command="{Binding Btn_bestaetigen}" FontSize="12" Margin="5,5,5,5"/>
-        <Button Height="25" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Stretch" Content="Abbruch" Command="{Binding Btn_abbrechen}" FontSize="12" Margin="5,5,5,5"/>
+        <Button Height="25" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Stretch" Content="Bestätigen" Background="White" BorderBrush="#230C0F" Command="{Binding btn_bestaetigen}" FontSize="12" Margin="5,5,5,5"/>
+        <Button Height="25" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Stretch" Content="Abbruch" Background="White" BorderBrush="#230C0F" Command="{Binding btn_abbrechen}" FontSize="12" Margin="5,5,5,5"/>
     </Grid>
 </Page>
