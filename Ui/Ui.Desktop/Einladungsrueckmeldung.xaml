@@ -6,77 +6,36 @@
              xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
              mc:Ignorable="d" 
              DataContext="{Binding logic_Einladungsruemeldung, Source={StaticResource Locator}}"
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="360" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="180"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="180"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="0"/>
+            <ColumnDefinition Width="210"/>
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="15"/>
             <ColumnDefinition/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="0"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="320"/>
-            <RowDefinition Height="10"/>
-            <RowDefinition/>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="280"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="1" x:Name="grid_Termine" Background="#4F772D">
+        <Grid Grid.ColumnSpan="1" Grid.Column="1" x:Name="grid_Termine" Background="#4F772D"  Grid.RowSpan="2">
             <Label Content="Termine" Foreground="#E0CBA8" FontSize="22" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Center" VerticalAlignment="Center" ></Label>
         </Grid>
-        <Grid x:Name="liB_Termine" Grid.Row="2" Grid.Column="1">
-            <ListBox>
-
-
-            </ListBox>
-        </Grid>
-        <Grid Grid.Row="2" Grid.Column="5">
-            <ScrollBar/>
-        </Grid>
-
-
-
-        <Grid Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="4" x:Name="grid_Rueckmeldungen" Background="#4F772D">
+        <ListBox Grid.Column="1" Grid.Row="2" DataContext="{Binding lbox_termine}" ></ListBox>
+        <Grid Grid.Row="1" Grid.Column="3" x:Name="grid_Rueckmeldungen" Background="#4F772D">
             <Label Content="Rückmeldungen" Foreground="#E0CBA8" FontSize="22" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Center" VerticalAlignment="Center" ></Label>
         </Grid>
-        <Grid x:Name="liB_Rückmeldungen" Grid.Row="2" Grid.Column="4">
-            <ListBox>
-
-
-            </ListBox>
-        </Grid>
-        <Grid Grid.Row="2" Grid.Column="2">
-            <ScrollBar/>
-        </Grid>
-
-
-
-
-        <Grid Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="7" x:Name="Grid_EingeladenePersonen" Background="#4F772D">
+        <ListBox Grid.Column="3" Grid.Row="2" DataContext="{Binding lbox_rueckmeldung}" ></ListBox>
+        <Grid Grid.Row="1" Grid.Column="5" x:Name="Grid_EingeladenePersonen" Background="#4F772D">
             <Label Content="Eingeladene Personen" Foreground="#E0CBA8" FontSize="22" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Center" VerticalAlignment="Center" ></Label>
         </Grid>
-        <Grid x:Name="liB_EingeladenePersonen" Grid.Row="2" Grid.Column="7">
-          
-            <DataGrid>
-
-                
-            </DataGrid>
-        </Grid>
-        <Grid Grid.Row="2" Grid.Column="8">
-            <ScrollBar/>
-        </Grid>
-        <Grid x:Name="grid_Buttons" Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="2">
-            <Button x:Name="btn_Einladungsrueckmeldungaktualisieren" Content="Aktualisieren" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,7,10,13" Width="116" Height="30" Command="{Binding btn_Einladungsrueckmeldung_Aktualisieren}"/>
-            <Button x:Name="btn_EinladungsrueckmeldungAbbrechen" Content="Abbrechen" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,7,156,13" Width="116" Height="30" Command="{Binding btn_Einladungsrueckmeldung_Abbrechen}"/>
-        </Grid>
-        
+        <DataGrid Grid.Column="5" Grid.Row="2" DataContext="{Binding dg_eingeladenePersonen}"></DataGrid>
+        <Button x:Name="btn_Einladungsrueckmeldungaktualisieren" Grid.Row="3" Grid.Column="5" Background="White" BorderBrush="#230C0F" Content="Aktualisieren" HorizontalAlignment="Left" VerticalAlignment="Stretch"  Height="30" Command="{Binding btn_EinladungsrueckmeldungAktualisieren}"/>
+        <Button x:Name="btn_EinladungsrueckmeldungAbbrechen" Grid.Row="3" Grid.Column="5" Background="White" BorderBrush="#230C0F" Content="Abbrechen" HorizontalAlignment="Right" VerticalAlignment="Stretch"   Height="30" Command="{Binding btn_EinladungsrueckmeldungAbbrechen}"/>
     </Grid>
-
-
 </UserControl>
