@@ -29,6 +29,14 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
+
+            SimpleIoc.Default.Register<Logic_Jaeger_Informationen>();
+
+            SimpleIoc.Default.Register<Logic_Jaeger_Hinzufuegen>();
+
+            SimpleIoc.Default.Register<Logic_Jaeger_Bearbeiten>();
+            SimpleIoc.Default.Register<Logic_EinladungErstellen>();
+            SimpleIoc.Default.Register<Logic_Einladungsuebersicht>();
             SimpleIoc.Default.Register<Logic_Login>();
 
             SimpleIoc.Default.Register<Logic_Sicherheitsfrage_zuruecksetzen>();
@@ -42,6 +50,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         }
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
+        public MainViewModel Logic_EinladungErstellen => ServiceLocator.Current.GetInstance<MainViewModel>();
+        public MainViewModel Logic_Einladungsuebersicht => ServiceLocator.Current.GetInstance<MainViewModel>();
         public Logic_Login logic_login => ServiceLocator.Current.GetInstance<Logic_Login>();
         public Logic_Abschussliste logic_abschussliste => ServiceLocator.Current.GetInstance<Logic_Abschussliste>();
         public Logic_AbschusslisteAktualisieren logic_AbschusslisteAktualisieren => ServiceLocator.Current.GetInstance<Logic_AbschusslisteAktualisieren>();
@@ -53,6 +63,12 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         public Logic_Registrierung logic_registrierung => ServiceLocator.Current.GetInstance<Logic_Registrierung>();
 
         public Logic_Sicherheitsfrage_zuruecksetzen logic_sicherheitsfrage_zuruecksetzen => ServiceLocator.Current.GetInstance<Logic_Sicherheitsfrage_zuruecksetzen>();
+
+        public Logic_Jaeger_Informationen logic_jaeger_informationen => ServiceLocator.Current.GetInstance<Logic_Jaeger_Informationen>();
+
+        public Logic_Jaeger_Hinzufuegen logic_jaeger_hinzufuegen => ServiceLocator.Current.GetInstance<Logic_Jaeger_Hinzufuegen>();
+
+        public Logic_Jaeger_Bearbeiten logic_jaeger_bearbeiten => ServiceLocator.Current.GetInstance<Logic_Jaeger_Bearbeiten>();
 
         public static void Cleanup()
         {

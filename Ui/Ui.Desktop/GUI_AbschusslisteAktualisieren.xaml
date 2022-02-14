@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
+             d:DesignHeight="360" d:DesignWidth="800"
                 DataContext="{Binding logic_AbschusslisteAktualisieren, Source={StaticResource Locator}}"
              >
     <ContentControl x:Name="abschusslisteAktualisieren" >
@@ -23,55 +23,55 @@
                 <RowDefinition Height="70"/>
             </Grid.RowDefinitions>
 
-            <StackPanel Grid.ColumnSpan="4" Background="#4F772D">
+            <StackPanel Grid.ColumnSpan="4" Background="#4F772D" Height="40">
 
                 <Label>
-                    <TextBlock TextAlignment="Center" FontSize=" 22" FontFamily="Gill Sans MT Bold" Foreground="#E0CBA8" Width="790">Abschussliste</TextBlock>
+                    <TextBlock TextAlignment="Center" FontSize="22" FontFamily="Gill Sans MT Bold" Foreground="#E0CBA8" Width="790">Abschussliste</TextBlock>
                 </Label>
             </StackPanel>
-            <StackPanel Grid.Row="1"  Background="White" >
+            <StackPanel Grid.Row="1"  Background="White">
                 <Label>
-                    <TextBlock TextAlignment="Center" FontSize=" 22" FontFamily="Gill Sans MT Bold" Width="174" >Termine</TextBlock>
+                    <TextBlock TextAlignment="Center" FontSize="22" FontFamily="Gill Sans MT Bold" Width="174" >Termine</TextBlock>
                 </Label>
 
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="1" Background="White" >
                 <Label>
-                    <TextBlock TextAlignment="Center" FontSize=" 22" FontFamily="Gill Sans MT Bold" Width="174" >Jäger</TextBlock>
+                    <TextBlock TextAlignment="Center" FontSize="22" FontFamily="Gill Sans MT Bold" Width="174" >Jäger</TextBlock>
                 </Label>
 
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="2" Background="White" >
                 <Label>
-                    <TextBlock TextAlignment="Center" FontSize=" 22" FontFamily="Gill Sans MT Bold" Width="173" >Tierart</TextBlock>
+                    <TextBlock TextAlignment="Center" FontSize="22" FontFamily="Gill Sans MT Bold" Width="173" >Tierart</TextBlock>
                 </Label>
 
             </StackPanel>
             
             <StackPanel Grid.Row="1" Grid.Column="3" Background="White" >
                 <Label>
-                    <TextBlock TextAlignment="Center" FontSize=" 22" FontFamily="Gill Sans MT Bold" Width="240" >Abschüsse hinzufügen</TextBlock>
+                    <TextBlock TextAlignment="Center" FontSize="22" FontFamily="Gill Sans MT Bold" Width="240" >Abschüsse hinzufügen</TextBlock>
                 </Label>
 
             </StackPanel>
 
             <StackPanel Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" >
-                <ListBox FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding listboxJaeger}" Height="370"></ListBox>
+                <ListBox FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding ListboxJaeger}" Height="280"></ListBox>
             </StackPanel>
             
             <StackPanel Grid.Row="2" Grid.RowSpan="2"  >
-                <ListBox FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding listboxTermine}" Height="370"></ListBox>
+                <ListBox FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding ListboxTermine}" Height="280"></ListBox>
             </StackPanel>
 
             <StackPanel Grid.Row="2" Grid.RowSpan="2" Grid.Column="2" Background="White" >
-                <ComboBox FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding comboBoxTierart}" Margin="5,5"></ComboBox>
+                <ComboBox FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding ComboBoxTierart}" Margin="5,5"></ComboBox>
             </StackPanel>
 
             <StackPanel Grid.Row="2" Grid.RowSpan="1" Grid.Column="3" Background="White" >
-                <TextBox FontSize="12" Height="20" FontFamily="Gill Sans MT Regular" Text="{Binding textboxAbschuesse}" Margin="5,5"></TextBox>
+                <TextBox FontSize="12" Height="20" FontFamily="Gill Sans MT Regular" Text="{Binding TextboxAbschuesse}" Margin="5,5"></TextBox>
             </StackPanel>
             <StackPanel Grid.Row="3"  Grid.Column="3" Background="White" >
-                <Button Command="{Binding btn_AbschusslisteAkualisieren}" FontSize="16" BorderBrush="#230C0F" Background="White" HorizontalAlignment="Right" Margin="0,10" Height="34" Width="200">Abschussliste aktualisieren</Button>
+                <Button Command="{Binding Btn_AbschusslisteAkualisieren}" FontSize="12" BorderBrush="#230C0F" Background="White" HorizontalAlignment="Stretch" Margin="0,10" Height="30">Abschussliste aktualisieren</Button>
             </StackPanel>
         </Grid>
     </ContentControl>

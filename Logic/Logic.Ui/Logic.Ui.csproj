@@ -56,6 +56,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Logic_Jaeger_Bearbeiten.cs" />
+    <Compile Include="Logic_Jaeger_Hinzufuegen.cs" />
+    <Compile Include="Logic_Jaeger_Informationen.cs" />
+    <Compile Include="Logic_EinladungErstellen.cs" />
+    <Compile Include="Logic_Einladungsuebersicht.cs" />
     <Compile Include="Logic_Login.cs" />
     <Compile Include="Logic_Sicherheitsfrage_zuruecksetzen.cs" />
     <Compile Include="Logic_Abschlussliste.cs" />
