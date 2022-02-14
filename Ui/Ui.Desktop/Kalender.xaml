@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
              mc:Ignorable="d" 
              DataContext="{Binding logic_Kalender, Source={StaticResource Locator}}"
-             d:DesignHeight="360" d:DesignWidth="800">
+             d:DesignHeight="360" d:DesignWidth="800" MinWidth="800" FontSize="360">
     <ContentControl x:Name="ContentControl_Kalender">
         <Grid Name="Grid_Kalender" >
             <Grid.ColumnDefinitions>
@@ -30,8 +30,8 @@
                 </Button>
             </Grid>
             <DataGrid Name="dg_TermineKalender" Grid.Row="1" Grid.RowSpan="2" DataContext="{Binding Dg_TermineKalender}"/>
-            <Viewbox Name="ViewBoxKalender" Grid.Column="2"  Grid.RowSpan="2" Stretch="Uniform" Grid.ColumnSpan="2"   >
-                <Calendar SelectedDate="{Binding Path=CurrentDate}" DisplayDate="{Binding Path=SelectedDate, RelativeSource={RelativeSource Self}, Mode=OneWay}"  >
+            <Viewbox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="ViewBoxKalender" Grid.Column="2"  Grid.RowSpan="2" Stretch="Uniform" Grid.ColumnSpan="2"   >
+                <Calendar SelectedDate="{Binding Path=CurrentDate}" DisplayDate="{Binding Path=SelectedDate, RelativeSource={RelativeSource Self}, Mode=OneWay}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <Calendar.BorderBrush>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFA3AEB9" Offset="0"/>
@@ -42,7 +42,7 @@
                     </Calendar.BorderBrush>
                 </Calendar>
             </Viewbox>
-            <DataGrid Name="dg_KalenderAnzeige" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2"  DataContext="{Binding Dg_KalenderAnzeige}"/>
+            <DataGrid Name="dg_KalenderAnzeige" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2"  DataContext="{Binding Dg_KalenderAnzeige}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         </Grid>
     </ContentControl>
 </UserControl>
