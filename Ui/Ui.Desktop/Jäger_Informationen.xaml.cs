@@ -24,5 +24,10 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         {
             InitializeComponent();
         }
+
+        private void Jaeger_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
