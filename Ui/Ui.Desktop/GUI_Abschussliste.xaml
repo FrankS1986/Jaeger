@@ -30,21 +30,22 @@
                             <RotateTransform Angle="-0.016"/>
                             <TranslateTransform/>
                         </TransformGroup>
-                    </TextBlock.RenderTransform>Jäger bezogene Abschüsse</TextBlock>
+                    </TextBlock.RenderTransform>Jägerbezogene Abschüsse</TextBlock>
             </Label>
             <ListBox ItemsSource="{Binding lbox_jaegerBezogeneAbschuesse}" FontSize="12" FontFamily="Gill Sans MT Regular" Height="356"></ListBox>
+            <ListBox ItemsSource="{Binding JaegerBezogeneAbschuesse}" FontSize="12" FontFamily="Gill Sans MT Regular" Height="356"></ListBox>
         </StackPanel>
         <StackPanel Grid.Row="1" Background="White" Margin="0,10" VerticalAlignment="Center">
             <TextBlock>
             <Label FontFamily="Gill Sans MT Regular" FontSize="18" Background="White" Width="223" Height="52"  >Abschüsse im Revier gesamt:</Label>
-                 <Label FontFamily="Gill Sans MT Regular" FontSize="18" Background="White" Margin="0,15" Width="168" ><TextBlock Text="{Binding abschuesse}" TextAlignment="Center" Width="158" RenderTransformOrigin="-0.416,0.5" Height="28"> </TextBlock></Label>
+                 <Label FontFamily="Gill Sans MT Regular" FontSize="18" Background="White" Margin="0,15" Width="168" ><TextBlock Text="{Binding Abschuesse}" TextAlignment="Center" Width="158" RenderTransformOrigin="-0.416,0.5" Height="28"> </TextBlock></Label>
             </TextBlock>
         </StackPanel>
 
         <StackPanel Grid.Column="3" >
             
             <Label Background="#4F772D" >
-                <TextBlock FontFamily="Gill Sans MT Bold"  TextAlignment="Center" FontSize="22"  Foreground="#E0CBA8" Width="382">Tierart bezogene Abschüsse</TextBlock>
+                <TextBlock FontFamily="Gill Sans MT Bold"  TextAlignment="Center" FontSize="22"  Foreground="#E0CBA8" Width="382">Tierartbezogene Abschüsse</TextBlock>
             </Label>
             <ComboBox ItemsSource="{Binding cbox_dropDownTiere}" FontFamily="Gill Sans MT regular" FontSize="12" Margin="0,5"></ComboBox>
             <ListBox FontFamily="Gill Sans MT regular" FontSize="12" ItemsSource="{Binding lbox_tierartBezogeneAbschuesse}" Height="324"></ListBox>  
