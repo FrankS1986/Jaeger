@@ -53,7 +53,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
           public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
         public Logic_Wildunfaelle logic_wildunfaelle => ServiceLocator.Current.GetInstance<Logic_Wildunfaelle>();
-        public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
+        
         public Logic_PasswortErneuern logic_passwortErneuern => ServiceLocator.Current.GetInstance<Logic_PasswortErneuern>();
         public MainViewModel Logic_EinladungErstellen => ServiceLocator.Current.GetInstance<MainViewModel>();
         public MainViewModel Logic_Einladungsuebersicht => ServiceLocator.Current.GetInstance<MainViewModel>();
