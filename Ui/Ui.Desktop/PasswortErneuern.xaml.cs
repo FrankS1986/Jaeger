@@ -10,19 +10,30 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
     /// <summary>
-    /// Interaktionslogik für Jäger_Hinzufügen.xaml
+    /// Interaktionslogik für PasswortVergessen.xaml
     /// </summary>
-    public partial class Jäger_Hinzufügen : UserControl
+    public partial class PasswortVergessen : Window
     {
-        public Jäger_Hinzufügen()
+        public PasswortVergessen()
         {
             InitializeComponent();
+        }
+
+        
+
+        private void PwtNeu_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PwtNeuBe_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

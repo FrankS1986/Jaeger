@@ -73,21 +73,14 @@
     <Compile Include="Admin.xaml.cs">
       <DependentUpon>Admin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Jäger_Bearbeiten.xaml.cs">
+      <DependentUpon>Jäger_Bearbeiten.xaml</DependentUpon>
     <Compile Include="Einladungsrueckmeldung.xaml.cs">
       <DependentUpon>Einladungsrueckmeldung.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI_AbschusslisteAktualisieren.xaml.cs">
       <DependentUpon>GUI_AbschusslisteAktualisieren.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="GUI_Abschussliste.xaml.cs">
-      <DependentUpon>GUI_Abschussliste.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="GUI_TerminErstellen.xaml.cs">
-      <DependentUpon>GUI_TerminErstellen.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="GUI_TermineUebersicht.xaml.cs">
-      <DependentUpon>GUI_TermineUebersicht.xaml</DependentUpon>
-    </Compile>
+	  </Compile>
     <Compile Include="PasswortErneuern.xaml.cs">
       <DependentUpon>PasswortErneuern.xaml</DependentUpon>
     </Compile>
@@ -103,6 +96,9 @@
     <Compile Include="GUIEinladungsuebersicht.xaml.cs">
       <DependentUpon>GUIEinladungsuebersicht.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI_AbschusslisteAktualisieren.xaml.cs">
+      <DependentUpon>GUI_AbschusslisteAktualisieren.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Jaeger_Hinzufuegen.xaml.cs">
       <DependentUpon>Jaeger_Hinzufuegen.xaml</DependentUpon>
     </Compile>
@@ -112,12 +108,19 @@
     <Compile Include="Kalender.xaml.cs">
       <DependentUpon>Kalender.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NeuesPasswort.xaml.cs">
       <DependentUpon>NeuesPasswort.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\SharedAssemblyInfo.cs" />
     <Page Include="Admin.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Jäger_Bearbeiten.xaml">
+	<SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Einladungsrueckmeldung.xaml">
@@ -127,49 +130,50 @@
     <Compile Include="Wildunfaelle.xaml.cs">
       <DependentUpon>Wildunfaelle.xaml</DependentUpon>
     </Compile>
-    <Page Include="GUIEinladungErstellen.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="GUIEinladungsuebersicht.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="GUIpasswortAendern.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="GUI_Abschussliste.xaml">
       <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="GUI_AbschusslisteAktualisieren.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="GUI_TerminErstellen.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="GUI_TermineUebersicht.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Jaeger_Bearbeiten.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUIEinladungErstellen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUIEinladungsuebersicht.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Jaeger_Hinzufuegen.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Jaeger_Informationen.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Kalender.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="Regestrierung.xaml.cs">
+      <DependentUpon>Regestrierung.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UrkundeErstellen.xaml.cs">
+      <DependentUpon>UrkundeErstellen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sicherheitsfrage_zuruecksetzen.xaml.cs">
+      <DependentUpon>Sicherheitsfrage_zuruecksetzen.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -242,20 +246,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="pfeillinks.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="pfeilrechts.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="delete.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="bearbeiten.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="HinzufügenIcon.png" />
-    <Resource Include="Logo.png" />
+    <Resource Include="Icons\HinzufügenIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

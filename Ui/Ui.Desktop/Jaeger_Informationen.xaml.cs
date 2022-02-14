@@ -10,21 +10,22 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
     /// <summary>
-    /// Interaktionslogik für Regestrierung.xaml
+    /// Interaktionslogik für Jaeger_Informationen.xaml
     /// </summary>
-    public partial class Regestrierung : Window
+    public partial class Jaeger_Informationen : UserControl
     {
-        public Regestrierung()
+        public Jaeger_Informationen()
         {
             InitializeComponent();
         }
 
-        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        private void Jaeger_Click(object sender, RoutedEventArgs e)
         {
 
         }

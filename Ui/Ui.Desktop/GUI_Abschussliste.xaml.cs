@@ -16,13 +16,18 @@ using System.Windows.Shapes;
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
     /// <summary>
-    /// Interaktionslogik für Jäger_Bearbeiten.xaml
+    /// Interaktionslogik für GUI_Abschussliste.xaml
     /// </summary>
-    public partial class Jäger_Bearbeiten : UserControl
+    public partial class GUI_Abschussliste : UserControl
     {
-        public Jäger_Bearbeiten()
+        public GUI_Abschussliste()
         {
             InitializeComponent();
+        }
+
+        private void Jaeger_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
