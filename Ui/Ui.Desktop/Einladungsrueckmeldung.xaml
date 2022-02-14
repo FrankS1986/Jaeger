@@ -14,7 +14,8 @@
             <ColumnDefinition Width="15"/>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="15"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="181*"/>
+            <ColumnDefinition Width="179*"/>
             <ColumnDefinition Width="0"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -31,11 +32,11 @@
             <Label Content="Rückmeldungen" Foreground="#E0CBA8" FontSize="22" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Center" VerticalAlignment="Center" ></Label>
         </Grid>
         <ListBox Grid.Column="3" Grid.Row="2" DataContext="{Binding lbox_rueckmeldung}" ></ListBox>
-        <Grid Grid.Row="1" Grid.Column="5" x:Name="Grid_EingeladenePersonen" Background="#4F772D">
+        <Grid Grid.Row="1" Grid.Column="5" x:Name="Grid_EingeladenePersonen" Background="#4F772D" Grid.ColumnSpan="2">
             <Label Content="Eingeladene Personen" Foreground="#E0CBA8" FontSize="22" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Center" VerticalAlignment="Center" ></Label>
         </Grid>
-        <DataGrid Grid.Column="5" Grid.Row="2" DataContext="{Binding dg_eingeladenePersonen}"></DataGrid>
-        <Button x:Name="btn_Einladungsrueckmeldungaktualisieren" Grid.Row="3" Grid.Column="5" Background="White" BorderBrush="#230C0F" Content="Aktualisieren" HorizontalAlignment="Left" VerticalAlignment="Stretch"  Height="30" Command="{Binding btn_EinladungsrueckmeldungAktualisieren}"/>
-        <Button x:Name="btn_EinladungsrueckmeldungAbbrechen" Grid.Row="3" Grid.Column="5" Background="White" BorderBrush="#230C0F" Content="Abbrechen" HorizontalAlignment="Right" VerticalAlignment="Stretch"   Height="30" Command="{Binding btn_EinladungsrueckmeldungAbbrechen}"/>
+        <DataGrid Grid.Column="5" Grid.Row="2" DataContext="{Binding dg_eingeladenePersonen}" Grid.ColumnSpan="2"></DataGrid>
+        <Button x:Name="btn_Einladungsrueckmeldungaktualisieren" Grid.Row="3" Grid.Column="5" Background="White" BorderBrush="#230C0F" Content="Aktualisieren" Height="30"  VerticalAlignment="Stretch" Margin="5" Command="{Binding btn_EinladungsrueckmeldungAktualisieren}" />
+        <Button x:Name="btn_EinladungsrueckmeldungAbbrechen" Grid.Row="3" Grid.Column="6" Background="White" BorderBrush="#230C0F" Content="Abbrechen" Height="30"  VerticalAlignment="Stretch" Margin="5" Command="{Binding btn_EinladungsrueckmeldungAbbrechen}" />
     </Grid>
 </UserControl>
