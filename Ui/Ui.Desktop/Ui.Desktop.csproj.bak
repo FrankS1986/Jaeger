@@ -70,8 +70,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GUIpasswortAendern.xaml.cs">
+      <DependentUpon>GUIpasswortAendern.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Jaeger_Bearbeiten.xaml.cs">
       <DependentUpon>Jaeger_Bearbeiten.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUIEinladungErstellen.xaml.cs">
       <DependentUpon>GUIEinladungErstellen.xaml</DependentUpon>
     </Compile>
@@ -80,9 +84,6 @@
     </Compile>
     <Compile Include="GUI_AbschusslisteAktualisieren.xaml.cs">
       <DependentUpon>GUI_AbschusslisteAktualisieren.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Jäger_Bearbeiten.xaml.cs">
-      <DependentUpon>Jäger_Bearbeiten.xaml</DependentUpon>
     </Compile>
     <Compile Include="Jaeger_Hinzufuegen.xaml.cs">
       <DependentUpon>Jaeger_Hinzufuegen.xaml</DependentUpon>
@@ -100,7 +101,15 @@
       <DependentUpon>NeuesPasswort.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\SharedAssemblyInfo.cs" />
+    <Page Include="GUIpasswortAendern.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI_AbschusslisteAktualisieren.xaml">
     <Page Include="Jaeger_Bearbeiten.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUIEinladungErstellen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -110,10 +119,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI_AbschusslisteAktualisieren.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Jäger_Bearbeiten.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
