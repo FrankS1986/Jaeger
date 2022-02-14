@@ -79,6 +79,9 @@
     <Compile Include="Einladungsrueckmeldung.xaml.cs">
       <DependentUpon>Einladungsrueckmeldung.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUILogin.xaml.cs">
+      <DependentUpon>GUILogin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI_AbschusslisteAktualisieren.xaml.cs">
       <DependentUpon>GUI_AbschusslisteAktualisieren.xaml</DependentUpon>
     </Compile>
@@ -141,6 +144,10 @@
     <Page Include="GUIEinladungsuebersicht.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUILogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUIpasswortAendern.xaml">
       <Generator>MSBuild:Compile</Generator>
