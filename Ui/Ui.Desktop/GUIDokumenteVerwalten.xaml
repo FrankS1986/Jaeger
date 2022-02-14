@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="JaegerMeister.MvvmSample.Ui.Desktop.GUIDokumenteVerwalten"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
+             mc:Ignorable="d" 
+             d:DesignHeight="360" Height="360" d:DesignWidth="800" Width="800"
+             DataContext="{Binding logic_DokumenteVerwalten, Source={StaticResource Locator}}"
+             >
+    <ContentControl x:Name="dokumenteVerwalten">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="200"/>
+                <RowDefinition/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <StackPanel Background="#4F772D" Grid.ColumnSpan="3">
+                <Label>
+                    <TextBlock FontFamily="Gill Sans MT Bold" TextAlignment="Center" FontSize="22" Foreground="#E0CBA8" Width="390" MinWidth="390" Height="40" MinHeight="40"> Liste der Dokumente</TextBlock>
+                </Label>
+            </StackPanel>
+            <Label Grid.Column="3" Grid.ColumnSpan="3">
+                <TextBlock FontFamily="Gill Sans MT Bold" TextAlignment="Center" FontSize="22" MinWidth="390" Width="390" Height="40" MinHeight="40"> Neues Dokument hinzufügen</TextBlock>
+            </Label>
+            <StackPanel Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3">
+                <ListBox  BorderBrush="#230C0F" FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding listboxDokumente}" Height="240" MinHeight="240"></ListBox>
+            </StackPanel>
+            <StackPanel Grid.Row="3" Grid.ColumnSpan="3">
+                <TextBlock HorizontalAlignment="Center">
+                    <Button  BorderBrush="#230C0F" Command="{Binding btn_dokumenteUnbenennen}" Height="30" MinHeight="30" FontSize="12" FontFamily="Gill Sans MT Regular" Background="White" Margin="10,10,10,0">
+                        Dokument unbenennen
+                    </Button>
+                    <Button  BorderBrush="#230C0F" Command="{Binding btn_dokumentErsetzen}" Height="30" MinHeight="30" FontSize="12" FontFamily="Gill Sans MT Regular" Background="White">
+                        Dokument ersetzen
+                       </Button>
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="3" >
+                <Label Margin="0,25" HorizontalAlignment="Right" FontSize="16" FontFamily="Gill Sans MT Regular" Content="Name:"/>
+                <Label HorizontalAlignment="Right" FontSize="16" FontFamily="Gill Sans MT Regular" Content="Dateipfad:"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2">
+                <TextBox Text="{Binding textboxDateiName}" Height="25" MinHeight="25" BorderBrush="#230C0F" Margin="20,30"  FontSize="12" FontFamily="Gill Sans MT Regular"></TextBox>
+                <Button Command="{Binding btn_dateipfad}" Height="25" MinHeight="25" BorderBrush="#230C0F" Background="White" FontSize="12" FontFamily="Gill Sans MT Regular" Margin="20,0" >
+                    <TextBlock   TextAlignment="Right" Width="216" MinWidth="216">...</TextBlock>
+                </Button>
+                <Button Command="{Binding btn_dokumentHizufuegen}" Height="30" MinHeight="30" BorderBrush="#230C0F" Content="Dokument hinzufügen" HorizontalAlignment="Center" Background="White" FontSize="12" FontFamily="Gill Sans MT Regular" Margin="20,20" />
+            </StackPanel>
+        </Grid>
+    </ContentControl>
+</UserControl>

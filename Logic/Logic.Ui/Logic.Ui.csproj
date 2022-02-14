@@ -56,6 +56,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Logic_DokumenteVerwalten.cs" />
+    <Compile Include="Logic_Urkunden_Erstellen.cs" />
+    <Compile Include="Logic_Admin.cs" />
+    <Compile Include="Logic_Termine.cs" />
+    <Compile Include="Logic_Wildunfaelle.cs" />
     <Compile Include="Logic_PasswortErneuern.cs" />
     <Compile Include="Logic_Jaeger_Bearbeiten.cs" />
     <Compile Include="Logic_Jaeger_Hinzufuegen.cs" />
@@ -67,6 +72,7 @@
     <Compile Include="Logic_Abschlussliste.cs" />
     <Compile Include="Logic_Registrierung.cs" />
     <Compile Include="Logic_AbschusslisteAktualisieren.cs" />
+    <Compile Include="Logic_Einladungsrueckmeldung.cs" />
     <Compile Include="Logic_PasswortAendern.cs" />
     <Compile Include="Logic_NeuesPasswort.cs" />
     <Compile Include="UrkundeErstellenViewModel.cs" />

@@ -29,6 +29,13 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<Logic_DokumenteVerwalten>();
+
+            SimpleIoc.Default.Register<Logic_Urkunden_Erstellen>();
+            SimpleIoc.Default.Register<Logic_Admin>();
+            SimpleIoc.Default.Register<Logic_Termine>();
+            SimpleIoc.Default.Register<Logic_Abschussliste>();
+            SimpleIoc.Default.Register<Logic_Wildunfaelle>();
             SimpleIoc.Default.Register<Logic_PasswortErneuern>();
 
             SimpleIoc.Default.Register<Logic_Jaeger_Informationen>();
@@ -46,16 +53,26 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             SimpleIoc.Default.Register<Logic_Registrierung>();
             SimpleIoc.Default.Register<UrkundeErstellenViewModel>();
             SimpleIoc.Default.Register<Logic_AbschusslisteAktualisieren>();
+            SimpleIoc.Default.Register<Logic_Einladungsrueckmeldung>();
             SimpleIoc.Default.Register<Logic_PasswortAendern>();
             SimpleIoc.Default.Register<Logic_NeuesPasswort>();
         }
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
+        public Logic_DokumenteVerwalten logic_DokumenteVerwalten => ServiceLocator.Current.GetInstance<Logic_DokumenteVerwalten>();
+
+        public Logic_Urkunden_Erstellen logic_urkunden_erstellen => ServiceLocator.Current.GetInstance<Logic_Urkunden_Erstellen>();
+        public Logic_Admin AdminFunktion => ServiceLocator.Current.GetInstance<Logic_Admin>();
+        public Logic_Termine logic_Termine => ServiceLocator.Current.GetInstance<Logic_Termine>();
+        public Logic_Abschussliste logic_abschussliste => ServiceLocator.Current.GetInstance<Logic_Abschussliste>();
+        
+        public Logic_Wildunfaelle logic_wildunfaelle => ServiceLocator.Current.GetInstance<Logic_Wildunfaelle>();
+        
         public Logic_PasswortErneuern logic_passwortErneuern => ServiceLocator.Current.GetInstance<Logic_PasswortErneuern>();
         public MainViewModel Logic_EinladungErstellen => ServiceLocator.Current.GetInstance<MainViewModel>();
         public MainViewModel Logic_Einladungsuebersicht => ServiceLocator.Current.GetInstance<MainViewModel>();
         public Logic_Login logic_login => ServiceLocator.Current.GetInstance<Logic_Login>();
-        public Logic_Abschussliste logic_abschussliste => ServiceLocator.Current.GetInstance<Logic_Abschussliste>();
+       
         public Logic_AbschusslisteAktualisieren logic_AbschusslisteAktualisieren => ServiceLocator.Current.GetInstance<Logic_AbschusslisteAktualisieren>();
         public UrkundeErstellenViewModel UrkundeErstellen => ServiceLocator.Current.GetInstance<UrkundeErstellenViewModel>();
         public Logic_PasswortAendern logic_passwortAendern => ServiceLocator.Current.GetInstance<Logic_PasswortAendern>();
@@ -72,6 +89,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         public Logic_Jaeger_Bearbeiten logic_jaeger_bearbeiten => ServiceLocator.Current.GetInstance<Logic_Jaeger_Bearbeiten>();
 
+        public Logic_Einladungsrueckmeldung Einladungsrueckmeldung => ServiceLocator.Current.GetInstance<Logic_Einladungsrueckmeldung>();
         public static void Cleanup()
         {
             
