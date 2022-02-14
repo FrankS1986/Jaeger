@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
     /// <summary>
-    /// Interaktionslogik für LogIn.xaml
+    /// Interaktionslogik für Jaeger_Hinzufuegen.xaml
     /// </summary>
-    public partial class Login : Window
+    public partial class Jaeger_Hinzufuegen : UserControl
     {
-        public Login()
+        public Jaeger_Hinzufuegen()
         {
             InitializeComponent();
         }

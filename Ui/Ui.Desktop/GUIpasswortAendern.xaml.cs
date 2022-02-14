@@ -15,13 +15,28 @@ using System.Windows.Shapes;
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
     /// <summary>
-    /// Interaktionslogik für LogIn.xaml
+    /// Interaktionslogik für GUIpasswortAendern.xaml
     /// </summary>
-    public partial class Login : Window
+    public partial class GUIpasswortAendern : Window
     {
-        public Login()
+        public GUIpasswortAendern()
         {
             InitializeComponent();
+        }
+
+        private void PwtNeu_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PwtNeuBe_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

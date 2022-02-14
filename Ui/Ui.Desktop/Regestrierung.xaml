@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
         mc:Ignorable="d"
-        Title="Regestrierung" Height="450" Width="800">
+        DataContext="{Binding logic_registrierung, Source={StaticResource Locator}}"
+        Title="Regestrierung" Height="450" Width="800" MinHeight="450" MinWidth="800" >
     <Grid Name="grid_Registrierung" Background="#7F7C81" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -15,30 +16,30 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="46*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="51*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="46*"/>
+
         </Grid.RowDefinitions>
         <Grid Grid.ColumnSpan="5" Background="#4F772D" >
-            <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Foreground="#E0CBA8" FontFamily="Gill Sans MT Bold" Content="Registrierung"  ></Label>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32" Foreground="#E0CBA8" FontFamily="Gill Sans MT Bold" Content="Registrierung"  ></Label>
         </Grid>
-        <Label Grid.Row="1"  Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16" FontFamily="Gill Sans MT Regular" Foreground="Black"  Content="Vorname*"  ></Label>
-        <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"  Height="30" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="#230C0F" ></TextBox>
-        <Label Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16" FontFamily="Gill Sans MT Regular" Foreground="Black"  Content="Benutzername*"  ></Label>
-        <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Height="30" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#230C0F" ></TextBox>
-        <Label Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16" FontFamily="Gill Sans MT Regular" Foreground="Black"  Content="Sicherheitsfrage*"  ></Label>
-        <ComboBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Height="30" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#230C0F" ></ComboBox>
-        <TextBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Height="30" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#230C0F" ></TextBox>
-        <Label Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="*Pflichtfelder"  Foreground="Black" FontSize="12" FontFamily="Gill Sans MT Regular" ></Label>
-        <Label Grid.Row="1"  Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16" FontFamily="Gill Sans MT Regular" Foreground="Black"  Content="Nachname*"  ></Label>
-        <TextBox Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2"  Height="30" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="#230C0F" ></TextBox>
-        <Label Grid.Row="2"  Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16" FontFamily="Gill Sans MT Regular" Foreground="Black"  Content="Nachname*"  ></Label>
-        <TextBox Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2"  Height="30" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="#230C0F" ></TextBox>
-        <Button Grid.Column="3" Grid.Row="5" Height="30" Width="90" Content="Abrbruch" Foreground="Black" BorderBrush="#230C0F" Background="White" HorizontalAlignment="Right" ></Button>
-        <Button Grid.Column="4" Grid.Row="5" Height="30" Width="90" Content="Bestätigen" Foreground="Black" BorderBrush="#230C0F" Background="White" ></Button>
+        <Label Grid.Row="1"  Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16" FontFamily="Gill Sans MT Regular" Foreground="Black"  Content="Vorname*" ></Label>
+        <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Height="25" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#230C0F" Text="{Binding Tb_vorname}"></TextBox>
+        <Label Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16" FontFamily="Gill Sans MT Regular" Foreground="Black"  Content="Benutzername*" ></Label>
+        <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,0,118,0" BorderBrush="#230C0F" Text="{Binding Tb_benutzername}"/>
+        <Label Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16" FontFamily="Gill Sans MT Regular" Foreground="Black"  Content="Sicherheitsfrage*" />
+        <ComboBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,0,118,0"  BorderBrush="#230C0F" DataContext="{Binding Cb_sicherheitsfrage}"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,0,118,0"  BorderBrush="#230C0F" Text="{Binding Tb_sicherheitsfrage_antwort}"/>
+        <Label Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="*Pflichtfelder"  Foreground="Black" FontSize="12" FontFamily="Gill Sans MT Regular"  ></Label>
+        <Label Grid.Row="1"  Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16" FontFamily="Gill Sans MT Regular" Foreground="Black"  Content="Nachname*"></Label>
+        <TextBox Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2"  Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,0,116,0" BorderBrush="#230C0F" />
+        <Label Grid.Row="2"  Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16" FontFamily="Gill Sans MT Regular" Foreground="Black"  Content="Passwort*" ></Label>
+        <TextBox Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2"  Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,0,116,0" BorderBrush="#230C0F" Text="{Binding Tb_passwort}"/>
+        <Button Grid.Column="3" Grid.Row="5"  Content="Abbruch" Height="30" Foreground="Black" FontSize="12" BorderBrush="#230C0F" Background="White" HorizontalAlignment="Stretch" Margin="5" Command="{Binding Btn_abbrechen}"/>
+        <Button Grid.Column="4" Grid.Row="5" Content="Bestätigen" Height="30" Foreground="Black" FontSize="12" BorderBrush="#230C0F" Background="White" HorizontalAlignment="Stretch" Margin="5" Command="{Binding Btn_bestaetigen}"/>
     </Grid>
 </Window>

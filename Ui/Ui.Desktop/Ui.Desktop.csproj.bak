@@ -75,7 +75,6 @@
     </Compile>
     <Compile Include="GUI_AbschusslisteAktualisieren.xaml.cs">
       <DependentUpon>GUI_AbschusslisteAktualisieren.xaml</DependentUpon>
-	  </Compile>
     <Compile Include="PasswortErneuern.xaml.cs">
       <DependentUpon>PasswortErneuern.xaml</DependentUpon>
     </Compile>
