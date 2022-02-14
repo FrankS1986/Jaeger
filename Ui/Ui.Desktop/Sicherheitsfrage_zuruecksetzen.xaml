@@ -1,4 +1,4 @@
-﻿<Page x:Class="JaegerMeister.MvvmSample.Ui.Desktop.Sicherheitsfrage"
+﻿<Window x:Class="JaegerMeister.MvvmSample.Ui.Desktop.Sicherheitsfrage_zuruecksetzen"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -38,4 +38,4 @@
         <Button Background="White" HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="2"  FontSize="12" Height="30" Content="Bestätigen" Margin="5" Command="{Binding Btn_bestaetigen}" />
         <Button Background="White" HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="3"  FontSize="12" Height="30"  Margin="5" Content="Abbruch" Command="{Binding Btn_abbrechen}" />
     </Grid>
-</Page>
+</Window>

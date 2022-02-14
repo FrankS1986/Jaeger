@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
-    public class Logic_Sicherheitsfrage : ViewModelBase, INotifyPropertyChanged
+    public class Logic_Sicherheitsfrage_zuruecksetzen : ViewModelBase, INotifyPropertyChanged
     {
         private ICommand _btn_bestaetigen;
 
@@ -22,7 +22,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_bestaetigen = new RelayCommand(() =>
                     {
-                        Logic_Sicherheitsfrage logic = new Logic_Sicherheitsfrage();
+                        Logic_Sicherheitsfrage_zuruecksetzen logic = new Logic_Sicherheitsfrage_zuruecksetzen();
                     });
                 }
                 return _btn_bestaetigen;
@@ -38,24 +38,24 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_abbrechen = new RelayCommand(() =>
                     {
-                        Logic_Sicherheitsfrage logic = new Logic_Sicherheitsfrage();
+                        Logic_Sicherheitsfrage_zuruecksetzen logic = new Logic_Sicherheitsfrage_zuruecksetzen();
                     });
                 }
                 return _btn_abbrechen;
             }
         }
 
-        private string _lb_sicherheitsfrage;
+        private string _cb_sicherheitsfrage;
 
-        public string Lb_sicherheitsfrage
+        public string Cb_sicherheitsfrage
         {
             get
             {
-                return _lb_sicherheitsfrage;
+                return _cb_sicherheitsfrage;
             }
             set
             {
-                _lb_sicherheitsfrage = value;
+                _cb_sicherheitsfrage = value;
                 RaisePropertyChanged("");
             }
         }

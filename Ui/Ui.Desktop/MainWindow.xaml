@@ -6,33 +6,32 @@
         xmlns:local="clr-namespace:Ui.Desktop"
         mc:Ignorable="d"
         DataContext="{Binding Main, Source={StaticResource Locator}}"
-        MaxHeight="750" MaxWidth="1200" MinHeight="750" MinWidth="1200"  >
-
+        Title="{Binding WindowTitel, Mode=OneWay}" MaxHeight="560" MaxWidth="1100" Background="#7F7C81" FontFamily="Gill Sans MT Regular">
     <DockPanel>
         <Grid x:Name="mainGrid" Background="#7F7C81" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="82"/>
+                <ColumnDefinition Width="81*"/>
+                <ColumnDefinition Width="81*"/>
+                <ColumnDefinition Width="82*"/>
+                <ColumnDefinition Width="81*"/>
+                <ColumnDefinition Width="81*"/>
+                <ColumnDefinition Width="81*"/>
+                <ColumnDefinition Width="81*"/>
+                <ColumnDefinition Width="81*"/>
+                <ColumnDefinition Width="81*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="44"/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="43*"/>
             </Grid.RowDefinitions>
             <Grid DockPanel.Dock="Top" Grid.ColumnSpan="10" Grid.RowSpan="3" Background="#4F772D">
                 <Grid.ColumnDefinitions>
