@@ -35,7 +35,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         }
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
-        public UrkundeErstellenViewModel UrkundeErstellen => ServiceLocator.Current.GetInstance<UrkundeErstellenViewModel>();
 
         public Logic_Urkunden_Erstellen logic_urkunden_erstellen => ServiceLocator.Current.GetInstance<Logic_Urkunden_Erstellen>();
 
