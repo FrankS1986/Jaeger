@@ -28,7 +28,8 @@ namespace Ui.Desktop
 
         private void btn_Kalender(object sender, RoutedEventArgs e)
         {
-                
+            Kalender kalender = new Kalender();
+            Contmain.Content = kalender;
         }
 
         private void btn_Termin(object sender, RoutedEventArgs e)
