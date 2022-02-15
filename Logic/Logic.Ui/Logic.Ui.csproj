@@ -71,7 +71,7 @@
     <Compile Include="Logic_Einladungsuebersicht.cs" />
     <Compile Include="Logic_Login.cs" />
     <Compile Include="Logic_Sicherheitsfrage.cs" />
-    <Compile Include="Logic_Abschlussliste.cs" />
+    <Compile Include="Logic_Abschussliste.cs" />
     <Compile Include="Logic_Registrierung.cs" />
     <Compile Include="Logic_AbschusslisteAktualisieren.cs" />
     <Compile Include="Logic_Einladungsrueckmeldung.cs" />
