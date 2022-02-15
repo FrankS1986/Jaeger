@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
         mc:Ignorable="d"
-        DataContext="{Binding logic_passwortErneuern, Source={StaticResource Locator}}"
+        DataContext="{Binding logic_Login, Source={StaticResource Locator}}"
         Title="Anmeldung" 
         Height="450" 
         Width="800"

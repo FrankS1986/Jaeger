@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              Height="360" Width="800"
              d:DesignHeight="360" d:DesignWidth="800"       
-             DataContext="{Binding Logic_EinladungErstellen, Source={StaticResource Locator}}"
+             DataContext="{Binding logic_EinladungErstellen, Source={StaticResource Locator}}"
              >
     <ContentControl x:Name="ContenControlEinladungErstellen">
         <Grid>

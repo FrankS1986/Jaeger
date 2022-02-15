@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
         mc:Ignorable="d"
-        DataContext="{Binding logic_neuespasswort, Source={StaticResource Locator}}"
+        DataContext="{Binding logic_NeuesPasswort, Source={StaticResource Locator}}"
         Title="Passwort ändern" Height="360" Width="800">
     <Grid Background="#7F7C81" >
         <Grid.ColumnDefinitions>

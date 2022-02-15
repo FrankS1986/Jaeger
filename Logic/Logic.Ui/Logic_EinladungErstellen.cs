@@ -1,4 +1,5 @@
-﻿using GalaSoft.MvvmLight.CommandWpf;
+﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.CommandWpf;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,7 +11,7 @@ using System.Windows.Input;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
-    public class Logic_EinladungErstellen : MainViewModel, INotifyPropertyChanged
+    public class Logic_EinladungErstellen : ViewModelBase, INotifyPropertyChanged
     {
         private ICommand _btn_einlandungSenden;
         public ICommand btn_EinlandungSenden

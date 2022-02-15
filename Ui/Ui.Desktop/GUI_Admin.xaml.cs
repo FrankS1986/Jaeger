@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
     /// <summary>
-    /// Interaktionslogik für Admin.xaml
+    /// Interaktionslogik für Gui_Admin.xaml
     /// </summary>
-    public partial class Admin : UserControl
+    public partial class GUI_Admin : UserControl
     {
-        public Admin()
+        public GUI_Admin()
         {
             InitializeComponent();
         }

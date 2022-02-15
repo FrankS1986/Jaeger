@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
-             DataContext="{Binding logic_abschussliste, Source={StaticResource Locator}}"
+             DataContext="{Binding logic_Abschussliste, Source={StaticResource Locator}}"
              >
     <ContentControl x:Name="abschussliste">
         <Grid>

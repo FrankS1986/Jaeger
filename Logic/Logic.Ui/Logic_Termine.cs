@@ -1,6 +1,8 @@
-﻿using GalaSoft.MvvmLight.Command;
+﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +11,7 @@ using System.Windows.Input;
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
 
-    public class Logic_Termine
+    public class Logic_Termine: ViewModelBase, INotifyPropertyChanged
     {
         ICommand _btn_UebersichtTerminhinzufuegen, _btn_UebersichtLoeschen, _btn_hinzufuegen, _btn_entfernen, _btn_Abbruch, _btn_Bestaetigen, _btn_UebersichtRueckmeldungen;
         string _txt_UebersichtBezeichnung, _txt_UebersichtOrt, _txt_UebersichtUhrzeit, _txt_bezeichnung, _txt_Ort, _txt_Uhrzeit;

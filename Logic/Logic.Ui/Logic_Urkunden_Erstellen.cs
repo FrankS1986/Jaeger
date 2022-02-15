@@ -1,6 +1,8 @@
-﻿using GalaSoft.MvvmLight.Command;
+﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +10,7 @@ using System.Windows.Input;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
-    public class Logic_Urkunden_Erstellen
+    public class Logic_Urkunden_Erstellen: ViewModelBase, INotifyPropertyChanged
     {
         private ICommand _btn_jaeger_bewegen;
 

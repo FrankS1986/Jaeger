@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
         mc:Ignorable="d"
       MinHeight="450" MinWidth="800"
-      DataContext="{Binding logic_sicherheitsfrage_fragestellung, Source={StaticResource Locator}}"
+      DataContext="{Binding logic_SicherheitsfrageFragestellung, Source={StaticResource Locator}}"
       Title="Sicherheitsfrage" Background="#7F7C81" FontFamily="Gill Sans MT Regular">
 
     <Grid>
