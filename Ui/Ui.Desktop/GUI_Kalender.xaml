@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
              mc:Ignorable="d" 
              DataContext="{Binding logic_Kalender, Source={StaticResource Locator}}"
-             d:DesignHeight="360" d:DesignWidth="800" Width="800" Height="360">
+             d:DesignHeight="360" d:DesignWidth="800" Width="800" Height="360" MinHeight="360" MinWidth="800">
     <ContentControl x:Name="ContentControl_Kalender">
         <Grid Name="Grid_Kalender" >
             <Grid.ColumnDefinitions>

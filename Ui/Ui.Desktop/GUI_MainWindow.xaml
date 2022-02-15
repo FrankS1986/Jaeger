@@ -38,7 +38,7 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.RowSpan="4" Grid.ColumnSpan="14" Background="#4F772D">
             <TextBlock Padding="10,10,10,10" >
-            <Image   Source="Logo.png" Width="110"  />
+            <Image   Source="Pictures/Logo.png" Width="110"  />
             </TextBlock>
         </StackPanel>
         <Button HorizontalAlignment="Stretch" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" Content="Kalender"  BorderBrush="#230C0F" Background="White"  Height="30" FontSize="12" Click="btn_Kalender" FontFamily="Gill Sans MT" />

@@ -134,8 +134,8 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Compile Include="GUI_Sicherheitsfragestellung.xaml.cs">
-      <DependentUpon>GUI_Sicherheitsfragestellung.xaml</DependentUpon>
+    <Compile Include="GUI_SicherheitsFragestellung.xaml.cs">
+      <DependentUpon>GUI_SicherheitsFragestellung.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI_Wildunfaelle.xaml.cs">
       <DependentUpon>GUI_Wildunfaelle.xaml</DependentUpon>
@@ -209,7 +209,7 @@
       <DependentUpon>GUI_MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="GUI_Sicherheitsfragestellung.xaml">
+    <Page Include="GUI_SicherheitsFragestellung.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

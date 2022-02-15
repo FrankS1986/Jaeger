@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
              mc:Ignorable="d" 
              DataContext="{Binding logic_jaegerBearbeiten, Source={StaticResource Locator}}"
-             Height="360" Width="800" FontFamily="Gill Sans MT Regular">
+             Height="360" Width="800" FontFamily="Gill Sans MT Regular" MinHeight="360" MinWidth="800">
     <ContentControl x:Name="ContentControl_JaegerBearbeiten">
         <Grid>
             <Grid.ColumnDefinitions>

@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
-    public class Logic_Sicherheitsfragestellung : ViewModelBase, INotifyPropertyChanged
+    public class Logic_SicherheitsFragestellung : ViewModelBase, INotifyPropertyChanged
     {
         private ICommand _btn_bestaetigen;
 
@@ -19,7 +19,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_bestaetigen = new RelayCommand(() =>
                     {
-                        Logic_Sicherheitsfragestellung logic = new Logic_Sicherheitsfragestellung();
+                        Logic_SicherheitsFragestellung logic = new Logic_SicherheitsFragestellung();
                     });
                 }
                 return _btn_bestaetigen;
@@ -35,7 +35,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_abbrechen = new RelayCommand(() =>
                     {
-                       Logic_Sicherheitsfragestellung logic = new Logic_Sicherheitsfragestellung();
+                       Logic_SicherheitsFragestellung logic = new Logic_SicherheitsFragestellung();
                     });
                 }
                 return _btn_abbrechen;

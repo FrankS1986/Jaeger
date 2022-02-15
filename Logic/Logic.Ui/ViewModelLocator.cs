@@ -49,7 +49,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             SimpleIoc.Default.Register<Logic_Einladungsrueckmeldung>();
             SimpleIoc.Default.Register<Logic_PasswortAendern>();
             SimpleIoc.Default.Register<Logic_NeuesPasswort>();
-            SimpleIoc.Default.Register<Logic_Sicherheitsfragestellung>();
+            SimpleIoc.Default.Register<Logic_SicherheitsFragestellung>();
             SimpleIoc.Default.Register<Logic_Kalender>();            
         }
 
@@ -73,7 +73,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         public Logic_Jaeger_Hinzufuegen logic_jaegerHinzufuegen => ServiceLocator.Current.GetInstance<Logic_Jaeger_Hinzufuegen>();
         public Logic_Jaeger_Bearbeiten logic_jaegerBearbeiten => ServiceLocator.Current.GetInstance<Logic_Jaeger_Bearbeiten>();
         public Logic_Einladungsrueckmeldung logic_EinladungsRueckmeldung => ServiceLocator.Current.GetInstance<Logic_Einladungsrueckmeldung>();
-        public Logic_Sicherheitsfragestellung logic_SicherheitsfrageFragestellung => ServiceLocator.Current.GetInstance<Logic_Sicherheitsfragestellung>();
+        public Logic_SicherheitsFragestellung logic_SicherheitsFragestellung => ServiceLocator.Current.GetInstance<Logic_SicherheitsFragestellung>();
         public Logic_Kalender logic_Kalender => ServiceLocator.Current.GetInstance<Logic_Kalender>();
 
 
