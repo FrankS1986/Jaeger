@@ -37,7 +37,7 @@
         <Label Grid.Column="1" Grid.Row="3" Content="Passwort" FontSize="16" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Left" VerticalAlignment="Bottom"></Label>
         
         <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4">
-            <PasswordBox FontFamily="Gill Sans MT Regular" PasswordChanged="PwtNeu_PasswordChanged" FontSize="12" Name="PwtNeu"  Height="25" BorderBrush="#230C0F" HorizontalAlignment="Stretch"  ></PasswordBox>
+            <PasswordBox FontFamily="Gill Sans MT Regular" PasswordChanged="PwtNeu_PasswordChanged" FontSize="12" Name="PwtNeu"  Height="25" BorderBrush="#230C0F" HorizontalAlignment="Stretch"> </PasswordBox>
             <Button FontFamily="Gill Sans MT Regular" Command="{Binding btn_Passwortvergessen}" HorizontalAlignment="Right" Background="Transparent" Grid.Row="5" Grid.Column="2" >
                 <TextBlock Foreground="Blue" TextDecorations="Underline" >Passwort vergessen?</TextBlock></Button>
         </StackPanel>
