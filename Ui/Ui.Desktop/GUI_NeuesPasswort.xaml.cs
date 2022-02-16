@@ -17,9 +17,9 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
     /// <summary>
     /// Interaktionslogik für NeuesPasswort.xaml
     /// </summary>
-    public partial class NeuesPasswort : Window
+    public partial class GUI_NeuesPasswort : Window
     {
-        public NeuesPasswort()
+        public GUI_NeuesPasswort()
         {
             InitializeComponent();
         }

@@ -18,9 +18,9 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
     /// <summary>
     /// Interaktionslogik für Wildunfaelle.xaml
     /// </summary>
-    public partial class Wildunfaelle : UserControl
+    public partial class GUI_Wildunfaelle : UserControl
     {
-        public Wildunfaelle()
+        public GUI_Wildunfaelle()
         {
             InitializeComponent();
         }

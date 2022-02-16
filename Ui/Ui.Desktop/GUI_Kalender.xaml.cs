@@ -18,9 +18,9 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
     /// <summary>
     /// Interaktionslogik für Kalender.xaml
     /// </summary>
-    public partial class Kalender : UserControl
+    public partial class GUI_Kalender : UserControl
     {
-        public Kalender()
+        public GUI_Kalender()
         {
             InitializeComponent();
         }

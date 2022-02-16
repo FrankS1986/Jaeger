@@ -17,9 +17,9 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
     /// <summary>
     /// Interaktionslogik für Regestrierung.xaml
     /// </summary>
-    public partial class Regestrierung : Window
+    public partial class GUI_Registrierung : Window
     {
-        public Regestrierung()
+        public GUI_Registrierung()
         {
             InitializeComponent();
         }

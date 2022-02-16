@@ -17,9 +17,9 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
     /// <summary>
     /// Interaktionslogik für Sicherheitsfragestellung.xaml
     /// </summary>
-    public partial class Sicherheitsfragestellung : Window
+    public partial class GUI_SicherheitsFragestellung : Window
     {
-        public Sicherheitsfragestellung()
+        public GUI_SicherheitsFragestellung()
         {
             InitializeComponent();
         }

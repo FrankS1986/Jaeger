@@ -17,9 +17,9 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
     /// <summary>
     /// Interaktionslogik für PasswortVergessen.xaml
     /// </summary>
-    public partial class PasswortVergessen : Window
+    public partial class GUI_PasswortErneuern : Window
     {
-        public PasswortVergessen()
+        public GUI_PasswortErneuern()
         {
             InitializeComponent();
         }

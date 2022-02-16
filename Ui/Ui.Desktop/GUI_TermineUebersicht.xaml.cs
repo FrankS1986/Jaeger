@@ -18,9 +18,9 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
     /// <summary>
     /// Interaktionslogik für GUI_Termine.xaml
     /// </summary>
-    public partial class GUI_Termine : UserControl
+    public partial class GUI_TermineUebersicht : UserControl
     {
-        public GUI_Termine()
+        public GUI_TermineUebersicht()
         {
             InitializeComponent();
         }

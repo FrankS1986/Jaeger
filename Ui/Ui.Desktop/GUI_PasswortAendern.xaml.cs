@@ -17,9 +17,9 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
     /// <summary>
     /// Interaktionslogik für GUIpasswortAendern.xaml
     /// </summary>
-    public partial class GUIpasswortAendern : Window
+    public partial class GUI_PasswortAendern : Window
     {
-        public GUIpasswortAendern()
+        public GUI_PasswortAendern()
         {
             InitializeComponent();
         }

@@ -18,9 +18,9 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
     /// <summary>
     /// Interaktionslogik für Urkunden_Erstellen.xaml
     /// </summary>
-    public partial class Urkunden_Erstellen : UserControl
+    public partial class GUI_UrkundeErstellen : UserControl
     {
-        public Urkunden_Erstellen()
+        public GUI_UrkundeErstellen()
         {
             InitializeComponent();
         }

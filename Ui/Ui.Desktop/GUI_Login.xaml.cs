@@ -17,9 +17,9 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
     /// <summary>
     /// Interaktionslogik für GUILogin.xaml
     /// </summary>
-    public partial class GUILogin : Window
+    public partial class GUI_Login : Window
     {
-        public GUILogin()
+        public GUI_Login()
         {
             InitializeComponent();
         }

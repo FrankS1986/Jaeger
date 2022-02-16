@@ -22,13 +22,13 @@ namespace Ui.Desktop
         public MainWindow()
         {
             InitializeComponent();
-            Kalender kalender = new Kalender();
+            GUI_Kalender kalender = new GUI_Kalender();
             Contmain.Content = kalender;
         }
 
         private void btn_Kalender(object sender, RoutedEventArgs e)
         {
-            Kalender kalender = new Kalender();
+            GUI_Kalender kalender = new GUI_Kalender();
             Contmain.Content = kalender;
         }
 
