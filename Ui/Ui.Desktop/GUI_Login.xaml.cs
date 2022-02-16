@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using JaegerMeister.MvvmSample.Logic.Ui;
 
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
@@ -26,7 +27,7 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
 
         private void PwtNeu_PasswordChanged(object sender, RoutedEventArgs e)
         {
-
+            (this.DataContext as Logic_Login).passwort = ((PasswordBox)sender).Password;
         }
     }
 }

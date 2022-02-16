@@ -15,8 +15,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
     {
 
 
-        //Properties      
-
+    
+        #region Properties
         private ICommand _btn_abbruch;
         public ICommand btn_Abbruch
         {
@@ -110,6 +110,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 return _btn_passwortvergessen;
             }
         }
+        #endregion Properties
 
     }
 }
