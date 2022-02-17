@@ -122,7 +122,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         #endregion Properties
 
 
-
+           //
     }
 }
 
