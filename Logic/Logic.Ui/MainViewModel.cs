@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight;
 using System.ComponentModel;
 using System.Collections.Generic;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
@@ -27,6 +28,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 WindowTitle = "MvvSample";
 
             }
+
+
 
         }
 

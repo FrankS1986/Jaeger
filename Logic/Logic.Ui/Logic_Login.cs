@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 {
     public class Logic_Login : ViewModelBase, INotifyPropertyChanged
     {
+        Service service = new Service();
 
 
-    
         #region Properties
         private ICommand _btn_abbruch;
         public ICommand btn_Abbruch
@@ -26,7 +27,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_abbruch = new RelayCommand(() =>
                     {
-                        /// Logic
+
                     });
 
                 }
@@ -55,13 +56,23 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         private ICommand _btn_bestaetigen;
         public ICommand btn_Bestaetigen
         {
+
             get
             {
                 if (_btn_bestaetigen == null)
                 {
                     _btn_bestaetigen = new RelayCommand(() =>
                     {
-                        ///Logic
+                        service.LoginSuccessful(tb_Benutzername, passwort);
+                        if (service.loginSuccessful == true)
+                        {
+                            Messenger.Default.Send<LoginProof>(new LoginProof { proof = true });
+                        }
+                        else
+                        {
+                            Messenger.Default.Send<LoginProof>(new LoginProof { proof = false});
+                        }
+
                     });
                 }
                 return _btn_bestaetigen;
@@ -110,7 +121,13 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 return _btn_passwortvergessen;
             }
         }
+        public class LoginProof
+        {
+            public bool? proof { get; set; }
+        }
         #endregion Properties
+
+
 
     }
 }
