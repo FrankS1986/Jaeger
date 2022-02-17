@@ -45,7 +45,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_Registrieren = new RelayCommand(() =>
                     {
-                        /// Logic
+                        
                     });
 
                 }
@@ -63,15 +63,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_bestaetigen = new RelayCommand(() =>
                     {
-                        service.LoginSuccessful(tb_Benutzername, passwort);
-                        if (service.loginSuccessful == true)
-                        {
-                            Messenger.Default.Send<LoginProof>(new LoginProof { proof = true });
-                        }
-                        else
-                        {
-                            Messenger.Default.Send<LoginProof>(new LoginProof { proof = false});
-                        }
+
+                     Messenger.Default.Send < LoginProof > (new LoginProof { proof = service.LoginSuccessful(tb_Benutzername, passwort) });
+   
 
                     });
                 }

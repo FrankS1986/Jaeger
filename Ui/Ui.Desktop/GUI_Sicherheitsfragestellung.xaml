@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
         mc:Ignorable="d"
-      MinHeight="450" MinWidth="800"
+       Height="450" 
+        Width="800"
+        MinHeight="450" 
+        MinWidth="800"
       DataContext="{Binding logic_SicherheitsfrageFragestellung, Source={StaticResource Locator}}"
       Title="Sicherheitsfrage" Background="#7F7C81" FontFamily="Gill Sans MT Regular">
 
@@ -25,13 +28,17 @@
         
         <Label VerticalAlignment="Stretch" Grid.ColumnSpan="4" Content="" HorizontalContentAlignment="Center" Background="#4F772D" FontFamily="Gill Sans MT Bold" FontSize="32"/>
         <Label VerticalAlignment="Center" Grid.ColumnSpan="4" Content="Sicherheitsfragen" HorizontalContentAlignment="Center" Background="#4F772D" Foreground="#E0CBA8" FontFamily="Gill Sans MT Bold" FontSize="32"/>
-        <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
-            <Label VerticalAlignment="Center" Content="{Binding lb_Sicherheitsfrage}" HorizontalContentAlignment="Center"  FontFamily="Gill Sans MT Bold" FontSize="16" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
-            <TextBox Text="{Binding tb_antwort}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Height="25" FontSize="12"></TextBox>
-
+       
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalAlignment="Center">
+            <Label Content="Benutzername:" FontFamily="Gill Sans MT Regular" FontSize="16"></Label>
+            <TextBox Text="{Binding tb_benutzername}" HorizontalAlignment="Stretch"  Height="25" FontSize="12"></TextBox>
+            <Button Command="{Binding btn_benutzernameBestaetigen}" Content="Benutzername übernehmen" Height="30"  Margin="190,5,0,5" Background="White" BorderBrush="#230C0F" FontSize="12"/>
+            <Label Content="{Binding lb_Sicherheitsfrage}" FontFamily="Gill Sans MT Regular" FontSize="16" Height="25"/>
+            <TextBox Text="{Binding tb_antwort}"   Height="25" FontSize="12" IsEnabled="{Binding tb_antwortEnable}" ></TextBox>
+            
         </StackPanel>
-        <Button Height="25" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Stretch" Content="Bestätigen" Background="White" BorderBrush="#230C0F" Command="{Binding btn_bestaetigen}" FontSize="12" Margin="5,5,5,5"/>
-        <Button Height="25" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Stretch" Content="Abbruch" Background="White" BorderBrush="#230C0F" Command="{Binding btn_abbrechen}" FontSize="12" Margin="5,5,5,5"/>
+        <Button Height="30" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Stretch" Content="Bestätigen" Background="White" BorderBrush="#230C0F" Command="{Binding btn_bestaetigen}" FontSize="12" Margin="5,5,5,5"/>
+        <Button Height="30" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Stretch" Content="Abbruch" Background="White" BorderBrush="#230C0F" Command="{Binding btn_abbrechen}" FontSize="12" Margin="0,5,10,5"/>
 
 
     </Grid>

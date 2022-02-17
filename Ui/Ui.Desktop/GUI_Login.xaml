@@ -38,17 +38,17 @@
         
         <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4">
             <PasswordBox FontFamily="Gill Sans MT Regular" PasswordChanged="PwtNeu_PasswordChanged" FontSize="12" Name="PwtNeu"  Height="25" BorderBrush="#230C0F" HorizontalAlignment="Stretch"> </PasswordBox>
-            <Button FontFamily="Gill Sans MT Regular" Command="{Binding btn_Passwortvergessen}" HorizontalAlignment="Right" Background="Transparent" Grid.Row="5" Grid.Column="2" >
+            <Button Click="btn_passwortVergessen_Click" x:Name="btn_passwortVergessen" FontFamily="Gill Sans MT Regular" Command="{Binding btn_Passwortvergessen}" HorizontalAlignment="Right" Background="Transparent" Grid.Row="5" Grid.Column="2" >
                 <TextBlock Foreground="Blue" TextDecorations="Underline" >Passwort vergessen?</TextBlock></Button>
         </StackPanel>
 
-        <Button Command="{Binding btn_Abbruch}" Grid.Column="2" Grid.Row="6" HorizontalAlignment="Stretch" BorderBrush="#230C0F" Background="White" VerticalAlignment="Top" Height="30" Margin="5,5,5,5" Content="Abbruch" FontSize="12" FontFamily="Gill Sans MT Regular"  ></Button>
+        <Button x:Name="btn_abbruch" Command="{Binding btn_Abbruch}" Grid.Column="2" Grid.Row="6" HorizontalAlignment="Stretch" BorderBrush="#230C0F" Background="White" VerticalAlignment="Top" Height="30" Margin="5,5,5,5" Content="Abbruch" FontSize="12" FontFamily="Gill Sans MT Regular" Click="btn_abbruch_Click"  ></Button>
 
         <Button Command="{Binding btn_Bestaetigen}" Grid.Column="3" Grid.Row="6" HorizontalAlignment="Stretch" BorderBrush="#230C0F" Background="White" VerticalAlignment="Top" Height="30" Margin="5,5,5,5" Content="Bestätigen" FontSize="12" FontFamily="Gill Sans MT Regular" Click="Button_Click"  ></Button>
         <Label HorizontalAlignment="Center" VerticalAlignment="Bottom"  Grid.Row="5" FontSize="16" FontFamily="Gill Sans MT Regular">Noch kein Benuzter?</Label>
         <StackPanel  Grid.Row="6">
 
-            <Button FontFamily="Gill Sans MT Regular" Command="{Binding btn_Registrieren}" HorizontalAlignment="Stretch" BorderBrush="#230C0F" Margin="5,5,5,5" Background="White" Height="30" FontSize="12">Registrieren</Button>
+            <Button x:Name="btn_registrieren"  FontFamily="Gill Sans MT Regular" Command="{Binding btn_Registrieren}" HorizontalAlignment="Stretch" BorderBrush="#230C0F" Margin="5,5,5,5" Background="White" Height="30" FontSize="12" Click="btn_registrieren_Click">Registrieren</Button>
         </StackPanel>
 
     </Grid>

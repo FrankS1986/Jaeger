@@ -39,6 +39,8 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
                      MessageBox.Show("Login fehlgeschlagen");
                  }
              });
+
+
         }
 
         private void PwtNeu_PasswordChanged(object sender, RoutedEventArgs e)
@@ -49,6 +51,23 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Messenger.Default.Send("Btn_Bestaetigen_clicked");
+        }
+
+        private void btn_registrieren_Click(object sender, RoutedEventArgs e)
+        {
+            GUI_Registrierung registrierung = new GUI_Registrierung();
+            registrierung.Show();
+        }
+
+        private void btn_abbruch_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void btn_passwortVergessen_Click(object sender, RoutedEventArgs e)
+        {
+            GUI_SicherheitsFragestellung sicherheitsFragestellung = new GUI_SicherheitsFragestellung();
+            sicherheitsFragestellung.Show();
         }
     }
 }
