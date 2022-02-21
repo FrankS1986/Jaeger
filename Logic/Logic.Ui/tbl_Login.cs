@@ -25,6 +25,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         public string Passwort { get; set; }
         public System.DateTime DatumUhrzeit { get; set; }
         public string Antwort { get; set; }
+        public string UserVorname { get; set; }
+        public string UserNachname { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_Abfrage> tbl_Abfrage { get; set; }

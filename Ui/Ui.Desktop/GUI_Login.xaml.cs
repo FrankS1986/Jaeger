@@ -15,6 +15,7 @@ using JaegerMeister.MvvmSample.Logic.Ui;
 using GalaSoft.MvvmLight.Messaging;
 using static JaegerMeister.MvvmSample.Logic.Ui.Logic_Login;
 using Ui.Desktop;
+using JaegerMeister.MvvmSample.Logic.Ui.Messages;
 
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
@@ -26,13 +27,15 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         public GUI_Login()
         {
             InitializeComponent();
-            Messenger.Default.Register<LoginProof>(this, (LoginProof loginProof) =>
+
+            Messenger.Default.Register<LoginProofMessage>(this, (LoginProofMessage loginProof) =>
              {
                  if (loginProof.proof == true)
                  {
                      MessageBox.Show("Login war erfolgreich");
                      MainWindow main = new MainWindow();
                      main.Show();
+                     Close();
                  }
                  else
                  {
@@ -57,6 +60,7 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         {
             GUI_Registrierung registrierung = new GUI_Registrierung();
             registrierung.Show();
+            Close();
         }
 
         private void btn_abbruch_Click(object sender, RoutedEventArgs e)

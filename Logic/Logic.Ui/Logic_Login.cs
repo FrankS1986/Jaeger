@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
+using JaegerMeister.MvvmSample.Logic.Ui.Messages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -64,7 +65,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     _btn_bestaetigen = new RelayCommand(() =>
                     {
 
-                     Messenger.Default.Send < LoginProof > (new LoginProof { proof = service.LoginSuccessful(tb_Benutzername, passwort) });
+                     Messenger.Default.Send < LoginProofMessage > (new LoginProofMessage { proof = service.LoginSuccessful(tb_Benutzername, passwort) });
    
 
                     });
@@ -115,10 +116,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 return _btn_passwortvergessen;
             }
         }
-        public class LoginProof
-        {
-            public bool? proof { get; set; }
-        }
+        
         #endregion Properties
 
 
