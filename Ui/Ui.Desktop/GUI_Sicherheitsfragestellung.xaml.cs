@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Messaging;
+using JaegerMeister.MvvmSample.Logic.Ui.Messages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Ui.Desktop;
 
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
@@ -22,6 +25,31 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         public GUI_SicherheitsFragestellung()
         {
             InitializeComponent();
+            Messenger.Default.Register<SicherheitsfragestellungsErfolgsMessage>(this, (SicherheitsfragestellungsErfolgsMessage loginProof) =>
+            {
+                if (loginProof.SuccesSicherheitsFragestellung)
+                {
+
+                    GUI_PasswortErneuern passwortErneuern = new GUI_PasswortErneuern();
+                    passwortErneuern.Show();
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Falsche Antwort");
+                }
+            });
         }
+
+        
+
+        private void abbruch_Click(object sender, RoutedEventArgs e)
+        {
+            GUI_Login login = new GUI_Login();
+            login.Show();
+            Close();
+        }
+
+       
     }
 }

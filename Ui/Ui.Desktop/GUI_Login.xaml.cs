@@ -72,6 +72,7 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         {
             GUI_SicherheitsFragestellung sicherheitsFragestellung = new GUI_SicherheitsFragestellung();
             sicherheitsFragestellung.Show();
+            Close();
         }
     }
 }
