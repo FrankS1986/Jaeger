@@ -87,6 +87,7 @@
     <Compile Include="Logic_PasswortAendern.cs" />
     <Compile Include="Logic_NeuesPasswort.cs" />
     <Compile Include="MainViewModel.cs" />
+    <Compile Include="Messages\AdminAbfrage.cs" />
     <Compile Include="Messages\LoginProofMessage.cs" />
     <Compile Include="Messages\RegistrierungsAbfrageBenutzer.cs" />
     <Compile Include="Messages\RegistrierungsErfolgsMessage.cs" />
@@ -183,6 +184,8 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Service\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
