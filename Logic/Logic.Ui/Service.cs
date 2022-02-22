@@ -30,6 +30,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         }
 
+        /// <summary>
+        /// Checkt die Login_ID vom Benutzer, um Admin festzustellen.
+        /// </summary>
         public bool adminSuccessful;
 
         public bool AdminSuccessful(string benutzer)

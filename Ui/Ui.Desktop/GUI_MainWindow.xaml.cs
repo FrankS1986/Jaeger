@@ -28,6 +28,9 @@ namespace Ui.Desktop
             InitializeComponent();
             GUI_Kalender kalender = new GUI_Kalender();
             Contmain.Content = kalender;
+            ///<summary>
+            ///Wenn der Benutzer kein Admin ist, wird der Button Admin vom Layout verschwinden.
+            ///</summary>
             Messenger.Default.Register(this, (AdminAbfrage Success) =>
             {
                 if (Success.Abfrage == false)
