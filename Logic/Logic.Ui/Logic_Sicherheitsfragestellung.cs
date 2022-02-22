@@ -35,7 +35,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     _btn_bestaetigen = new RelayCommand(() =>
                     {
 
-                        Messenger.Default.Send<SicherheitsfragestellungsErfolgsMessage>(new SicherheitsfragestellungsErfolgsMessage { SuccesSicherheitsFragestellung = serv.AbfrageAnwort(Benutzername,Antwort) });
+                        Messenger.Default.Send<SicherheitsfragestellungsErfolgsMessage>(new SicherheitsfragestellungsErfolgsMessage { SuccesSicherheitsFragestellung = serv.AbfrageAnwort(Benutzername, Antwort) });
 
                         Benutzername = null;
                         Antwort = null;

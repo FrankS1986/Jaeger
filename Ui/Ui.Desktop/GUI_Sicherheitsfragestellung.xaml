@@ -14,6 +14,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -26,13 +27,13 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         
-        <Label VerticalAlignment="Stretch" Grid.ColumnSpan="4" Content="" HorizontalContentAlignment="Center" Background="#4F772D" FontFamily="Gill Sans MT Bold" FontSize="32"/>
-        <Label VerticalAlignment="Center" Grid.ColumnSpan="4" Content="Sicherheitsfragen" HorizontalContentAlignment="Center" Background="#4F772D" Foreground="#E0CBA8" FontFamily="Gill Sans MT Bold" FontSize="32"/>
+        <Label VerticalAlignment="Stretch" Grid.ColumnSpan="5" Content="" HorizontalContentAlignment="Center" Background="#4F772D" FontFamily="Gill Sans MT Bold" FontSize="32"/>
+        <Label VerticalAlignment="Center" Grid.ColumnSpan="5" Content="Sicherheitsfragen" HorizontalContentAlignment="Center" Background="#4F772D" Foreground="#E0CBA8" FontFamily="Gill Sans MT Bold" FontSize="32"/>
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalAlignment="Center">
             <Label Content="Benutzername:" FontFamily="Gill Sans MT Regular" FontSize="16"></Label>
             <TextBox Text="{Binding Benutzername}" IsEnabled="{Binding BenutzerEnable}" HorizontalAlignment="Stretch"  Height="25" FontSize="12"></TextBox>
             <Button Command="{Binding BenutzernameBestaetigen}" Content="Benutzername übernehmen" Height="30"  Margin="190,5,0,5" Background="White" BorderBrush="#230C0F" FontSize="12"/>
-            <Label Content="{Binding Sicherheitsfrage}" FontFamily="Gill Sans MT Regular" FontSize="16" Height="25"/>
+            <Label Margin="0,0,-300,0"  Content="{Binding Sicherheitsfrage}" FontFamily="Gill Sans MT Regular" FontSize="16" Height="25"/>
             <TextBox Text="{Binding Antwort}"   Height="25" FontSize="12" IsEnabled="{Binding AntwortEnable}" ></TextBox>
             
         </StackPanel>
