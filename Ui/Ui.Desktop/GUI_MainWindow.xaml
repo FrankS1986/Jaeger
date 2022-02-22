@@ -53,10 +53,9 @@
             <TextBlock> Dokumente- <LineBreak/>verwalten</TextBlock>
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Column="9" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" Content="Urkunde erstellen"  BorderBrush="#230C0F" Background="White" Height="30" FontSize="12" Click="btn_Urkundeerstellen" FontFamily="Gill Sans MT" ></Button>
-        <Button HorizontalAlignment="Stretch" Grid.Column="10" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" Content="Admin" BorderBrush="#230C0F" Background="White" Height="30" FontSize="12" Click="btn_Admin" FontFamily="Gill Sans MT" ></Button>
+        <Button x:Name="Admin" HorizontalAlignment="Stretch" Grid.Column="10" Grid.Row="2" Grid.RowSpan="2" Margin="0,5" Content="Admin" BorderBrush="#230C0F" Background="White" Height="30" FontSize="12" Click="btn_Admin" FontFamily="Gill Sans MT" Command="{Binding btn_admin}"></Button>
         <Label Grid.Column="2" Grid.ColumnSpan="5" Grid.RowSpan="2" VerticalAlignment="Bottom"   Content="Kimme &amp; Korn GmbH" FontSize="32" Foreground="#E0CDA8" FontFamily="Gill Sans MT " FontWeight="Bold" Height="47"/>
-        <!--<ContentControl Height="360" Width="800" x:Name="Contmain" Grid.Column="1"  Grid.ColumnSpan="8" Grid.Row="5" Grid.RowSpan="6" Margin="36,0,37,18" > -->
-            <ContentControl x:Name="Contmain" Grid.Column="1"  Grid.ColumnSpan="10" Grid.Row="5" Grid.RowSpan="5"  >
+        <ContentControl x:Name="Contmain" Grid.Column="1"  Grid.ColumnSpan="10" Grid.Row="5" Grid.RowSpan="5"  >
             </ContentControl>
     </Grid>
 </Window>

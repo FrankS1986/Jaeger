@@ -30,6 +30,27 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         }
 
+        public bool adminSuccessful;
+
+        public bool AdminSuccessful(string benutzer)
+        {
+            using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
+            {
+                var admin = from a in ctx.tbl_Login
+                            where a.Loginname == benutzer && a.Login_ID == 1
+                            select new {a.Loginname, a.Login_ID };
+                if (admin.Count() == 1)
+                {
+                    adminSuccessful = true;
+                }
+                else
+                {
+                    adminSuccessful = false;
+                }
+            }
+            return adminSuccessful;
+        }
+
         /// <summary>
         /// Beginn Registrierung
         /// </summary>
