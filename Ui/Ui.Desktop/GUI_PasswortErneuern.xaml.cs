@@ -3,6 +3,7 @@ using JaegerMeister.MvvmSample.Logic.Ui;
 using JaegerMeister.MvvmSample.Logic.Ui.Messages;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,9 +24,12 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
     /// </summary>
     public partial class GUI_PasswortErneuern : Window
     {
+
         public GUI_PasswortErneuern()
         {
             InitializeComponent();
+
+          
             Messenger.Default.Register<PasswortErneuernErfolgsMessage>(this, (PasswortErneuernErfolgsMessage loginProof) =>
             {
                 if (loginProof.passwortErneuernErfolgsMessage == true)
@@ -33,27 +37,37 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
                     MessageBox.Show("Passwort erfolgreich vergeben");
                     GUI_Login login = new GUI_Login();
                     login.Show();
+
                     Close();
                 }
                 else
                 {
-                    MessageBox.Show("fehlgeschlagen");
+                    MessageBox.Show("Fehlgeschlagen");
                 }
             });
 
 
             Messenger.Default.Register<PasswortErneuernVergebenMessage>(this, (PasswortErneuernVergebenMessage vergeben) =>
 
-            { 
-               if(vergeben.passwortErneuernVergebenMessage==true)
+            {
+                if (vergeben.IstVergeben == true)
                 {
-                    MessageBox.Show("Dieses Passwort wurde kürzlich von Ihnen vergeben. Bitte gebe Sie ein anderes ein.");
+                    MessageBox.Show("Dieses Passwort wurde kürzlich von Ihnen vergeben. Bitte gebe Sie ein anderes Passwort ein.");
+                }
+
+                else
+                {
+                    MessageBox.Show("Passwörter stimmen nicht überein");
                 }
             });
 
         }
 
-        
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            Messenger.Default.Unregister<PasswortErneuernErfolgsMessage>(this);
+            Messenger.Default.Unregister<PasswortErneuernVergebenMessage>(this);
+        }
 
         private void PwtNeu_PasswordChanged(object sender, RoutedEventArgs e)
         {

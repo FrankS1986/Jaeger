@@ -16,6 +16,7 @@ using GalaSoft.MvvmLight.Messaging;
 using static JaegerMeister.MvvmSample.Logic.Ui.Logic_Login;
 using Ui.Desktop;
 using JaegerMeister.MvvmSample.Logic.Ui.Messages;
+using System.ComponentModel;
 
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
@@ -43,6 +44,12 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
                  }
              });
 
+
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            Messenger.Default.Unregister<LoginProofMessage>(this);
 
         }
 

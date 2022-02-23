@@ -49,7 +49,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 
                     }
 
-
+                    ctx.SaveChanges();
 
                     return true;
                 }

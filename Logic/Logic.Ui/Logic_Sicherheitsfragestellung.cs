@@ -6,6 +6,7 @@ using GalaSoft.MvvmLight.Command;
 using System.ComponentModel;
 using GalaSoft.MvvmLight.Messaging;
 using JaegerMeister.MvvmSample.Logic.Ui.Messages;
+using CommonServiceLocator;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
@@ -36,13 +37,15 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     {
 
                         Messenger.Default.Send<SicherheitsfragestellungsErfolgsMessage>(new SicherheitsfragestellungsErfolgsMessage { SuccesSicherheitsFragestellung = serv.AbfrageAnwort(Benutzername, Antwort) });
-
+                        Logic_PasswortErneuern logic_PasswortErneuern = ServiceLocator.Current.GetInstance<Logic_PasswortErneuern>();
+                        logic_PasswortErneuern.Benutzername = Benutzername;
                         Benutzername = null;
                         Antwort = null;
                         Sicherheitsfrage = null;
                         AntwortEnable = false;
                         BenutzerEnable = true;
-
+                       
+                       
 
                     });
                 }

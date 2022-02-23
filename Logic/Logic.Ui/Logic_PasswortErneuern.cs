@@ -40,7 +40,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        
+
 
         private string _neuespasswort;
         public string Neuespasswort
@@ -73,42 +73,47 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        
 
-        private ICommand _btnPw_Bestaetigen;
-        public ICommand BtnPw_Bestaetigen
+
+        private ICommand _Bestaetigen;
+        public ICommand Bestaetigen
         {
             get
             {
-                if (_btnPw_Bestaetigen == null)
+                if (_Bestaetigen == null)
                 {
-                    _btnPw_Bestaetigen = new RelayCommand(() =>
+                    _Bestaetigen = new RelayCommand(() =>
                     {
-                        passwortErneuernService.PasswortErneuern(Benutzername,Neuespasswort);
-                        if (passwortErneuernService.passwortVergeben)
+
+                        if (passwortErneuernService.PasswortErneuern(Benutzername, Neuespasswort))
                         {
                             if (Neuespasswort == Passwortbestaetigen)
                             {
-                                Messenger.Default.Send<PasswortErneuernErfolgsMessage>(new PasswortErneuernErfolgsMessage { passwortErneuernErfolgsMessage = passwortErneuernService.PasswortErneuern(Benutzername, Neuespasswort) });
-                                if (passwortErneuernService.PasswortErneuern(Benutzername, Neuespasswort))
-                                {
-                                    passwortErneuernService.PasswortLoeschen(Benutzername);
-                                }
+
+                                Messenger.Default.Send<PasswortErneuernErfolgsMessage>(new PasswortErneuernErfolgsMessage { passwortErneuernErfolgsMessage = passwortErneuernService.passwortVergeben });
+
+                                passwortErneuernService.PasswortLoeschen(Benutzername);
+
+                            }
+
+                            else
+                            {
+                                Messenger.Default.Send<PasswortErneuernVergebenMessage>(new PasswortErneuernVergebenMessage { IstVergeben = false });
                             }
                         }
                         else
                         {
-                            Messenger.Default.Send<PasswortErneuernVergebenMessage>(new PasswortErneuernVergebenMessage { passwortErneuernVergebenMessage = true });
+                            Messenger.Default.Send<PasswortErneuernVergebenMessage>(new PasswortErneuernVergebenMessage { IstVergeben = true });
                         }
-                       
+
                     });
 
                 }
-                return _btnPw_Bestaetigen;
+                return _Bestaetigen;
             }
         }
 
-        
+
 
     }
 }

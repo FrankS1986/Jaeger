@@ -2,6 +2,7 @@
 using JaegerMeister.MvvmSample.Logic.Ui.Messages;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,7 +42,11 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
             });
         }
 
-        
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            Messenger.Default.Unregister<SicherheitsfragestellungsErfolgsMessage>(this);
+            
+        }
 
         private void abbruch_Click(object sender, RoutedEventArgs e)
         {

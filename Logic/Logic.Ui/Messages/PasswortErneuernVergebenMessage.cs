@@ -9,6 +9,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Messages
    public class PasswortErneuernVergebenMessage
     {
 
-        public bool? passwortErneuernVergebenMessage { get; set; }
+        public bool? IstVergeben { get; set; }
     }
 }
