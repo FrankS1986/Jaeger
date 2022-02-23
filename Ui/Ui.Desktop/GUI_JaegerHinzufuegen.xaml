@@ -81,8 +81,7 @@
                 </DockPanel>
                 <Label Content="*Pflichtfelder" HorizontalContentAlignment="Right" Margin="0,-10,0,0" Height="20"/>
             </StackPanel>
-            <Button Command="{Binding Btn_jaeger_entfernen}" Content="Entfernen" Background="White" Height="30" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"/>
-            <Button Command="{Binding Btn_jaeger_hinzufuegen}" Grid.Column="2" Content="Hinzufügen" Height="30" Background="White" BorderBrush="#230C0F" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"/>
+            <Button Command="{Binding Btn_jaeger_entfernen}" Grid.ColumnSpan="3" Content="Entfernen" Background="White" Height="30" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"/>
             <Button Command="{Binding Btn_jaeger_hinzufuegen}" Grid.Column="5" Background="White" Content="Hinzufügen" Height="30" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"  />
             <Button Command="{Binding Btn_abbrechen}" Grid.Column="4" Background="White" Content="Abbrechen"   Height="30" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
         </Grid>
