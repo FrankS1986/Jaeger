@@ -89,12 +89,15 @@
     <Compile Include="MainViewModel.cs" />
     <Compile Include="Messages\AdminAbfrage.cs" />
     <Compile Include="Messages\LoginProofMessage.cs" />
+    <Compile Include="Messages\PasswortErneuernErfolgsMessage.cs" />
+    <Compile Include="Messages\PasswortErneuernVergebenMessage.cs" />
     <Compile Include="Messages\RegistrierungsAbfrageBenutzer.cs" />
     <Compile Include="Messages\RegistrierungsErfolgsMessage.cs" />
     <Compile Include="Messages\SicherheitsfragestellungsErfolgsMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\SharedAssemblyInfo.cs" />
     <Compile Include="Service.cs" />
+    <Compile Include="Services\PasswortErneuernService.cs" />
     <Compile Include="Services\SicherheitsfragestellungService.cs" />
     <Compile Include="sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>Treibjagd.tt</DependentUpon>
