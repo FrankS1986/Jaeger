@@ -44,7 +44,7 @@ namespace Ui.Desktop
 
         private void btn_Abschussliste(object sender, RoutedEventArgs e)
         {
-
+            Contmain.Content = new GUI_Abschussliste();
         }
 
         private void btn_Wildunfaelle(object sender, RoutedEventArgs e)

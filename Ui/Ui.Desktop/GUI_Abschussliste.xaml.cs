@@ -24,10 +24,10 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         {
             InitializeComponent();
         }
-
-        private void Jaeger_Click(object sender, RoutedEventArgs e)
+        private void btn_AbschuesseHinzufuegen_Click(object sender, RoutedEventArgs e)
         {
-
+            GUI_AbschusslisteAktualisieren abschusslisteAktualisieren = new GUI_AbschusslisteAktualisieren();
+            abschussliste.Content = abschusslisteAktualisieren;
         }
     }
 }
