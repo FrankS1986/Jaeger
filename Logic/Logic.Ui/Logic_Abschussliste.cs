@@ -7,6 +7,7 @@ using System.ComponentModel;
 using GalaSoft.MvvmLight.Messaging;
 using JaegerMeister.MvvmSample.Logic.Ui.Messages;
 using JaegerMeister.MvvmSample.Logic.Ui.Services;
+using JaegerMeister.MvvmSample.Logic.Ui.Models;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
@@ -32,7 +33,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         {
             get
             {
-                List<GesamtName> namensBauer = service_Abschussliste.GesamtnameMethode();
+                List<GesamtNameModel> namensBauer = service_Abschussliste.GesamtnameMethode();
 
                 foreach(var item in namensBauer)
                 {
@@ -66,7 +67,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         {
             get
             {
-
                 return service_Abschussliste.TierartListe();
             }
             set
