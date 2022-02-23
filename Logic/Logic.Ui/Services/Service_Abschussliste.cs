@@ -7,6 +7,9 @@ using JaegerMeister.MvvmSample.Logic.Ui.Models;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 {
+
+    //In der Jaegerliste wird nach Vor- und Nachnamen gesucht, und beides gemeinsam in eine stringliste
+    //gepackt und zurueck gegeben.
     public class Service_Abschussliste
     {
         List<GesamtNameModel> gesamtnamenListe = new List<GesamtNameModel>();
@@ -25,6 +28,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                 return gesamtnamenListe;
             }
         }
+
+        //Hier wird die gesamte Tabelle der Tiere an den Anfrager zurueck gegeben.
         List<tbl_Tiere> _tierartListe = new List<tbl_Tiere>();
         public List<tbl_Tiere> TierartListe()
         {
@@ -44,6 +49,14 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                 }
                 return _tierartListe;
             }
+        }
+
+        //Hier wird geschaut ob Jaeger oder Tiere oder beides gegeben ist, und eine 
+        //entsprechende Liste zurueck gegeben.
+        List<JaegerAbschussModel> jaegerAbschussModels = new List<JaegerAbschussModel>();
+        public List<JaegerAbschussModel> JaegerAbschussModels(string wahlJaeger, string wahlTierart)
+        {
+
         }
     }
 }

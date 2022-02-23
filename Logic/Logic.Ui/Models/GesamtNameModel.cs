@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui.Models
 {
+    //Die Klasse fuer den Bau des Namens in der Abschussliste
     public class GesamtNameModel
     {
         public string Vorname { get; set; }
