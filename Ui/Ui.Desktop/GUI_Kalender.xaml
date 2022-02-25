@@ -31,12 +31,12 @@
                 </Button>
             </Grid>
             <DataGrid  Grid.Row="1" Grid.RowSpan="2"  ItemsSource="{Binding Dg_TermineKalender}" FontFamily="Gill Sans MT" FontSize="16" MinColumnWidth="196" />
-            <Viewbox  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="ViewBoxKalender" Grid.Column="2"  Grid.RowSpan="2"  Grid.ColumnSpan="2" Stretch="Fill"   >
-                <Calendar Name="CalenderEx"
+            <Viewbox  HorizontalAlignment="Center" VerticalAlignment="Center" Name="ViewBoxKalender" Grid.Column="2"   Grid.RowSpan="2"  Stretch="Uniform"   >
+                <Calendar  Name="Kalender"
                           SelectionMode="MultipleRange" 
-                          SelectedDate="{Binding SelectedDate,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"                          
-                          VerticalContentAlignment="Stretch"
-                          HorizontalContentAlignment="Stretch"  >
+                                                  
+                          VerticalContentAlignment="Center"
+                          HorizontalContentAlignment="Center"  >
                     
                     <Calendar.BorderBrush>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -48,7 +48,7 @@
                     </Calendar.BorderBrush>
                 </Calendar>
             </Viewbox>
-            <DataGrid Name="dg_KalenderAnzeige" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2"  ItemsSource="{Binding Dg_KalenderAnzeige}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Gill Sans MT" FontSize="12" MinColumnWidth="122.5"/>
+            <TextBlock Background="White" Name="dg_KalenderAnzeige" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2"  Text="{Binding ElementName=Kalender, Path=SelectedDate, StringFormat=d, UpdateSourceTrigger=PropertyChanged}"   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Gill Sans MT" FontSize="16" />
         </Grid>
     </ContentControl>
 </UserControl>

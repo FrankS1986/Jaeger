@@ -13,35 +13,40 @@ using System.Collections.ObjectModel;
 using System.Runtime.CompilerServices;
 using System.Globalization;
 
+
+
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
     public class Logic_Kalender : ViewModelBase, INotifyPropertyChanged
     {
 
         KalenderService serv = new KalenderService();
-
+        
         public Logic_Kalender()
         {
 
             Dg_TermineKalender = serv.Termine();
-            Dg_KalenderAnzeige = serv.Geburt();
-            //SelectedDates = serv.DateKaleder();
+            //Dg_KalenderAnzeige = serv.Geburt();
+
+            SelectedDates = serv.DateKaleder();
+            //Kalender.SelectedDate = DateTime.Now.AddDays(1);
+            
 
         }
-        //private List<DateTime> _selectedDates;
-        //public List<DateTime> SelectedDates
-        //{
-        //    get 
-        //    { 
+        private List<DateTime> _selectedDates;
+        public List<DateTime> SelectedDates
+        {
+            get
+            {
 
-        //        return _selectedDates; 
-        //    }
-        //    set
-        //    {
-        //        _selectedDates = value;
-        //        RaisePropertyChanged("SelectedDates");
-        //    }
-        //}
+                return _selectedDates;
+            }
+            set
+            {
+                _selectedDates = value;
+                RaisePropertyChanged("SelectedDates");
+            }
+        }
         private List<KalenderTermineModel> _dg_TermineKalender;
         public List<KalenderTermineModel> Dg_TermineKalender
         {
@@ -72,24 +77,24 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
 
 
-        private DateTime _selectedDate;
-        public DateTime SelectedDate
-        {
-            get { return _selectedDate; }
-            set
-            {
-                _selectedDate = value; RaisePropertyChanged("SelectedDates");
-            }
-        }
-        private ObservableCollection<DateTime> _selectedDates = new ObservableCollection<DateTime>();
-        public ObservableCollection<DateTime> SelectedDates
-        {
-            get { return _selectedDates; }
-            set
-            {
-                _selectedDates = value; RaisePropertyChanged("SelectedDates");
-            }
-        }
+        //private DateTime _selectedDate;
+        //public DateTime SelectedDate
+        //{
+        //    get { return _selectedDate; }
+        //    set
+        //    {
+        //        _selectedDate = value; RaisePropertyChanged("SelectedDates");
+        //    }
+        //}
+        //private ObservableCollection<DateTime> _selectedDates = new ObservableCollection<DateTime>();
+        //public ObservableCollection<DateTime> SelectedDates
+        //{
+        //    get { return _selectedDates; }
+        //    set
+        //    {
+        //        _selectedDates = value; RaisePropertyChanged("SelectedDates");
+        //    }
+        //}
 
     }
 }

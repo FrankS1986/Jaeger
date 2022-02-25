@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using JaegerMeister.MvvmSample.Ui.Desktop;
+ 
 
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
@@ -27,6 +28,8 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
             
 
             InitializeComponent();
+            Kalender.SelectedDate = DateTime.Now.AddDays(1);
+            
 
         }
 
