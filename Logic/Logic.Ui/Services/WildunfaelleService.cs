@@ -22,10 +22,10 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
         }
 
 
-        public int Date;
-        public int Tierart;
+        public int datumID;
+        public int tierartID;
         public DateTime time;
-        public int JaegerID;
+        public int jaegerID;
         public bool Tierhinzuegen(DateTime date, int id, string ort)
         {
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
@@ -54,7 +54,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                     {
                         foreach (var j in IndexName)
                         {
-                            JaegerID = j.Jäger_ID;
+                            jaegerID = j.Jäger_ID;
                         }
 
                     }
@@ -67,7 +67,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                     {
                         foreach (var j in IndexTier)
                         {
-                            Tierart = j.Tiere_ID;
+                            tierartID = j.Tiere_ID;
                         }
 
                     }
@@ -85,8 +85,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                                       };
 
                     
-                        var ergebnis = IndexTermin.Count();
-                        Date = ergebnis;
+                        int ergebnis = IndexTermin.Count();
+                        datumID = ergebnis;
                     
 
 

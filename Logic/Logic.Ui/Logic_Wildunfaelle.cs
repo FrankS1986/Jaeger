@@ -93,9 +93,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                             var newitem = new tbl_Jagderfolge()
 
                             {
-                                Jäger_ID = serv.JaegerID,
-                                Termine_ID = serv.Date,
-                                Tiere_ID = serv.Tierart
+                                Jäger_ID = serv.jaegerID,
+                                Termine_ID = serv.datumID,
+                                Tiere_ID = serv.tierartID
 
 
                             };
