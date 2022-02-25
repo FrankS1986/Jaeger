@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using JaegerMeister.MvvmSample.Ui.Desktop;
 
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
@@ -20,9 +21,21 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
     /// </summary>
     public partial class GUI_Kalender : UserControl
     {
+       
         public GUI_Kalender()
         {
+            
+
             InitializeComponent();
+
         }
+
+        private void TerminHinzufuegen_Click(object sender, RoutedEventArgs e)
+        {
+            GUI_TerminErstellen termin = new GUI_TerminErstellen();
+            ContentControlTerminErstellen.Content = termin;
+        }
+
+        
     }
 }

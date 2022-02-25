@@ -7,8 +7,9 @@
              mc:Ignorable="d" 
              DataContext="{Binding logic_Kalender, Source={StaticResource Locator}}"
              d:DesignHeight="360" d:DesignWidth="800" Width="800" Height="360" MinHeight="360" MinWidth="800">
-    <ContentControl x:Name="ContentControl_Kalender">
-        <Grid Name="Grid_Kalender" >
+    
+    <ContentControl x:Name="ContentControlTerminErstellen">
+        <Grid Name="Grid_Kalender"  >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition Width="15"/>
@@ -25,13 +26,18 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Label Content="Termine" Foreground="#E0CBA8" FontSize="22" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Center"   ></Label>
-                <Button Name="TerminHinzufuegen" Background="{x:Null}" Height="30" Width="30" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,18,30,10"  Command="{Binding Btn_TerminHinzufuegen}" >
+                <Button Name="TerminHinzufuegen" Background="{x:Null}" Height="30" Width="30" VerticalAlignment="Top" HorizontalAlignment="Right"  Click="TerminHinzufuegen_Click" >
                     <Image Source="Icons/HinzufügenIcon.png"></Image>
                 </Button>
             </Grid>
-            <DataGrid Name="dg_TermineKalender" Grid.Row="1" Grid.RowSpan="2" DataContext="{Binding Dg_TermineKalender}"/>
-            <Viewbox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="ViewBoxKalender" Grid.Column="2"  Grid.RowSpan="2" Stretch="Uniform" Grid.ColumnSpan="2"   >
-                <Calendar SelectedDate="{Binding Path=CurrentDate}" DisplayDate="{Binding Path=SelectedDate, RelativeSource={RelativeSource Self}, Mode=OneWay}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <DataGrid  Grid.Row="1" Grid.RowSpan="2"  ItemsSource="{Binding Dg_TermineKalender}" FontFamily="Gill Sans MT" FontSize="16" MinColumnWidth="196" />
+            <Viewbox  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="ViewBoxKalender" Grid.Column="2"  Grid.RowSpan="2"  Grid.ColumnSpan="2" Stretch="Fill"   >
+                <Calendar Name="CalenderEx"
+                          SelectionMode="MultipleRange" 
+                          SelectedDate="{Binding SelectedDate,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"                          
+                          VerticalContentAlignment="Stretch"
+                          HorizontalContentAlignment="Stretch"  >
+                    
                     <Calendar.BorderBrush>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFA3AEB9" Offset="0"/>
@@ -42,7 +48,7 @@
                     </Calendar.BorderBrush>
                 </Calendar>
             </Viewbox>
-            <DataGrid Name="dg_KalenderAnzeige" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2"  DataContext="{Binding Dg_KalenderAnzeige}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <DataGrid Name="dg_KalenderAnzeige" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2"  ItemsSource="{Binding Dg_KalenderAnzeige}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Gill Sans MT" FontSize="12" MinColumnWidth="122.5"/>
         </Grid>
     </ContentControl>
 </UserControl>
