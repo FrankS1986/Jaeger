@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Messaging;
+using JaegerMeister.MvvmSample.Logic.Ui.Messages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,20 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         public GUI_Wildunfaelle()
         {
             InitializeComponent();
+
+            Messenger.Default.Register<WildunfaelleErfolgsMessage>(this, (WildunfaelleErfolgsMessage unfall) =>
+            {
+                if (unfall.wildunfallhizugefügt == true)
+                {
+                    MessageBox.Show("Wildunfall erfolgreich hinzugefügt");
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Hinzufügen vom dem Wildunfall hat nicht geklappt ");
+                }
+            });
         }
     }
 }

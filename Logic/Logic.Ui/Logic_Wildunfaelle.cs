@@ -1,5 +1,8 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
+using JaegerMeister.MvvmSample.Logic.Ui.Messages;
+using JaegerMeister.MvvmSample.Logic.Ui.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,62 +15,100 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 {
     public class Logic_Wildunfaelle: ViewModelBase , INotifyPropertyChanged
     {
-        private DateTime _dp_StartDate;
-        public DateTime dp_StartDate
+        WildunfaelleService serv = new WildunfaelleService();
+        public Logic_Wildunfaelle()
+        {
+            Datum = DateTime.Today.ToString();
+            Tiere = serv.Tiere();
+
+        }
+        private DateTime _StartDate;
+        public DateTime StartDate
         {
             get
             {
-                return _dp_StartDate;
+                return _StartDate;
             }
-          set
-            {
-                _dp_StartDate = value;
-                RaisePropertyChanged("dp_StartDate");
-            }
-        }                                                                                   
-
-
-
-        private List<Tierart> _tb_Tierart;
-        public List<Tierart> tb_Tierart
-        {
-            get
-            {
-                return _tb_Tierart;
-            }
-
             set
             {
-                _tb_Tierart = value;
-                RaisePropertyChanged("tb_Tierart");
+                _StartDate = value;
+                RaisePropertyChanged("StartDate");
             }
         }
 
-        private ICommand _btn_Wildunfaelle;
-        public ICommand btn_Wildunfaelle
+
+
+        private string _Ort;
+        public string Ort
+        {
+            get { return _Ort; }
+            set { _Ort = value; RaisePropertyChanged("Ort"); }
+        }
+
+
+        private tbl_Tiere _SelectItem;
+        public tbl_Tiere SelectItem
+        {
+            get { return _SelectItem; }
+            set { _SelectItem = value; RaisePropertyChanged("SelectItem"); }
+        }
+
+        private string _Datum;
+        public string Datum
+        {
+            get { return _Datum; }
+            set { _Datum = value; RaisePropertyChanged("Datum"); }
+        }
+
+        private List<tbl_Tiere> _Tiere;
+        public List<tbl_Tiere> Tiere
         {
             get
             {
-                if (_btn_Wildunfaelle == null)
+                return _Tiere;
+            }
+            set
+            {
+                _Tiere = value;
+                RaisePropertyChanged("Tiere");
+            }
+        }
+
+
+        private ICommand _Wildunfaelle;
+        public ICommand Wildunfaelle
+        {
+            get
+            {
+                if (_Wildunfaelle == null)
                 {
-                    _btn_Wildunfaelle = new RelayCommand(() =>
+                    _Wildunfaelle = new RelayCommand(() =>
                     {
-                        Logic_Wildunfaelle logic = new Logic_Wildunfaelle();
+                        if (!string.IsNullOrEmpty(Ort) && Tiere != null)
+                        {
 
 
-                        ////// logic
+                            Messenger.Default.Send<WildunfaelleErfolgsMessage>(new WildunfaelleErfolgsMessage { wildunfallhizugefügt = serv.Tierhinzuegen(StartDate, SelectItem.Tiere_ID, Ort) });
+
+                            var newitem = new tbl_Jagderfolge()
+
+                            {
+                                Jäger_ID = serv.JaegerID,
+                                Termine_ID = serv.Date,
+                                Tiere_ID = serv.Tierart
+
+
+                            };
+
+                            serv.InsertJagdErfolge(newitem);
+
+                        }
+
                     });
 
                 }
-                return _btn_Wildunfaelle;
+                return _Wildunfaelle;
             }
-        }
-
-
-        public class Tierart
-        {
-            public int ID { get; set; }
-            public string name { get; set; }
         }
     }
 }

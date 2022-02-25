@@ -17,20 +17,25 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="100*"/>
-                <RowDefinition Height="117*"/>
-                <RowDefinition Height="128*"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="250*"/>
                 <RowDefinition Height="140*"/>
             </Grid.RowDefinitions>
             <Grid Grid.ColumnSpan="3" Background="#4F772D" ></Grid>
             <Label Content="Wildunfälle" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" FontFamily="Gill Sans MT Regular" FontSize="22" Foreground="#E0CBA8"  ></Label>
             <Label Grid.Column="1" Grid.Row="1" Content="Datum:" FontSize="16" Foreground="Black" VerticalAlignment="Bottom" FontFamily="Gill Sans MT Regular" Height="36"  ></Label>
-            <DatePicker Name="DatePiker" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Height="30"  SelectedDate="{Binding dp_StartDate}" ></DatePicker>
-            <Label Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" Foreground="Black" FontSize="16" Content="Tierart:" Height="39" ></Label>
-            <ComboBox Name="tb_Tierart" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Height="25" FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding tb_Tierart}" ></ComboBox>
-            <Button  HorizontalAlignment="Stretch" Margin="5"  Name="btn_BestaetigungWildunfaelle" Content="Bestätigen" FontFamily="Gill Sans MT Regular" FontSize="12" BorderBrush="#230C0F" Background="White"  Grid.Column="2" Grid.Row="3"  Height="30" Command="{Binding btn_Wildunfaelle}" ></Button>
+            <StackPanel Grid.Column="1" Grid.Row="2">
+                <DatePicker Name="DatePiker"     SelectedDate="{Binding StartDate}" Text="{Binding Datum}" ></DatePicker>
+                <Label FontFamily="Gill Sans MT Regular"  Foreground="Black" FontSize="16" Content="Unfallort:"  ></Label>
+                <TextBox Text="{Binding Ort}" FontFamily="Gill Sans MT Regular" Foreground="Black" FontSize="16"  Height="25" ></TextBox>
+                <Label   Foreground="Black" FontSize="16" Content="Tierart:"  ></Label>
+                <ComboBox SelectedItem="{Binding SelectItem}" DisplayMemberPath="Tierart" Name="tb_Tierart"  Height="25" FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding Tiere}" ></ComboBox>
+            </StackPanel>
+            
+            
+            <Button  HorizontalAlignment="Stretch" Margin="5"  Name="btn_BestaetigungWildunfaelle" Content="Bestätigen" FontFamily="Gill Sans MT Regular" FontSize="12" BorderBrush="#230C0F" Background="White"  Grid.Column="2" Grid.Row="3"  Height="30" Command="{Binding Wildunfaelle}" ></Button>
         </Grid>
-
     </ContentControl>
 </UserControl>
 
