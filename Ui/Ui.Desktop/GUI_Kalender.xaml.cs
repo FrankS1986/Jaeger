@@ -28,7 +28,7 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
             
 
             InitializeComponent();
-            Kalender.SelectedDate = DateTime.Now.AddDays(1);
+            
             
 
         }

@@ -19,15 +19,12 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 
 
 
-        public List<KalenderGeburtstagModel> geburtstag;
-        public List<KalenderTermineModel> kalenderTermine;
 
-        public List<tbl_Termine> terminlist;
-        public List<DateTime> selectedDates;
         
-        //Verbindung zur Datenbank
+
         public List<KalenderTermineModel> Termine()
         {
+            List<KalenderTermineModel> kalenderTermine;
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
             {
                 var bezTermin = from a in ctx.tbl_Termine
@@ -38,64 +35,51 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                 //DateTime testDate = DateTime.Now;
                 //string datum = testDate.ToString("yyyy, MMMM, dd");
 
-                           
+
                 kalenderTermine = new List<KalenderTermineModel>();
                 foreach (var tempTermin in bezTermin)
                 {
 
                     KalenderTermineModel termin = new KalenderTermineModel();
                     termin.Bezeichnung = tempTermin.Bezeichnung;
-                    termin.DatumUhrzeit = tempTermin.DatumUhrzeit; 
-                                      
+                    termin.DatumUhrzeit = tempTermin.DatumUhrzeit;
+
                     kalenderTermine.Add((KalenderTermineModel)termin);
                 }
                 return kalenderTermine;
             }
         }
+        public List<KalenderNextTerminModel> NextTermin(DateTime selectedDate)
 
-        //public List<KalenderGeburtstagModel> Geburt()
-        //{
-        //    using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
-        //    {
-        //        var gebTermin = from a in ctx.tbl_Jaeger
-        //                        select new { a.Vorname, a.Nachname, a.Geburtsdatum };
-        //        //int ergebnis = gebTermin.Count();
-
-
-
-
-        //        geburtstag = new List<KalenderGeburtstagModel>();
-
-        //        foreach (var keksLord in gebTermin)
-        //        {
-        //            KalenderGeburtstagModel termin = new KalenderGeburtstagModel();
-        //            termin.Vorname = keksLord.Vorname;
-        //            termin.Nachname = keksLord.Nachname;
-        //            termin.Geburtsdatum = keksLord.Geburtsdatum;
-
-        //            geburtstag.Add((KalenderGeburtstagModel)termin);
-        //        }
-        //        return geburtstag;
-        //    }
-        //}
-
-
-        public List<DateTime> DateKaleder()
         {
-            selectedDates = new List<DateTime>();
-            selectedDates.Add(DateTime.Now.Date);
-            selectedDates.Add(DateTime.Now.Date);
-            selectedDates.Add(DateTime.Now.AddDays(2));
+            List<KalenderNextTerminModel> nextTermin = new List<KalenderNextTerminModel>();
+            //DateTime dateTime = new DateTime(selectedDate.Year, selectedDate.Month, DateTime.DaysInMonth(selectedDate.Year, selectedDate.Month), 23, 59, 59);
+            DateTime dateTime = selectedDate.AddHours(23).AddMinutes(59).AddSeconds(59);
+            using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
+            {
 
-            return selectedDates;
+                var nTermin = from a in ctx.tbl_Termine
+                              where a.DatumUhrzeit >= selectedDate && a.DatumUhrzeit <= dateTime
+                              orderby a.DatumUhrzeit ascending
+                              select new { a.Bezeichnung, a.Typ, a.DatumUhrzeit };
+
+
+
+
+                foreach (var kekslLord in nTermin)
+                {
+                    KalenderNextTerminModel tempTermin = new KalenderNextTerminModel();
+                    tempTermin.Bezeichnung = kekslLord.Bezeichnung;
+                    tempTermin.DatumUhrzeit = kekslLord.DatumUhrzeit;
+                    tempTermin.Typ = kekslLord.Typ;
+
+
+
+                    nextTermin.Add((KalenderNextTerminModel)tempTermin);
+                }
+
+            }
+            return nextTermin;
         }
-
-
-
-
-
-
-
-
     }
 }

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              DataContext="{Binding logic_Kalender, Source={StaticResource Locator}}"
              d:DesignHeight="360" d:DesignWidth="800" Width="800" Height="360" MinHeight="360" MinWidth="800">
-    
+
     <ContentControl x:Name="ContentControlTerminErstellen">
         <Grid Name="Grid_Kalender"  >
             <Grid.ColumnDefinitions>
@@ -26,29 +26,16 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Label Content="Termine" Foreground="#E0CBA8" FontSize="22" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Center"   ></Label>
-                <Button Name="TerminHinzufuegen" Background="{x:Null}" Height="30" Width="30" VerticalAlignment="Top" HorizontalAlignment="Right"  Click="TerminHinzufuegen_Click" >
+                <Button Name="TerminHinzufuegen" Background="{x:Null}" Height="35" Width="35" VerticalAlignment="Top" HorizontalAlignment="Right"  Click="TerminHinzufuegen_Click"  >
                     <Image Source="Icons/HinzufügenIcon.png"></Image>
                 </Button>
             </Grid>
-            <DataGrid  Grid.Row="1" Grid.RowSpan="2"  ItemsSource="{Binding Dg_TermineKalender}" FontFamily="Gill Sans MT" FontSize="16" MinColumnWidth="196" />
+            <DataGrid  Grid.Row="1" Grid.RowSpan="2"  ItemsSource="{Binding Dg_TermineKalender}" FontFamily="Gill Sans MT" FontSize="16" MinColumnWidth="196" IsReadOnly="True" IsManipulationEnabled="True" IsTextSearchCaseSensitive="True" />
             <Viewbox  HorizontalAlignment="Center" VerticalAlignment="Center" Name="ViewBoxKalender" Grid.Column="2"   Grid.RowSpan="2"  Stretch="Uniform"   >
-                <Calendar  Name="Kalender"
-                          SelectionMode="MultipleRange" 
-                                                  
-                          VerticalContentAlignment="Center"
-                          HorizontalContentAlignment="Center"  >
-                    
-                    <Calendar.BorderBrush>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFA3AEB9" Offset="0"/>
-                            <GradientStop Color="#FF8399A9" Offset="0.375"/>
-                            <GradientStop Color="#FF718597" Offset="0.375"/>
-                            <GradientStop Color="#FF4F772D" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Calendar.BorderBrush>
-                </Calendar>
+                <Calendar Name="Kalender"   SelectedDate="{Binding SelectedDates}" />
             </Viewbox>
-            <TextBlock Background="White" Name="dg_KalenderAnzeige" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2"  Text="{Binding ElementName=Kalender, Path=SelectedDate, StringFormat=d, UpdateSourceTrigger=PropertyChanged}"   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Gill Sans MT" FontSize="16" />
+            <DataGrid Background="White"  Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2"   ItemsSource="{Binding Dg_KalenderAnzeige }"   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Gill Sans MT" FontSize="16" IsManipulationEnabled="True" IsReadOnly="True" />
         </Grid>
+        
     </ContentControl>
 </UserControl>
