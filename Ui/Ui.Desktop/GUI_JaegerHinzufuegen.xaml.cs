@@ -23,13 +23,18 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         public GUI_JaegerHinzufuegen()
         {
             InitializeComponent();
+         
         }
 
 
         private void btn_abbruch_Click(object sender, RoutedEventArgs e)
         {
-            
-            
+
+            GUI_JaegerInformationen jaegerInfos = new GUI_JaegerInformationen();
+
+            Content = jaegerInfos;
         }
+
+  
     }
 }

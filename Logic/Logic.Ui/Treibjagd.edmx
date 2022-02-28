@@ -32,6 +32,16 @@
           <Property Name="Jahr" Type="date" Nullable="false" />
           <Property Name="Tiere_ID" Type="int" Nullable="false" />
         </EntityType>
+        <!--Während der Generierung sind Fehler aufgetreten:
+Warnung 6002: Für Tabelle/Sicht 'TreibjagdTest.dbo.tbl_Anrede' ist kein Primärschlüssel definiert. Der Schlüssel wurde abgeleitet, und die Definition wurde als schreibgeschützte Tabelle/Sicht erstellt.-->
+        <EntityType Name="tbl_Anrede">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Anrede" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Anrede" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="tbl_Dokumente">
           <Key>
             <PropertyRef Name="Dokumente_ID" />
@@ -39,6 +49,16 @@
           <Property Name="Dokumente_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Bezeichnung" Type="varchar" MaxLength="150" Nullable="false" />
           <Property Name="Vorlage" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <!--Während der Generierung sind Fehler aufgetreten:
+Warnung 6002: Für Tabelle/Sicht 'TreibjagdTest.dbo.tbl_Funktionen' ist kein Primärschlüssel definiert. Der Schlüssel wurde abgeleitet, und die Definition wurde als schreibgeschützte Tabelle/Sicht erstellt.-->
+        <EntityType Name="tbl_Funktionen">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Funktion" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Funktion" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="tbl_Jaeger">
           <Key>
@@ -311,6 +331,18 @@
           <EntitySet Name="tbl_Sicherheitsfragen" EntityType="Self.tbl_Sicherheitsfragen" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Termine" EntityType="Self.tbl_Termine" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Tiere" EntityType="Self.tbl_Tiere" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Anrede" EntityType="Self.tbl_Anrede" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_Anrede].[ID] AS [ID], 
+    [tbl_Anrede].[Anrede] AS [Anrede]
+    FROM [dbo].[tbl_Anrede] AS [tbl_Anrede]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbl_Funktionen" EntityType="Self.tbl_Funktionen" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_Funktionen].[ID] AS [ID], 
+    [tbl_Funktionen].[Funktion] AS [Funktion]
+    FROM [dbo].[tbl_Funktionen] AS [tbl_Funktionen]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Abschussliste_Tiere" Association="Self.FK_Abschussliste_Tiere">
             <End Role="tbl_Tiere" EntitySet="tbl_Tiere" />
             <End Role="tbl_Abschussliste" EntitySet="tbl_Abschussliste" />
@@ -731,6 +763,8 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="tbl_Anrede" EntityType="TreibjagdTestModel.tbl_Anrede" />
+          <EntitySet Name="tbl_Funktionen" EntityType="TreibjagdTestModel.tbl_Funktionen" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -743,6 +777,22 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="tbl_Anrede">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Anrede" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Anrede" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_Funktionen">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Funktion" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Funktion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -915,6 +965,22 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="TreibjagdTestModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="TreibjagdTestModel.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="tbl_Anrede">
+            <EntityTypeMapping TypeName="TreibjagdTestModel.tbl_Anrede">
+              <MappingFragment StoreEntitySet="tbl_Anrede">
+                <ScalarProperty Name="Anrede" ColumnName="Anrede" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Funktionen">
+            <EntityTypeMapping TypeName="TreibjagdTestModel.tbl_Funktionen">
+              <MappingFragment StoreEntitySet="tbl_Funktionen">
+                <ScalarProperty Name="Funktion" ColumnName="Funktion" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

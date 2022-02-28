@@ -19,7 +19,13 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.ColumnSpan="3" >
                 <Label Content="Personen" FontSize="22" FontFamily="Gill Sans MT Bold" Foreground="#E0CBA8" Background="#4F772D" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="286"/>
-                <DataGrid ItemsSource="{Binding JaegerListe}" Height="293" />
+                <DataGrid ItemsSource="{Binding JaegerListe}" Height="293" GridLinesVisibility="None" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding ID}" Header="ID" Width="40"/>
+                        <DataGridTextColumn Binding="{Binding Vorname}" Header="Vorname" Width="110"/>
+                        <DataGridTextColumn Binding="{Binding Nachname}" Header="Nachname" Width="130"/>
+                    </DataGrid.Columns>
+                    </DataGrid>
             </StackPanel>
             <StackPanel Grid.Column="4" Background="White" Height="335" VerticalAlignment="Top" Grid.ColumnSpan="2" >
                 <Label Content="Jäger hinzufügen" FontSize="22" FontFamily="Gill Sans MT Bold" Foreground="#E0CBA8" Background="#4F772D" HorizontalContentAlignment="Center"/>
@@ -31,7 +37,7 @@
                 <DockPanel Margin="0,-5,0,0">
                     <TextBox Text="{Binding Tb_vorname}" Width="120"/>
                     <TextBox Text="{Binding Tb_nachname}" Width="120" Margin="50,0,0,0"/>
-                    <ComboBox Text="{Binding Cb_anrede}" Width="60" Margin="-120,0,0,0"/>
+                    <ComboBox x:Name="Cb_anrede" SelectedItem="{Binding Cb_anrede}" ItemsSource="{Binding Anrede}"  DisplayMemberPath="Anrede" Width="60" Margin="-120,0,0,0"/>
 
                 </DockPanel>
                 <DockPanel Margin="0,5,0,0">
@@ -75,7 +81,7 @@
                 </DockPanel>
                 <DockPanel Margin="0,-5,0,0">
                     <TextBox Text="{Binding Tb_email}" Width="150"/>
-                    <ComboBox Text="{Binding Cb_funktion}" Width="80" Margin="13,0,0,0"/>
+                    <ComboBox x:Name="Cb_funktion" ItemsSource="{Binding Funktion}" SelectedItem="{Binding Cb_funktion}" DisplayMemberPath="Funktion" Width="80" Margin="13,0,0,0"/>
                     <TextBox Text="{Binding Tb_jagdhunde}" Width="50" Margin="-80,0,0,0"/>
 
                 </DockPanel>
