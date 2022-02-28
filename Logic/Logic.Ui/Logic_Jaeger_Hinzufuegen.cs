@@ -1,14 +1,33 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using JaegerMeister.MvvmSample.Logic.Ui.Models;
+using JaegerMeister.MvvmSample.Logic.Ui.Services;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
-
     public class Logic_Jaeger_Hinzufuegen : ViewModelBase, INotifyPropertyChanged
     {
+        JaegerHinzufuegenService serv = new JaegerHinzufuegenService();
+        
+        private List<IDVorNachnameModel> _listIDVorNachname = new List<IDVorNachnameModel>();
+        public List<IDVorNachnameModel> JaegerListe
+        {
+            get 
+            {
+                _listIDVorNachname = serv.ListeIDVorNachname();
+                return _listIDVorNachname;
+            }
+            set 
+            {
+                _listIDVorNachname = value;
+                RaisePropertyChanged("JaegerListe");
 
+            }
+         
+        }
         private ICommand _btn_jaeger_hinzufuegen;
 
         public ICommand Btn_jaeger_hinzufuegen
@@ -19,9 +38,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_jaeger_hinzufuegen = new RelayCommand(() =>
                     {
-                        Logic_Jaeger_Informationen logic = new Logic_Jaeger_Informationen();
-
-                        //Hier Logik einfügen
+                     
                     });
 
                 }
@@ -39,9 +56,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_jaeger_entfernen = new RelayCommand(() =>
                     {
-                        Logic_Jaeger_Informationen logic = new Logic_Jaeger_Informationen();
-
-                        //Hier Logik einfügen
+                      
                     });
 
                 }
@@ -59,9 +74,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_hinzufuegen = new RelayCommand(() =>
                     {
-                        Logic_Jaeger_Informationen logic = new Logic_Jaeger_Informationen();
-
-                        //Hier Logik einfügen
+                  
                     });
 
                 }
@@ -79,9 +92,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_abbrechen = new RelayCommand(() =>
                     {
-                        Logic_Jaeger_Informationen logic = new Logic_Jaeger_Informationen();
-
-                        //Hier Logik einfügen
+                       
                     });
 
                 }
@@ -99,7 +110,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _tb_vorname= value;
+                RaisePropertyChanged("Tb_vorname");
             }
         }
 
@@ -113,7 +125,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _tb_nachname = value;
+                RaisePropertyChanged("Tb_nachname");
             }
         }
 
@@ -127,7 +140,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
             set
             {
-                //Datenbankverbindung benötigt
+               
             }
         }
 
@@ -141,7 +154,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
             set
             {
-                //Datenbankverbindung benötigt
+               
             }
         }
 
@@ -155,7 +168,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _tb_straße= value;
+                RaisePropertyChanged("Tb_straße");
             }
         }
 
@@ -169,7 +183,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _tb_hausnummer= value;
+                RaisePropertyChanged("Tb_hausnummer");
             }
         }
 
@@ -183,7 +198,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _tb_adresszusatz= value;
+                RaisePropertyChanged("Tb_adresszusatz");
             }
         }
 
@@ -197,7 +213,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _tb_postleitzahl = value;
+                RaisePropertyChanged("Tb_postleitzahl");
             }
         }
 
@@ -211,7 +228,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _tb_wohnort= value;
+                RaisePropertyChanged("Tb_wohnort");
             }
         }
 
@@ -225,7 +243,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _tb_telefonnummer1 = value;
+                RaisePropertyChanged("Tb_telefonnummer1");
             }
         }
 
@@ -239,7 +258,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _tb_telefonnummer2 = value;
+                RaisePropertyChanged("Tb_telefonnummer2");
             }
         }
 
@@ -253,7 +273,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _tb_telefonnummer3 = value;
+                RaisePropertyChanged("Tb_telefonnummer3");
             }
         }
 
@@ -267,7 +288,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _tb_email= value;
+                RaisePropertyChanged("Tb_email"); 
             }
         }
 
@@ -281,7 +303,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
             set
             {
-                //Datenbankverbindung benötigt
+                
             }
         }
 
@@ -295,7 +317,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _tb_jagdhunde = value;
+                RaisePropertyChanged("tb_jagdhunde");
             }
         }
 

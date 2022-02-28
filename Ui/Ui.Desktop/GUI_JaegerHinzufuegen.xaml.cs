@@ -18,11 +18,18 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
     /// <summary>
     /// Interaktionslogik für Jaeger_Hinzufuegen.xaml
     /// </summary>
-    public partial class Jaeger_Hinzufuegen : UserControl
+    public partial class GUI_JaegerHinzufuegen : UserControl
     {
-        public Jaeger_Hinzufuegen()
+        public GUI_JaegerHinzufuegen()
         {
             InitializeComponent();
+        }
+
+
+        private void btn_abbruch_Click(object sender, RoutedEventArgs e)
+        {
+            
+            
         }
     }
 }

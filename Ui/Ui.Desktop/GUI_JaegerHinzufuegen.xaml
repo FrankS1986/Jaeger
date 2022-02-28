@@ -1,11 +1,11 @@
-﻿<UserControl x:Class="JaegerMeister.MvvmSample.Ui.Desktop.Jaeger_Hinzufuegen"
+﻿<UserControl x:Class="JaegerMeister.MvvmSample.Ui.Desktop.GUI_JaegerHinzufuegen"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
              mc:Ignorable="d" 
-             DataContext="{Binding logic_jaegerHinzufuegen, Source={StaticResource Locator}}"
+             DataContext="{Binding logic_Jaeger_Hinzufuegen, Source={StaticResource Locator}}"
              Height="360" Width="800" FontFamily="Gill Sans MT Regular" MinWidth="800" MinHeight="360">
     <ContentControl x:Name="ContentControl_Jaegerhinzufuegen">
         <Grid>
@@ -19,7 +19,7 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.ColumnSpan="3" >
                 <Label Content="Personen" FontSize="22" FontFamily="Gill Sans MT Bold" Foreground="#E0CBA8" Background="#4F772D" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="286"/>
-                <ListBox ItemsSource="{Binding Lb_jaeger}" Height="293" />
+                <DataGrid ItemsSource="{Binding JaegerListe}" Height="293" />
             </StackPanel>
             <StackPanel Grid.Column="4" Background="White" Height="335" VerticalAlignment="Top" Grid.ColumnSpan="2" >
                 <Label Content="Jäger hinzufügen" FontSize="22" FontFamily="Gill Sans MT Bold" Foreground="#E0CBA8" Background="#4F772D" HorizontalContentAlignment="Center"/>
@@ -79,11 +79,11 @@
                     <TextBox Text="{Binding Tb_jagdhunde}" Width="50" Margin="-80,0,0,0"/>
 
                 </DockPanel>
-                <Label Content="*Pflichtfelder" HorizontalContentAlignment="Right" Margin="0,-10,0,0" Height="20"/>
+                <Label Content="*Pflichtfelder" HorizontalContentAlignment="Right" Margin="0,-10,0,0" Height="30"/>
             </StackPanel>
             <Button Command="{Binding Btn_jaeger_entfernen}" Grid.ColumnSpan="3" Content="Entfernen" Background="White" Height="30" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"/>
             <Button Command="{Binding Btn_jaeger_hinzufuegen}" Grid.Column="5" Background="White" Content="Hinzufügen" Height="30" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"  />
-            <Button Command="{Binding Btn_abbrechen}" Grid.Column="4" Background="White" Content="Abbrechen"   Height="30" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
+            <Button Command="{Binding Btn_abbrechen}" Grid.Column="4" Background="White" Content="Abbrechen"   Height="30" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Click="btn_abbruch_Click" />
         </Grid>
     </ContentControl>
 </UserControl>

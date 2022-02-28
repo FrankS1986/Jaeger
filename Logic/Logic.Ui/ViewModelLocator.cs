@@ -70,7 +70,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         public Logic_Registrierung logic_Registrierung => ServiceLocator.Current.GetInstance<Logic_Registrierung>();
         public Logic_Sicherheitsfrage logic_SicherheitsfrageZuruecksetzen => ServiceLocator.Current.GetInstance<Logic_Sicherheitsfrage>();
         public Logic_Jaeger_Informationen logic_JaegerInformationen => ServiceLocator.Current.GetInstance<Logic_Jaeger_Informationen>();
-        public Logic_Jaeger_Hinzufuegen logic_jaegerHinzufuegen => ServiceLocator.Current.GetInstance<Logic_Jaeger_Hinzufuegen>();
+        public Logic_Jaeger_Hinzufuegen logic_Jaeger_Hinzufuegen => ServiceLocator.Current.GetInstance<Logic_Jaeger_Hinzufuegen>();
         public Logic_Jaeger_Bearbeiten logic_jaegerBearbeiten => ServiceLocator.Current.GetInstance<Logic_Jaeger_Bearbeiten>();
         public Logic_Einladungsrueckmeldung logic_EinladungsRueckmeldung => ServiceLocator.Current.GetInstance<Logic_Einladungsrueckmeldung>();
         public Logic_SicherheitsFragestellung logic_SicherheitsFragestellung => ServiceLocator.Current.GetInstance<Logic_SicherheitsFragestellung>();
