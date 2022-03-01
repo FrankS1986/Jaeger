@@ -136,10 +136,22 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _AbschusslisteAkualisieren = new RelayCommand(() =>
                     {
-                        
+
+                        Messenger.Default.Send<AbschusslisteAktualisierenSelectedMessage>(new AbschusslisteAktualisierenSelectedMessage { Abfrage = serv.Tierhinzuegen(StartDate, SelectItem.Tiere_ID, Ort) });
+
+                        var newitem = new tbl_Jagderfolge()
+
+                        {
+                            Jäger_ID = serv.jaegerID,
+                            Termine_ID = serv.datumID,
+                            Tiere_ID = serv.tierartID
 
 
-                     
+                        };
+
+                        serv.InsertJagdErfolge(newitem);
+
+
                     });
 
                 }
