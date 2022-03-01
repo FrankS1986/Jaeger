@@ -88,5 +88,73 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
         }
 
 
+        public int datumID;
+        public int tierartID;
+        public DateTime time;
+        public int jaegerID;
+        public bool Tierhinzuegen(DateTime date, int id, string name)
+        {
+            using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
+            {
+                time = date;
+                try
+                {
+                    var IndexName = from a in ctx.tbl_Jaeger
+                                    where a.Vorname == name
+                                    select new { a.Jäger_ID };
+
+                    if (IndexName.Count() == 1)
+                    {
+                        foreach (var j in IndexName)
+                        {
+                            jaegerID = j.Jäger_ID;
+                        }
+
+                    }
+
+                    var IndexTier = from a in ctx.tbl_Tiere
+                                    where a.Tiere_ID == id
+                                    select new { a.Tiere_ID };
+
+                    if (IndexTier.Count() == 1)
+                    {
+                        foreach (var j in IndexTier)
+                        {
+                            tierartID = j.Tiere_ID;
+                        }
+
+                    }
+
+
+
+                    var IndexTermin = from tbl_Termine in ctx.tbl_Termine
+                                      select new
+                                      {
+                                          Termine_ID = tbl_Termine.Termine_ID,
+                                          Ort = tbl_Termine.Ort,
+                                          DatumUhrzeit = tbl_Termine.DatumUhrzeit,
+                                          Bezeichnung = tbl_Termine.Bezeichnung,
+                                          Typ = tbl_Termine.Typ
+                                      };
+
+
+                    int ergebnis = IndexTermin.Count();
+                    datumID = ergebnis;
+
+                    return true;
+                }
+
+                catch (Exception ex)
+                {
+
+                    return false;
+                    throw ex;
+                }
+
+            }
+
+
+        }
+
     }
 }
