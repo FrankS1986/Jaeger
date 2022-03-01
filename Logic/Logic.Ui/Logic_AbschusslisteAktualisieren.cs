@@ -1,5 +1,9 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
+using JaegerMeister.MvvmSample.Logic.Ui.Messages;
+using JaegerMeister.MvvmSample.Logic.Ui.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Input;
@@ -8,111 +12,151 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 {
     public class Logic_AbschusslisteAktualisieren : ViewModelBase , INotifyPropertyChanged
     {
-        
-       private  List<Jaeger> _listboxJaeger;
-       public List<Jaeger> ListboxJaeger
-
-        { 
-        
-           get
-            {
-                return _listboxJaeger;
-            }
-
-            set
-            {
-                _listboxJaeger = value;
-                RaisePropertyChanged("listboxJaeger");
-            }
-        
-        }
-
-        private List<Jaeger> _listboxTermine;
-        public List<Jaeger> ListboxTermine
-
+        AbschusslisteAktualisierenService serv = new  AbschusslisteAktualisierenService();
+        public Logic_AbschusslisteAktualisieren()
         {
+            Tierart = serv.Tiere();
+          
+            
 
-            get
+
+            Messenger.Default.Register<string>(this, (prop) =>
             {
-                return _listboxTermine;
-            }
-
-            set
-            {
-                _listboxTermine = value;
-                RaisePropertyChanged("listboxTermine");
-            }
-
-        }
-
-
-        private List<Tierart> _comboBoxTierart;
-        public List<Tierart> ComboBoxTierart
-
-        {
-            get
-            {
-                return _comboBoxTierart;
-            }
-
-            set
-            {
-                _comboBoxTierart = value;
-                RaisePropertyChanged("comboBoxTierart");
-            }
-        }
-
-        private string _textboxAbschuesse;
-        public string TextboxAbschuesse
-
-        {
-            get
-            {
-                return _textboxAbschuesse;
-            }
-
-            set
-            {
-                _textboxAbschuesse = value;
-                RaisePropertyChanged("textboxAbschuesse");
-            }
-        }
-
-
-
-        private ICommand _btn_AbschusslisteAkualisieren;
-        public ICommand Btn_AbschusslisteAkualisieren
-        {
-            get
-            {
-                if (_btn_AbschusslisteAkualisieren == null)
+                if (prop.Equals("Liste"))
                 {
-                    _btn_AbschusslisteAkualisieren = new RelayCommand(() =>
+                    Termine = serv.Termine();
+                    
+                }
+            });
+
+           
+                Messenger.Default.Register<string>(this, (prop2) =>
+                {
+                    if (prop2.Equals("JaegerListe"))
                     {
-                        Logic_AbschusslisteAktualisieren logic = new Logic_AbschusslisteAktualisieren();
+                       
+                        
+                     Jaeger=serv.Jaeger(SelectTermin.Termine_ID);
+                       
+                    }
+                });
+
+            
+
+        }
+   
+        
+        private List<tbl_Tiere> _Tierart;
+        public List<tbl_Tiere> Tierart
+
+        {
+            get
+            {
+                return _Tierart;
+            }
+
+            set
+            {
+                _Tierart = value;
+                RaisePropertyChanged("Tierart");
+            }
+        }
+
+        private tbl_Termine _SelectTermin;
+        public tbl_Termine SelectTermin
+        {
+            get
+            {
+                return _SelectTermin;
+            }
+
+            set
+            {
+                _SelectTermin = value;
+                RaisePropertyChanged("SelectTermin");
+            }
+        }
+
+        private List<tbl_Termine> _Termine;
+        public List<tbl_Termine> Termine
+
+        {
+            get
+            {
+                return _Termine;
+            }
+
+            set
+            {
+                _Termine = value;
+                RaisePropertyChanged("Termine");
+            }
+        }
+
+        private List<tbl_Jaeger> _Jaeger;
+        public List<tbl_Jaeger> Jaeger
+
+        {
+            get
+            {
+                return _Jaeger;
+            }
+
+            set
+            {
+                _Jaeger = value;
+                RaisePropertyChanged("Jaeger");
+            }
+        }
+
+        private string _Abschuesse;
+        public string Abschuesse
+
+        {
+            get
+            {
+                return _Abschuesse;
+            }
+
+            set
+            {
+                _Abschuesse = value;
+                RaisePropertyChanged("Abschuesse");
+            }
+        }
 
 
-                        ////
+
+        private ICommand _AbschusslisteAkualisieren;
+        public ICommand AbschusslisteAkualisieren
+        {
+            get
+            {
+                if (_AbschusslisteAkualisieren == null)
+                {
+                    _AbschusslisteAkualisieren = new RelayCommand(() =>
+                    {
+                        
+
+
+                     
                     });
 
                 }
-                return _btn_AbschusslisteAkualisieren;
+                return _AbschusslisteAkualisieren;
             }
         }
 
-        public class Jaeger
+        public class TestJaeger
         {
-            public int ID { get; set; }
-            public int Vorname { get; set; }
-            public int Name { get; set; }
+           
+            public string Ort { get; set; }
+            public DateTime Datum { get; set; }
+
+
         }
 
-        public class Tierart
-        {
-            public int ID { get; set; }
-            
-            public int Name { get; set; }
-        }
+        
 
     }
 }

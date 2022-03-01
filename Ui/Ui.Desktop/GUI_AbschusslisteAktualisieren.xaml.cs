@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Messaging;
+using JaegerMeister.MvvmSample.Logic.Ui.Messages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,23 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         public GUI_AbschusslisteAktualisieren()
         {
             InitializeComponent();
+        }
+
+       
+
+        private void DataGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            Messenger.Default.Send("Liste");
+        }
+
+        private void Jaeger_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Messenger.Default.Send("JaegerListe");
         }
     }
 }
