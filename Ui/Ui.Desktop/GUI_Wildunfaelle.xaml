@@ -28,7 +28,7 @@
             <StackPanel Grid.Column="1" Grid.Row="2">
                 <DatePicker Name="DatePiker"     SelectedDate="{Binding StartDate}" Text="{Binding Datum}" ></DatePicker>
                 <Label FontFamily="Gill Sans MT Regular"  Foreground="Black" FontSize="16" Content="Unfallort:"  ></Label>
-                <TextBox Text="{Binding Ort}" FontFamily="Gill Sans MT Regular" Foreground="Black" FontSize="16"  Height="25" ></TextBox>
+                <TextBox  Text="{Binding Ort}" FontFamily="Gill Sans MT Regular" Foreground="Black" FontSize="16"  Height="25" ></TextBox>
                 <Label   Foreground="Black" FontSize="16" Content="Tierart:"  ></Label>
                 <ComboBox SelectedIndex="0" SelectedItem="{Binding SelectItem}" DisplayMemberPath="Tierart" Name="tb_Tierart"  Height="25" FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding Tiere}" ></ComboBox>
             </StackPanel>

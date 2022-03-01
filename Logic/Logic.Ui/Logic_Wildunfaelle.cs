@@ -19,7 +19,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         public Logic_Wildunfaelle()
         {
             Datum = DateTime.Today.ToString();
+            
             Tiere = serv.Tiere();
+            
 
         }
         private DateTime _StartDate;
