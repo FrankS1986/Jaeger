@@ -20,7 +20,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         {
             Aufgabe = serv.Funktionen();
             Anrede = serv.Anrede();
-            Tb_jagdhunde = "0";
+           Tb_jagdhunde = "0";
            
         }
 
@@ -37,8 +37,12 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
 
         }
-        private ICommand _btn_jaeger_hinzufuegen;
 
+        /* bei Button klick wird überprüft ob alle Pflichtfelder ausgefüllt sind und anschließend ein neuer eintrag 
+         * in die DB tabelle jaeger eingefügt mit den aus den Textboxen übergebenen werten
+         Die Text Boxen werden wieder auf null gesetzt
+        Es erscheint eine MessageBox nach einem Erfolgreichen Durchlauf*/
+        private ICommand _btn_jaeger_hinzufuegen;
         public ICommand Btn_jaeger_hinzufuegen
         {
             get
@@ -64,23 +68,30 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                                 Telefonnummer2 = Tb_telefonnummer2,
                                 Telefonnummer3 = Tb_telefonnummer3,
                                 Email = Tb_email,
-                                Geburtsdatum = Dp_geburtstag.ToString(),
-                               
+                                Geburtsdatum = Dp_geburtstag,
                                 Funktion = Cb_funktion.Funktion,
                                 Jagdhund = Tb_jagdhunde
                             };
+
+                            #region TextBoxenZurücksetzen
+                            Tb_vorname = null;
+                            Tb_nachname = null;
+                            Tb_straße = null;
+                            Tb_hausnummer = null;
+                            Tb_adresszusatz = null;
+                            Tb_postleitzahl = null;
+                            Tb_wohnort = null;
+                            Tb_telefonnummer1 = null;
+                            Tb_telefonnummer2 = null;
+                            Tb_telefonnummer3 = null;
+                            Tb_email = null;
+                            Tb_jagdhunde = null;
+                            #endregion TextBoxenZurücksetzen
+
                             Messenger.Default.Send<JaegerHinzufuegenErfolgsMessage>(new JaegerHinzufuegenErfolgsMessage { Success = serv.InsertNeuerJaeger(newItem) });
                             
                         }
-                        else
-                        {
-
-                           
-                        }
-                        
-                      
-
-
+                    
                     });
 
                 }
@@ -185,8 +196,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private string _dp_geburtstag;
-        public string Dp_geburtstag
+        private DateTime _dp_geburtstag;
+        public DateTime Dp_geburtstag
         {
             get
             {

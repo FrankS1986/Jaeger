@@ -34,7 +34,7 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
                 }
                 else
                 {
-                    MessageBox.Show("NOPE");
+                    MessageBox.Show("Irgendetwas ist schief gelaufen, sorry.");
                 }
             });
         }
