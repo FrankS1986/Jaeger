@@ -18,8 +18,10 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         public Logic_Jaeger_Hinzufuegen()
         {
-            Funktion = serv.Funktionen();
+            Aufgabe = serv.Funktionen();
             Anrede = serv.Anrede();
+            Tb_jagdhunde = "0";
+           
         }
 
 
@@ -62,9 +64,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                                 Telefonnummer2 = Tb_telefonnummer2,
                                 Telefonnummer3 = Tb_telefonnummer3,
                                 Email = Tb_email,
-                                Geburtsdatum = Dp_geburtstag,
+                                Geburtsdatum = Dp_geburtstag.ToString(),
                                
-                               // Funktion = Cb_funktion.Funktion,
+                                Funktion = Cb_funktion.Funktion,
                                 Jagdhund = Tb_jagdhunde
                             };
                             Messenger.Default.Send<JaegerHinzufuegenErfolgsMessage>(new JaegerHinzufuegenErfolgsMessage { Success = serv.InsertNeuerJaeger(newItem) });
@@ -140,7 +142,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         }
 
         private List<tbl_Funktionen> _funktion;
-        public List<tbl_Funktionen> Funktion
+        public List<tbl_Funktionen> Aufgabe
         {
             get
             {
@@ -183,8 +185,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private DateTime _dp_geburtstag;
-        public DateTime Dp_geburtstag
+        private string _dp_geburtstag;
+        public string Dp_geburtstag
         {
             get
             {
@@ -362,7 +364,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             set
             {
                 _tb_jagdhunde = value;
-                RaisePropertyChanged("tb_jagdhunde");
+                RaisePropertyChanged("Tb_jagdhunde");
             }
         }
 # endregion properties TextBoxen
