@@ -95,40 +95,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 
 
 
-                    //tbl_Jagderfolge itbl_Jagderfolge = new tbl_Jagderfolge
-                    //{
-                    //    Jäger_ID =
-                    //        ((from tbl_Jaeger in ctx.tbl_Jaeger
-                    //          where
-                    //            tbl_Jaeger.Jäger_ID == 1
-                    //          select new
-                    //          {
-                    //              tbl_Jaeger.Jäger_ID 
-                    //          }).FirstOrDefault().Jäger_ID),
-                    //    Termine_ID =
-                    //        ((from tbl_Termine in ctx.tbl_Termine
-                    //          where
-                    //            tbl_Termine.Termine_ID ==
-                    //              (from tbl_Termine0 in ctx.tbl_Termine
-                    //               select new
-                    //               {
-                    //                   tbl_Termine0.Termine_ID
-                    //               }).Max(p => p.Termine_ID)
-                    //          select new
-                    //          {
-                    //              tbl_Termine.Termine_ID
-                    //          }).FirstOrDefault().Termine_ID),
-                    //    Tiere_ID =
-                    //        ((from tbl_Tiere in ctx.tbl_Tiere
-                    //          where
-                    //            tbl_Tiere.Tierart == tierart
-                    //          select new
-                    //          {
-                    //              tbl_Tiere.Tiere_ID
-                    //          }).FirstOrDefault().Tiere_ID)
-                    //};
-                    //ctx.tbl_Jagderfolge.Add(itbl_Jagderfolge);
-                    //ctx.SaveChanges();
+                   
 
                     return true;
                 }

@@ -17,12 +17,12 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="100"/>
+                <RowDefinition Height="40"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="250*"/>
                 <RowDefinition Height="140*"/>
             </Grid.RowDefinitions>
-            <Grid Grid.ColumnSpan="3" Background="#4F772D" ></Grid>
+            <Grid Grid.Column="1" Background="#4F772D" ></Grid>
             <Label Content="Wildunfälle" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" FontFamily="Gill Sans MT Regular" FontSize="22" Foreground="#E0CBA8"  ></Label>
             <Label Grid.Column="1" Grid.Row="1" Content="Datum:" FontSize="16" Foreground="Black" VerticalAlignment="Bottom" FontFamily="Gill Sans MT Regular" Height="36"  ></Label>
             <StackPanel Grid.Column="1" Grid.Row="2">
@@ -30,7 +30,7 @@
                 <Label FontFamily="Gill Sans MT Regular"  Foreground="Black" FontSize="16" Content="Unfallort:"  ></Label>
                 <TextBox Text="{Binding Ort}" FontFamily="Gill Sans MT Regular" Foreground="Black" FontSize="16"  Height="25" ></TextBox>
                 <Label   Foreground="Black" FontSize="16" Content="Tierart:"  ></Label>
-                <ComboBox SelectedItem="{Binding SelectItem}" DisplayMemberPath="Tierart" Name="tb_Tierart"  Height="25" FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding Tiere}" ></ComboBox>
+                <ComboBox SelectedIndex="0" SelectedItem="{Binding SelectItem}" DisplayMemberPath="Tierart" Name="tb_Tierart"  Height="25" FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding Tiere}" ></ComboBox>
             </StackPanel>
             
             

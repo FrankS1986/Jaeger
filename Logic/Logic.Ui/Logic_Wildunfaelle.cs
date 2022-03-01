@@ -84,24 +84,32 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _Wildunfaelle = new RelayCommand(() =>
                     {
-                        if (!string.IsNullOrEmpty(Ort) && Tiere != null)
+                        if (StartDate <= DateTime.Today)
                         {
-
-
-                            Messenger.Default.Send<WildunfaelleErfolgsMessage>(new WildunfaelleErfolgsMessage { wildunfallhizugefügt = serv.Tierhinzuegen(StartDate, SelectItem.Tiere_ID, Ort) });
-
-                            var newitem = new tbl_Jagderfolge()
-
+                            if (!string.IsNullOrEmpty(Ort) && Tiere != null)
                             {
-                                Jäger_ID = serv.jaegerID,
-                                Termine_ID = serv.datumID,
-                                Tiere_ID = serv.tierartID
 
 
-                            };
+                                Messenger.Default.Send<WildunfaelleErfolgsMessage>(new WildunfaelleErfolgsMessage { wildunfallhizugefügt = serv.Tierhinzuegen(StartDate, SelectItem.Tiere_ID, Ort) });
 
-                            serv.InsertJagdErfolge(newitem);
+                                var newitem = new tbl_Jagderfolge()
 
+                                {
+                                    Jäger_ID = serv.jaegerID,
+                                    Termine_ID = serv.datumID,
+                                    Tiere_ID = serv.tierartID
+
+
+                                };
+
+                                serv.InsertJagdErfolge(newitem);
+
+                            }
+
+                            else
+                            {
+                                Messenger.Default.Send<WildunfaelleErfolgsMessage>(new WildunfaelleErfolgsMessage { wildunfallhizugefügt = false });
+                            }
                         }
 
                     });

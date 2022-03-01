@@ -2,6 +2,7 @@
 using JaegerMeister.MvvmSample.Logic.Ui.Messages;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,6 +40,14 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
                     MessageBox.Show("Hinzufügen vom dem Wildunfall hat nicht geklappt ");
                 }
             });
+
+
+
+
         }
+
+
+
+       
     }
 }
