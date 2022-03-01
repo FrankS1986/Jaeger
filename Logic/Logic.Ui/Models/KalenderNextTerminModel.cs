@@ -13,5 +13,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Models
         public System.DateTime DatumUhrzeit { get; set; }
 
         public string Typ { get; set; }
+
+        public string Ort { get; set; }
     }
 }

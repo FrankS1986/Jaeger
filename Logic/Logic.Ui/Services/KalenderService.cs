@@ -17,17 +17,14 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
     public class KalenderService
     {
 
-
-
-
-        
-
+        // Aufbau zur Datenbank. Erstellung der Termin Liste.
         public List<KalenderTermineModel> Termine()
         {
             List<KalenderTermineModel> kalenderTermine;
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
             {
                 var bezTermin = from a in ctx.tbl_Termine
+                                where a.Bezeichnung != "Wildunfall"
                                 select new { a.Bezeichnung, a.DatumUhrzeit };
 
                 //Debugging des Datums
@@ -43,12 +40,15 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                     KalenderTermineModel termin = new KalenderTermineModel();
                     termin.Bezeichnung = tempTermin.Bezeichnung;
                     termin.DatumUhrzeit = tempTermin.DatumUhrzeit;
-
                     kalenderTermine.Add((KalenderTermineModel)termin);
                 }
                 return kalenderTermine;
             }
         }
+
+        //Aufbau zur Datenbank. Erstellung der Liste für die Aktuellen Termine.
+        //Neues DateTime(dateTime) erstellt
+        //Termine werden nach dateTime sortiert.
         public List<KalenderNextTerminModel> NextTermin(DateTime selectedDate)
 
         {
@@ -61,23 +61,16 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                 var nTermin = from a in ctx.tbl_Termine
                               where a.DatumUhrzeit >= selectedDate && a.DatumUhrzeit <= dateTime
                               orderby a.DatumUhrzeit ascending
-                              select new { a.Bezeichnung, a.Typ, a.DatumUhrzeit };
-
-
-
-
-                foreach (var kekslLord in nTermin)
+                              select new { a.Bezeichnung, a.Typ, a.DatumUhrzeit, a.Ort };
+                foreach (var tempTermin in nTermin)
                 {
-                    KalenderNextTerminModel tempTermin = new KalenderNextTerminModel();
-                    tempTermin.Bezeichnung = kekslLord.Bezeichnung;
-                    tempTermin.DatumUhrzeit = kekslLord.DatumUhrzeit;
-                    tempTermin.Typ = kekslLord.Typ;
-
-
-
-                    nextTermin.Add((KalenderNextTerminModel)tempTermin);
+                    KalenderNextTerminModel termin = new KalenderNextTerminModel();
+                    termin.Bezeichnung = tempTermin.Bezeichnung;
+                    termin.DatumUhrzeit = tempTermin.DatumUhrzeit;
+                    termin.Ort = tempTermin.Ort;
+                    termin.Typ = tempTermin.Typ;
+                    nextTermin.Add((KalenderNextTerminModel)termin);
                 }
-
             }
             return nextTermin;
         }

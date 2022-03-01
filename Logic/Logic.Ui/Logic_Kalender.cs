@@ -19,15 +19,15 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 {
     public class Logic_Kalender : ViewModelBase, INotifyPropertyChanged
     {
-        //public HashSet<DateTime> Dates { get; } = new HashSet<DateTime>();
+        
         KalenderService serv = new KalenderService();
 
         public Logic_Kalender()
         {
             Dg_TermineKalender = serv.Termine();
             Dg_KalenderAnzeige = serv.NextTermin(DateTime.Now);
-        }
 
+        }
         private DateTime _selectedDates;
         public DateTime SelectedDates
         {

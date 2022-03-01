@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
+             xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop" 
              mc:Ignorable="d" 
              DataContext="{Binding logic_Kalender, Source={StaticResource Locator}}"
              d:DesignHeight="360" d:DesignWidth="800" Width="800" Height="360" MinHeight="360" MinWidth="800">
@@ -26,16 +26,22 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Label Content="Termine" Foreground="#E0CBA8" FontSize="22" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Center"   ></Label>
-                <Button Name="TerminHinzufuegen" Background="{x:Null}" Height="35" Width="35" VerticalAlignment="Top" HorizontalAlignment="Right"  Click="TerminHinzufuegen_Click"  >
-                    <Image Source="Icons/HinzufügenIcon.png"></Image>
+                <Button HorizontalAlignment="Right" VerticalAlignment="Top" Name="TerminHinzufuegen" Background="{x:Null}" Height="35" Width="35" ToolTip="Termin Hinzufügen"
+                        Click="TerminHinzufuegen_Click" BorderBrush="{x:Null}"  >
+                    <Image Source="Pictures/TerminHinzufuegen.png"></Image>
                 </Button>
             </Grid>
-            <DataGrid  Grid.Row="1" Grid.RowSpan="2"  ItemsSource="{Binding Dg_TermineKalender}" FontFamily="Gill Sans MT" FontSize="16" MinColumnWidth="196" IsReadOnly="True" IsManipulationEnabled="True" IsTextSearchCaseSensitive="True" />
+            <DataGrid  Grid.Row="1" Grid.RowSpan="2"  ItemsSource="{Binding Dg_TermineKalender}" FontFamily="Gill Sans MT" FontSize="16" MinColumnWidth="194" IsReadOnly="True" IsManipulationEnabled="True" GridLinesVisibility="None"
+                       HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto"
+                       Background="White"  />
             <Viewbox  HorizontalAlignment="Center" VerticalAlignment="Center" Name="ViewBoxKalender" Grid.Column="2"   Grid.RowSpan="2"  Stretch="Uniform"   >
-                <Calendar Name="Kalender"   SelectedDate="{Binding SelectedDates}" />
+                <Calendar SelectedDate="{Binding SelectedDates}"   x:Name="Kalender">
+                </Calendar>
             </Viewbox>
-            <DataGrid Background="White"  Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2"   ItemsSource="{Binding Dg_KalenderAnzeige }"   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Gill Sans MT" FontSize="16" IsManipulationEnabled="True" IsReadOnly="True" />
+            <DataGrid Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2"   ItemsSource="{Binding Dg_KalenderAnzeige}"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Gill Sans MT"
+                      FontSize="12"  IsReadOnly="True" IsManipulationEnabled="True" GridLinesVisibility="None"
+                      VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden"
+                      Background="White" IsHitTestVisible="False" />
         </Grid>
-        
     </ContentControl>
 </UserControl>

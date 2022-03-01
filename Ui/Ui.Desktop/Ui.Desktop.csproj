@@ -294,6 +294,8 @@
     <Resource Include="Pictures\HinzufügenIcon.png" />
     <Resource Include="Pictures\Logo.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Pictures\TerminHinzufuegen.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
