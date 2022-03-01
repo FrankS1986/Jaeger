@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Messaging;
+using JaegerMeister.MvvmSample.Logic.Ui.Messages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +25,18 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         public GUI_JaegerHinzufuegen()
         {
             InitializeComponent();
-         
+            Messenger.Default.Register<JaegerHinzufuegenErfolgsMessage>(this, (JaegerHinzufuegenErfolgsMessage loginProof) =>
+            {
+                if (loginProof.Success == true)
+                {
+                    MessageBox.Show("Jäger erfolgreich hinzugefügt");
+                  
+                }
+                else
+                {
+                    MessageBox.Show("NOPE");
+                }
+            });
         }
 
 

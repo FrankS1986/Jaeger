@@ -17,24 +17,29 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
         private List<IDVorNachnameModel> _listeIDVorNachname = new List<IDVorNachnameModel>();
         public List<IDVorNachnameModel> ListeIDVorNachname()
         {
+            _listeIDVorNachname.Clear();
+
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
             {
-                /* Ruft alles aus der DB außer ID 10, welche für Wildunfalle steht*/
-                var nameIndex = from abfrage in ctx.tbl_Jaeger
-                                where abfrage.Jäger_ID != 10
-                                select new
-                                {
-                                    abfrage.Jäger_ID,
-                                    abfrage.Vorname,
-                                    abfrage.Nachname
+               //If Abfrage um zu vermeiden, dass die Liste mehrmals hintereinander angezeigt wird
+               
+                    /* Ruft alles aus der DB außer ID 10, welche für Wildunfalle steht*/
+                    var nameIndex = from abfrage in ctx.tbl_Jaeger
+                                    where abfrage.Jäger_ID != 10
+                                    select new
+                                    {
+                                        abfrage.Jäger_ID,
+                                        abfrage.Vorname,
+                                        abfrage.Nachname
 
-                                };
+                                    };
 
-                foreach (var item in nameIndex)
-                {
-                    IDVorNachnameModel VNM = new IDVorNachnameModel(item.Jäger_ID, item.Vorname, item.Nachname);
-                    _listeIDVorNachname.Add(VNM);
-                }
+                    foreach (var item in nameIndex)
+                    {
+                        IDVorNachnameModel VNM = new IDVorNachnameModel(item.Jäger_ID, item.Vorname, item.Nachname);
+                        _listeIDVorNachname.Add(VNM);
+                    }
+               
             }
             return _listeIDVorNachname;
         }
@@ -43,7 +48,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
         /* Methode um einen neuen Jäger in der DB anzulegen
             übernimmt die Angaben aus den ausgeüllten Feldern und speichert sie entsprechend in der DB*/
         #region boolNeuerJaeger
-        private bool ErfolgInsertNeuerJaeger;
+       // private bool ErfolgInsertNeuerJaeger;
         public bool InsertNeuerJaeger(tbl_Jaeger neuerJaeger)
         {
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
@@ -56,7 +61,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                     {
                         ctx.tbl_Jaeger.Add(neuerJaeger);
                         ctx.SaveChanges();
-                        ErfolgInsertNeuerJaeger = true;
+                        
+                       // ErfolgInsertNeuerJaeger = true;
                          return true;
                     }
 
@@ -69,7 +75,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 
                 }
             }
-
+            
         }
         #endregion boolNeuerJaeger
 

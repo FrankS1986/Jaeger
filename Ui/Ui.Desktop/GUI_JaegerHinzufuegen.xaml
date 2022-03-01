@@ -21,7 +21,7 @@
                 <Label Content="Personen" FontSize="22" FontFamily="Gill Sans MT Bold" Foreground="#E0CBA8" Background="#4F772D" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="286"/>
                 <DataGrid ItemsSource="{Binding JaegerListe}" Height="293" GridLinesVisibility="None" AutoGenerateColumns="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding ID}" Header="ID" Width="40"/>
+                        <DataGridTextColumn Binding="{Binding ID}" Header="ID" Width="30"/>
                         <DataGridTextColumn Binding="{Binding Vorname}" Header="Vorname" Width="110"/>
                         <DataGridTextColumn Binding="{Binding Nachname}" Header="Nachname" Width="130"/>
                     </DataGrid.Columns>
@@ -44,7 +44,7 @@
                     <Label Content="Geburtstag" FontSize="16"/>
                 </DockPanel>
                 <DockPanel Margin="0,-5,0,0">
-                    <DatePicker DataContext="{Binding dp_geburtstag}" Width="150" HorizontalAlignment="Left"/>
+                    <DatePicker DataContext="{Binding Dp_geburtstag}" Width="150" HorizontalAlignment="Left"/>
                 </DockPanel>
                 <DockPanel Margin="0,5,0,0">
                     <Label Content="Straße*" FontSize="16"/>

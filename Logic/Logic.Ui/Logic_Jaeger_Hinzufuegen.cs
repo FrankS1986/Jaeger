@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
+using JaegerMeister.MvvmSample.Logic.Ui.Messages;
 using JaegerMeister.MvvmSample.Logic.Ui.Models;
 using JaegerMeister.MvvmSample.Logic.Ui.Services;
 
@@ -14,31 +16,24 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         //initiert Service Klasse 
         JaegerHinzufuegenService serv = new JaegerHinzufuegenService();
 
-        public Logic_Jaeger_Hinzufuegen ()
+        public Logic_Jaeger_Hinzufuegen()
         {
             Funktion = serv.Funktionen();
             Anrede = serv.Anrede();
         }
-               
-        
+
+
         //erstellt Liste vom Typ IDVorNachnameModel, ruft serv. Methode auf zum Anzeigen im Datagrid "JaegerListe"
         private List<IDVorNachnameModel> _listIDVorNachname = new List<IDVorNachnameModel>();
         public List<IDVorNachnameModel> JaegerListe
-        {
+        {           
             get 
             {
+                
                 _listIDVorNachname = serv.ListeIDVorNachname();
                 return _listIDVorNachname;
             }
 
-            //Set wird nicht benötigt da Liste nur lesen, nicht schreiben soll
-            //set 
-            //{
-            //    _listIDVorNachname = value;
-            //    RaisePropertyChanged("JaegerListe");
-
-            //}
-         
         }
         private ICommand _btn_jaeger_hinzufuegen;
 
@@ -51,8 +46,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     _btn_jaeger_hinzufuegen = new RelayCommand(() =>
                     {
 
-                        //!!Anrede Hinzufügen zur If schleife!!!
-                        if(Tb_vorname != null && Tb_nachname != null && Tb_straße != null && Tb_hausnummer !=null && Tb_postleitzahl!= null && Tb_wohnort != null && Tb_telefonnummer1 != null)
+                        if(!string.IsNullOrEmpty(Tb_vorname) && !string.IsNullOrEmpty(Tb_nachname) && !string.IsNullOrEmpty(Tb_straße) && !string.IsNullOrEmpty(Tb_hausnummer)&& !string.IsNullOrEmpty(Tb_postleitzahl) && !string.IsNullOrEmpty(Tb_wohnort) && !string.IsNullOrEmpty(Tb_telefonnummer1) && Cb_anrede != null)
                         {
                             var newItem = new tbl_Jaeger()
                             {
@@ -69,11 +63,12 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                                 Telefonnummer3 = Tb_telefonnummer3,
                                 Email = Tb_email,
                                 Geburtsdatum = Dp_geburtstag,
-                                Funktion = Cb_funtkion.Funktion,
+                               
+                               // Funktion = Cb_funktion.Funktion,
                                 Jagdhund = Tb_jagdhunde
                             };
-
-                            serv.InsertNeuerJaeger(newItem);
+                            Messenger.Default.Send<JaegerHinzufuegenErfolgsMessage>(new JaegerHinzufuegenErfolgsMessage { Success = serv.InsertNeuerJaeger(newItem) });
+                            
                         }
                         else
                         {
@@ -131,7 +126,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
 
         private tbl_Funktionen _cb_funktion;
-        public tbl_Funktionen Cb_funtkion
+        public tbl_Funktionen Cb_funktion
         {
             get
             {

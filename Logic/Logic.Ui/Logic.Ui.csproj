@@ -88,6 +88,7 @@
     <Compile Include="Logic_NeuesPasswort.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="Messages\AdminAbfrage.cs" />
+    <Compile Include="Messages\JaegerHinzufuegenErfolgsMessage.cs" />
     <Compile Include="Messages\LoginProofMessage.cs" />
     <Compile Include="Messages\RegistrierungsAbfrageBenutzer.cs" />
     <Compile Include="Messages\RegistrierungsErfolgsMessage.cs" />
