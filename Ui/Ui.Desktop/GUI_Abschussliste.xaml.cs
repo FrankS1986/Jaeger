@@ -29,5 +29,11 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         {
 
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            GUI_AbschusslisteAktualisieren aktualisieren = new GUI_AbschusslisteAktualisieren();
+            abschussliste.Content = aktualisieren;
+        }
     }
 }

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" MinHeight="450" MinWidth="800"
+             d:DesignHeight="360" d:DesignWidth="800" MinHeight="360" MinWidth="800"
              DataContext="{Binding logic_Abschussliste, Source={StaticResource Locator}}"
              >
     <ContentControl x:Name="abschussliste">
@@ -51,7 +51,7 @@
             <ListBox FontFamily="Gill Sans MT regular" FontSize="12" ItemsSource="{Binding lbox_tierartBezogeneAbschuesse}" Height="324"></ListBox>  
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="2" Margin="0,10" VerticalAlignment="Center">
-            <Button Command="{Binding bt_abschuesseHinzufuegen}" BorderBrush="#230C0F" HorizontalAlignment="Right" FontFamily="Gill Sans MT regular" FontSize="16" > Abschüsse hinzufügen</Button>
+            <Button Click="Button_Click" Command="{Binding bt_abschuesseHinzufuegen}" BorderBrush="#230C0F" HorizontalAlignment="Right" FontFamily="Gill Sans MT regular" FontSize="16" > Abschüsse hinzufügen</Button>
         </StackPanel>
     </Grid>
     </ContentControl>

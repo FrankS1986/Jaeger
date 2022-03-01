@@ -26,7 +26,7 @@
             <StackPanel Grid.ColumnSpan="4" Background="#4F772D" Height="40">
 
                 <Label>
-                    <TextBlock TextAlignment="Center" FontSize="22" FontFamily="Gill Sans MT Bold" Foreground="#E0CBA8" Width="790" Text="Abschussliste"></TextBlock>
+                    <TextBlock TextAlignment="Center" FontSize="22" FontFamily="Gill Sans MT Bold" Foreground="#E0CBA8" Width="790" Text="Abschussliste aktualisieren"></TextBlock>
                 </Label>
             </StackPanel>
             <StackPanel Grid.Row="1"  Background="White">
@@ -47,7 +47,7 @@
                 </Label>
 
             </StackPanel>
-            
+
             <StackPanel Grid.Row="1" Grid.Column="3" Background="White" >
                 <Label>
                     <TextBlock TextAlignment="Center" FontSize="22" FontFamily="Gill Sans MT Bold" Width="240" Text="Abschüsse hinzufügen" ></TextBlock>
@@ -55,20 +55,28 @@
 
             </StackPanel>
 
-            <StackPanel Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" >
-                <DataGrid x:Name="Jaeger" Loaded="Jaeger_Loaded" FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding Jaeger}" SelectedItem="{Binding Jaegerx}" Height="291" AutoGenerateColumns="False" GridLinesVisibility="None">
+            <StackPanel Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" Background="White">
+                <DataGrid x:Name="Jaeger" Loaded="Jaeger_Loaded" FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding Jaeger}" SelectedItem="{Binding JaegerId}"  AutoGenerateColumns="False" GridLinesVisibility="None" RenderTransformOrigin="0.5,0.5" Height="280">
+                    <DataGrid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleX="0.125"/>
+                            <RotateTransform/>
+                            <TranslateTransform X="0.351"/>
+                        </TransformGroup>
+                    </DataGrid.RenderTransform>
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding Vorname}" Header="Vorname" />
                         <DataGridTextColumn Binding="{Binding Nachname}" Header="Nachname" />
                     </DataGrid.Columns>
-                    
+
                 </DataGrid>
-            </StackPanel>                                  
-            
-            <StackPanel Grid.Row="2" Grid.RowSpan="2"  >
-                <DataGrid SelectionChanged="DataGrid_SelectionChanged" Loaded="DataGrid_Loaded" SelectedItem="{Binding SelectTermin}" FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding Termine, Mode=OneWay}" Height="296" GridLinesVisibility="None" AutoGenerateColumns="False"  >
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Grid.RowSpan="2" Background="White" >
+                <DataGrid ScrollViewer.CanContentScroll="True" SelectionChanged="DataGrid_SelectionChanged" Loaded="DataGrid_Loaded" SelectedItem="{Binding SelectTermin}" FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding Termine, Mode=OneWay}"  GridLinesVisibility="None" AutoGenerateColumns="False" Height="280"  >
                     <DataGrid.Columns>
-                       
+
                         <DataGridTextColumn Binding="{Binding Ort}" Header="Ort" />
                         <DataGridTextColumn Binding="{Binding DatumUhrzeit}" Header="Datum Uhrzeit" />
                     </DataGrid.Columns>
@@ -76,11 +84,11 @@
             </StackPanel>
 
             <StackPanel Grid.Row="2" Grid.RowSpan="2" Grid.Column="2" Background="White" >
-                <ComboBox  FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding Tierart}" DisplayMemberPath="Tierart"  Margin="5,5"></ComboBox>
+                <ComboBox  FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding Tierart}" SelectedItem="{Binding TierId}" DisplayMemberPath="Tierart"  Margin="5,5"></ComboBox>
             </StackPanel>
 
             <StackPanel Grid.Row="2" Grid.RowSpan="1" Grid.Column="3" Background="White" >
-                <TextBox FontSize="12" Height="20" FontFamily="Gill Sans MT Regular" Text="{Binding Abschuesse}" Margin="5,5"></TextBox>
+                <TextBox PreviewTextInput="TextBox_PreviewTextInput" FontSize="12" Height="20" FontFamily="Gill Sans MT Regular" Text="{Binding Abschuesse}" Margin="5,5"></TextBox>
             </StackPanel>
             <StackPanel Grid.Row="3"  Grid.Column="3" Background="White" >
                 <Button Command="{Binding AbschusslisteAkualisieren}" FontSize="12" BorderBrush="#230C0F" Background="White" HorizontalAlignment="Stretch" Margin="0,10" Height="30" Content="Abschussliste aktualisieren"></Button>

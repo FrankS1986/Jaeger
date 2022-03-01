@@ -16,7 +16,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         public Logic_AbschusslisteAktualisieren()
         {
             Tierart = serv.Tiere();
-          
+            Abschuesse = 0;
             
 
 
@@ -109,8 +109,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private string _Abschuesse;
-        public string Abschuesse
+        private int _Abschuesse;
+        public int Abschuesse
 
         {
             get
@@ -122,6 +122,38 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             {
                 _Abschuesse = value;
                 RaisePropertyChanged("Abschuesse");
+            }
+        }
+
+        private tbl_Tiere _TierId;
+        public tbl_Tiere TierId
+
+        {
+            get
+            {
+                return _TierId;
+            }
+
+            set
+            {
+                _TierId = value;
+                RaisePropertyChanged("TierId");
+            }
+        }
+
+        private tbl_Jaeger _JaegerId;
+        public tbl_Jaeger JaegerId
+
+        {
+            get
+            {
+                return _JaegerId;
+            }
+
+            set
+            {
+                _JaegerId = value;
+                RaisePropertyChanged("JaegerId");
             }
         }
 
@@ -137,20 +169,25 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     _AbschusslisteAkualisieren = new RelayCommand(() =>
                     {
 
-                        Messenger.Default.Send<AbschusslisteAktualisierenSelectedMessage>(new AbschusslisteAktualisierenSelectedMessage { Abfrage = serv.Tierhinzuegen(StartDate, SelectItem.Tiere_ID, Ort) });
 
-                        var newitem = new tbl_Jagderfolge()
-
+                        if (JaegerId != null && SelectTermin !=null && TierId != null)
                         {
-                            Jäger_ID = serv.jaegerID,
-                            Termine_ID = serv.datumID,
-                            Tiere_ID = serv.tierartID
+                            var newitem = new tbl_Jagderfolge()
+
+                            {
+                                Jäger_ID = JaegerId.Jäger_ID,
+                                Termine_ID = SelectTermin.Termine_ID,
+                                Tiere_ID = TierId.Tiere_ID
 
 
-                        };
+                            };
 
-                        serv.InsertJagdErfolge(newitem);
-
+                            Messenger.Default.Send<AbschusslisteAktualisierenSelectedMessage>(new AbschusslisteAktualisierenSelectedMessage { Abfrage = serv.InsertJagdErfolge(newitem, Abschuesse) });
+                        }
+                        else
+                        {
+                            Messenger.Default.Send<AbschusslisteAktualisierenSelectedMessage>(new AbschusslisteAktualisierenSelectedMessage { Abfrage = false });
+                        }
 
                     });
 
@@ -159,15 +196,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        public class TestJaeger
-        {
-           
-            public string Ort { get; set; }
-            public DateTime Datum { get; set; }
-
-
-        }
-
+        
         
 
     }
