@@ -58,7 +58,7 @@
           <Property Name="Telefonnummer2" Type="varchar" MaxLength="150" />
           <Property Name="Telefonnummer3" Type="varchar" MaxLength="150" />
           <Property Name="Email" Type="varchar" MaxLength="150" />
-          <Property Name="Jagdhund" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Jagdhund" Type="varchar" MaxLength="50" />
           <Property Name="Geburtsdatum" Type="date" />
         </EntityType>
         <EntityType Name="tbl_Jagderfolge">
@@ -417,7 +417,7 @@
           <Property Name="Telefonnummer2" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="Telefonnummer3" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="Jagdhund" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Jagdhund" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Geburtsdatum" Type="DateTime" Precision="0" />
           <NavigationProperty Name="tbl_Jagderfolge" Relationship="Self.FK_tbl_Jagderfolge_tbl_Jaeger" FromRole="tbl_Jaeger" ToRole="tbl_Jagderfolge" />
           <NavigationProperty Name="tbl_Postausgang" Relationship="Self.FK_tbl_Postausgang_tbl_Jaeger" FromRole="tbl_Jaeger" ToRole="tbl_Postausgang" />

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" MinHeight="450" MinWidth="800"
+             d:DesignHeight="360" d:DesignWidth="800" MinHeight="360" MinWidth="800"
              DataContext="{Binding logic_Abschussliste, Source={StaticResource Locator}}"
              >
     <ContentControl x:Name="abschussliste">
@@ -32,7 +32,7 @@
                         </TransformGroup>
                     </TextBlock.RenderTransform>Jägerbezogene Abschüsse</TextBlock>
             </Label>
-                <ListBox ItemsSource="{Binding JaegerBezogeneAbschuesse}" FontSize="12" FontFamily="Gill Sans MT Regular" Height="356" SelectedItem="{Binding JaegerBezogeneAbschuesseSelectedItem}"></ListBox>
+                <DataGrid ItemsSource="{Binding AbschussListe, Mode=TwoWay}" FontSize="12" FontFamily="Gill Sans MT Regular" Height="356" SelectedItem="{Binding JaegerBezogeneAbschuesseSelectedItem, Mode=TwoWay}"></DataGrid>
             </StackPanel>
         <StackPanel Grid.Row="1" Background="White" Margin="0,10" VerticalAlignment="Center">
             <TextBlock>
@@ -47,7 +47,7 @@
                 <TextBlock FontFamily="Gill Sans MT Bold"  TextAlignment="Center" FontSize="22"  Foreground="#E0CBA8" Width="382">Tierartbezogene Abschüsse</TextBlock>
             </Label>
             <ComboBox ItemsSource="{Binding DropDownTiere}" DisplayMemberPath="Tierart" FontFamily="Gill Sans MT regular" FontSize="12" Margin="0,5" SelectedItem="{Binding TierartSelectedItem}"></ComboBox>
-            <DataGrid FontFamily="Gill Sans MT regular" FontSize="12" ItemsSource="{Binding AbschussListe}" Height="324"></DataGrid>  
+            <DataGrid FontFamily="Gill Sans MT regular" FontSize="12" ItemsSource="{Binding TierSchussListe, Mode=TwoWay}" Height="324"></DataGrid>  
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="2" Margin="0,10" VerticalAlignment="Center">
             <Button x:Name="btn_AbschuesseHinzufuegen" Click="btn_AbschuesseHinzufuegen_Click" BorderBrush="#230C0F" HorizontalAlignment="Right" FontFamily="Gill Sans MT regular" FontSize="16" > Abschüsse hinzufügen</Button>

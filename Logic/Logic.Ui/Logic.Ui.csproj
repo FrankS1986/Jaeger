@@ -91,8 +91,8 @@
     <Compile Include="Messages\LoginProofMessage.cs" />
     <Compile Include="Messages\RegistrierungsAbfrageBenutzer.cs" />
     <Compile Include="Messages\RegistrierungsErfolgsMessage.cs" />
-    <Compile Include="Models\GesamtNameModel.cs" />
     <Compile Include="Models\JaegerAbschussModel.cs" />
+    <Compile Include="Models\TierAbschussModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\SharedAssemblyInfo.cs" />
     <Compile Include="Service.cs" />

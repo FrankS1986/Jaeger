@@ -11,20 +11,31 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Models
     {
         private string _vorname;
         private string _nachname;
-        private int _abschuesse;
-        private string _tierart;
+        private int _abschuesse = 0;
 
-        public string Vorname { get; set; }
-        public string Nachname { get; set; }
-        public int Abschuesse { get; set; }
-        public string Tierart { get; set; }
-        JaegerAbschussModel(string vorname, string nachname, int abschuesse, string tierart)
+
+        public string Vorname
+        {
+            get { return _vorname; }
+            set { _vorname = value; }
+        }
+        public string Nachname
+        {
+            get
+            { return _nachname; } 
+            set { _nachname = value; }
+        }
+        public int Abschuesse 
+        {
+            get { return _abschuesse; }
+            set { _abschuesse = value; }
+        }
+
+        public JaegerAbschussModel(string vorname, string nachname, int abschuesse)
         {
             _vorname = vorname;
             _nachname = nachname;
             _abschuesse = abschuesse;
-            _tierart = tierart;
-        }
-        
+        }        
     }
 }
