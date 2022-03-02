@@ -41,8 +41,8 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
                 }
             });
 
-             
 
+            Messenger.Default.Send("B");
 
 
         }

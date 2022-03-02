@@ -19,7 +19,14 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         public Logic_Wildunfaelle()
         {
             Datum = DateTime.Today.ToString();
-            
+            Messenger.Default.Register<string>(this, (prop) =>
+            {
+                if (prop.Equals("B"))
+                {
+                    Ort = null;
+
+                }
+            });
             Tiere = serv.Tiere();
             
 
