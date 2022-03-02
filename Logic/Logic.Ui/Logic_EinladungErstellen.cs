@@ -1,5 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
+using JaegerMeister.MvvmSample.Logic.Ui.Dokumente;
+using JaegerMeister.MvvmSample.Logic.Ui.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,6 +15,16 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 {
     public class Logic_EinladungErstellen : ViewModelBase, INotifyPropertyChanged
     {
+
+        EinladungenErstellenService serv = new EinladungenErstellenService();
+
+
+        public Logic_EinladungErstellen()
+        {
+          Einladen=  serv.JaegerListe();
+        }
+
+
         private ICommand _EinlandungSenden;
         public ICommand EinlandungSenden
         {
@@ -23,15 +35,18 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     _EinlandungSenden = new RelayCommand(() =>
                     {
 
+                        if (SelectEinladen != null)
+                        {
+                            serv.CreateWordDocument(Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\JaegerEinladung.docx"), Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\" + SelectEinladen.Nachname + ".docx"), SelectEinladen.Jäger_ID);
+                        }
 
-                        ///Logic
                     });
                 }
                 return _EinlandungSenden;
             }
         }
 
-
+        
         private ICommand _Abbrechen;
         public ICommand Abbrechen
         {
@@ -62,5 +77,49 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 RaisePropertyChanged("Termine");
             }
         }
+
+        private tbl_Termine _SelectTermin;
+        public tbl_Termine SelectTermin
+        {
+            get
+            {
+                return _SelectTermin;
+            }
+            set
+            {
+                _SelectTermin = value;
+                RaisePropertyChanged("SelectTermin");
+            }
+        }
+
+
+        private List<tbl_Jaeger> _Einladen;
+        public List<tbl_Jaeger> Einladen
+        {
+            get
+            {
+                return _Einladen;
+            }
+            set
+            {
+                _Einladen = value;
+                RaisePropertyChanged("Einladen");
+            }
+        }
+
+        private tbl_Jaeger _SelectEinladen;
+        public tbl_Jaeger SelectEinladen
+        {
+            get
+            {
+                return _SelectEinladen;
+            }
+            set
+            {
+                _SelectEinladen = value;
+                RaisePropertyChanged("SelectEinladen");
+            }
+        }
+
     }
 }

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using JaegerMeister.MvvmSample.Logic.Ui.Dokumente;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +25,13 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         public GUIEinladungErstellen()
         {
             InitializeComponent();
+        }
+
+        private void Einladungen_Click(object sender, RoutedEventArgs e)
+        {
+           
+
+
         }
     }
 }

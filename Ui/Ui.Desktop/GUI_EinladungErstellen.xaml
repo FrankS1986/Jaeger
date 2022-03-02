@@ -44,9 +44,11 @@
                 </Label>
             </StackPanel>
             <StackPanel Grid.Row="1">
-                <DataGrid FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" AutoGenerateColumns="False" ItemsSource="{Binding Termine}" Height="261">
+                <DataGrid ScrollViewer.CanContentScroll="True"  SelectedItem="{Binding SelectTermin}" FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding Termine, Mode=OneWay}"  GridLinesVisibility="None" AutoGenerateColumns="False" Height="260"  >
                     <DataGrid.Columns>
-                        
+
+                        <DataGridTextColumn Binding="{Binding DatumUhrzeit}" Header="Datum Uhrzeit" />
+                        <DataGridTextColumn Binding="{Binding Ort}" Header="Ort" />
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
@@ -54,13 +56,24 @@
                 <DataGrid FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" ItemsSource="{Binding BereitsEingeladen}" Height="261"></DataGrid>
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2">
-                <DataGrid FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" ItemsSource="{Binding Einladen}" Height="261"></DataGrid>
+                <DataGrid EnableRowVirtualization="False" SelectionMode="Extended" FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F"  SelectedItem="{Binding SelectEinladen}" ItemsSource="{Binding Einladen}" Height="261" AutoGenerateColumns="False" GridLinesVisibility="None">
+                   
+                        <DataGrid.Columns>
+
+                   
+                        <DataGridTextColumn  Binding="{Binding Vorname}" Header="Vorname"/>
+                        <DataGridTextColumn Binding="{Binding Nachname}" Header="Nachname" />
+                      
+                    </DataGrid.Columns>
+                    
+
+                </DataGrid>
 
             </StackPanel>
 
             
                 <Button Height="30" Grid.Row="3" Grid.Column="4" Margin="5"  Background="White" FontSize="12" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Stretch"  Command="{Binding Abbrechen}">Abbrechen</Button>
-            <Button Height="30" Grid.Row="3" Grid.Column="5" Margin="5" Background="White" FontSize="12" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Stretch"  Command="{Binding EinlandungSenden}">
+            <Button x:Name="Einladungen" Click="Einladungen_Click" Height="30" Grid.Row="3" Grid.Column="5" Margin="5" Background="White" FontSize="12" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Stretch"  Command="{Binding EinlandungSenden}">
                 <TextBlock >Einladungen<LineBreak/> senden</TextBlock> 
             </Button>
                 

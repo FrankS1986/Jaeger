@@ -24,5 +24,11 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            GUIEinladungErstellen erstellen = new GUIEinladungErstellen();
+            ContenControlEinladungsuebersicht.Content = erstellen;
+        }
     }
 }

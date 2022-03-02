@@ -55,7 +55,7 @@
             </StackPanel>
 
 
-            <Button Grid.Row="2" Grid.Column="5" Background="White" FontSize="12" Height="30" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Stretch" Margin="5,5" Command="{Binding btn_EinlandungSicht}">
+            <Button Click="Button_Click" Grid.Row="2" Grid.Column="5" Background="White" FontSize="12" Height="30" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Stretch" Margin="5,5" Command="{Binding btn_EinlandungSicht}">
                 <TextBlock>Einladung<LineBreak/> verschicken</TextBlock></Button>
             
         </Grid>
