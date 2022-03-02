@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Ui.Desktop;
+using JaegerMeister.MvvmSample.Logic.Ui.Services;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
@@ -20,9 +23,46 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
     /// </summary>
     public partial class GUI_TermineUebersicht : UserControl
     {
+
         public GUI_TermineUebersicht()
         {
             InitializeComponent();
+        }
+
+        private void termin_hinzufuegen_Click(object sender, RoutedEventArgs e)
+        {
+            GUI_TerminErstellen terminErstellen = new GUI_TerminErstellen();
+
+            Content = terminErstellen;
+        }
+
+        private void Btn_ÜbersichtRueckmeldungen_Click(object sender, RoutedEventArgs e)
+        {
+            Einladungsrueckmeldung einladungsrueckmeldung = new Einladungsrueckmeldung();
+
+            Content = einladungsrueckmeldung;
+        }
+
+        private void DataGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            Messenger.Default.Send("Termine");
+        }
+
+        private void Termine_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Messenger.Default.Send("Select");
+        }
+
+        private void ContentControlTermine_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            Messenger.Default.Send("Change");
+        }
+
+        private void Bearbeiten_Click(object sender, RoutedEventArgs e)
+        {
+            GUI_TerminErstellen terminErstellen = new GUI_TerminErstellen();
+
+            Content = terminErstellen;
         }
     }
 }

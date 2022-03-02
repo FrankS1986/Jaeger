@@ -7,16 +7,15 @@
              mc:Ignorable="d" 
              d:DesignHeight="360" d:DesignWidth="800"
              MinHeight="360" MinWidth="800"
-              DataContext="{Binding logic_EinladungsUebersicht, Source={StaticResource Locator}}"
-             >
-    <ContentControl x:Name="ContentControlTermine">
+             DataContext="{Binding logic_Termine, Source={StaticResource Locator}}">
+    <ContentControl x:Name="ContentControlTermine" DataContextChanged="ContentControlTermine_DataContextChanged">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition  Width="15"/>
-                <ColumnDefinition  />
-                <ColumnDefinition Width="15"  />
-                <ColumnDefinition />
+                <ColumnDefinition Width="257"/>
+                <ColumnDefinition Width="15"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="15"/>
+                <ColumnDefinition Width="257"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="11*"/>
@@ -26,45 +25,52 @@
                 <Label Background="#4F772D"  Foreground="White" Height="40">
                     <TextBlock Foreground="#E0CBA8" FontSize="22" FontFamily="Gill Sans MT Bold" TextAlignment="Center" Width="247" Height="30" >anstehende Termine</TextBlock>
                 </Label>
-                <ListBox FontFamily="Gill Sans MT Regular" FontSize="12" ItemsSource="{Binding List_UebersichtAnstehendeTermine }"  >
-                </ListBox>
+                <DataGrid x:Name="Termine" MinHeight="302" MaxHeight="302" FontFamily="Gill Sans MT Regular" FontSize="12" ItemsSource="{Binding List_UebersichtAnstehendeTermine }" SelectedItem="{Binding SelectedTermin, Mode=TwoWay}" Loaded="DataGrid_Loaded" SelectionChanged="Termine_SelectionChanged" AutoGenerateColumns="False" GridLinesVisibility="None" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Bezeichnung" Binding="{Binding Bezeichnung}" Width="120"/>
+                        <DataGridTextColumn Header="Datum/Uhrzeit" Binding="{Binding DatumUhrzeit}" Width="120"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </StackPanel>
             <StackPanel Grid.Row="1">
-                <Button FontSize="16" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Background="White" Height="30" Command="{ Binding Btn_UebersichtTerminhinzufuegen}">Termin hinzufügen</Button>
+                <Button Click="termin_hinzufuegen_Click" FontSize="16" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Background="White" Height="30" Command="{ Binding Btn_UebersichtTerminhinzufuegen}">Termin hinzufügen</Button>
             </StackPanel>
             <StackPanel Grid.Column="2">
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="4">
-                <Button x:Name="Btn_ÜbersichtRueckmeldungen" Content="Rückmeldungen" FontSize="16" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Background="White" Command="{ Binding Btn_UebersichtRueckmeldungen}" Height="31"></Button>
+                <Button x:Name="Btn_ÜbersichtRueckmeldungen" Click="Btn_ÜbersichtRueckmeldungen_Click" Content="Rückmeldungen" FontSize="16" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Background="White" Command="{ Binding Btn_UebersichtRueckmeldungen}" Height="31"></Button>
             </StackPanel>
             <StackPanel  Grid.Column="4" Background="White">
-                <Label Background="#4F772D" Foreground="White" Height="40" >
+                <Label Background="#4F772D" Foreground="White" Height="40">
                     <TextBlock  Foreground="#E0CBA8" FontSize="22" FontFamily="Gill Sans MT Bold" TextAlignment="Center" Width="246" Height="30" >Eingeladene Personen</TextBlock>
                 </Label>
-                <ListBox FontFamily="Gill Sans MT Regular" FontSize="12" ItemsSource="{Binding List_UebersichtEingeladenePersonen }" ></ListBox>
+                <DataGrid x:Name="Personen" FontFamily="Gill Sans MT Regular" MinHeight="302" MaxHeight="302" FontSize="12" ItemsSource="{Binding List_UebersichtEingeladenePersonen }" AutoGenerateColumns="False" GridLinesVisibility="None" ColumnWidth="Auto" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Vorname" Binding="{Binding Vorname}" Width="120"/>
+                        <DataGridTextColumn Header="Nachname" Binding="{Binding Nachname}" Width="120"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </StackPanel>
             <StackPanel Grid.Column="2" Background="White" Grid.RowSpan="2">
                 <Label Background="#4F772D" Foreground="White" Height="40" >
                     <TextBlock  Foreground="#E0CBA8" FontSize="22" FontFamily="Gill Sans MT Bold"  TextAlignment="Center" Width="257" Height="30" >Terminbezeichnung</TextBlock>
                 </Label>
                 <TextBlock HorizontalAlignment="Right">
-                    <Button Background="{x:Null}" BorderBrush="{x:Null}"  FontFamily="Gill Sans MT Regular" Command="{Binding Btn_UebersichtBearbeiten}">
-                        <Image Source="bearbeiten.png" Height="30" Width="30"></Image>
+                    <Button x:Name="Bearbeiten" Background="{x:Null}" BorderBrush="{x:Null}"  FontFamily="Gill Sans MT Regular" Command="{Binding Btn_UebersichtBearbeiten}" Click="Bearbeiten_Click">
+                        <Image Source="Pictures\bearbeiten.png" Height="30" Width="30"></Image>
                     </Button>
                     <Button Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Gill Sans MT Regular" Command="{Binding Btn_UebersichtLoeschen}">
-                        <Image Source="delete.png" Height="30" Width="30" ></Image>
+                        <Image Source="Pictures\delete.png" Height="30" Width="30"></Image>
                     </Button>
                 </TextBlock>
                 <Label></Label>
                 <Label></Label>
                 <Label FontFamily="Gill Sans MT Regular" FontSize="18" Margin="20,1">Bezeichnung</Label>
-                <TextBox FontFamily="Gill Sans MT Regular" FontSize="12"  Text="{Binding Txt_UebersichtBezeichnung}" Margin="20,1"></TextBox>
+                <TextBox FontFamily="Gill Sans MT Regular" FontSize="12" Text="{Binding Txt_UebersichtBezeichnung}" IsReadOnly="True" Margin="20,1"></TextBox>
                 <Label FontFamily="Gill Sans MT Regular" FontSize="18"  Margin="20,1">Wo?</Label>
-                <TextBox FontFamily="Gill Sans MT Regular" FontSize="12"  Text="{Binding Txt_UebersichtOrt}" Margin="20,1"></TextBox>
+                <TextBox FontFamily="Gill Sans MT Regular" FontSize="12" Text="{Binding Txt_UebersichtOrt}" IsReadOnly="True" Margin="20,1"></TextBox>
                 <Label FontFamily="Gill Sans MT Regular" FontSize="18" Margin="20,1">Datum</Label>
-                <DatePicker FontFamily="Gill Sans MT Regular" FontSize="12"  Margin="20,1" SelectedDate="{Binding Datepicker_UebersichtDatum}"></DatePicker>
-                <Label FontFamily="Gill Sans MT Regular" FontSize="18"  Margin="20,1">Uhrzeit</Label>
-                <TextBox FontFamily="Gill Sans MT Regular" FontSize="12"  Margin="20,1" Text="{Binding Txt_UebersichtUhrzeit}"></TextBox>
+                <TextBox FontFamily="Gill Sans MT Regular" FontSize="12" Text="{Binding Txt_UebersichtDatum}" IsReadOnly="True" Margin="20,1"></TextBox>
             </StackPanel>
         </Grid>
     </ContentControl>
