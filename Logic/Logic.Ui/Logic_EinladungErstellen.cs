@@ -13,51 +13,53 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 {
     public class Logic_EinladungErstellen : ViewModelBase, INotifyPropertyChanged
     {
-        private ICommand _btn_einlandungSenden;
-        public ICommand btn_EinlandungSenden
+        private ICommand _EinlandungSenden;
+        public ICommand EinlandungSenden
         {
             get
             {
-                if (_btn_einlandungSenden == null)
+                if (_EinlandungSenden == null)
                 {
-                    _btn_einlandungSenden = new RelayCommand(() =>
+                    _EinlandungSenden = new RelayCommand(() =>
                     {
 
 
                         ///Logic
                     });
                 }
-                return _btn_einlandungSenden;
+                return _EinlandungSenden;
             }
         }
 
 
-        private ICommand _btn_abbrechen;
-        public ICommand btn_Abbrechen
+        private ICommand _Abbrechen;
+        public ICommand Abbrechen
         {
             get
             {
-                if (_btn_abbrechen == null)
+                if (_Abbrechen == null)
                 {
-                    _btn_abbrechen = new RelayCommand(() =>
+                    _Abbrechen = new RelayCommand(() =>
                     {
 
 
                         ///Logic
                     });
                 }
-                return _btn_abbrechen;
+                return _Abbrechen;
             }
         }
 
-        private ObservableCollection<Logic_EinladungErstellen> _dg_termine;
-        public ObservableCollection<Logic_EinladungErstellen> dg_Termine
+        private List<tbl_Termine> _Termine ;
+        public List<tbl_Termine> Termine
         {
-            get { return _dg_termine; }
+            get
+            { return _Termine;
+ }
             set
             {
-                _dg_termine = value;
-                
+                _Termine = value;
+                RaisePropertyChanged("Termine");
             }
         }
     }

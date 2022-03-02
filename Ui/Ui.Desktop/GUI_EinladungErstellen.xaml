@@ -44,19 +44,23 @@
                 </Label>
             </StackPanel>
             <StackPanel Grid.Row="1">
-                <DataGrid FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" AutoGenerateColumns="False" ItemsSource="{Binding dg_Termine}" Height="261"></DataGrid>
+                <DataGrid FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" AutoGenerateColumns="False" ItemsSource="{Binding Termine}" Height="261">
+                    <DataGrid.Columns>
+                        
+                    </DataGrid.Columns>
+                </DataGrid>
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2">
-                <DataGrid FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" ItemsSource="{Binding dg_BereitsEingeladen}" Height="261"></DataGrid>
+                <DataGrid FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" ItemsSource="{Binding BereitsEingeladen}" Height="261"></DataGrid>
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2">
-                <DataGrid FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" ItemsSource="{Binding dg_Einladen}" Height="261"></DataGrid>
+                <DataGrid FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" ItemsSource="{Binding Einladen}" Height="261"></DataGrid>
 
             </StackPanel>
 
             
-                <Button Height="30" Grid.Row="3" Grid.Column="4" Margin="5"  Background="White" FontSize="12" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Stretch"  Command="{Binding btn_Abbrechen}">Abbrechen</Button>
-            <Button Height="30" Grid.Row="3" Grid.Column="5" Margin="5" Background="White" FontSize="12" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Stretch"  Command="{Binding btn_EinlandungSenden}">
+                <Button Height="30" Grid.Row="3" Grid.Column="4" Margin="5"  Background="White" FontSize="12" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Stretch"  Command="{Binding Abbrechen}">Abbrechen</Button>
+            <Button Height="30" Grid.Row="3" Grid.Column="5" Margin="5" Background="White" FontSize="12" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Stretch"  Command="{Binding EinlandungSenden}">
                 <TextBlock >Einladungen<LineBreak/> senden</TextBlock> 
             </Button>
                 
