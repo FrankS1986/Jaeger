@@ -24,7 +24,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
             {
                 var bezTermin = from a in ctx.tbl_Termine
-                                where a.Bezeichnung != "Wildunfall"
+                                where a.Typ != "Wildunfall" && a.Bezeichnung != "Wildunfall"
                                 select new { a.Bezeichnung, a.DatumUhrzeit };
 
                 //Debugging des Datums
@@ -59,8 +59,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
             {
 
                 var nTermin = from a in ctx.tbl_Termine
-                              where a.DatumUhrzeit >= selectedDate && a.DatumUhrzeit <= dateTime
-                              orderby a.DatumUhrzeit ascending
+                              where a.Bezeichnung != "Wildunfall" && a.Typ != "Unfall" &&  a.DatumUhrzeit >= selectedDate && a.DatumUhrzeit <= dateTime 
+                              orderby a.DatumUhrzeit ascending 
                               select new { a.Bezeichnung, a.Typ, a.DatumUhrzeit, a.Ort };
                 foreach (var tempTermin in nTermin)
                 {
@@ -74,5 +74,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
             }
             return nextTermin;
         }
+
+        
     }
 }

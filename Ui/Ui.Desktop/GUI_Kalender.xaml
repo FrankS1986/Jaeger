@@ -1,13 +1,14 @@
 ﻿<UserControl x:Class="JaegerMeister.MvvmSample.Ui.Desktop.GUI_Kalender"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"   
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:JaegerMeister.MvvmSample.Ui.Desktop" 
+             xmlns:logicConverter="clr-namespace:JaegerMeister.MvvmSample.Logic.Ui.Converter;assembly=MvvmSample.Logic.Ui"
              mc:Ignorable="d" 
              DataContext="{Binding logic_Kalender, Source={StaticResource Locator}}"
              d:DesignHeight="360" d:DesignWidth="800" Width="800" Height="360" MinHeight="360" MinWidth="800">
-
+    
     <ContentControl x:Name="ContentControlTerminErstellen">
         <Grid Name="Grid_Kalender"  >
             <Grid.ColumnDefinitions>
@@ -32,10 +33,29 @@
                 </Button>
             </Grid>
             <DataGrid  Grid.Row="1" Grid.RowSpan="2"  ItemsSource="{Binding Dg_TermineKalender}" FontFamily="Gill Sans MT" FontSize="16" MinColumnWidth="194" IsReadOnly="True" IsManipulationEnabled="True" GridLinesVisibility="None"
-                       HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto"
+                       HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto" IsHitTestVisible="False"
                        Background="White"  />
-            <Viewbox  HorizontalAlignment="Center" VerticalAlignment="Center" Name="ViewBoxKalender" Grid.Column="2"   Grid.RowSpan="2"  Stretch="Uniform"   >
-                <Calendar SelectedDate="{Binding SelectedDates}"   x:Name="Kalender">
+            <Viewbox  HorizontalAlignment="Center" VerticalAlignment="Center" Name="ViewBoxKalender" Grid.Column="2"   Grid.RowSpan="2"  Stretch="Fill"   >
+                <Calendar SelectedDate="{Binding SelectedDates}" x:Name="Kalender"  DisplayDateStart="1/1/2022" DisplayDateEnd="1/1/2050">
+                    <Calendar.Resources>
+                        <logicConverter:LookupConverter x:Key="LookupConverter"/>
+                    </Calendar.Resources>
+                    <Calendar.CalendarDayButtonStyle >
+                        <Style TargetType="CalendarDayButton" >
+                            <Style.Triggers>
+                                <DataTrigger Value="True">
+                                    <DataTrigger.Binding>
+                                        <MultiBinding  Converter="{StaticResource LookupConverter}">
+                                            <Binding/>
+                                            <Binding RelativeSource="{RelativeSource AncestorType=Calendar}" Path="DataContext.Dates"/>
+                                            <Binding />
+                                        </MultiBinding>
+                                    </DataTrigger.Binding>
+                                    <Setter Property="Background" Value="LightGreen"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Calendar.CalendarDayButtonStyle>
                 </Calendar>
             </Viewbox>
             <DataGrid Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2"   ItemsSource="{Binding Dg_KalenderAnzeige}"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Gill Sans MT"
@@ -45,3 +65,4 @@
         </Grid>
     </ContentControl>
 </UserControl>
+    
