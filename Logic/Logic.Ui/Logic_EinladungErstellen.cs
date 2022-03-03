@@ -27,9 +27,12 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
             Messenger.Default.Register<string>(this, (prop) =>
             {
-                if (prop.Equals("CheckBoxen"))
+                if (prop.Equals("Checkboxen"))
                 {
-                    //IsSelected = true;
+
+                    serv.CreateWordDocument(Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\JaegerEinladung.docx"), Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\"+ SelectEinladen.Nachname +".docx"), SelectEinladen.Jäger_ID);
+
+
 
                 }
             });
@@ -94,23 +97,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private ICommand _EinladenB;
-        public ICommand EinladenB
-        {
-            get
-            {
-                if (_EinladenB == null)
-                {
-                    _EinladenB = new RelayCommand(() =>
-                    {
-
-                        serv.CreateWordDocument(Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\JaegerEinladung.docx"), Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\.docx"),SelectEinladen.Jäger_ID);
-
-                    });
-                }
-                return _EinladenB;
-            }
-        }
+        
 
         private ICommand _Com;
         public ICommand Com
@@ -130,7 +117,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private List<tbl_Termine> _Termine ;
+        private List<tbl_Termine> _Termine;
         public List<tbl_Termine> Termine
         {
             get

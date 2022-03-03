@@ -11,12 +11,15 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 {
     public class EinladungenErstellenService
     {
+
+
+
         public List<tbl_Termine> Termine()
         {
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
             {
                 var termine = from a in ctx.tbl_Termine
-                              where a.Typ == "Treibjagd"
+                              where a.Typ != "Wildunfall"
                               select new { a.Termine_ID, a.Ort, a.DatumUhrzeit };
                 var liste = new List<tbl_Termine>();
 

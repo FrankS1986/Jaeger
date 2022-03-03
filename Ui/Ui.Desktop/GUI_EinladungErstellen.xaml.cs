@@ -32,7 +32,7 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         {
 
 
-            Messenger.Default.Send("Checkboxen");
+           
         }
 
        
@@ -40,6 +40,11 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         private void DataGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
               
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Messenger.Default.Send("Checkboxen");
         }
     }
 }
