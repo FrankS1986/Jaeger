@@ -15,7 +15,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Converter
     public class LookupConverter : IMultiValueConverter
     {
 
-
+        //Converter für das Hightlighting im der Termine im Kalender
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
             var date = (DateTime)values[0];

@@ -36,7 +36,7 @@
                        HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto" IsHitTestVisible="False"
                        Background="White"  />
             <Viewbox  HorizontalAlignment="Center" VerticalAlignment="Center" Name="ViewBoxKalender" Grid.Column="2"   Grid.RowSpan="2"  Stretch="Fill"   >
-                <Calendar SelectedDate="{Binding SelectedDates}" x:Name="Kalender"  DisplayDateStart="1/1/2022" DisplayDateEnd="1/1/2050">
+                <Calendar SelectedDate="{Binding SelectedDates}"  x:Name="Kalender"  DisplayDateStart="1/1/2022" DisplayDateEnd="1/1/2050">
                     <Calendar.Resources>
                         <logicConverter:LookupConverter x:Key="LookupConverter"/>
                     </Calendar.Resources>
@@ -46,7 +46,7 @@
                                 <DataTrigger Value="True">
                                     <DataTrigger.Binding>
                                         <MultiBinding  Converter="{StaticResource LookupConverter}">
-                                            <Binding/>
+                                            <Binding />
                                             <Binding RelativeSource="{RelativeSource AncestorType=Calendar}" Path="DataContext.Dates"/>
                                             <Binding />
                                         </MultiBinding>

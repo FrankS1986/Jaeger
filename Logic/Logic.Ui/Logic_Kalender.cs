@@ -23,13 +23,13 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
 
         //Liste für die Anzeige der Termine im Kalender
+        
         public List<DateTime> Dates { get; } = new List<DateTime>();
+
         public Logic_Kalender()
         {
             Dg_TermineKalender = serv.Termine();
             Dg_KalenderAnzeige = serv.NextTermin(DateTime.Now);
-
-            //Dates = Dg_TermineKalender.Select(termin => termin.DatumUhrzeit).ToList();
 
             //Liste Termine wird befüllt. Neues DateTime erstellt.
             foreach(KalenderTermineModel termin in Dg_TermineKalender)
@@ -78,6 +78,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 RaisePropertyChanged("Dg_KalenderAnzeige");
             }
         }
+
+        
     }
 }
 

@@ -59,8 +59,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
             {
 
                 var nTermin = from a in ctx.tbl_Termine
-                              where a.Bezeichnung != "Wildunfall" && a.Typ != "Unfall" &&  a.DatumUhrzeit >= selectedDate && a.DatumUhrzeit <= dateTime 
-                              orderby a.DatumUhrzeit ascending 
+                              where a.Bezeichnung != "Wildunfall" && a.Typ != "Unfall" && a.DatumUhrzeit >= selectedDate && a.DatumUhrzeit <= dateTime
+                              orderby a.DatumUhrzeit ascending
                               select new { a.Bezeichnung, a.Typ, a.DatumUhrzeit, a.Ort };
                 foreach (var tempTermin in nTermin)
                 {
@@ -74,6 +74,31 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
             }
             return nextTermin;
         }
+
+
+        //Wenn später gewünscht Liste der Geburtstage
+        //public List<GeburtstagModel> Birth(DateTime birthDate)
+        //{
+        //    List<GeburtstagModel> nextBirth = new List<GeburtstagModel>();
+
+        //    //DateTime dateTime = new DateTime(selectedDate.Year, selectedDate.Month, DateTime.DaysInMonth(selectedDate.Year, selectedDate.Month), 23, 59, 59);
+        //    DateTime dateTime = birthDate.AddHours(23).AddMinutes(59).AddSeconds(59);
+        //    using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
+        //    {
+        //        var nBirth = from a in ctx.tbl_Jaeger
+        //                     select new { a.Vorname, a.Nachname, a.Geburtsdatum };
+        //        foreach (var tempBirth in nBirth)
+        //        {
+        //            GeburtstagModel termin = new GeburtstagModel();
+        //            termin.Vorname = tempBirth.Vorname;
+        //            termin.Nachname = tempBirth.Nachname;
+        //            termin.Geburtsdatum = tempBirth.Geburtsdatum;
+        //            nextBirth.Add((GeburtstagModel)termin);
+        //        }
+        //    }
+        //    return nextBirth;
+
+        //}
 
         
     }
