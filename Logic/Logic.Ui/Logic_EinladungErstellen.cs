@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
+using GalaSoft.MvvmLight.Messaging;
 using JaegerMeister.MvvmSample.Logic.Ui.Dokumente;
 using JaegerMeister.MvvmSample.Logic.Ui.Services;
 using System;
@@ -24,22 +25,30 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
           Termine = serv.Termine();
           Einladen=  serv.JaegerListe();
 
-         
+            Messenger.Default.Register<string>(this, (prop) =>
+            {
+                if (prop.Equals("CheckBoxen"))
+                {
+                    //IsSelected = true;
+
+                }
+            });
+
         }
 
-        private bool _IsSelected;
-        public bool IsSelected
-        {
-            get
-            {
-                return _IsSelected;
-            }
-            set
-            {
-                _IsSelected = value;
-                RaisePropertyChanged("IsSelected");
-            }
-        }
+        //private bool _IsSelected;
+        //public bool IsSelected
+        //{
+        //    get
+        //    {
+        //        return _IsSelected;
+        //    }
+        //    set
+        //    {
+        //        _IsSelected = value;
+        //        RaisePropertyChanged("IsSelected");
+        //    }
+        //}
         private ICommand _EinlandungSenden;
         public ICommand EinlandungSenden
         {
@@ -57,7 +66,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
                         if (SelectEinladen != null)
                         {
-                            serv.CreateWordDocument(Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\JaegerEinladung.docx"), Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\.docx"), 3);
+                           
                         }
 
                     });
@@ -82,6 +91,24 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     });
                 }
                 return _Abbrechen;
+            }
+        }
+
+        private ICommand _EinladenB;
+        public ICommand EinladenB
+        {
+            get
+            {
+                if (_EinladenB == null)
+                {
+                    _EinladenB = new RelayCommand(() =>
+                    {
+
+                        serv.CreateWordDocument(Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\JaegerEinladung.docx"), Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\.docx"),SelectEinladen.Jäger_ID);
+
+                    });
+                }
+                return _EinladenB;
             }
         }
 
@@ -145,8 +172,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private List<tbl_Jaeger> _SelectEinladen;
-        public List<tbl_Jaeger> SelectEinladen
+        private tbl_Jaeger _SelectEinladen;
+        public tbl_Jaeger SelectEinladen
         {
             get
             {

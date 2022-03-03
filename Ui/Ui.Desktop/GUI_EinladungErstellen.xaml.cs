@@ -1,4 +1,5 @@
-﻿using JaegerMeister.MvvmSample.Logic.Ui.Dokumente;
+﻿using GalaSoft.MvvmLight.Messaging;
+using JaegerMeister.MvvmSample.Logic.Ui.Dokumente;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -29,11 +30,16 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
 
         private void Einladungen_Click(object sender, RoutedEventArgs e)
         {
-           
 
 
+            Messenger.Default.Send("Checkboxen");
         }
 
-        
+       
+
+        private void DataGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+              
+        }
     }
 }
