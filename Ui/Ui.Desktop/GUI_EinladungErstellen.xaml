@@ -46,7 +46,7 @@
             <StackPanel Grid.Row="1">
                 <DataGrid ScrollViewer.CanContentScroll="True"  SelectedItem="{Binding SelectTermin}" FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding Termine, Mode=OneWay}"  GridLinesVisibility="None" AutoGenerateColumns="False" Height="260"  >
                     <DataGrid.Columns>
-
+                       
                         <DataGridTextColumn Binding="{Binding DatumUhrzeit}" Header="Datum Uhrzeit" />
                         <DataGridTextColumn Binding="{Binding Ort}" Header="Ort" />
                     </DataGrid.Columns>
@@ -56,11 +56,17 @@
                 <DataGrid FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" ItemsSource="{Binding BereitsEingeladen}" Height="261"></DataGrid>
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2">
-                <DataGrid EnableRowVirtualization="False" SelectionMode="Extended" FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F"  SelectedItem="{Binding SelectEinladen}" ItemsSource="{Binding Einladen}" Height="261" AutoGenerateColumns="False" GridLinesVisibility="None">
+                <DataGrid  EnableRowVirtualization="False" SelectionMode="Extended" FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F"  SelectedItem="{Binding SelectEinladen}" ItemsSource="{Binding Einladen}" Height="261" AutoGenerateColumns="False" GridLinesVisibility="None">
                    
                         <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="Auswahl" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox IsChecked="{Binding IsSelected}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
 
-                   
                         <DataGridTextColumn  Binding="{Binding Vorname}" Header="Vorname"/>
                         <DataGridTextColumn Binding="{Binding Nachname}" Header="Nachname" />
                       

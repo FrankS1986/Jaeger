@@ -11,7 +11,30 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 {
     public class EinladungenErstellenService
     {
+        public List<tbl_Termine> Termine()
+        {
+            using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
+            {
+                var termine = from a in ctx.tbl_Termine
+                              where a.Typ == "Treibjagd"
+                              select new { a.Termine_ID, a.Ort, a.DatumUhrzeit };
+                var liste = new List<tbl_Termine>();
 
+                foreach (var item in termine)
+                {
+                    liste.Add(new tbl_Termine()
+                    {
+                        Termine_ID = item.Termine_ID,
+                        Ort = item.Ort,
+                        DatumUhrzeit = item.DatumUhrzeit
+
+
+                    });
+                }
+
+                return liste;
+            }
+        }
 
         public List<tbl_Jaeger> JaegerListe()
         {
@@ -24,12 +47,13 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                 foreach(var item in jaeger)
                 {
                     liste.Add(new tbl_Jaeger()
-                    { 
+                    {
                         Jäger_ID = item.Jäger_ID,
                         Vorname = item.Vorname,
                         Nachname = item.Nachname
-                    });
-                      
+                        
+                    }) ;
+                    
                 }
 
                 return liste;

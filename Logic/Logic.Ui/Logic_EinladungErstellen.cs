@@ -21,10 +21,25 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         public Logic_EinladungErstellen()
         {
+          Termine = serv.Termine();
           Einladen=  serv.JaegerListe();
+
+         
         }
 
-
+        private bool _IsSelected;
+        public bool IsSelected
+        {
+            get
+            {
+                return _IsSelected;
+            }
+            set
+            {
+                _IsSelected = value;
+                RaisePropertyChanged("IsSelected");
+            }
+        }
         private ICommand _EinlandungSenden;
         public ICommand EinlandungSenden
         {
@@ -35,9 +50,14 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     _EinlandungSenden = new RelayCommand(() =>
                     {
 
+                        
+
+                        
+
+
                         if (SelectEinladen != null)
                         {
-                            serv.CreateWordDocument(Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\JaegerEinladung.docx"), Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\" + SelectEinladen.Nachname + ".docx"), SelectEinladen.Jäger_ID);
+                            serv.CreateWordDocument(Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\JaegerEinladung.docx"), Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\.docx"), 3);
                         }
 
                     });
@@ -62,6 +82,24 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     });
                 }
                 return _Abbrechen;
+            }
+        }
+
+        private ICommand _Com;
+        public ICommand Com
+        {
+            get
+            {
+                if (_Com == null)
+                {
+                    _Com = new RelayCommand(() =>
+                    {
+
+
+                        ///Logic
+                    });
+                }
+                return _Com;
             }
         }
 
@@ -107,8 +145,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private tbl_Jaeger _SelectEinladen;
-        public tbl_Jaeger SelectEinladen
+        private List<tbl_Jaeger> _SelectEinladen;
+        public List<tbl_Jaeger> SelectEinladen
         {
             get
             {
