@@ -15,10 +15,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
     {
 
         //Die Menge an gesamten geschossenen Tieren
-        string _abschuesse = "";
-
+        int _abschuesse = 0;
         Service_Abschussliste service_Abschussliste = new Service_Abschussliste();
-        public string Abschuesse
+        public int GesamtAbschuesse
         {
             get
             {
@@ -27,16 +26,27 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             set
             {
                 _abschuesse = value;
+                RaisePropertyChanged("GesamtAbschuesse");
             }
         }
 
-        //Hier wird die Methode aufgerufen die dafür zuständig ist das datagrid zu füllen.
+        //Hier wird die Methode aufgerufen die dafuer zustaendig ist das datagrid zu füllen.
+        //Hier werden auch direkt die Abschuesse gezaehlt und eingefuegt.
         List<JaegerAbschussModel> _abschussListe;
         public List<JaegerAbschussModel> AbschussListe
         {
             get
             {
-                return service_Abschussliste.JaegerAbschuesse();
+                GesamtAbschuesse = 0;
+                _abschuesse = 0;
+                _abschussListe =  service_Abschussliste.JaegerAbschuesse();
+                foreach(var item in _abschussListe)
+                {
+                    _abschuesse += item.Abschuesse;
+                }
+                GesamtAbschuesse = _abschuesse;
+                RaisePropertyChanged("GesamtAbschuesse");
+                return _abschussListe;
             }
             set
             {
@@ -44,6 +54,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 RaisePropertyChanged("AbschussListe");
             }
         }
+
+        //Diese Property fuellt das Datagrid mit den Tieren und wie oft sie erlegt worden sind.
+        //Dies schließt Unfaelle mit ein!        
         List<TierAbschussModel> _tierErlegtListe = new List<TierAbschussModel>();
         public List<TierAbschussModel> TierSchussListe
         {
@@ -59,14 +72,14 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-
         //Hier wird die Dropdownliste mit Tierarten gefüllt
-        List<tbl_Tiere> _dropDownTiere;
-        public List<tbl_Tiere> DropDownTiere
+        List<string> _dropDownTiere;
+        public List<string> DropDownTiere
         {
             get
-            {
-                return service_Abschussliste.TierartListe();
+            {   
+                _dropDownTiere = service_Abschussliste.TierartListe();
+                return _dropDownTiere;                
             }
             set
             {
@@ -74,6 +87,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 RaisePropertyChanged("DropDownTiere");
             }
         }
+
         //Hier wird geschaut ob eine andere Tierart ausgewahlt wurde, und dementsprechend
         //die Datenanzeige auf die neue Tierart ausrichtet
         private string _tierartSelectedItem;
@@ -86,11 +100,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 RaisePropertyChanged("TierartSelectedItem");
                 RaisePropertyChanged("TierSchussListe");
             }
-        }
-
-        public Logic_Abschussliste()
-        {
-
         }
     }
 }

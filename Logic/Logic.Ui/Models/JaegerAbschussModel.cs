@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui.Models
 {
-    //Die Klasse fuer den Bau der Abschussliste
+    //Die Klasse fuer den Bau der Abschussliste fuer Jaeger
     public class JaegerAbschussModel
     {
         private string _vorname;

@@ -10,22 +10,20 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
     public class Service_Abschussliste
     {
         //Hier wird die gesamte Tabelle der Tiere an den Anfrager zurueck gegeben.
-        List<tbl_Tiere> _tierartListe = new List<tbl_Tiere>();
-        public List<tbl_Tiere> TierartListe()
+        List<string> _tierartListe = new List<string>();
+        public List<string> TierartListe()
         {
+            _tierartListe = new List<string>();
             using (TreibjagdTestEntities datenbankVerbindung = new TreibjagdTestEntities())
             {
                 var tierartSuche = from aktuellerDatensatz in datenbankVerbindung.tbl_Tiere
-                                   select new { aktuellerDatensatz.Tierart, aktuellerDatensatz.Tiere_ID };
+                                   select new { aktuellerDatensatz.Tierart};
 
                 foreach (var item in tierartSuche)
                 {
-                    _tierartListe.Add(new tbl_Tiere()
-                    {
-                        Tiere_ID = item.Tiere_ID,
-                        Tierart = item.Tierart
-                    }); ;
+                    _tierartListe.Add(item.Tierart);
                 }
+                _tierartListe.Sort();
                 return _tierartListe;
             }
         }
@@ -52,6 +50,10 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                     int jagderfolge = (from jagderfolg in datenbankVerbindung.tbl_Jagderfolge
                                        where jagderfolg.Jäger_ID == jaeger.Jäger_ID
                                        select jagderfolg).Count();
+                    if(jagderfolge == 0)
+                    {
+                        continue;
+                    }
                     jaegerAbschussModels.Add(new JaegerAbschussModel(jaeger.Vorname, jaeger.Nachname, jagderfolge));
                 }
             }
@@ -63,9 +65,10 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
         List<TierAbschussModel> _tierAbschussListe = new List<TierAbschussModel>();
         public List<TierAbschussModel> TierAbschussListeMethode(string tierartWahl)
         {
-            using(TreibjagdTestEntities datenbankVerbindung = new TreibjagdTestEntities())
+            _tierAbschussListe = new List<TierAbschussModel>();
+            using (TreibjagdTestEntities datenbankVerbindung = new TreibjagdTestEntities())
             {   
-                if (string.IsNullOrEmpty(tierartWahl))
+                if (string.IsNullOrEmpty(tierartWahl) || tierartWahl == "--Alle Tiere--")
                 {
                     var tierListe = from tierart in datenbankVerbindung.tbl_Tiere
                                     select new
@@ -75,6 +78,10 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                                     };
                     foreach (var einzelTier in tierListe)
                     {
+                        if (einzelTier.Tierart == "--Alle Tiere--")
+                        {
+                            continue;
+                        }
                         var tierAbschussAnzahl = (from tierabschuss in datenbankVerbindung.tbl_Jagderfolge
                                                   where einzelTier.Tiere_ID == tierabschuss.Tiere_ID
                                                   select tierabschuss).Count();
@@ -92,6 +99,10 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                                     };
                     foreach (var einzelTier in tierListe)
                     {
+                        if(einzelTier.Tierart == "--Alle Tiere--")
+                        {
+                            continue;
+                        }
                         var tierAbschussAnzahl = (from tierabschuss in datenbankVerbindung.tbl_Jagderfolge
                                                   where einzelTier.Tiere_ID == tierabschuss.Tiere_ID
                                                   select tierabschuss).Count();
