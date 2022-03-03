@@ -16,8 +16,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 {
     public class KalenderService
     {
-
-        // Aufbau zur Datenbank. Erstellung der Termin Liste.
+        // Verbindungsaufbau zur Datenbank. Erstellung der Liste für alle Termine.
         public List<KalenderTermineModel> Termine()
         {
             List<KalenderTermineModel> kalenderTermine;
@@ -26,31 +25,25 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                 var bezTermin = from a in ctx.tbl_Termine
                                 where a.Typ != "Wildunfall" && a.Bezeichnung != "Wildunfall"
                                 select new { a.Bezeichnung, a.DatumUhrzeit };
-
                 //Debugging des Datums
                 //var ergebnis = dateTime.FirstOrDefault().DatumUhrzeit.ToString("yyyy, MMMM, dd")               
                 //DateTime testDate = DateTime.Now;
                 //string datum = testDate.ToString("yyyy, MMMM, dd");
-
-
                 kalenderTermine = new List<KalenderTermineModel>();
                 foreach (var tempTermin in bezTermin)
                 {
-
                     KalenderTermineModel termin = new KalenderTermineModel();
                     termin.Bezeichnung = tempTermin.Bezeichnung;
                     termin.DatumUhrzeit = tempTermin.DatumUhrzeit;
                     kalenderTermine.Add((KalenderTermineModel)termin);
                 }
-                return kalenderTermine;
             }
+            return kalenderTermine;
         }
-
-        //Aufbau zur Datenbank. Erstellung der Liste für die Aktuellen Termine.
+        //Verbindungsaufbau zur Datenbank. Erstellung der Liste für die Aktuellen Termine.
         //Neues DateTime(dateTime) erstellt
         //Termine werden nach dateTime sortiert.
         public List<KalenderNextTerminModel> NextTermin(DateTime selectedDate)
-
         {
             List<KalenderNextTerminModel> nextTermin = new List<KalenderNextTerminModel>();
             //DateTime dateTime = new DateTime(selectedDate.Year, selectedDate.Month, DateTime.DaysInMonth(selectedDate.Year, selectedDate.Month), 23, 59, 59);
@@ -74,8 +67,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
             }
             return nextTermin;
         }
-
-
         //Wenn später gewünscht Liste der Geburtstage
         //public List<GeburtstagModel> Birth(DateTime birthDate)
         //{
@@ -97,9 +88,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
         //        }
         //    }
         //    return nextBirth;
-
-        //}
-
-        
+        //}   
     }
 }

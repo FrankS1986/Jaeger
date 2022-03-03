@@ -13,26 +13,24 @@ using System.Collections.ObjectModel;
 using System.Runtime.CompilerServices;
 using System.Globalization;
 using JaegerMeister.MvvmSample.Logic.Ui.Converter;
+using System.Collections;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
     public class Logic_Kalender : ViewModelBase, INotifyPropertyChanged
     {
-        
         KalenderService serv = new KalenderService();
 
-
-        //Liste für die Anzeige der Termine im Kalender
         
-        public List<DateTime> Dates { get; } = new List<DateTime>();
-
+        //Liste für die Anzeige der Termine im Kalender
+        public List<DateTime> Dates { get; } = new List<DateTime>();      
         public Logic_Kalender()
         {
             Dg_TermineKalender = serv.Termine();
             Dg_KalenderAnzeige = serv.NextTermin(DateTime.Now);
 
             //Liste Termine wird befüllt. Neues DateTime erstellt.
-            foreach(KalenderTermineModel termin in Dg_TermineKalender)
+            foreach (KalenderTermineModel termin in Dg_TermineKalender)
             {
                 DateTime dateTime = new DateTime(termin.DatumUhrzeit.Year, termin.DatumUhrzeit.Month, termin.DatumUhrzeit.Day);
                 Dates.Add(dateTime);
@@ -78,8 +76,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 RaisePropertyChanged("Dg_KalenderAnzeige");
             }
         }
-
-        
     }
 }
 

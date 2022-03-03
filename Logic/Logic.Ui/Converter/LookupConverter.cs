@@ -14,18 +14,20 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Converter
 {
     public class LookupConverter : IMultiValueConverter
     {
-
-        //Converter für das Hightlighting im der Termine im Kalender
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
             var date = (DateTime)values[0];
             var dates = values[1] as List<DateTime>;
+            if(dates == null)
+            {
+                return null;
+            }
             return dates.Contains(date);
         }
-
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            return null;
+            //throw new NotImplementedException();
         }
     }
 }
