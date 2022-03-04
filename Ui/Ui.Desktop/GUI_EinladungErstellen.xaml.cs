@@ -42,15 +42,6 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
             });
         }
 
-        private void Einladungen_Click(object sender, RoutedEventArgs e)
-        {
-
-         
-
-        }
-
-       
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Messenger.Default.Send("ButtonEinladungErstellen");
@@ -59,6 +50,12 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Messenger.Default.Send("BereitsEingeladenMessage");
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            GUIEinladungsuebersicht gUI = new GUIEinladungsuebersicht();
+            ContenControlEinladungErstellen.Content = gUI;
         }
     }
 }
