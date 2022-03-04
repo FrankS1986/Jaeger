@@ -35,6 +35,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                 return liste;
             }
         }
+
         //<summary>
         //Sucht den Datensatz durch den mitgegebenen Integer in der Datenbank um diesen dann zu löschen.
         //</summary>

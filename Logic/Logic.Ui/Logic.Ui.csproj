@@ -98,6 +98,7 @@
     <Compile Include="Properties\SharedAssemblyInfo.cs" />
     <Compile Include="Service.cs" />
     <Compile Include="Services\SicherheitsfragestellungService.cs" />
+    <Compile Include="Services\TerminErstellenService.cs" />
     <Compile Include="Services\TerminUebersichtService.cs" />
     <Compile Include="sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>Treibjagd.tt</DependentUpon>

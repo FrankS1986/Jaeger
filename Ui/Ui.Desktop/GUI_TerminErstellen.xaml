@@ -14,39 +14,44 @@
     <ContentControl x:Name="ContentControlTerminErstellen">
         <Grid >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="62*"/>
+                <ColumnDefinition Width="67*"/>
+                <ColumnDefinition Width="129*"/>
                 <ColumnDefinition Width="15"/>
-                <ColumnDefinition />
-                <ColumnDefinition/>
+                <ColumnDefinition Width="128*" />
+                <ColumnDefinition Width="128*"/>
                 <ColumnDefinition Width="15"/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="128*"/>
+                <ColumnDefinition Width="128*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition />
+                <RowDefinition/>
                 <RowDefinition Height="35"/>
             </Grid.RowDefinitions>
-            <StackPanel Grid.Column="2" VerticalAlignment="Center" Background="Transparent" Height="140">
+            <StackPanel Grid.Column="3" VerticalAlignment="Center" Background="Transparent" Height="140" Margin="0,92,0,93">
                 <Image Source="Pictures\pfeillinks.png" Height="70" Margin="-63,0,-72,0"/>
-                <Image  Height="70" Margin="-91,0,-82,0" Source="Pictures\pfeilrechts.png"  />
+                <Image  Height="70" Margin="-91,0,-82,0" Source="Pictures\pfeilrechts.png"/>
             </StackPanel>
-            <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Background="White" MinHeight="325">
+            <StackPanel Grid.Row="0" Grid.ColumnSpan="3" Background="White" MinHeight="325">
                 <Label Background="#4F772D"  Foreground="White" Height="40" >
                     <TextBlock Foreground="#E0CBA8" FontFamily="Gill Sans MT Bold" FontSize="22" TextAlignment="Center" Width="240" Height="35" >Personen</TextBlock>
                 </Label>
-                <ListBox FontSize="12" MinHeight="302" FontFamily="Gill sans MT Regular" ItemsSource="{Binding List_Personen }"  >
-                </ListBox>
+                <DataGrid FontSize="12" MinHeight="302" MaxHeight="302" FontFamily="Gill sans MT Regular" ItemsSource="{Binding List_Personen }" SelectedItem="{Binding SelectedPerson}" SelectionChanged="Personen_SelectionChanged" Loaded="Person_Loaded" AutoGenerateColumns="False" GridLinesVisibility="None" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Vorname" Binding="{Binding Vorname}" Width="120"/>
+                        <DataGridTextColumn Header="Nachname" Binding="{Binding Nachname}" Width="120"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </StackPanel>
-            <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
-                <Button Margin="2,4,2,2" FontSize="12" HorizontalAlignment="Stretch" BorderBrush="#230C0F" Background="White" FontFamily="Gill Sans MT Regular" Command="{ Binding Btn_Hinzufuegen}" Height="30">hinzufügen</Button>
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="3">
+                <Button Margin="2,4,2,2" FontSize="12" HorizontalAlignment="Stretch" BorderBrush="#230C0F" Background="White" FontFamily="Gill Sans MT Regular" Command="{ Binding Btn_hinzufuegen}" Height="30">hinzufügen</Button>
             </StackPanel>
-            <StackPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Margin="2">
-                <Button HorizontalAlignment="Stretch" Margin="2,1,2,2" FontSize="12" BorderBrush="#230C0F" Background="White" FontFamily="Gill Sans MT Regular" Command="{ Binding Btn_Entfernen}" Height="30">entfernen</Button>
+            <StackPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Margin="2">
+                <Button HorizontalAlignment="Stretch" Margin="2,1,2,2" FontSize="12" BorderBrush="#230C0F" Background="White" FontFamily="Gill Sans MT Regular" Command="{ Binding Btn_entfernen}" Height="30">entfernen</Button>
             </StackPanel>
-            <StackPanel Grid.Column="2">
+            <StackPanel Grid.Column="3">
             </StackPanel>
-            <StackPanel  Grid.Column="6" Grid.ColumnSpan="2" Background="White" >
+            <StackPanel  Grid.Column="7" Grid.ColumnSpan="2" Background="White" >
                 <Label Background="#4F772D" Foreground="White" Height="40" >
                     <TextBlock  Foreground="#E0CBA8" FontFamily="Gill Sans MT Bold" FontSize="22" TextAlignment="Center"  Height="35" Width="235" >Termin erstellen</TextBlock>
                 </Label>
@@ -61,17 +66,18 @@
                 <Label FontSize="16" Margin="20,1" FontFamily="Gill Sans MT Regular">Uhrzeit</Label>
                 <TextBox Height="25" FontSize="12" Margin="20,1" FontFamily="Gill Sans MT Regular" Text="{Binding Txt_Uhrzeit}"></TextBox>
             </StackPanel>
-            
-                
-            <Button Grid.Column="6" Grid.Row="4" Margin="2"  Background="White" FontSize="12" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Height="30" Command="{Binding Btn_Abbruch}">Abbruch</Button>
-            <Button Grid.Column="7" Grid.Row="4"  Margin="2" Background="White" FontSize="12" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Height="30" Command="{Binding Btn_Bestaetigen}">Bestätigen</Button>
-                
-            
-            <StackPanel Grid.Column="3" Grid.ColumnSpan="2" Background="White" MinHeight="325">
+            <Button Grid.Column="7" Grid.Row="1" Margin="2,3,2,2"  Background="White" FontSize="12" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Height="30" Command="{Binding Btn_Abbruch}" Click="Abbruch_Click">Abbruch</Button>
+            <Button Grid.Column="8" Grid.Row="1"  Margin="2,3,2,2" Background="White" FontSize="12" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Height="30" Command="{Binding Btn_Bestaetigen}" Click="Bestaetigen_Click">Bestätigen</Button>
+            <StackPanel Grid.Column="4" Grid.ColumnSpan="2" Background="White" MinHeight="325">
                 <Label Background="#4F772D" Foreground="White" Height="40" >
                     <TextBlock  Foreground="#E0CBA8" FontFamily="Gill sans MT Bold" FontSize="22" TextAlignment="Center" Width="235" Height="35" >Bereits eingladen</TextBlock>
                 </Label>
-                <ListBox FontSize="12" MinHeight="302" FontFamily="Gill sans MT Regular" ItemsSource="{Binding List_Einladung }" ></ListBox>
+                <DataGrid FontSize="12" MinHeight="302" MaxHeight="302" FontFamily="Gill sans MT Regular" ItemsSource="{Binding List_einladung }" SelectedItem="{Binding SelectedPerson}" CanUserAddRows="True" Loaded="Einladung_Loaded" AutoGenerateColumns="False" GridLinesVisibility="None" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Vorname" Binding="{Binding Vorname}" Width="120"/>
+                        <DataGridTextColumn Header="Nachname" Binding="{Binding Nachname}" Width="120"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </StackPanel>
         </Grid>
     </ContentControl>
