@@ -13,7 +13,7 @@ using System.Windows.Input;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
-    public class Logic_Wildunfaelle: ViewModelBase , INotifyPropertyChanged
+    public class Logic_Wildunfaelle : ViewModelBase, INotifyPropertyChanged
     {
         WildunfaelleService serv = new WildunfaelleService();
         public Logic_Wildunfaelle()
@@ -28,7 +28,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 }
             });
             Tiere = serv.Tiere();
-            
+
 
         }
         private DateTime _StartDate;
@@ -119,6 +119,11 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                             {
                                 Messenger.Default.Send<WildunfaelleErfolgsMessage>(new WildunfaelleErfolgsMessage { wildunfallhizugefügt = false });
                             }
+                        }
+
+                        else
+                        {
+                            Messenger.Default.Send<WildunfaelleErfolgsMessage>(new WildunfaelleErfolgsMessage { wildunfallhizugefügt = false });
                         }
 
                     });

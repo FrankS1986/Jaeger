@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 {
-   public  class WildunfaelleService
+    public class WildunfaelleService
     {
 
         public List<tbl_Tiere> Tiere()
@@ -15,7 +15,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
             {
 
                 var liste = ctx.tbl_Tiere.ToList();
-
+                liste = liste.OrderBy(x => x.Tierart).ToList();
+                liste = liste.Where(x => x.Tierart != "--Alle Tiere--").ToList();
                 return liste;
             }
 
@@ -91,10 +92,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                                           Typ = tbl_Termine.Typ
                                       };
 
-                    
-                        int ergebnis = IndexTermin.Count();
-                        datumID = ergebnis;
-                    
+
+                    int ergebnis = IndexTermin.Count();
+                    datumID = ergebnis;
 
 
 
@@ -102,7 +102,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 
 
 
-                   
+
+
 
                     return true;
                 }
@@ -121,11 +122,11 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 
 
         }
-           /// <summary>
-           ///Ein Eintrag wir in der Tabelle Jagderfolge hinzugefügt. 
-           /// </summary>
-           /// <param name="jagd"></param>
-           /// <returns></returns>
+        /// <summary>
+        ///Ein Eintrag wir in der Tabelle Jagderfolge hinzugefügt. 
+        /// </summary>
+        /// <param name="jagd"></param>
+        /// <returns></returns>
         public bool InsertJagdErfolge(tbl_Jagderfolge jagd)
         {
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
