@@ -26,7 +26,14 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
         public int tierartID;
         public DateTime time;
         public int jaegerID;
-        public bool Tierhinzuegen(DateTime date, int id, string ort)
+        /// <summary>
+        ///      Erstellt ein Termin zum Wildunfall und ids abgefragt
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="id"></param>
+        /// <param name="ort"></param>
+        /// <returns></returns>
+        public bool Tierhinzufuegen(DateTime date, int id, string ort)
         {
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
             {
@@ -114,7 +121,11 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 
 
         }
-
+           /// <summary>
+           ///Ein Eintrag wir in der Tabelle Jagderfolge hinzugefügt. 
+           /// </summary>
+           /// <param name="jagd"></param>
+           /// <returns></returns>
         public bool InsertJagdErfolge(tbl_Jagderfolge jagd)
         {
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())

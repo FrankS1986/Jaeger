@@ -99,7 +99,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                             {
 
 
-                                Messenger.Default.Send<WildunfaelleErfolgsMessage>(new WildunfaelleErfolgsMessage { wildunfallhizugefügt = serv.Tierhinzuegen(StartDate, SelectItem.Tiere_ID, Ort) });
+                                Messenger.Default.Send<WildunfaelleErfolgsMessage>(new WildunfaelleErfolgsMessage { wildunfallhizugefügt = serv.Tierhinzufuegen(StartDate, SelectItem.Tiere_ID, Ort) });
 
                                 var newitem = new tbl_Jagderfolge()
 
