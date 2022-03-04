@@ -12,6 +12,7 @@ using JaegerMeister.MvvmSample.Logic.Ui.Services;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui.Converter
 {
+    //LookupConverter markiert die Termine aus der Liste farblich
     public class LookupConverter : IMultiValueConverter
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
@@ -26,8 +27,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Converter
         }
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
         {
-            return null;
-            //throw new NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

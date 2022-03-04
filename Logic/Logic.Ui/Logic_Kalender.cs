@@ -28,7 +28,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         {
             Dg_TermineKalender = serv.Termine();
             Dg_KalenderAnzeige = serv.NextTermin(DateTime.Now);
-
+            
             //Liste Termine wird befüllt. Neues DateTime erstellt.
             foreach (KalenderTermineModel termin in Dg_TermineKalender)
             {
@@ -36,6 +36,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 Dates.Add(dateTime);
             }
         }
+        #region Properties
         private DateTime _selectedDates;
         public DateTime SelectedDates
         {
@@ -76,6 +77,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 RaisePropertyChanged("Dg_KalenderAnzeige");
             }
         }
+        #endregion
     }
 }
 

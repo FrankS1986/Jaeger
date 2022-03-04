@@ -21,14 +21,13 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
     /// Interaktionslogik für Kalender.xaml
     /// </summary>
     public partial class GUI_Kalender : UserControl
-    {  
+    {
         public GUI_Kalender()
         {
             InitializeComponent();
         }
         private void TerminHinzufuegen_Click(object sender, RoutedEventArgs e)
         {
-            
             GUI_TerminErstellen termin = new GUI_TerminErstellen();
             ContentControlTerminErstellen.Content = termin;
         }
