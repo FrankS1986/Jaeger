@@ -36,7 +36,7 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
                 }
                 else
                 {
-                    MessageBox.Show("Abschuss wurde nicht hinzugefügt");
+                    MessageBox.Show("Abschuss wurde nicht hinzugefügt. Bitte überprüfen Sie ob Termin, Jäger und Abschüsse ausgewählt sind");
                 }
             });
 
