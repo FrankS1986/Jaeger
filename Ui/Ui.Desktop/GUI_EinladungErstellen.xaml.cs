@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
 using JaegerMeister.MvvmSample.Logic.Ui.Dokumente;
+using JaegerMeister.MvvmSample.Logic.Ui.Messages;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -26,25 +27,38 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         public GUIEinladungErstellen()
         {
             InitializeComponent();
+                  
+            Messenger.Default.Register<EinladungenErstellenErfolgsMessage>(this, (EinladungenErstellenErfolgsMessage loginProof) =>
+            {
+                if (loginProof.erfolg == true)
+                {
+                    MessageBox.Show("Wurde eingeladen");
+                   
+                }
+                else
+                {
+                    MessageBox.Show("Einladungen fehlgeschlagen");
+                }
+            });
         }
 
         private void Einladungen_Click(object sender, RoutedEventArgs e)
         {
 
+         
 
-           
         }
 
        
 
-        private void DataGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
-        {
-              
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Messenger.Default.Send("Checkboxen");
+            Messenger.Default.Send("ButtonEinladungErstellen");
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Messenger.Default.Send("BereitsEingeladenMessage");
         }
     }
 }

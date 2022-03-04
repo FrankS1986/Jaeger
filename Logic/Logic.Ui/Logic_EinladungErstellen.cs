@@ -2,6 +2,7 @@
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using JaegerMeister.MvvmSample.Logic.Ui.Dokumente;
+using JaegerMeister.MvvmSample.Logic.Ui.Messages;
 using JaegerMeister.MvvmSample.Logic.Ui.Services;
 using System;
 using System.Collections.Generic;
@@ -22,15 +23,57 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         public Logic_EinladungErstellen()
         {
-          Termine = serv.Termine();
-          Einladen=  serv.JaegerListe();
+            
+            Termine = serv.Termine();
+
+            Messenger.Default.Register<string>(this, (x) =>
+
+
+             {
+                 if (x.Equals("BereitsEingeladenMessage"))
+                 {
+                     if (SelectTermin != null)
+                     {
+                         BereitsEingeladen = serv.Eingeladen(SelectTermin.Termine_ID);
+                         Einladen = serv.JaegerListe();
+
+                     }
+
+                 }
+             });
+
+            
 
             Messenger.Default.Register<string>(this, (prop) =>
             {
-                if (prop.Equals("Checkboxen"))
+                if (prop.Equals("ButtonEinladungErstellen"))
                 {
+                    if (SelectEinladen != null && SelectTermin != null)
+                    {
+                        var newitem = new tbl_Postausgang()
 
-                    serv.CreateWordDocument(Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\JaegerEinladung.docx"), Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\"+ SelectEinladen.Nachname +".docx"), SelectEinladen.Jäger_ID);
+                        {
+                            Dokumente_ID = 1,
+                            Jäger_ID = SelectEinladen.Jäger_ID,
+                            Termine_ID = SelectTermin.Termine_ID,
+                            DatumUhrzeit = DateTime.Now,
+
+                        };
+                        string x = SelectTermin.DatumUhrzeit.Year.ToString();
+                        string zusammengesetzt = SelectTermin.Typ + x + SelectEinladen.Nachname;
+                        serv.CreateWordDocument(Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\Einladungen.docx"), Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\" + zusammengesetzt + ".docx"), SelectEinladen.Jäger_ID);
+                        Messenger.Default.Send<EinladungenErstellenErfolgsMessage>(new EinladungenErstellenErfolgsMessage { erfolg = serv.InsertPostausgang(newitem) });
+                        BereitsEingeladen = serv.Eingeladen(SelectTermin.Termine_ID);
+                        Einladen = serv.JaegerListe();
+                    }
+                    else
+                    {
+                        Messenger.Default.Send<EinladungenErstellenErfolgsMessage>(new EinladungenErstellenErfolgsMessage { erfolg = false });
+                    }
+
+
+
+
 
 
 
@@ -39,19 +82,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         }
 
-        //private bool _IsSelected;
-        //public bool IsSelected
-        //{
-        //    get
-        //    {
-        //        return _IsSelected;
-        //    }
-        //    set
-        //    {
-        //        _IsSelected = value;
-        //        RaisePropertyChanged("IsSelected");
-        //    }
-        //}
         private ICommand _EinlandungSenden;
         public ICommand EinlandungSenden
         {
@@ -62,14 +92,14 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     _EinlandungSenden = new RelayCommand(() =>
                     {
 
-                        
 
-                        
+
+
 
 
                         if (SelectEinladen != null)
                         {
-                           
+
                         }
 
                     });
@@ -78,7 +108,23 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        
+        private List<string> _BereitsEingeladen;
+
+        public List<string> BereitsEingeladen
+        {
+            get
+            {
+                return _BereitsEingeladen;
+            }
+            set
+            {
+                _BereitsEingeladen = value;
+                RaisePropertyChanged("BereitsEingeladen");
+            }
+        }
+
+
+
         private ICommand _Abbrechen;
         public ICommand Abbrechen
         {
@@ -97,7 +143,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        
+
 
         private ICommand _Com;
         public ICommand Com
@@ -121,8 +167,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         public List<tbl_Termine> Termine
         {
             get
-            { return _Termine;
- }
+            {
+                return _Termine;
+            }
             set
             {
                 _Termine = value;

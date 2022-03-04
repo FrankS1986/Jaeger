@@ -90,12 +90,12 @@
     <Compile Include="Logic_NeuesPasswort.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="Messages\AdminAbfrage.cs" />
+    <Compile Include="Messages\EinladungenErstellenErfolgsMessage.cs" />
     <Compile Include="Messages\JaegerHinzufuegenErfolgsMessage.cs" />
     <Compile Include="Messages\LoginProofMessage.cs" />
     <Compile Include="Messages\RegistrierungsAbfrageBenutzer.cs" />
     <Compile Include="Messages\RegistrierungsErfolgsMessage.cs" />
     <Compile Include="Messages\SicherheitsfragestellungsErfolgsMessage.cs" />
-    <Compile Include="Models\EinladungErstellenJaeger.cs" />
     <Compile Include="Models\JaegerVerwaltungsModels\IDVorNachnameModel.cs" />
     <Compile Include="Models\JaegerVerwaltungsModels\NeuerJaegerModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
