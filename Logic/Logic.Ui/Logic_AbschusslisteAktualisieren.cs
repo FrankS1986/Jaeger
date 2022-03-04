@@ -16,17 +16,18 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         public Logic_AbschusslisteAktualisieren()
         {
             Tierart = serv.Tiere();
-            Abschuesse = 0;
-
+            Termine = serv.Termine();
+           
             Messenger.Default.Register<string>(this, (prop) =>
             {
-                if (prop.Equals("Liste"))
+                if (prop.Equals("Abschussliste"))
                 {
-                    Termine = serv.Termine();
+                    
+                    Abschuesse = 0;
+                   
 
                 }
             });
-
 
             Messenger.Default.Register<string>(this, (prop2) =>
             {

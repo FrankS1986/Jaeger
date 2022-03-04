@@ -25,6 +25,8 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         public GUI_AbschusslisteAktualisieren()
         {
             InitializeComponent();
+
+
             Messenger.Default.Register<AbschusslisteAktualisierenSelectedMessage>(this, (AbschusslisteAktualisierenSelectedMessage loginProof) =>
             {
                 if (loginProof.Abfrage == true)
@@ -38,6 +40,7 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
                 }
             });
 
+            Messenger.Default.Send("Abschussliste");
         }
 
         private void CheckIsNumeric(TextCompositionEventArgs e)
@@ -50,15 +53,6 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
             }
         }
 
-        private void DataGrid_Loaded(object sender, RoutedEventArgs e)
-        {
-            Messenger.Default.Send("Liste");
-        }
-
-        private void Jaeger_Loaded(object sender, RoutedEventArgs e)
-        {
-            
-        }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
