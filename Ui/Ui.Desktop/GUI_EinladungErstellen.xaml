@@ -44,7 +44,7 @@
                 </Label>
             </StackPanel>
             <StackPanel Grid.Row="1">
-                <DataGrid IsReadOnly="True" ScrollViewer.CanContentScroll="True" SelectionChanged="DataGrid_SelectionChanged"  SelectedItem="{Binding SelectTermin}"  FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding Termine, Mode=TwoWay}"  GridLinesVisibility="None" AutoGenerateColumns="False" Height="260"  >
+                <DataGrid SelectedIndex="0" IsReadOnly="True" ScrollViewer.CanContentScroll="True" SelectionChanged="DataGrid_SelectionChanged"  SelectedItem="{Binding SelectTermin}"  FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding Termine, Mode=OneWay}"  GridLinesVisibility="None" AutoGenerateColumns="False" Height="260"  >
                     <DataGrid.Columns>
                        
                         <DataGridTextColumn Binding="{Binding DatumUhrzeit}" Header="Datum Uhrzeit" />
@@ -62,7 +62,7 @@
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2">
 
-                <DataGrid     EnableRowVirtualization="False" SelectionMode="Extended" FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F"  SelectedItem="{Binding SelectEinladen}" ItemsSource="{Binding Einladen}" Height="261" AutoGenerateColumns="False" GridLinesVisibility="None">
+                <DataGrid  IsReadOnly="True"   EnableRowVirtualization="False" SelectionMode="Extended" FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F"  SelectedItem="{Binding SelectEinladen}" ItemsSource="{Binding Einladen}" Height="261" AutoGenerateColumns="False" GridLinesVisibility="None">
                    
                         <DataGrid.Columns >
                         
