@@ -9,6 +9,10 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
    public class AbschusslisteAktualisierenService
     {
         List<int> listeID = new List<int>();
+        /// <summary>
+        /// Es wird eine Liste von Tieren erstellt die man dann in der combobox auswählen kann.
+        /// </summary>
+        /// <returns></returns>
         public List<tbl_Tiere> Tiere()
         {
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
@@ -16,6 +20,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 
                 var liste = ctx.tbl_Tiere.ToList();
 
+                liste = liste.OrderBy(x => x.Tierart).ToList();
+                liste = liste.Where(x => x.Tierart != "--Alle Tiere--").ToList();
                 return liste;
             }
 
@@ -24,7 +30,10 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 
 
         
-
+          /// <summary>
+          /// Erstellt Liste mit Terminen die vom Typ Treibjagd sind
+          /// </summary>
+          /// <returns></returns>
         public List<tbl_Termine> Termine()
         {
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
@@ -50,7 +59,11 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
             }
         }
 
-
+                /// <summary>
+                /// Erzeugt eine Liste der Eingeladenen Jäger zum Termin
+                /// </summary>
+                /// <param name="jaegerID"></param>
+                /// <returns></returns>
         public List<tbl_Jaeger> Jaeger(int jaegerID)
         {
 
@@ -82,12 +95,16 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 
                 }
 
-
                 return listeJaeger;
             }
         }
 
-
+            /// <summary>
+            /// Speichert die Jagderfolge ab
+            /// </summary>
+            /// <param name="jagd"></param>
+            /// <param name="abschuesse"></param>
+            /// <returns></returns>
 
         public bool InsertJagdErfolge(tbl_Jagderfolge jagd, int abschuesse)
         {
@@ -114,8 +131,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                 }
 
             }
-
-
 
         }
 

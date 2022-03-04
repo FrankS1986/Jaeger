@@ -56,7 +56,7 @@
             </StackPanel>
 
             <StackPanel Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" Background="White">
-                <DataGrid x:Name="Jaeger" Loaded="Jaeger_Loaded" FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding Jaeger}" SelectedItem="{Binding JaegerId}"  AutoGenerateColumns="False" GridLinesVisibility="None" RenderTransformOrigin="0.5,0.5" Height="280">
+                <DataGrid IsReadOnly="True" x:Name="Jaeger" Loaded="Jaeger_Loaded" FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding Jaeger}" SelectedItem="{Binding JaegerId}"  AutoGenerateColumns="False" GridLinesVisibility="None" RenderTransformOrigin="0.5,0.5" Height="280">
                     <DataGrid.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -74,7 +74,7 @@
             </StackPanel>
 
             <StackPanel Grid.Row="2" Grid.RowSpan="2" Background="White" >
-                <DataGrid ScrollViewer.CanContentScroll="True" SelectionChanged="DataGrid_SelectionChanged" Loaded="DataGrid_Loaded" SelectedItem="{Binding SelectTermin}" FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding Termine, Mode=OneWay}"  GridLinesVisibility="None" AutoGenerateColumns="False" Height="280"  >
+                <DataGrid IsReadOnly="True" ScrollViewer.CanContentScroll="True" SelectionChanged="DataGrid_SelectionChanged" Loaded="DataGrid_Loaded" SelectedItem="{Binding SelectTermin}" FontSize="12" FontFamily="Gill Sans MT Regular" ItemsSource="{Binding Termine, Mode=OneWay}"  GridLinesVisibility="None" AutoGenerateColumns="False" Height="280"  >
                     <DataGrid.Columns>
 
                         <DataGridTextColumn Binding="{Binding Ort}" Header="Ort" />

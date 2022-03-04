@@ -30,7 +30,7 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
                 if (loginProof.Abfrage == true)
                 {
                     MessageBox.Show("Abschuss erfolgreich hinzugefügt");
-                    ;
+                    
                 }
                 else
                 {

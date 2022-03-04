@@ -10,42 +10,39 @@ using System.Windows.Input;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
-    public class Logic_AbschusslisteAktualisieren : ViewModelBase , INotifyPropertyChanged
+    public class Logic_AbschusslisteAktualisieren : ViewModelBase, INotifyPropertyChanged
     {
-        AbschusslisteAktualisierenService serv = new  AbschusslisteAktualisierenService();
+        AbschusslisteAktualisierenService serv = new AbschusslisteAktualisierenService();
         public Logic_AbschusslisteAktualisieren()
         {
             Tierart = serv.Tiere();
             Abschuesse = 0;
-            
-
 
             Messenger.Default.Register<string>(this, (prop) =>
             {
                 if (prop.Equals("Liste"))
                 {
                     Termine = serv.Termine();
-                    
+
                 }
             });
 
-           
-                Messenger.Default.Register<string>(this, (prop2) =>
-                {
-                    if (prop2.Equals("JaegerListe"))
-                    {
-                       
-                        
-                     Jaeger=serv.Jaeger(SelectTermin.Termine_ID);
-                       
-                    }
-                });
 
-            
+            Messenger.Default.Register<string>(this, (prop2) =>
+            {
+                if (prop2.Equals("JaegerListe"))
+                {
+
+                    if (SelectTermin != null)
+                    {
+                        Jaeger = serv.Jaeger(SelectTermin.Termine_ID);
+                    }
+                }
+            });
 
         }
-   
-        
+
+
         private List<tbl_Tiere> _Tierart;
         public List<tbl_Tiere> Tierart
 
@@ -170,7 +167,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     {
 
 
-                        if (JaegerId != null && SelectTermin !=null && TierId != null)
+                        if (JaegerId != null && SelectTermin != null && TierId != null)
                         {
                             var newitem = new tbl_Jagderfolge()
 
@@ -179,10 +176,10 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                                 Termine_ID = SelectTermin.Termine_ID,
                                 Tiere_ID = TierId.Tiere_ID
 
-
                             };
 
                             Messenger.Default.Send<AbschusslisteAktualisierenSelectedMessage>(new AbschusslisteAktualisierenSelectedMessage { Abfrage = serv.InsertJagdErfolge(newitem, Abschuesse) });
+                            Abschuesse = 0;
                         }
                         else
                         {
@@ -195,9 +192,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 return _AbschusslisteAkualisieren;
             }
         }
-
-        
-        
 
     }
 }
