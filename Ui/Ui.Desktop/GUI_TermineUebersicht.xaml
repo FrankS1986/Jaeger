@@ -25,10 +25,10 @@
                 <Label Background="#4F772D"  Foreground="White" Height="40">
                     <TextBlock Foreground="#E0CBA8" FontSize="22" FontFamily="Gill Sans MT Bold" TextAlignment="Center" Width="247" Height="30" >anstehende Termine</TextBlock>
                 </Label>
-                <DataGrid x:Name="Termine" MinHeight="302" MaxHeight="302" FontFamily="Gill Sans MT Regular" FontSize="12" ItemsSource="{Binding List_UebersichtAnstehendeTermine }" SelectedItem="{Binding SelectedTermin, Mode=TwoWay}" Loaded="DataGrid_Loaded" SelectionChanged="Termine_SelectionChanged" AutoGenerateColumns="False" GridLinesVisibility="None" IsReadOnly="True">
+                <DataGrid x:Name="Termine" MinHeight="302" MaxHeight="302" FontFamily="Gill Sans MT Regular" FontSize="12" ItemsSource="{Binding List_UebersichtAnstehendeTermine }" SelectedItem="{Binding SelectedTermin, Mode=TwoWay}" Loaded="DataGrid_Loaded" MinColumnWidth="100" MaxColumnWidth="200" SelectionChanged="Termine_SelectionChanged" AutoGenerateColumns="False" CanUserResizeRows="False" CanUserResizeColumns="True" GridLinesVisibility="None" IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Bezeichnung" Binding="{Binding Bezeichnung}" Width="120"/>
-                        <DataGridTextColumn Header="Datum/Uhrzeit" Binding="{Binding DatumUhrzeit}" Width="120"/>
+                        <DataGridTextColumn Header="Datum/Uhrzeit" Binding="{Binding DatumUhrzeit, StringFormat=dd.MM.yyyy hh:mm}" Width="120"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
@@ -44,7 +44,7 @@
                 <Label Background="#4F772D" Foreground="White" Height="40">
                     <TextBlock  Foreground="#E0CBA8" FontSize="22" FontFamily="Gill Sans MT Bold" TextAlignment="Center" Width="246" Height="30" >Eingeladene Personen</TextBlock>
                 </Label>
-                <DataGrid x:Name="Personen" FontFamily="Gill Sans MT Regular" MinHeight="302" MaxHeight="302" FontSize="12" ItemsSource="{Binding List_UebersichtEingeladenePersonen }" AutoGenerateColumns="False" GridLinesVisibility="None" ColumnWidth="Auto" IsReadOnly="True">
+                <DataGrid x:Name="Personen" FontFamily="Gill Sans MT Regular" MinHeight="302" MaxHeight="302" FontSize="12" ItemsSource="{Binding List_UebersichtEingeladenePersonen }" AutoGenerateColumns="False" GridLinesVisibility="None" MinColumnWidth="100" MaxColumnWidth="200" CanUserResizeRows="False" CanUserResizeColumns="False" IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Vorname" Binding="{Binding Vorname}" Width="120"/>
                         <DataGridTextColumn Header="Nachname" Binding="{Binding Nachname}" Width="120"/>
@@ -56,10 +56,10 @@
                     <TextBlock  Foreground="#E0CBA8" FontSize="22" FontFamily="Gill Sans MT Bold"  TextAlignment="Center" Width="257" Height="30" >Terminbezeichnung</TextBlock>
                 </Label>
                 <TextBlock HorizontalAlignment="Right">
-                    <Button x:Name="Bearbeiten" Background="{x:Null}" BorderBrush="{x:Null}"  FontFamily="Gill Sans MT Regular" Command="{Binding Btn_UebersichtBearbeiten}" Click="Bearbeiten_Click">
+                    <Button x:Name="Bearbeiten" Background="{x:Null}" BorderBrush="{x:Null}"  FontFamily="Gill Sans MT Regular" Command="{Binding Btn_UebersichtBearbeiten}" Click="Bearbeiten_Click" ToolTip="ausgewählten Termin bearbeiten">
                         <Image Source="Pictures\bearbeiten.png" Height="30" Width="30"></Image>
                     </Button>
-                    <Button Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Gill Sans MT Regular" Command="{Binding Btn_UebersichtLoeschen}">
+                    <Button Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Gill Sans MT Regular" Command="{Binding Btn_UebersichtLoeschen}" ToolTip="ausgewählten Termin löschen">
                         <Image Source="Pictures\delete.png" Height="30" Width="30"></Image>
                     </Button>
                 </TextBlock>

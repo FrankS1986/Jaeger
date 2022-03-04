@@ -1,7 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
-using JaegerMeister.MvvmSample.Logic.Ui.Models;
 using JaegerMeister.MvvmSample.Logic.Ui.Services;
 using System;
 using System.Collections.Generic;
@@ -26,20 +25,29 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             {
                 if(prop.Equals("Termine"))
                 {
-                    List_UebersichtAnstehendeTermine = serv.terminUebersicht();
+                    //<summary>
+                    //Die Liste wird mit allen aktuellen Terminen gefüllt.
+                    //</summary>
+                    List_UebersichtAnstehendeTermine = serv.TerminUebersicht();
                 }
                 else if (prop.Equals("Select"))
                 {
+                    //<summary>
+                    //Wenn man einen Termin anklickt, gibt er die entsprechenden Informationen an die Textboxen und der Liste weiter.
+                    //</summary>
                     if (SelectedTermin != null)
                     {
                         Txt_UebersichtBezeichnung = SelectedTermin.Bezeichnung;
                         Txt_UebersichtOrt = SelectedTermin.Ort;
-                        Txt_UebersichtDatum = SelectedTermin.DatumUhrzeit.ToString();
+                        Txt_UebersichtDatum = SelectedTermin.DatumUhrzeit.ToString("g");
                         List_UebersichtEingeladenePersonen = serv.Personen(SelectedTermin.Termine_ID);
                     }
                 }
                 else if (prop.Equals("Change"))
                 {
+                    //<summary
+                    //Wenn man den ContentControl wechselt, wird der ausgewählte Termin entfernt.
+                    //</summary>
                     SelectedTermin = null;
                 }
             });
@@ -89,28 +97,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 RaisePropertyChanged("List_UebersichtEingeladenePersonen");
             }
         }
-        //public tbl_Rueckmeldung List_personen
-        //{
-        //    get
-        //    {
-        //        return _list_UebersichtEingeladenePersonen;
-        //    }
-        //    set
-        //    {
-        //        _list_UebersichtEingeladenePersonen = value;
-        //    }
-        //}
-        //public tbl_Rueckmeldung List_einladung
-        //{
-        //    get
-        //    {
-        //        return _list_UebersichtEingeladenePersonen;
-        //    }
-        //    set
-        //    {
-        //        _list_UebersichtEingeladenePersonen = value;
-        //    }
-        //}
         private ICommand _btn_UebersichtRueckmeldungen;
         public ICommand Btn_UebersichtRueckmeldungen
         {
@@ -151,18 +137,20 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_UebersichtLoeschen = new RelayCommand(() =>
                     {
-                        var result = MessageBox.Show("Möchten Sie wirklich den Termin '" + SelectedTermin.Bezeichnung + "' löschen?", "Termin löschen?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                        //<summary>
+                        //Wenn man einen Termin ausgewählt hat, wird dieser aus der Datenbank entfernt.
+                        //</summary>
+                        if (SelectedTermin != null)
+                        {
+                            var result = MessageBox.Show("Möchten Sie wirklich den Termin '" + SelectedTermin.Bezeichnung + "' löschen?", "Termin löschen?", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
-                        if (result == MessageBoxResult.Yes)
-                        {
-                            MessageBox.Show("Der Termin '" + SelectedTermin.Bezeichnung + "' wurde gelöscht.");
-                            serv.terminLoeschen(SelectedTermin.Termine_ID);
-                            Messenger.Default.Send("Termine");
-                        }
-                        else if (result == MessageBoxResult.No)
-                        {
-                            MessageBox.Show("Der Termin '" + SelectedTermin.Bezeichnung + "' wird nicht gelöscht.");
-                        }
+                            if (result == MessageBoxResult.Yes)
+                            {
+                                MessageBox.Show("Der Termin '" + SelectedTermin.Bezeichnung + "' wurde gelöscht.");
+                                serv.TerminLoeschen(SelectedTermin.Termine_ID);
+                                Messenger.Default.Send("Termine");
+                            }
+                        } 
                     });
                 }
                 return _btn_UebersichtLoeschen;
@@ -177,7 +165,10 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_UebersichtBearbeiten = new RelayCommand(() =>
                     {
+                        if (SelectedTermin != null)
+                        {
 
+                        }
                     });
                 }
                 return _btn_UebersichtBearbeiten;
@@ -245,7 +236,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
         private string _bezeichnung;
-
         public string Bezeichnung
         {
             get
@@ -352,37 +342,4 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         }
 
     }
-
-    //public class ClassListTermine
-    //{
-    //    public int ID { get; set; }
-    //    public string Ort { get; set; }
-    //    public DateTime Date { get; set; }
-    //    public string Bezeichnung { get; set; }
-    //    public string Typ { get; set; }
-    //    public ClassListTermine(int id, string ort, DateTime date, string bezeichnung, string typ)
-    //    {
-    //        this.ID = id;
-    //        this.Ort = ort;
-    //        this.Date = date;
-    //        this.Bezeichnung = bezeichnung;
-    //        this.Typ = typ;
-    //    }
-    //}
-    //public class ClassListRueckmeldung
-    //{
-    //    public int ID { get; set; }
-    //    public string Rolle { get; set; }
-    //    public string Gaeste { get; set; }
-    //    public int TerminID { get; set; }
-    //    public int JaegerID { get; }
-    //    public ClassListRueckmeldung(int id, string rolle, string gaeste, int terminID, int jaegerID)
-    //    {
-    //        this.ID = id;
-    //        this.Rolle = rolle;
-    //        this.Gaeste = gaeste;
-    //        this.TerminID = terminID;
-    //        this.JaegerID = jaegerID;
-    //    }
-    //}
 }
