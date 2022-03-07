@@ -9,6 +9,7 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using JaegerMeister.MvvmSample.Logic.Ui.Services;
 using GalaSoft.MvvmLight.Messaging;
+using JaegerMeister.MvvmSample.Logic.Ui.Messages;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
@@ -20,7 +21,16 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         {
             Dokumente = serv.DokumenteListe();
 
-            Messenger.Default.Register()
+            Messenger.Default.Register<string>(this, (prop) =>
+            {
+                if (prop.Equals("DokumenteVerwaltenMessage"))
+                {
+
+
+                    Dokumente = serv.DokumenteListe();
+
+                }
+            });
 
         }
 
@@ -65,14 +75,14 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _dokumentloeschen = new RelayCommand(() =>
                     {
-                       if(SelectDokument != null)
+                        if (SelectDokument != null)
                         {
-                            serv.DokumenteLoeschen(SelectDokument);
-                            Dokumente = serv.DokumenteListe();
+                            Messenger.Default.Send<DokumenteVerwaltenLoeschenMessage>(new DokumenteVerwaltenLoeschenMessage { Dokument = SelectDokument});
+
                         }
 
 
-                        
+
                     });
 
                 }

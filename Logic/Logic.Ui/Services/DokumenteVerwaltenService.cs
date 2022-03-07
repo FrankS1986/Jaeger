@@ -15,15 +15,18 @@ using System.Windows;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 {
-   public class DokumenteVerwaltenService
+    public class DokumenteVerwaltenService
     {
-        
+        /// <summary>
+        /// Liest den Ordner Dokumente aus und schreibt die datein in einer Liste.
+        /// </summary>
+        /// <returns></returns>
         public List<string> DokumenteListe()
         {
             List<string> liste = new List<string>();
 
             liste.Clear();
-            
+
             string[] datein = Directory.GetFiles(Paths.GetFilePath(@"Logic\\Logic.Ui\\Dokumente\\"));
             foreach (string s in datein)
             {
@@ -36,28 +39,31 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 
         }
 
-          /// <summary>
-          /// 
-          /// </summary>
-          /// <returns></returns>
+        /// <summary>
+        ///   Löscht das angegebene Dokument
+        /// </summary>
+        /// <returns></returns>
         public void DokumenteLoeschen(string name)
         {
-            
+
             System.IO.File.Delete(Paths.GetFilePath(@"Logic\\Logic.Ui\\Dokumente\\" + name));
-           
+
         }
 
-
+        /// <summary>
+        /// Öffnet das Dokument zum Bearbeiten
+        /// </summary>
+        /// <param name="name"></param>
         public void DokumenteBearbeiten(string name)
         {
 
             Process.Start(Paths.GetFilePath(@"Logic\\Logic.Ui\\Dokumente\\" + name));
-            
+
         }
 
-       
 
-        
+
+
 
     }
 }
