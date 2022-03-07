@@ -10,24 +10,24 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
     public class Service_Abschussliste
     {
         //Hier wird die gesamte Tabelle der Tiere an den Anfrager zurueck gegeben.
-        List<string> _tierartListe = new List<string>();
+        List<TierAbschussModel> _tierartListe = new List<TierAbschussModel>();
         /// <summary>
         /// Gibt eine Liste vom Typ String mit allen Tierarten zurück.
         /// </summary>
         /// <returns></returns>
-        public List<string> TierartListe()
+        public List<TierAbschussModel> TierartListe()
         {
-            _tierartListe = new List<string>();
+            _tierartListe = new List<TierAbschussModel>();
             using (TreibjagdTestEntities datenbankVerbindung = new TreibjagdTestEntities())
             {
                 var tierartSuche = from aktuellerDatensatz in datenbankVerbindung.tbl_Tiere
+                                   orderby aktuellerDatensatz.Tierart ascending
                                    select new { aktuellerDatensatz.Tierart};
 
                 foreach (var item in tierartSuche)
                 {
-                    _tierartListe.Add(item.Tierart);
+                    _tierartListe.Add(new TierAbschussModel(item.Tierart, 0));
                 }
-                _tierartListe.Sort();
                 return _tierartListe;
             }
         }

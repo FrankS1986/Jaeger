@@ -62,7 +62,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         {
             get
             {
-                _tierErlegtListe = service_Abschussliste.TierAbschussListeMethode(_tierartSelectedItem);
+                _tierErlegtListe = service_Abschussliste.TierAbschussListeMethode(_tierartSelectedItem.Tierart);
                 return _tierErlegtListe;
             }
             set
@@ -73,8 +73,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         }
 
         //Hier wird die Dropdownliste mit Tierarten gefüllt
-        List<string> _dropDownTiere;
-        public List<string> DropDownTiere
+        List<TierAbschussModel> _dropDownTiere;
+        public List<TierAbschussModel> DropDownTiere
         {
             get
             {   
@@ -90,8 +90,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         //Hier wird geschaut ob eine andere Tierart ausgewahlt wurde, und dementsprechend
         //die Datenanzeige auf die neue Tierart ausrichtet
-        private string _tierartSelectedItem;
-        public string TierartSelectedItem
+        private TierAbschussModel _tierartSelectedItem;
+        public TierAbschussModel TierartSelectedItem
         {
             get { return _tierartSelectedItem; }
             set

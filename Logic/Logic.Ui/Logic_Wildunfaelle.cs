@@ -62,8 +62,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 return _btn_Wildunfaelle;
             }
         }
-
-
         public class Tierart
         {
             public int ID { get; set; }
