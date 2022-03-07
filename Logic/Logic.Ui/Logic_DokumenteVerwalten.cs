@@ -7,22 +7,32 @@ using GalaSoft.MvvmLight;
 using System.ComponentModel;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
+using JaegerMeister.MvvmSample.Logic.Ui.Services;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
     public class Logic_DokumenteVerwalten : ViewModelBase, INotifyPropertyChanged
     {
-        private List<string> _dokumnete;
+        DokumenteVerwaltenService serv = new DokumenteVerwaltenService();
+
+        public Logic_DokumenteVerwalten()
+        {
+            Dokumente = serv.DokumenteListe();
+
+        }
+
+
+        private List<string> _dokumente;
         public List<string> Dokumente
         {
             get
             {
-                return _dokumnete;
+                return _dokumente;
             }
 
             set
             {
-                _dokumnete = value;
+                _dokumente = value;
                 RaisePropertyChanged("Dokumnete");
             }
         }
