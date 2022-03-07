@@ -42,7 +42,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 _abschussListe =  service_Abschussliste.JaegerAbschuesse();
                 foreach(var item in _abschussListe)
                 {
-                    _abschuesse += item.Abschuesse;
+                    _abschuesse += item.Abschüsse;
                 }
                 GesamtAbschuesse = _abschuesse;
                 RaisePropertyChanged("GesamtAbschuesse");

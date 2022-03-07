@@ -25,7 +25,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Models
             { return _nachname; } 
             set { _nachname = value; }
         }
-        public int Abschuesse 
+        public int Abschüsse 
         {
             get { return _abschuesse; }
             set { _abschuesse = value; }

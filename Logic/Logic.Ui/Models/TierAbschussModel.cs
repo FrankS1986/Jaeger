@@ -22,7 +22,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Models
                 _tierart = value;
             }
         }
-        public int Abschuesse
+        public int Abschüsse
         {
             get
             {

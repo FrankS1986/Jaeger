@@ -87,7 +87,6 @@
     <Compile Include="Logic_PasswortAendern.cs" />
     <Compile Include="Logic_NeuesPasswort.cs" />
     <Compile Include="MainViewModel.cs" />
-    <Compile Include="Messages\AbschusslisteGoToAktualisieren.cs" />
     <Compile Include="Messages\LoginProofMessage.cs" />
     <Compile Include="Messages\RegistrierungsAbfrageBenutzer.cs" />
     <Compile Include="Messages\RegistrierungsErfolgsMessage.cs" />

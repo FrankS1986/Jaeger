@@ -11,6 +11,10 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
     {
         //Hier wird die gesamte Tabelle der Tiere an den Anfrager zurueck gegeben.
         List<string> _tierartListe = new List<string>();
+        /// <summary>
+        /// Gibt eine Liste vom Typ String mit allen Tierarten zurück.
+        /// </summary>
+        /// <returns></returns>
         public List<string> TierartListe()
         {
             _tierartListe = new List<string>();
@@ -29,7 +33,11 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
         }
         //Hier wird die Liste mit Vornamen, Namen und Abschuessen gefuellt. Dafuer zaehlt er
         //wie oft die Jaeger ID in der Jagderfolgsliste vorkommt.
-        List<JaegerAbschussModel> jaegerAbschussModels = new List<JaegerAbschussModel>();
+        List<JaegerAbschussModel> _jaegerAbschussModels = new List<JaegerAbschussModel>();
+        /// <summary>
+        /// Gibt eine Liste vom Typ JaegerAbschussModel mit allen Jaegern zurück.
+        /// </summary>
+        /// <returns></returns>
         public List<JaegerAbschussModel> JaegerAbschuesse()
         {
             using (TreibjagdTestEntities datenbankVerbindung = new TreibjagdTestEntities())
@@ -41,6 +49,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                                       jaeger.Nachname,
                                       jaeger.Jäger_ID
                                   };
+                _jaegerAbschussModels = new List<JaegerAbschussModel>();
                 foreach (var jaeger in Jaegerliste)
                 {
                     if (jaeger.Vorname == "Wildunfall")
@@ -53,16 +62,21 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                     if(jagderfolge == 0)
                     {
                         continue;
-                    }
-                    jaegerAbschussModels.Add(new JaegerAbschussModel(jaeger.Vorname, jaeger.Nachname, jagderfolge));
+                    }                    
+                    _jaegerAbschussModels.Add(new JaegerAbschussModel(jaeger.Vorname, jaeger.Nachname, jagderfolge));
                 }
             }
-            return jaegerAbschussModels;
+            return _jaegerAbschussModels;
         }
         //Hier wird die Liste der Tierabschuesse gefuellt, indem gezaehlt wird wie oft die
         //TierID in der Jagderfolgsliste vorkommt. Die Liste besteht aus Tierart und Anzahl der 
         //Abschuesse
         List<TierAbschussModel> _tierAbschussListe = new List<TierAbschussModel>();
+        /// <summary>
+        /// Gibt eine Liste vom Typ TierAbschussModel mit allen Tierarten zurück.
+        /// </summary>
+        /// <param name="tierartWahl"></param>
+        /// <returns></returns>
         public List<TierAbschussModel> TierAbschussListeMethode(string tierartWahl)
         {
             _tierAbschussListe = new List<TierAbschussModel>();
@@ -76,6 +90,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                                         tierart.Tiere_ID,
                                         tierart.Tierart
                                     };
+                    _tierAbschussListe = new List<TierAbschussModel>();
                     foreach (var einzelTier in tierListe)
                     {
                         if (einzelTier.Tierart == "--Alle Tiere--")
