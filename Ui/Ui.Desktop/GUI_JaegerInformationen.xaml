@@ -82,9 +82,9 @@
                     <Label Content="{Binding Lab_jagdhunde}" Width="50" Height="24" Margin="-65,0,0,0"/>
                 </DockPanel>
             </StackPanel>
-            <Button Command="{Binding Btn_bearbeiten}" Grid.Column="4" Content="Bearbeiten" Background="White" BorderBrush="#230C0F" Height="30"  HorizontalAlignment="Stretch" Grid.Row="3" />
-            <Button Command="{Binding Btn_jaeger_hinzufuegen}" Grid.Column="2" Grid.Row="3" Content="Hinzufügen" Height="30" Background="White" BorderBrush="#230C0F" HorizontalAlignment="Stretch" VerticalAlignment="Center" Click="Button_Click"/>
-            <Button Grid.Row="3" Command="{Binding Btn_jaeger_entfernen}" Content="Entfernen" Background="White" BorderBrush="#230C0F" Height="30" HorizontalAlignment="Stretch"  />
+            <Button Click="BtnBearbeiten" Grid.Column="4" Content="Bearbeiten" Background="White" BorderBrush="#230C0F" Height="30"  HorizontalAlignment="Stretch" Grid.Row="3" />
+            <Button Grid.Column="2" Grid.Row="3" Content="Hinzufügen" Height="30" Background="White" BorderBrush="#230C0F" HorizontalAlignment="Stretch" VerticalAlignment="Center" Click="Button_Click"/>
+            <Button Grid.Row="3"  Content="Entfernen" Background="White" BorderBrush="#230C0F" Height="30" HorizontalAlignment="Stretch"  />
         </Grid>
     </ContentControl>
 </UserControl>

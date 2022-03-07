@@ -2,75 +2,39 @@
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using JaegerMeister.MvvmSample.Logic.Ui.Services;
+using JaegerMeister.MvvmSample.Logic.Ui.Messages;
+using JaegerMeister.MvvmSample.Logic.Ui.Models;
+using System.Collections.Generic;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
 
     public class Logic_Jaeger_Informationen : ViewModelBase, INotifyPropertyChanged
     {
+        JaegerInformationenService serv = new JaegerInformationenService();
 
-        private ICommand _btn_jaeger_hinzufuegen;
+        public Logic_Jaeger_Informationen()
+        {
+            Lb_jaeger = serv.Jaeger();
+        }
 
-        public ICommand Btn_jaeger_hinzufuegen
+        private List<JaegerInformationModel> _lb_jaeger;
+        public List<JaegerInformationModel> Lb_jaeger
         {
             get
             {
-                if (_btn_jaeger_hinzufuegen == null)
-                {
-                    _btn_jaeger_hinzufuegen = new RelayCommand(() =>
-                    {
-                        Logic_Jaeger_Informationen logic = new Logic_Jaeger_Informationen();
-
-                        //Hier Logik einfügen
-                    });
-
-                }
-                return _btn_jaeger_hinzufuegen;
+                return _lb_jaeger;
             }
-        }
-
-        private ICommand _btn_jaeger_entfernen;
-
-        public ICommand Btn_jaeger_entfernen
-        {
-            get
+            set
             {
-                if (_btn_jaeger_entfernen == null)
-                {
-                    _btn_jaeger_entfernen = new RelayCommand(() =>
-                    {
-                        Logic_Jaeger_Informationen logic = new Logic_Jaeger_Informationen();
-
-                        //Hier Logik einfügen
-                    });
-
-                }
-                return _btn_jaeger_entfernen;
+                _lb_jaeger = value;
+                RaisePropertyChanged("LB_jaeger");
             }
         }
 
-        private ICommand _btn_bearbeiten;
-
-        public ICommand Btn_bearbeiten
-        {
-            get
-            {
-                if (_btn_bearbeiten == null)
-                {
-                    _btn_bearbeiten = new RelayCommand(() =>
-                    {
-                        Logic_Jaeger_Informationen logic = new Logic_Jaeger_Informationen();
-
-                        //Hier Logik einfügen
-                    });
-
-                }
-                return _btn_bearbeiten;
-            }
-        }
 
         private string _lab_vor_und_nachname;
-
         public string Lab_vor_und_nachname
         {
             get
@@ -83,8 +47,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private string _lab_vorname;
 
+        private string _lab_vorname;
         public string Lab_vorname
         {
             get
@@ -97,8 +61,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private string _lab_nachname;
 
+        private string _lab_nachname;
         public string Lab_nachname
         {
             get
@@ -111,8 +75,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private string _lab_anrede;
 
+        private string _lab_anrede;
         public string Lab_anrede
         {
             get
@@ -125,8 +89,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private string _lab_geburtstag;
 
+        private string _lab_geburtstag;
         public string Lab_geburtstag
         {
             get
@@ -139,8 +103,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private string _lab_straße;
 
+        private string _lab_straße;
         public string Lab_straße
         {
             get
@@ -153,8 +117,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private string _lab_hausnummer;
 
+        private string _lab_hausnummer;
         public string Lab_hausnummer
         {
             get
@@ -167,8 +131,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private string _lab_adresszusatz;
 
+        private string _lab_adresszusatz;
         public string Lab_adresszusatz
         {
             get
@@ -181,8 +145,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private int _lab_postleitzahl;
 
+        private int _lab_postleitzahl;
         public int Lab_postleitzahl
         {
             get
@@ -195,8 +159,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private string _lab_wohnort;
 
+        private string _lab_wohnort;
         public string Lab_wohnort
         {
             get
@@ -209,8 +173,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private string _lab_telefonnummer1;
 
+        private string _lab_telefonnummer1;
         public string Lab_telefonnummer1
         {
             get
@@ -223,8 +187,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private string _lab_telefonnummer2;
 
+        private string _lab_telefonnummer2;
         public string Lab_telefonnummer2
         {
             get
@@ -237,8 +201,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private string _lab_telefonnummer3;
 
+        private string _lab_telefonnummer3;
         public string Lab_telefonnummer3
         {
             get
@@ -252,9 +216,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         }
 
 
-
         private string _lab_email;
-
         public string Lab_email
         {
             get
@@ -268,9 +230,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         }
 
 
-
         private string _lab_funktion;
-
         public string Lab_funktion
         {
             get
@@ -284,9 +244,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         }
 
 
-
         private int _lab_jagdhunde;
-
         public int Lab_jagdhunde
         {
             get

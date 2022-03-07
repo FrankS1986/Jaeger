@@ -37,5 +37,12 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
 
             Content = jaegerHinzufuegen;
         }
+
+        private void BtnBearbeiten(object sender, RoutedEventArgs e)
+        {
+            //GUI_JaegerBearbeiten jaeger_Bearbeiten = new GUI_JaegerBearbeiten();
+            //ContentControl_JaegerInformation.Content = jaeger_Bearbeiten;
+
+        }
     }
 }
