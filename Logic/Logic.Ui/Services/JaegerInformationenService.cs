@@ -10,6 +10,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
     public class JaegerInformationenService
     {
 
+        
+
         public List<JaegerInformationModel> Jaeger()
         {
             List<JaegerInformationModel> jaeger;
@@ -17,17 +19,25 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
             {
                 var infoJaeger = from a in ctx.tbl_Jaeger
                                      //where a.Typ != "Wildunfall" && a.Bezeichnung != "Wildunfall"
-                                 select new { a.Vorname, a.Nachname };
+                                 select new { a.Vorname, a.Nachname, a.Jäger_ID };
                 jaeger = new List<JaegerInformationModel>();
                 foreach (var tempInfo in infoJaeger)
                 {
                     JaegerInformationModel info = new JaegerInformationModel();
                     info.Vorname = tempInfo.Vorname;
                     info.Nachname = tempInfo.Nachname;
+                    info.Jäger_ID = tempInfo.Jäger_ID;
                     jaeger.Add((JaegerInformationModel)info);
                 }
             }
             return jaeger;
         }
+
+        //public List<JaegerInformationSelectedModel> Selected()
+        //{
+            
+
+        //    return idJaeger;
+        //}
     }
 }

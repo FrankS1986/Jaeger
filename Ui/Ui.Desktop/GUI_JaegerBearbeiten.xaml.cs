@@ -19,9 +19,9 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
     /// <summary>
     /// Interaktionslogik für Jaeger_Bearbeiten.xaml
     /// </summary>
-    public partial class Jaeger_Bearbeiten : UserControl
+    public partial class GUI_JaegerBearbeiten : UserControl
     {
-        public Jaeger_Bearbeiten()
+        public GUI_JaegerBearbeiten()
         {
             InitializeComponent();
         }

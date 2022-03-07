@@ -16,23 +16,26 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         public Logic_Jaeger_Informationen()
         {
-            Lb_jaeger = serv.Jaeger();
+            Dg_Jaeger = serv.Jaeger();
         }
 
-        private List<JaegerInformationModel> _lb_jaeger;
-        public List<JaegerInformationModel> Lb_jaeger
+        private List<JaegerInformationModel> _dg_Jaeger;
+        public List<JaegerInformationModel> Dg_Jaeger
         {
             get
             {
-                return _lb_jaeger;
+                return _dg_Jaeger;
             }
             set
             {
-                _lb_jaeger = value;
+                
+                _dg_Jaeger = value;
+                
                 RaisePropertyChanged("LB_jaeger");
             }
         }
 
+       
 
         private string _lab_vor_und_nachname;
         public string Lab_vor_und_nachname
