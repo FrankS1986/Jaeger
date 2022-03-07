@@ -95,6 +95,9 @@
     <Compile Include="GUI_Abschussliste.xaml.cs">
       <DependentUpon>GUI_Abschussliste.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI_ProgressbarWindow.xaml.cs">
+      <DependentUpon>GUI_ProgressbarWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI_TerminErstellen.xaml.cs">
       <DependentUpon>GUI_TerminErstellen.xaml</DependentUpon>
     </Compile>
@@ -170,6 +173,10 @@
     <Page Include="GUI_AbschusslisteAktualisieren.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI_ProgressbarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI_TerminErstellen.xaml">
       <SubType>Designer</SubType>
