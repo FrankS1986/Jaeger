@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using JaegerMeister.MvvmSample.Logic.Ui.Services;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
@@ -18,6 +19,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         public Logic_DokumenteVerwalten()
         {
             Dokumente = serv.DokumenteListe();
+
+            Messenger.Default.Register()
 
         }
 
@@ -33,11 +36,24 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             set
             {
                 _dokumente = value;
-                RaisePropertyChanged("Dokumnete");
+                RaisePropertyChanged("Dokumente");
             }
         }
 
-        
+        private string _selectDokument;
+        public string SelectDokument
+        {
+            get
+            {
+                return _selectDokument;
+            }
+
+            set
+            {
+                _selectDokument = value;
+                RaisePropertyChanged("SelectDokument");
+            }
+        }
 
 
         private ICommand _dokumentloeschen;
@@ -49,7 +65,11 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _dokumentloeschen = new RelayCommand(() =>
                     {
-                        Logic_DokumenteVerwalten logic = new Logic_DokumenteVerwalten();
+                       if(SelectDokument != null)
+                        {
+                            serv.DokumenteLoeschen(SelectDokument);
+                            Dokumente = serv.DokumenteListe();
+                        }
 
 
                         
@@ -69,7 +89,10 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _dokumentBearbeiten = new RelayCommand(() =>
                     {
-                        Logic_DokumenteVerwalten logic = new Logic_DokumenteVerwalten();
+                        if (SelectDokument != null)
+                        {
+                            serv.DokumenteBearbeiten(SelectDokument);
+                        }
 
 
 
@@ -77,48 +100,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
                 }
                 return _dokumentBearbeiten;
-            }
-        }
-
-        private ICommand _dokumentHizufuegen;
-        public ICommand DokumentHizufuegen
-        {
-            get
-            {
-                if (_dokumentHizufuegen == null)
-                {
-                    _dokumentHizufuegen = new RelayCommand(() =>
-                    {
-                        Logic_DokumenteVerwalten logic = new Logic_DokumenteVerwalten();
-
-
-
-                    });
-
-                }
-                return _dokumentHizufuegen;
-            }
-        }
-
-
-
-        private ICommand _dateipfad;
-        public ICommand Dateipfad
-        {
-            get
-            {
-                if (_dateipfad == null)
-                {
-                    _dateipfad = new RelayCommand(() =>
-                    {
-                        Logic_DokumenteVerwalten logic = new Logic_DokumenteVerwalten();
-
-
-
-                    });
-
-                }
-                return _dateipfad;
             }
         }
 
