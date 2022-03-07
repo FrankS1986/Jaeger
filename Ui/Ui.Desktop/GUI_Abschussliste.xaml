@@ -46,7 +46,7 @@
             <Label Background="#4F772D" >
                 <TextBlock FontFamily="Gill Sans MT Bold"  TextAlignment="Center" FontSize="22"  Foreground="#E0CBA8" Width="382">Tierartbezogene Abschüsse</TextBlock>
             </Label>
-            <ComboBox ItemsSource="{Binding DropDownTiere}" FontFamily="Gill Sans MT regular" FontSize="12" Margin="0,5" SelectedItem="{Binding TierartSelectedItem}"></ComboBox>
+            <ComboBox SelectedIndex="0" ItemsSource="{Binding DropDownTiere}" FontFamily="Gill Sans MT regular" FontSize="12" Margin="0,5" SelectedItem="{Binding TierartSelectedItem}"></ComboBox>
             <DataGrid IsReadOnly="True" MaxColumnWidth="100" FontFamily="Gill Sans MT regular" FontSize="12" ItemsSource="{Binding TierSchussListe, Mode=TwoWay}" MaxHeight="235"></DataGrid>  
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="2" Margin="0,10" VerticalAlignment="Center">
