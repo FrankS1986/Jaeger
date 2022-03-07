@@ -12,36 +12,32 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 {
     public class Logic_DokumenteVerwalten : ViewModelBase, INotifyPropertyChanged
     {
-        private List<Dokumente> _listboxDokumnete;
-        public List<Dokumente> listboxDokumente
+        private List<string> _dokumnete;
+        public List<string> Dokumente
         {
             get
             {
-                return _listboxDokumnete;
+                return _dokumnete;
             }
 
             set
             {
-                _listboxDokumnete = value;
-                RaisePropertyChanged("listboxDokumnete");
+                _dokumnete = value;
+                RaisePropertyChanged("Dokumnete");
             }
         }
 
-          public class Dokumente
-        {
-                 public int ID { get; set; }
-                 public int Name { get; set; }
-        }
+        
 
 
-        private ICommand _btn_dokumenteUnbenennen;
-        public ICommand btn_dokumenteUnbenennen
+        private ICommand _dokumentloeschen;
+        public ICommand Dokumentloeschen
         {
             get
             {
-                if (_btn_dokumenteUnbenennen == null)
+                if (_dokumentloeschen == null)
                 {
-                    _btn_dokumenteUnbenennen = new RelayCommand(() =>
+                    _dokumentloeschen = new RelayCommand(() =>
                     {
                         Logic_DokumenteVerwalten logic = new Logic_DokumenteVerwalten();
 
@@ -50,18 +46,18 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     });
 
                 }
-                return _btn_dokumenteUnbenennen;
+                return _dokumentloeschen;
             }
         }
 
-        private ICommand _btn_dokumentErsetzen;
-        public ICommand btn_dokumentErsetzen
+        private ICommand _dokumentBearbeiten;
+        public ICommand DokumentBearbeiten
         {
             get
             {
-                if (_btn_dokumentErsetzen == null)
+                if (_dokumentBearbeiten == null)
                 {
-                    _btn_dokumentErsetzen = new RelayCommand(() =>
+                    _dokumentBearbeiten = new RelayCommand(() =>
                     {
                         Logic_DokumenteVerwalten logic = new Logic_DokumenteVerwalten();
 
@@ -70,18 +66,18 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     });
 
                 }
-                return _btn_dokumentErsetzen;
+                return _dokumentBearbeiten;
             }
         }
 
-        private ICommand _btn_dokumentHizufuegen;
-        public ICommand btn_dokumentHizufuegen
+        private ICommand _dokumentHizufuegen;
+        public ICommand DokumentHizufuegen
         {
             get
             {
-                if (_btn_dokumentHizufuegen == null)
+                if (_dokumentHizufuegen == null)
                 {
-                    _btn_dokumentHizufuegen = new RelayCommand(() =>
+                    _dokumentHizufuegen = new RelayCommand(() =>
                     {
                         Logic_DokumenteVerwalten logic = new Logic_DokumenteVerwalten();
 
@@ -90,17 +86,20 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     });
 
                 }
-                return _btn_dokumentHizufuegen;
+                return _dokumentHizufuegen;
             }
         }
-        private ICommand _btn_dateipfad;
-        public ICommand btn_dateipfad
+
+
+
+        private ICommand _dateipfad;
+        public ICommand Dateipfad
         {
             get
             {
-                if (_btn_dateipfad == null)
+                if (_dateipfad == null)
                 {
-                    _btn_dateipfad = new RelayCommand(() =>
+                    _dateipfad = new RelayCommand(() =>
                     {
                         Logic_DokumenteVerwalten logic = new Logic_DokumenteVerwalten();
 
@@ -109,25 +108,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     });
 
                 }
-                return _btn_dateipfad;
+                return _dateipfad;
             }
         }
-
-        private string _textboxDateiName;
-        public string textboxDateiName
-        {
-            get
-            {
-                return _textboxDateiName;
-            }
-
-            set
-            {
-                _textboxDateiName = value;
-                RaisePropertyChanged("textboxDateiName");
-            }
-        }
-
 
     }
 
