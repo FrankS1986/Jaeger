@@ -41,6 +41,7 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
                         case MessageBoxResult.Yes:
                             DokumenteVerwaltenService serv = new DokumenteVerwaltenService();
                             serv.DokumenteLoeschen(message.Dokument);
+                           
                             break;
 
                         case MessageBoxResult.No:

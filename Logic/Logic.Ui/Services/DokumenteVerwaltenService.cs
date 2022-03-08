@@ -47,6 +47,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
         {
 
             System.IO.File.Delete(Paths.GetFilePath(@"Logic\\Logic.Ui\\Dokumente\\" + name));
+          
 
         }
 
