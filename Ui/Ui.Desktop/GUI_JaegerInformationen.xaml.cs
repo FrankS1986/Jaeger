@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Ui.Desktop;
 
+
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
     /// <summary>
@@ -37,5 +38,11 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
 
             Content = jaegerHinzufuegen;
         }
+
+        //private void Button_Click_1(object sender, RoutedEventArgs e)
+        //{
+        //    GUI_JaegerBearbeiten jaegerBearbeiten = new GUI_JaegerBearbeiten();
+        //    Content = jaegerBearbeiten;
+        //}
     }
 }
