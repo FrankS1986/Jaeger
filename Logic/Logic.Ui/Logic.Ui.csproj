@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dokumente\Paths.cs" />
     <Compile Include="Logic_DokumenteVerwalten.cs" />
     <Compile Include="Logic_Kalender.cs" />
     <Compile Include="Logic_Sicherheitsfragestellung.cs" />
@@ -171,6 +172,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Dokumente\Einladungen.docx" />
+    <None Include="Dokumente\JaegerEhrenurkunde.docx" />
+    <None Include="Dokumente\JaegerStandardehrung.docx" />
+    <None Include="Dokumente\JaegerTeilnahmeurkunde.docx" />
     <None Include="packages.config" />
     <EntityDeploy Include="Treibjagd.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
