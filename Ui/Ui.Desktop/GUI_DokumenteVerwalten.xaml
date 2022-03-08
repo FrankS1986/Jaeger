@@ -49,7 +49,7 @@
                 <Label HorizontalAlignment="Right" FontSize="16" FontFamily="Gill Sans MT Regular" Content="Dateiname:"/>
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2">
-                <TextBox x:Name="dateiname"  Height="25" MinHeight="25" BorderBrush="#230C0F" Background="White" FontSize="12" FontFamily="Gill Sans MT Regular" Margin="20,0" >
+                <TextBox x:Name="dateiname" Text="{Binding Dateiname}"  Height="25" MinHeight="25" BorderBrush="#230C0F" Background="White" FontSize="12" FontFamily="Gill Sans MT Regular" Margin="20,0" >
                    
                 </TextBox>
                 <Button Click="Button_Click" Height="30" MinHeight="30" BorderBrush="#230C0F" Content="Dokument hinzufügen" HorizontalAlignment="Center" Background="White" FontSize="12" FontFamily="Gill Sans MT Regular" Margin="20,20" />

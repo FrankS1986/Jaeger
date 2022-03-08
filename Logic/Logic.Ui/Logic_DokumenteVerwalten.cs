@@ -65,6 +65,21 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
+        private string _dateiname;
+        public string Dateiname
+        {
+            get
+            {
+                return _dateiname;
+            }
+
+            set
+            {
+                _dateiname = value;
+                RaisePropertyChanged("Dateiname");
+            }
+        }
+
 
         private ICommand _dokumentloeschen;
         public ICommand Dokumentloeschen
@@ -77,6 +92,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     {
                         if (SelectDokument != null)
                         {
+
                             Messenger.Default.Send<DokumenteVerwaltenLoeschenMessage>(new DokumenteVerwaltenLoeschenMessage { Dokument = SelectDokument});
 
                         }

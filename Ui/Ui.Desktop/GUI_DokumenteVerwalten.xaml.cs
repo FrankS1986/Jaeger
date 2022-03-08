@@ -29,14 +29,7 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         public GUIDokumenteVerwalten()
         {
             InitializeComponent();
-            DokumenteVerwaltenService serv = new DokumenteVerwaltenService();
-            /*Messenger.Default.Register<DokumenteVerwaltenLoeschenMessage>(this, (DokumenteVerwaltenLoeschenMessage prop) =>
-           {
-
-              
-
-           });*/
-
+        
             Messenger.Default.Register<DokumenteVerwaltenLoeschenMessage>(this, (DokumenteVerwaltenLoeschenMessage message) =>
             {
                 if (message.Dokument != null)
@@ -46,13 +39,21 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
                     switch (result)
                     {
                         case MessageBoxResult.Yes:
+                            DokumenteVerwaltenService serv = new DokumenteVerwaltenService();
                             serv.DokumenteLoeschen(message.Dokument);
                             break;
 
                         case MessageBoxResult.No:
 
                             break;
-
+                        case MessageBoxResult.None:
+                            break;
+                        case MessageBoxResult.OK:
+                            break;
+                        case MessageBoxResult.Cancel:
+                            break;
+                        default:
+                            break;
                     }
                 }
             });

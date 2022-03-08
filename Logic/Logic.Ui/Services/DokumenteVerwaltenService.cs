@@ -62,7 +62,30 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
         }
 
 
+         public bool DokumentUeberprüfen(string datei)
+        {
+            List<string> liste = new List<string>();
+            bool pruefen;
+            liste.Clear();
 
+            string[] datein = Directory.GetFiles(Paths.GetFilePath(@"Logic\\Logic.Ui\\Dokumente\\"));
+            foreach (string s in datein)
+            {
+                liste.Add(Path.GetFileName(s));
+            }
+
+            for(int i =0;i<liste.Count;i++)
+            {
+                if(liste[1]== datei)
+                {
+                   pruefen = false;
+                }
+
+            }
+
+
+          
+        }
 
 
     }
