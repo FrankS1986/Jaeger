@@ -89,6 +89,19 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
+        private List<tbl_Termine> _termine;
+        public List<tbl_Termine> Termin
+        {
+            get 
+            {
+                return _termine;
+            }
 
+            set
+            {
+                _termine = value;
+                RaisePropertyChanged("Termin");
+            }
+        }
     }
 }

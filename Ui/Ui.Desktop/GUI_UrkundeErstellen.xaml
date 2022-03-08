@@ -22,7 +22,15 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Label Content="Terminauswahl" FontSize="22" FontFamily="Gill Sans MT Bold" HorizontalContentAlignment="Center" Background="#4F772D" Foreground="#E0CBA8" Margin="10,0,0,0"/>
-            <DataGrid Grid.Row="1" FontSize="16" DataContext="{Binding Dg_terminauswahl}" Margin="10,0,0,0"/>
+            <DataGrid Grid.Row="1" FontSize="16" ItemsSource="{Binding Termin}" Margin="10,0,0,0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Bezeichnung" Binding="{Binding Bezeichnung}"/>
+                    <DataGridTextColumn Header="Ort" Binding="{Binding Ort}"/>
+                    <DataGridTextColumn Header="Datum" Binding="{Binding DatumUhrzeit}"/>
+
+                </DataGrid.Columns>
+                
+            </DataGrid>
             <Label Grid.Row="0" Grid.Column="2" Content="Teilnahmeurkunden" FontSize="22" FontFamily="Gill Sans MT Bold" HorizontalContentAlignment="Center" Background="#4F772D" Foreground="#E0CBA8"/>
             <DataGrid Grid.Row="1" Grid.Column="2" DataContext="{Binding Dg_teilnahmeurkundenJaegerliste}"/>
             <Label Grid.Column="5" Grid.Row="0" Content="Ehrungen" FontSize="22" FontFamily="Gill Sans MT Bold" HorizontalContentAlignment="Center" Background="#4F772D" Foreground="#E0CBA8" />

@@ -100,6 +100,7 @@
     <Compile Include="Service.cs" />
     <Compile Include="Services\JaegerHinzufuegenService.cs" />
     <Compile Include="Services\SicherheitsfragestellungService.cs" />
+    <Compile Include="Services\UrkundenerstellenService.cs" />
     <Compile Include="sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>Treibjagd.tt</DependentUpon>
     </Compile>
