@@ -107,8 +107,8 @@
     <Compile Include="GUI_PasswortAendern.xaml.cs">
       <DependentUpon>GUI_PasswortAendern.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI_JaegerBearbeiten.xaml.cs">
-      <DependentUpon>GUI_JaegerBearbeiten.xaml</DependentUpon>
+    <Compile Include="GUI_Jaeger_Bearbeiten.xaml.cs">
+      <DependentUpon>GUI_Jaeger_Bearbeiten.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI_EinladungErstellen.xaml.cs">
       <DependentUpon>GUI_EinladungErstellen.xaml</DependentUpon>
@@ -179,7 +179,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GUI_JaegerBearbeiten.xaml">
+    <Page Include="GUI_Jaeger_Bearbeiten.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

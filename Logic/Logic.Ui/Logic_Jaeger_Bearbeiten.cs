@@ -2,12 +2,28 @@
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using JaegerMeister.MvvmSample.Logic.Ui.Services;
+using JaegerMeister.MvvmSample.Logic.Ui.Models;
+using System.Collections.Generic;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
 
     public class Logic_Jaeger_Bearbeiten : ViewModelBase, INotifyPropertyChanged
     {
+        //initiert Service Klasse mit Methode zum füllen der ListBox
+        JaegerHinzufuegenService serv = new JaegerHinzufuegenService();
+
+        //erstellt Liste vom Typ IDVorNachnameModel, ruft serv. Methode auf zum Anzeigen im Datagrid "Lb_jaeger"
+        private List<IDVorNachnameModel> _listIDVorNachname = new List<IDVorNachnameModel>();
+        public List<IDVorNachnameModel> Lb_jaeger
+        {
+            get
+            {
+                _listIDVorNachname = serv.ListeIDVorNachname();
+                return _listIDVorNachname;
+            }
+        }
 
         private ICommand _btn_jaeger_hinzufuegen;
 
