@@ -11,6 +11,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Models
     {
         private string _tierart;
         private int _abschuesse;
+        private int _wildunfaelle;
         public string Tierart
         {
             get
@@ -33,10 +34,23 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Models
                 _abschuesse = value;
             }
         }
-        public TierAbschussModel(string tierart, int abschuesse)
+        public int Wildunfälle
+        {
+            get
+            {
+                return _wildunfaelle;
+            }
+            set
+            {
+                _wildunfaelle = value;
+            }
+        }
+        public TierAbschussModel(string tierart, int abschuesse, int wildunfaelle)
         {
             _tierart = tierart;
             _abschuesse = abschuesse;
+            _wildunfaelle = wildunfaelle;
         }
+        
     }
 }

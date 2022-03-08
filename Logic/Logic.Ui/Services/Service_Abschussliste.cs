@@ -26,7 +26,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 
                 foreach (var item in tierartSuche)
                 {
-                    _tierartListe.Add(new TierAbschussModel(item.Tierart, 0));
+                    _tierartListe.Add(new TierAbschussModel(item.Tierart, 0, 0));
                 }
                 return _tierartListe;
             }
@@ -49,20 +49,26 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                                       jaeger.Nachname,
                                       jaeger.Jäger_ID
                                   };
+                DateTime _aktuellesJahr = new DateTime(DateTime.Now.Year, 1, 1);
+                
                 _jaegerAbschussModels = new List<JaegerAbschussModel>();
                 foreach (var jaeger in Jaegerliste)
                 {
-                    if (jaeger.Vorname == "Wildunfall")
+                    if (jaeger.Jäger_ID == 10)
                     {
                         continue;
                     }
-                    int jagderfolge = (from jagderfolg in datenbankVerbindung.tbl_Jagderfolge
+                    int jagderfolge =  (from jagderfolg in datenbankVerbindung.tbl_Jagderfolge
+                                        join termine in datenbankVerbindung.tbl_Termine 
+                                        on jagderfolg.Termine_ID equals termine.Termine_ID
                                        where jagderfolg.Jäger_ID == jaeger.Jäger_ID
+                                       && termine.DatumUhrzeit >= _aktuellesJahr
                                        select jagderfolg).Count();
-                    if(jagderfolge == 0)
+
+                    if (jagderfolge == 0)
                     {
                         continue;
-                    }                    
+                    }
                     _jaegerAbschussModels.Add(new JaegerAbschussModel(jaeger.Vorname, jaeger.Nachname, jagderfolge));
                 }
             }
@@ -79,6 +85,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
         /// <returns></returns>
         public List<TierAbschussModel> TierAbschussListeMethode(string tierartWahl)
         {
+            DateTime _aktuellesJahr = new DateTime(DateTime.Now.Year, 1, 1);
             _tierAbschussListe = new List<TierAbschussModel>();
             using (TreibjagdTestEntities datenbankVerbindung = new TreibjagdTestEntities())
             {   
@@ -98,9 +105,17 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                             continue;
                         }
                         var tierAbschussAnzahl = (from tierabschuss in datenbankVerbindung.tbl_Jagderfolge
-                                                  where einzelTier.Tiere_ID == tierabschuss.Tiere_ID
+                                                  join termine in datenbankVerbindung.tbl_Termine
+                                                    on tierabschuss.Termine_ID equals termine.Termine_ID
+                                                  where einzelTier.Tiere_ID == tierabschuss.Tiere_ID && tierabschuss.Jäger_ID != 10
+                                                  && termine.DatumUhrzeit >= _aktuellesJahr
                                                   select tierabschuss).Count();
-                        _tierAbschussListe.Add(new TierAbschussModel(einzelTier.Tierart, tierAbschussAnzahl));
+                        var _wildunfaelle = (from wildunfall in datenbankVerbindung.tbl_Jagderfolge
+                                             where wildunfall.Jäger_ID == 10 && einzelTier.Tiere_ID == wildunfall.Tiere_ID
+                                             select wildunfall).Count();
+
+
+                        _tierAbschussListe.Add(new TierAbschussModel(einzelTier.Tierart, tierAbschussAnzahl, _wildunfaelle));
                     }
                 }
                 else
@@ -118,10 +133,21 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                         {
                             continue;
                         }
+                        //Nimm tbl_jagderfolge, pack den passenden Termin dazu, das aktuelle tier und nicht Wildunfaelle,
+                        //und was im aktuellen jahr geschehen ist
                         var tierAbschussAnzahl = (from tierabschuss in datenbankVerbindung.tbl_Jagderfolge
-                                                  where einzelTier.Tiere_ID == tierabschuss.Tiere_ID
+                                                  join termine in datenbankVerbindung.tbl_Termine
+                                                    on tierabschuss.Termine_ID equals termine.Termine_ID
+                                                    where einzelTier.Tiere_ID == tierabschuss.Tiere_ID && tierabschuss.Jäger_ID != 10
+                                                    && termine.DatumUhrzeit >= _aktuellesJahr
                                                   select tierabschuss).Count();
-                        _tierAbschussListe.Add(new TierAbschussModel(einzelTier.Tierart, tierAbschussAnzahl));
+                        var _wildunfaelle = (from wildunfall in datenbankVerbindung.tbl_Jagderfolge
+                                             join termine in datenbankVerbindung.tbl_Termine
+                                                on wildunfall.Termine_ID equals termine.Termine_ID
+                                             where wildunfall.Jäger_ID == 10 && einzelTier.Tiere_ID == wildunfall.Tiere_ID
+                                             && termine.DatumUhrzeit >= _aktuellesJahr
+                                             select wildunfall).Count();
+                        _tierAbschussListe.Add(new TierAbschussModel(einzelTier.Tierart, tierAbschussAnzahl, _wildunfaelle));
                     }
                 }
             }
