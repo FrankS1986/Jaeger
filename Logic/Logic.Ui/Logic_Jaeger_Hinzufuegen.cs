@@ -46,7 +46,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         /// <returns></returns>
         private string ValidateInput(string field)
         {
-            if (string.IsNullOrEmpty(field))
+            if (string.IsNullOrEmpty(field) || field == " " || field == "  " || field == "   ")
             {
                 return "Red";
             }
@@ -128,15 +128,10 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                             BBnachname = ValidateInput(Tb_nachname);
                             BBstrasse = ValidateInput(Tb_straße);
                             BBhausnummer = ValidateInput(Tb_hausnummer);
-                            BBadresszusatz = ValidateInput(Tb_adresszusatz);
                             BBplz = ValidateInput(Tb_postleitzahl);
                             BBwohnort = ValidateInput(Tb_wohnort);
                             BBtel1 = ValidateInput(Tb_telefonnummer1);
-                            BBtel2 = ValidateInput(Tb_telefonnummer2);
-                            BBtel3 = ValidateInput(Tb_telefonnummer3);
-                            BBmail = ValidateInput(Tb_email);
-                            BBgeburtstag = ValidateInput(Dp_geburtstag.ToString());
-                            BBhunde = ValidateInput(Tb_jagdhunde);
+                           
                         }
 
                     });
@@ -268,7 +263,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             set
             {
                 _BBvorname = value;
-                RaisePropertyChanged("BBvorname ");
+                RaisePropertyChanged("BBvorname");
             }
         }
 
