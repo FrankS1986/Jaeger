@@ -7,7 +7,14 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 {
     public class Service
     {
+       
         public bool loginSuccessful;
+        /// <summary>
+        /// gibt Wahrheitswert zurück ob login erfolgreich war
+        /// </summary>
+        /// <param name="benutzer"></param>
+        /// <param name="passwort"></param>
+        /// <returns></returns>
         public bool LoginSuccessful(string benutzer, string passwort)
         {
 

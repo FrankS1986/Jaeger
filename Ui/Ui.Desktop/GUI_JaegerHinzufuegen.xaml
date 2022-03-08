@@ -35,8 +35,8 @@
                     <Label Content="Anrede*" FontSize="16" Margin="60,0,0,0"/>
                 </DockPanel>
                 <DockPanel Margin="0,-5,0,0">
-                    <TextBox Text="{Binding Tb_vorname}" Width="120"/>
-                    <TextBox Text="{Binding Tb_nachname}" Width="120" Margin="50,0,0,0"/>
+                    <TextBox BorderBrush="{Binding BBvorname}" Text="{Binding Tb_vorname}" Width="120"/>
+                    <TextBox BorderBrush="{Binding BBnachname}" Text="{Binding Tb_nachname}" Width="120" Margin="50,0,0,0"/>
                     <ComboBox x:Name="Cb_anrede" SelectedItem="{Binding Cb_anrede}" ItemsSource="{Binding Anrede}"  DisplayMemberPath="Anrede" Width="60" Margin="-120,0,0,0"/>
 
                 </DockPanel>
@@ -44,7 +44,7 @@
                     <Label Content="Geburtstag" FontSize="16"/>
                 </DockPanel>
                 <DockPanel Margin="0,-5,0,0">
-                    <DatePicker SelectedDate="{Binding Dp_geburtstag}" Width="150" HorizontalAlignment="Left"/>
+                    <DatePicker BorderBrush="{Binding BBgeburtstag}" SelectedDate="{Binding Dp_geburtstag}" Width="150" HorizontalAlignment="Left"/>
                 </DockPanel>
                 <DockPanel Margin="0,5,0,0">
                     <Label Content="Straße*" FontSize="16"/>
@@ -52,17 +52,17 @@
                     <Label Content="Adresszusatz" FontSize="16" Margin="45,0,0,0"/>
                 </DockPanel>
                 <DockPanel Margin="0,-5,0,0">
-                    <TextBox Text="{Binding Tb_straße}" Width="150"/>
-                    <TextBox Text="{Binding Tb_hausnummer}" Width="100" Margin="19,0,0,0"/>
-                    <TextBox Text="{Binding Tb_adresszusatz}" Width="180" Margin="30,0,0,0"/>
+                    <TextBox BorderBrush="{Binding BBstrasse}" Text="{Binding Tb_straße}" Width="150"/>
+                    <TextBox BorderBrush="{Binding BBhausnummer}" Text="{Binding Tb_hausnummer}" Width="100" Margin="19,0,0,0"/>
+                    <TextBox BorderBrush="{Binding BBadresszusatz}" Text="{Binding Tb_adresszusatz}" Width="180" Margin="30,0,0,0"/>
                 </DockPanel>
                 <DockPanel Margin="0,5,0,0">
                     <Label Content="Postleitzahl*" FontSize="16"/>
                     <Label Content="Wohnort*" FontSize="16" Margin="75,0,0,0"/>
                 </DockPanel>
                 <DockPanel Margin="0,-5,0,0">
-                    <TextBox Text="{Binding Tb_postleitzahl}" Width="85"/>
-                    <TextBox Text="{Binding Tb_wohnort}" Width="160" Margin="-100,0,0,0"/>
+                    <TextBox BorderBrush="{Binding BBplz}" Text="{Binding Tb_postleitzahl}" Width="85"/>
+                    <TextBox BorderBrush="{Binding BBwohnort}" Text="{Binding Tb_wohnort}" Width="160" Margin="-100,0,0,0"/>
                 </DockPanel>
                 <DockPanel Margin="0,5,0,0">
                     <Label Content="1. Telefonnummer*" FontSize="16"/>
@@ -70,9 +70,9 @@
                     <Label Content="3. Telefonnummer" FontSize="16" Margin="17,0,0,0"/>
                 </DockPanel>
                 <DockPanel Margin="0,-5,0,0">
-                    <TextBox Text="{Binding Tb_telefonnummer1}" Width="130"/>
-                    <TextBox Text="{Binding Tb_telefonnummer2}" Width="130" Margin="35,0,0,0"/>
-                    <TextBox Text="{Binding Tb_telefonnummer3}" Width="130" Margin="-50,0,0,0"/>
+                    <TextBox BorderBrush="{Binding BBtel1}" Text="{Binding Tb_telefonnummer1}" Width="130"/>
+                    <TextBox BorderBrush="{Binding BBtel2}" Text="{Binding Tb_telefonnummer2}" Width="130" Margin="35,0,0,0"/>
+                    <TextBox BorderBrush="{Binding BBtel3}" Text="{Binding Tb_telefonnummer3}" Width="130" Margin="-50,0,0,0"/>
                 </DockPanel>
                 <DockPanel Margin="0,5,0,0">
                     <Label Content="Email-Adresse" FontSize="16"/>
@@ -80,9 +80,9 @@
                     <Label Content="Anzahl der Jagdhunde" FontSize="16" Margin="83,0,0,0"/>
                 </DockPanel>
                 <DockPanel Margin="0,-5,0,0">
-                    <TextBox Text="{Binding Tb_email}" Width="150"/>
+                    <TextBox BorderBrush="{Binding BBmail}" Text="{Binding Tb_email}" Width="150"/>
                     <ComboBox x:Name="Cb_funktion" ItemsSource="{Binding Aufgabe}"  SelectedItem="{Binding Cb_funktion}" SelectedIndex="2" DisplayMemberPath="Funktion" Width="80" Margin="13,0,0,0"/>
-                    <TextBox Text="{Binding Tb_jagdhunde}" Width="50" Margin="-80,0,0,0"/>
+                    <TextBox BorderBrush="{Binding BBhunde}" Text="{Binding Tb_jagdhunde}" Width="50" Margin="-80,0,0,0"/>
 
                 </DockPanel>
                 <Label Content="*Pflichtfelder" HorizontalContentAlignment="Right" Margin="0,-10,0,0" Height="30"/>

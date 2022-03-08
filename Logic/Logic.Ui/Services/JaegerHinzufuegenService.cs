@@ -10,11 +10,12 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 
     public class JaegerHinzufuegenService
     {
-               
-        /* Methode um die Spalten ID, Vorname und Nachname aus der DB in eine Liste zu speichern
-         * und zurück zu geben */
         #region ListeIDVorNachname
         private List<IDVorNachnameModel> _listeIDVorNachname = new List<IDVorNachnameModel>();
+        /// <summary>
+        /// Methode fragt ID,Vorname und Nachname ab und speichert in eine Liste
+        /// </summary>
+        /// <returns></returns>
         public List<IDVorNachnameModel> ListeIDVorNachname()
         {
             _listeIDVorNachname.Clear();
@@ -45,25 +46,24 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
         }
         #endregion ListeIDVorNachname
 
-        /* Methode um einen neuen Jäger in der DB anzulegen
-            übernimmt die Angaben aus den ausgeüllten Feldern und speichert sie entsprechend in der DB*/
+        
         #region boolNeuerJaeger
-       // private bool ErfolgInsertNeuerJaeger;
+        /// <summary>
+        /// Methode um einen neuen Jäger in der DB anzulegen übernimmt die Angaben aus den ausgeüllten Feldern und speichert sie entsprechend in der DB
+        /// </summary>
+        /// <param name="neuerJaeger"></param>
+        /// <returns></returns>
         public bool InsertNeuerJaeger(tbl_Jaeger neuerJaeger)
         {
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
             {
-                //var neuerJaeger = from nj in ctx.tbl_Jaeger
-                //                  select new { nj.Jäger_ID, nj.Anrede, nj.Vorname, nj.Nachname, nj.Straße, nj.Hausnummer, nj.Adresszusatz, nj.Postleitzahl, nj.Wohnort, nj.Funktion, nj.Telefonnummer1, nj.Telefonnummer2, nj.Telefonnummer3, nj.Email, nj.Jagdhund, nj.Geburtsdatum };
-                {
+               {
 
                     try
                     {
                         ctx.tbl_Jaeger.Add(neuerJaeger);
                         ctx.SaveChanges();
-                        
-                       // ErfolgInsertNeuerJaeger = true;
-                         return true;
+                        return true;
                     }
 
                     catch (Exception ex)

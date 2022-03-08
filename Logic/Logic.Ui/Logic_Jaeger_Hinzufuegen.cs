@@ -20,18 +20,47 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         {
             Aufgabe = serv.Funktionen();
             Anrede = serv.Anrede();
-           Tb_jagdhunde = "0";
-           
+            Tb_jagdhunde = "0";
+
+            //Farbe der Textboxen falls leer
+            BBvorname = "#230C0F";
+            BBnachname = "#230C0F";
+            BBgeburtstag = "#230C0F";
+            BBstrasse = "#230C0F";
+            BBhausnummer = "#230C0F";
+            BBadresszusatz = "#230C0F";
+            BBplz = "#230C0F";
+            BBwohnort = "#230C0F";
+            BBtel1 = "#230C0F";
+            BBtel2 = "#230C0F";
+            BBtel3 = "#230C0F";
+            BBmail = "#230C0F";
+            BBhunde = "#230C0F";
+
         }
 
+        /// <summary>
+        /// Methode zum Färben der Textboxen: wenn leer, dann rot, wenn befüllt, dann default
+        /// </summary>
+        /// <param name="field"></param>
+        /// <returns></returns>
+        private string ValidateInput(string field)
+        {
+            if (string.IsNullOrEmpty(field))
+            {
+                return "Red";
+            }
+            return "#230C0F";
+        }
 
         //erstellt Liste vom Typ IDVorNachnameModel, ruft serv. Methode auf zum Anzeigen im Datagrid "JaegerListe"
         private List<IDVorNachnameModel> _listIDVorNachname = new List<IDVorNachnameModel>();
+
         public List<IDVorNachnameModel> JaegerListe
-        {           
-            get 
+        {
+            get
             {
-                
+
                 _listIDVorNachname = serv.ListeIDVorNachname();
                 return _listIDVorNachname;
             }
@@ -40,8 +69,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         /* bei Button klick wird überprüft ob alle Pflichtfelder ausgefüllt sind und anschließend ein neuer eintrag 
          * in die DB tabelle jaeger eingefügt mit den aus den Textboxen übergebenen werten
-         Die Text Boxen werden wieder auf null gesetzt
-        Es erscheint eine MessageBox nach einem Erfolgreichen Durchlauf*/
+         * Die Text Boxen werden wieder auf null gesetzt
+         * Es erscheint eine MessageBox nach einem Erfolgreichen Durchlauf */
         private ICommand _btn_jaeger_hinzufuegen;
         public ICommand Btn_jaeger_hinzufuegen
         {
@@ -52,7 +81,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     _btn_jaeger_hinzufuegen = new RelayCommand(() =>
                     {
 
-                        if(!string.IsNullOrEmpty(Tb_vorname) && !string.IsNullOrEmpty(Tb_nachname) && !string.IsNullOrEmpty(Tb_straße) && !string.IsNullOrEmpty(Tb_hausnummer)&& !string.IsNullOrEmpty(Tb_postleitzahl) && !string.IsNullOrEmpty(Tb_wohnort) && !string.IsNullOrEmpty(Tb_telefonnummer1) && Cb_anrede != null)
+                        if (!string.IsNullOrEmpty(Tb_vorname) && !string.IsNullOrEmpty(Tb_nachname) && !string.IsNullOrEmpty(Tb_straße) && !string.IsNullOrEmpty(Tb_hausnummer) && !string.IsNullOrEmpty(Tb_postleitzahl) && !string.IsNullOrEmpty(Tb_wohnort) && !string.IsNullOrEmpty(Tb_telefonnummer1) && Cb_anrede != null)
                         {
                             var newItem = new tbl_Jaeger()
                             {
@@ -89,16 +118,34 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                             #endregion TextBoxenZurücksetzen
 
                             Messenger.Default.Send<JaegerHinzufuegenErfolgsMessage>(new JaegerHinzufuegenErfolgsMessage { Success = serv.InsertNeuerJaeger(newItem) });
-                            
+
                         }
-                    
+                        else
+                        {
+                            Messenger.Default.Send<JaegerHinzufuegenErfolgsMessage>(new JaegerHinzufuegenErfolgsMessage { Success = false });
+                            
+                            BBvorname = ValidateInput(Tb_vorname);
+                            BBnachname = ValidateInput(Tb_nachname);
+                            BBstrasse = ValidateInput(Tb_straße);
+                            BBhausnummer = ValidateInput(Tb_hausnummer);
+                            BBadresszusatz = ValidateInput(Tb_adresszusatz);
+                            BBplz = ValidateInput(Tb_postleitzahl);
+                            BBwohnort = ValidateInput(Tb_wohnort);
+                            BBtel1 = ValidateInput(Tb_telefonnummer1);
+                            BBtel2 = ValidateInput(Tb_telefonnummer2);
+                            BBtel3 = ValidateInput(Tb_telefonnummer3);
+                            BBmail = ValidateInput(Tb_email);
+                            BBgeburtstag = ValidateInput(Dp_geburtstag.ToString());
+                            BBhunde = ValidateInput(Tb_jagdhunde);
+                        }
+
                     });
 
                 }
                 return _btn_jaeger_hinzufuegen;
-                 
+
             }
-            
+
         }
 
         private ICommand _btn_jaeger_entfernen;
@@ -111,7 +158,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_jaeger_entfernen = new RelayCommand(() =>
                     {
-                      
+
                     });
 
                 }
@@ -129,7 +176,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_abbrechen = new RelayCommand(() =>
                     {
-                       
+
                     });
 
                 }
@@ -158,7 +205,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             get
             {
                 return _funktion;
-                
+
             }
             set
             {
@@ -211,6 +258,20 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         }
 
         #region properties TextBoxen
+        private string _BBvorname;
+        public string BBvorname
+        {
+            get
+            {
+                return _BBvorname;
+            }
+            set
+            {
+                _BBvorname = value;
+                RaisePropertyChanged("BBvorname ");
+            }
+        }
+
         private string _tb_vorname;
         public string Tb_vorname
         {
@@ -220,10 +281,25 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
             set
             {
-                _tb_vorname= value;
+                _tb_vorname = value;
                 RaisePropertyChanged("Tb_vorname");
             }
         }
+
+        private string _BBnachname;
+        public string BBnachname
+        {
+            get
+            {
+                return _BBnachname;
+            }
+            set
+            {
+                _BBnachname = value;
+                RaisePropertyChanged("BBnachname");
+            }
+        }
+
 
         private string _tb_nachname;
         public string Tb_nachname
@@ -239,6 +315,34 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
+        private string _BBgeburtstag;
+        public string BBgeburtstag
+        {
+            get
+            {
+                return _BBgeburtstag;
+            }
+            set
+            {
+                _BBgeburtstag = value;
+                RaisePropertyChanged("BBgeburtstag");
+            }
+        }
+
+        private string _BBstrasse;
+        public string BBstrasse
+        {
+            get
+            {
+                return _BBstrasse;
+            }
+            set
+            {
+                _BBstrasse = value;
+                RaisePropertyChanged("BBstrasse");
+            }
+        }
+
         private string _tb_straße;
         public string Tb_straße
         {
@@ -248,8 +352,22 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
             set
             {
-                _tb_straße= value;
+                _tb_straße = value;
                 RaisePropertyChanged("Tb_straße");
+            }
+        }
+
+        private string _BBhausnummer;
+        public string BBhausnummer
+        {
+            get
+            {
+                return _BBhausnummer;
+            }
+            set
+            {
+                _BBhausnummer = value;
+                RaisePropertyChanged("BBhausnummer");
             }
         }
 
@@ -262,8 +380,22 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
             set
             {
-                _tb_hausnummer= value;
+                _tb_hausnummer = value;
                 RaisePropertyChanged("Tb_hausnummer");
+            }
+        }
+
+        private string _BBadresszusatz;
+        public string BBadresszusatz
+        {
+            get
+            {
+                return _BBadresszusatz;
+            }
+            set
+            {
+                _BBadresszusatz = value;
+                RaisePropertyChanged("BBadresszusatz");
             }
         }
 
@@ -276,8 +408,22 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
             set
             {
-                _tb_adresszusatz= value;
+                _tb_adresszusatz = value;
                 RaisePropertyChanged("Tb_adresszusatz");
+            }
+        }
+
+        private string _BBplz;
+        public string BBplz
+        {
+            get
+            {
+                return _BBplz;
+            }
+            set
+            {
+                _BBplz = value;
+                RaisePropertyChanged("BBplz");
             }
         }
 
@@ -295,6 +441,20 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
+        private string _BBwohnort;
+        public string BBwohnort
+        {
+            get
+            {
+                return _BBwohnort;
+            }
+            set
+            {
+                _BBwohnort = value;
+                RaisePropertyChanged("BBwohnort");
+            }
+        }
+
         private string _tb_wohnort;
         public string Tb_wohnort
         {
@@ -304,8 +464,22 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
             set
             {
-                _tb_wohnort= value;
+                _tb_wohnort = value;
                 RaisePropertyChanged("Tb_wohnort");
+            }
+        }
+
+        private string _BBtel1;
+        public string BBtel1
+        {
+            get
+            {
+                return _BBtel1;
+            }
+            set
+            {
+                _BBtel1 = value;
+                RaisePropertyChanged("BBtel1");
             }
         }
 
@@ -323,6 +497,20 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
+        private string _BBtel2;
+        public string BBtel2
+        {
+            get
+            {
+                return _BBtel2;
+            }
+            set
+            {
+                _BBtel2 = value;
+                RaisePropertyChanged("BBtel2");
+            }
+        }
+
         private string _tb_telefonnummer2;
         public string Tb_telefonnummer2
         {
@@ -334,6 +522,20 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             {
                 _tb_telefonnummer2 = value;
                 RaisePropertyChanged("Tb_telefonnummer2");
+            }
+        }
+
+        private string _BBtel3;
+        public string BBtel3
+        {
+            get
+            {
+                return _BBtel3;
+            }
+            set
+            {
+                _BBtel3 = value;
+                RaisePropertyChanged("BBtel3");
             }
         }
 
@@ -351,6 +553,20 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
+        private string _BBmail;
+        public string BBmail
+        {
+            get
+            {
+                return _BBmail;
+            }
+            set
+            {
+                _BBmail = value;
+                RaisePropertyChanged("BBmail");
+            }
+        }
+
         private string _tb_email;
         public string Tb_email
         {
@@ -360,12 +576,26 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
             set
             {
-                _tb_email= value;
-                RaisePropertyChanged("Tb_email"); 
+                _tb_email = value;
+                RaisePropertyChanged("Tb_email");
             }
         }
 
-       private string _tb_jagdhunde;
+        private string _BBhunde;
+        public string BBhunde
+        {
+            get
+            {
+                return _BBhunde;
+            }
+            set
+            {
+                _BBhunde = value;
+                RaisePropertyChanged("BBhunde");
+            }
+        }
+
+        private string _tb_jagdhunde;
         public string Tb_jagdhunde
         {
             get
@@ -378,7 +608,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 RaisePropertyChanged("Tb_jagdhunde");
             }
         }
-# endregion properties TextBoxen
+        #endregion properties TextBoxen
 
     }
 }
