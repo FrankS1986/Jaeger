@@ -93,7 +93,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                         if (SelectDokument != null)
                         {
 
-                            Messenger.Default.Send<DokumenteVerwaltenLoeschenMessage>(new DokumenteVerwaltenLoeschenMessage { Dokument = SelectDokument});
+                            Messenger.Default.Send<DokumenteVerwaltenLoeschenMessage>(new DokumenteVerwaltenLoeschenMessage { Dokument = SelectDokument });
 
                         }
 

@@ -29,7 +29,7 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         public GUIDokumenteVerwalten()
         {
             InitializeComponent();
-        
+
             Messenger.Default.Register<DokumenteVerwaltenLoeschenMessage>(this, (DokumenteVerwaltenLoeschenMessage message) =>
             {
                 if (message.Dokument != null)
@@ -73,8 +73,26 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
 
                 if (openFileDialog.ShowDialog() == true)
                 {
+                    if (!dateiname.Text.Contains("?") && !dateiname.Text.Contains("/") && !dateiname.Text.Contains("\\") && !dateiname.Text.Contains(":") && !dateiname.Text.Contains("\"") && !dateiname.Text.Contains("<") && !dateiname.Text.Contains(">") && !dateiname.Text.Contains("*") && !dateiname.Text.Contains(".") && !dateiname.Text.Contains("|"))
+                    {
+                        DokumenteVerwaltenService serv = new DokumenteVerwaltenService();
+                        if (serv.DokumentUeberpruefen(dateiname.Text))
+                        {
 
-                    File.Copy(openFileDialog.FileName, (Paths.GetFilePath(@"Logic\\Logic.Ui\\Dokumente\\" + dateiname.Text + ".docx")));
+                            File.Copy(openFileDialog.FileName, (Paths.GetFilePath(@"Logic\\Logic.Ui\\Dokumente\\" + dateiname.Text + ".docx")));
+                        }
+
+                        else
+                        {
+                            MessageBox.Show("Dateiname schon vergeben.Bitte wählen Sie ein neuen");
+                           
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sie haben Sonderzeichen verwendet Bitte Dateinamen Überprüfen");
+                       
+                    }
                 }
 
                 Messenger.Default.Send("DokumenteVerwaltenMessage");

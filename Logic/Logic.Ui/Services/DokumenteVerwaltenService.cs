@@ -61,11 +61,11 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 
         }
 
-
-         public bool DokumentUeberprüfen(string datei)
+        public bool pruefen;
+        public bool DokumentUeberpruefen(string datei)
         {
             List<string> liste = new List<string>();
-            bool pruefen;
+
             liste.Clear();
 
             string[] datein = Directory.GetFiles(Paths.GetFilePath(@"Logic\\Logic.Ui\\Dokumente\\"));
@@ -74,17 +74,14 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                 liste.Add(Path.GetFileName(s));
             }
 
-            for(int i =0;i<liste.Count;i++)
+            for (int i = 0; i < liste.Count; i++)
             {
-                if(liste[1]== datei)
-                {
-                   pruefen = false;
-                }
+                pruefen = liste[1] != datei;
 
             }
 
+            return pruefen;
 
-          
         }
 
 
