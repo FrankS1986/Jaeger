@@ -19,7 +19,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
             {
                 var termine = from a in ctx.tbl_Termine
-                              select new { a.Termine_ID, a.Bezeichnung, a.Ort, a.DatumUhrzeit };
+                              select new { a.Termine_ID, a.Bezeichnung, a.Typ, a.Ort, a.DatumUhrzeit };
                 var liste = new List<tbl_Termine>();
 
                 foreach (var item in termine)
@@ -28,6 +28,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                     {
                         Termine_ID = item.Termine_ID,
                         Bezeichnung = item.Bezeichnung,
+                        Typ = item.Typ,
                         Ort = item.Ort,
                         DatumUhrzeit = item.DatumUhrzeit
                     });

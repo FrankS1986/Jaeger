@@ -21,7 +21,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
     {
         TerminUebersichtService serv1 = new TerminUebersichtService();
         TerminErstellenService serv2 = new TerminErstellenService();
-
         public Logic_Termine()
         {
             Messenger.Default.Register<string>(this, (prop) =>
@@ -29,10 +28,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 if (prop.Equals("Termine"))
                 {
                     List_UebersichtAnstehendeTermine = serv1.terminUebersicht();
-                }
-                else if (prop.Equals("Personen"))
-                {
-                    List_Personen = serv2.Personen();
                 }
                 else if (prop.Equals("Select"))
                 {
@@ -44,22 +39,40 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                         List_UebersichtEingeladenePersonen = serv1.Personen(SelectedTermin.Termine_ID);
                     }
                 }
-                else if (prop.Equals("Change"))
+                else if (prop.Equals("Bearbeiten"))
                 {
-                    SelectedTermin = null;
-                }
-                else if (prop.Equals("Hinzufuegen"))
-                {
-                    if (SelectedPerson != null)
+                    if (SelectedTermin != null)
                     {
-                        List_einladung.Add(serv2.Einladung(SelectedPerson.Vorname, SelectedPerson.Nachname));
+                        id = SelectedTermin.Termine_ID;
+                        string[] zeit = SelectedTermin.DatumUhrzeit.ToString().Split();
+                        Txt_Bezeichnung = SelectedTermin.Bezeichnung;
+                        Txt_Ort = SelectedTermin.Ort;
+                        Txt_Typ = SelectedTermin.Typ;
+                        Datepicker_Datum = Convert.ToDateTime(zeit[0]);
+                        Txt_Uhrzeit = zeit[1];
                     }
+                }
+                else if (prop.Equals("Abbruch"))
+                {
+                    id = 0;
+                    Txt_Bezeichnung = "";
+                    Txt_Ort = "";
+                    Txt_Typ = "";
+                    Datepicker_Datum = DateTime.Today;
+                    Txt_Uhrzeit = "";
+                }
+                else if (prop.Equals("Termin"))
+                {
+                    Datepicker_Datum = DateTime.Today;
+                }
+                else if (prop.Equals("Bestaetigen"))
+                {
+                    serv2.Termin(id, Txt_Bezeichnung, Txt_Ort, Txt_Uhrzeit, Txt_Typ, Datepicker_Datum);
                 }
             });
         }
-
-        private string _txt_UebersichtOrt, _txt_UebersichtDatum, _txt_bezeichnung, _txt_Ort, _txt_Uhrzeit;
-        private DateTime _datepicker_UebersichtDatum, _datepicker_Datum;
+        public int id = 0;
+        private string _txt_UebersichtOrt, _txt_UebersichtDatum, _txt_bezeichnung, _txt_Ort;
 
         private List<tbl_Termine> _list_UebersichtAnstehendeTermine;
         public List<tbl_Termine> List_UebersichtAnstehendeTermine
@@ -89,22 +102,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 RaisePropertyChanged("SelectedTermin");
             }
         }
-
-        private tbl_Jaeger _selectedPerson;
-
-        public tbl_Jaeger SelectedPerson
-        {
-            get
-            {
-                return _selectedPerson;
-            }
-            set
-            {
-                _selectedPerson = value;
-                RaisePropertyChanged("SelectedPerson");
-            }
-        }
-
         private List<tbl_Jaeger> _list_UebersichtEingeladenePersonen;
         public List<tbl_Jaeger> List_UebersichtEingeladenePersonen
         {
@@ -116,34 +113,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             {
                 _list_UebersichtEingeladenePersonen = value;
                 RaisePropertyChanged("List_UebersichtEingeladenePersonen");
-            }
-        }
-
-        private List<tbl_Jaeger> _list_Personen;
-        public List<tbl_Jaeger> List_Personen
-        {
-            get
-            {
-                return _list_Personen;
-            }
-            set
-            {
-                _list_Personen = value;
-                RaisePropertyChanged("List_Personen");
-            }
-        }
-
-        private List<tbl_Jaeger> _list_Einladung;
-        public List<tbl_Jaeger> List_einladung
-        {
-            get
-            {
-                return _list_Einladung;
-            }
-            set
-            {
-                _list_Einladung = value;
-                RaisePropertyChanged("List_einladung");
             }
         }
         private ICommand _btn_UebersichtRueckmeldungen;
@@ -171,7 +140,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_UebersichtTerminhinzufuegen = new RelayCommand(() =>
                     {
-
+                        Messenger.Default.Send("Termin");
                     });
                 }
                 return _btn_UebersichtTerminhinzufuegen;
@@ -212,41 +181,10 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_UebersichtBearbeiten = new RelayCommand(() =>
                     {
-
+                        
                     });
                 }
                 return _btn_UebersichtBearbeiten;
-            }
-        }
-
-        private ICommand _btn_hinzufuegen;
-        public ICommand Btn_hinzufuegen
-        {
-            get
-            {
-                if (_btn_hinzufuegen == null)
-                {
-                    _btn_hinzufuegen = new RelayCommand(() =>
-                    {
-                        Messenger.Default.Send("Hinzufuegen");
-                    });
-                }
-                return _btn_hinzufuegen;
-            }
-        }
-        private ICommand _btn_entfernen;
-        public ICommand Btn_entfernen
-        {
-            get
-            {
-                if (_btn_entfernen == null)
-                {
-                    _btn_entfernen = new RelayCommand(() =>
-                    {
-
-                    });
-                }
-                return _btn_entfernen;
             }
         }
         private ICommand _btn_Abbruch;
@@ -258,7 +196,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_Abbruch = new RelayCommand(() =>
                     {
-
+                        
                     });
                 }
                 return _btn_Abbruch;
@@ -273,23 +211,10 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_Bestaetigen = new RelayCommand(() =>
                     {
-
+                        Messenger.Default.Send("Bestaetigen");
                     });
                 }
                 return _btn_Bestaetigen;
-            }
-        }
-        private string _bezeichnung;
-
-        public string Bezeichnung
-        {
-            get
-            {
-                return _bezeichnung;
-            }
-            set
-            {
-                _bezeichnung = value;
             }
         }
         private string _txt_UebersichtBezeichnung;
@@ -329,7 +254,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 RaisePropertyChanged("Txt_UebersichtDatum");
             }
         }
-        public string Txt_bezeichnung
+        public string Txt_Bezeichnung
         {
             get
             {
@@ -338,6 +263,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             set
             {
                 _txt_bezeichnung = value;
+                RaisePropertyChanged("Txt_Bezeichnung");
             }
         }
         public string Txt_Ort
@@ -349,31 +275,23 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             set
             {
                 _txt_Ort = value;
+                RaisePropertyChanged("Txt_Ort");
             }
         }
-
-        public string Txt_Uhrzeit
+        private string _txt_Typ;
+        public string Txt_Typ
         {
             get
             {
-                return _txt_Uhrzeit;
+                return _txt_Typ;
             }
             set
             {
-                _txt_Uhrzeit = value;
+                _txt_Typ = value;
+                RaisePropertyChanged("Txt_Typ");
             }
         }
-        public DateTime Datepicker_UebersichtDatum
-        {
-            get
-            {
-                return _datepicker_UebersichtDatum;
-            }
-            set
-            {
-                _datepicker_UebersichtDatum = value;
-            }
-        }
+        private DateTime _datepicker_Datum;
         public DateTime Datepicker_Datum
         {
             get
@@ -383,41 +301,21 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             set
             {
                 _datepicker_Datum = value;
+                RaisePropertyChanged("Datepicker_Datum");
             }
         }
-
+        private string _txt_Uhrzeit;
+        public string Txt_Uhrzeit
+        {
+            get
+            {
+                return _txt_Uhrzeit;
+            }
+            set
+            {
+                _txt_Uhrzeit = value;
+                RaisePropertyChanged("Txt_Uhrzeit");
+            }
+        }
     }
-
-    //public class ClassListTermine
-    //{
-    //    public int ID { get; set; }
-    //    public string Ort { get; set; }
-    //    public DateTime Date { get; set; }
-    //    public string Bezeichnung { get; set; }
-    //    public string Typ { get; set; }
-    //    public ClassListTermine(int id, string ort, DateTime date, string bezeichnung, string typ)
-    //    {
-    //        this.ID = id;
-    //        this.Ort = ort;
-    //        this.Date = date;
-    //        this.Bezeichnung = bezeichnung;
-    //        this.Typ = typ;
-    //    }
-    //}
-    //public class ClassListRueckmeldung
-    //{
-    //    public int ID { get; set; }
-    //    public string Rolle { get; set; }
-    //    public string Gaeste { get; set; }
-    //    public int TerminID { get; set; }
-    //    public int JaegerID { get; }
-    //    public ClassListRueckmeldung(int id, string rolle, string gaeste, int terminID, int jaegerID)
-    //    {
-    //        this.ID = id;
-    //        this.Rolle = rolle;
-    //        this.Gaeste = gaeste;
-    //        this.TerminID = terminID;
-    //        this.JaegerID = jaegerID;
-    //    }
-    //}
 }

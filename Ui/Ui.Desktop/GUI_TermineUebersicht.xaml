@@ -8,7 +8,7 @@
              d:DesignHeight="360" d:DesignWidth="800"
              MinHeight="360" MinWidth="800"
              DataContext="{Binding logic_Termine, Source={StaticResource Locator}}">
-    <ContentControl x:Name="ContentControlTermine" DataContextChanged="ContentControlTermine_DataContextChanged">
+    <ContentControl x:Name="ContentControlTermine">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="257"/>

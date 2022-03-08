@@ -31,6 +31,8 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
 
         private void termin_hinzufuegen_Click(object sender, RoutedEventArgs e)
         {
+            Messenger.Default.Send("Termin");
+
             GUI_TerminErstellen terminErstellen = new GUI_TerminErstellen();
 
             Content = terminErstellen;
@@ -53,13 +55,10 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
             Messenger.Default.Send("Select");
         }
 
-        private void ContentControlTermine_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            Messenger.Default.Send("Change");
-        }
-
         private void Bearbeiten_Click(object sender, RoutedEventArgs e)
         {
+            Messenger.Default.Send("Bearbeiten");
+
             GUI_TerminErstellen terminErstellen = new GUI_TerminErstellen();
 
             Content = terminErstellen;

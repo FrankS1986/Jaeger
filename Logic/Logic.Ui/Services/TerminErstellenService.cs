@@ -51,8 +51,55 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                         Nachname = item.Nachname
                     });
                 }
-
                 return Einladungen;
+            }
+        }
+
+        //<summary>
+        //Wenn ein Termin bearbeitet wird, wird dieser in der Datebank überschrieben. Ansonsten wird ein neuer Termin angelegt.
+        //</summary>
+        public IQueryable Termin(int id, string bezeichnung, string ort, string zeit, string typ, DateTime datum)
+        {
+            using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
+            {
+                if (id == 0)
+                {
+                    var liste = from a in ctx.tbl_Termine
+                                select a;
+
+                    string[] einheit = zeit.Split(':');
+                    datum = datum.AddHours(Convert.ToDouble(einheit[0]));
+                    datum = datum.AddMinutes(Convert.ToDouble(einheit[1]));
+                    tbl_Termine termin = new tbl_Termine
+                    {
+                        Ort = ort,
+                        DatumUhrzeit = datum,
+                        Bezeichnung = bezeichnung,
+                        Typ = typ
+                    };
+                    ctx.tbl_Termine.Add(termin);
+                    ctx.SaveChanges();
+                    return liste;
+                }
+                else
+                {
+                    var liste = from a in ctx.tbl_Termine
+                                where a.Termine_ID == id
+                                select a;
+
+                    string[] einheit = zeit.Split(':');
+                    datum = datum.AddHours(Convert.ToDouble(einheit[0]));
+                    datum = datum.AddMinutes(Convert.ToDouble(einheit[1]));
+                    foreach (var item in liste)
+                    {
+                        item.Bezeichnung = bezeichnung;
+                        item.Ort = ort;
+                        item.Typ = typ;
+                        item.DatumUhrzeit = datum;
+                    }
+                    ctx.SaveChanges();
+                    return liste;
+                }
             }
         }
     }

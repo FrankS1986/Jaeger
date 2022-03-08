@@ -26,18 +26,10 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
             InitializeComponent();
         }
 
-        private void Person_Loaded(object sender, RoutedEventArgs e)
-        {
-            Messenger.Default.Send("Personen");
-        }
-
-        private void Einladung_Loaded(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
         private void Abbruch_Click(object sender, RoutedEventArgs e)
         {
+            Messenger.Default.Send("Abbruch");
+
             GUI_TermineUebersicht termineUebersicht = new GUI_TermineUebersicht();
 
             Content = termineUebersicht;
@@ -45,14 +37,11 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
 
         private void Bestaetigen_Click(object sender, RoutedEventArgs e)
         {
+            Messenger.Default.Send("Bestaetigen");
+
             GUI_TermineUebersicht termineUebersicht = new GUI_TermineUebersicht();
 
             Content = termineUebersicht;
-        }
-
-        private void Personen_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Messenger.Default.Send("SelectPerson");
         }
     }
 }

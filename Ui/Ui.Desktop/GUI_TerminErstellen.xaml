@@ -8,9 +8,7 @@
              Height="360" Width="800"
              d:DesignHeight="360" d:DesignWidth="800"
              MinHeight="360" MinWidth="800"
-              DataContext="{Binding logic_Termine, Source={StaticResource Locator}}"
-             >
-
+             DataContext="{Binding logic_Termine, Source={StaticResource Locator}}">
     <ContentControl x:Name="ContentControlTerminErstellen">
         <Grid >
             <Grid.ColumnDefinitions>
@@ -28,11 +26,11 @@
                 <RowDefinition/>
                 <RowDefinition Height="35"/>
             </Grid.RowDefinitions>
-            <StackPanel Grid.Column="3" VerticalAlignment="Center" Background="Transparent" Height="140" Margin="0,92,0,93">
+            <!--<StackPanel Grid.Column="3" VerticalAlignment="Center" Background="Transparent" Height="140" Margin="0,92,0,93">
                 <Image Source="Pictures\pfeillinks.png" Height="70" Margin="-63,0,-72,0"/>
                 <Image  Height="70" Margin="-91,0,-82,0" Source="Pictures\pfeilrechts.png"/>
-            </StackPanel>
-            <StackPanel Grid.Row="0" Grid.ColumnSpan="3" Background="White" MinHeight="325">
+            </StackPanel>-->
+            <!--<StackPanel Grid.Row="0" Grid.ColumnSpan="3" Background="White" MinHeight="325">
                 <Label Background="#4F772D"  Foreground="White" Height="40" >
                     <TextBlock Foreground="#E0CBA8" FontFamily="Gill Sans MT Bold" FontSize="22" TextAlignment="Center" Width="240" Height="35" >Personen</TextBlock>
                 </Label>
@@ -42,33 +40,33 @@
                         <DataGridTextColumn Header="Nachname" Binding="{Binding Nachname}" Width="120"/>
                     </DataGrid.Columns>
                 </DataGrid>
-            </StackPanel>
-            <StackPanel Grid.Row="1" Grid.ColumnSpan="3">
+            </StackPanel>-->
+            <!--<StackPanel Grid.Row="1" Grid.ColumnSpan="3">
                 <Button Margin="2,4,2,2" FontSize="12" HorizontalAlignment="Stretch" BorderBrush="#230C0F" Background="White" FontFamily="Gill Sans MT Regular" Command="{ Binding Btn_hinzufuegen}" Height="30">hinzufügen</Button>
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Margin="2">
                 <Button HorizontalAlignment="Stretch" Margin="2,1,2,2" FontSize="12" BorderBrush="#230C0F" Background="White" FontFamily="Gill Sans MT Regular" Command="{ Binding Btn_entfernen}" Height="30">entfernen</Button>
             </StackPanel>
             <StackPanel Grid.Column="3">
-            </StackPanel>
-            <StackPanel  Grid.Column="7" Grid.ColumnSpan="2" Background="White" >
+            </StackPanel>-->
+            <StackPanel  Grid.Column="4" Grid.ColumnSpan="2" Background="White" >
                 <Label Background="#4F772D" Foreground="White" Height="40" >
                     <TextBlock  Foreground="#E0CBA8" FontFamily="Gill Sans MT Bold" FontSize="22" TextAlignment="Center"  Height="35" Width="235" >Termin erstellen</TextBlock>
                 </Label>
-                <Label></Label>
-                <Label></Label>
-                <Label FontSize="16" Margin="20,1" FontFamily="Gill Sans MT regular">Bezeichnung</Label>
+                <Label FontSize="16" Margin="20,0" FontFamily="Gill Sans MT regular">Bezeichnung</Label>
                 <TextBox Height="25" FontSize="12" Text="{Binding Txt_Bezeichnung}" Margin="20,1" FontFamily="Gill sans MT Regular"></TextBox>
-                <Label FontSize="16" Margin="20,1" FontFamily="Gill Sans MT Regular">Wo?</Label>
+                <Label FontSize="16" Margin="20,0" FontFamily="Gill Sans MT regular">Typ</Label>
+                <TextBox Height="25" FontSize="12" Text="{Binding Txt_Typ}" Margin="20,1" FontFamily="Gill sans MT Regular"></TextBox>
+                <Label FontSize="16" Margin="20,0" FontFamily="Gill Sans MT Regular">Wo?</Label>
                 <TextBox Height="25" FontSize="12" Text="{Binding Txt_Ort}" Margin="20,1" FontFamily="Gill sans MT Regular"></TextBox>
-                <Label FontSize="16" Margin="20,1" FontFamily="Gill Sans MT Regular">Datum</Label>
-                <DatePicker FontSize="12" Margin="20,1" SelectedDate="{Binding Datepicker_Datum}" FontFamily="Gill sans MT Regular"></DatePicker>
+                <Label FontSize="16" Margin="20,0" FontFamily="Gill Sans MT Regular">Datum</Label>
+                <DatePicker FontSize="12" Margin="20,0" SelectedDate="{Binding Datepicker_Datum}" FontFamily="Gill sans MT Regular"></DatePicker>
                 <Label FontSize="16" Margin="20,1" FontFamily="Gill Sans MT Regular">Uhrzeit</Label>
-                <TextBox Height="25" FontSize="12" Margin="20,1" FontFamily="Gill Sans MT Regular" Text="{Binding Txt_Uhrzeit}"></TextBox>
+                <TextBox Height="25" FontSize="12" Text="{Binding Txt_Uhrzeit}" Margin="20,1" FontFamily="Gill sans MT Regular"></TextBox>
             </StackPanel>
-            <Button Grid.Column="7" Grid.Row="1" Margin="2,3,2,2"  Background="White" FontSize="12" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Height="30" Command="{Binding Btn_Abbruch}" Click="Abbruch_Click">Abbruch</Button>
-            <Button Grid.Column="8" Grid.Row="1"  Margin="2,3,2,2" Background="White" FontSize="12" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Height="30" Command="{Binding Btn_Bestaetigen}" Click="Bestaetigen_Click">Bestätigen</Button>
-            <StackPanel Grid.Column="4" Grid.ColumnSpan="2" Background="White" MinHeight="325">
+            <Button Grid.Column="4" Grid.Row="1" Margin="2,3,2,2"  Background="White" FontSize="12" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Height="30" Command="{Binding Btn_Abbruch}" Click="Abbruch_Click">Abbruch</Button>
+            <Button Grid.Column="5" Grid.Row="1"  Margin="2,3,2,2" Background="White" FontSize="12" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Height="30" Command="{Binding Btn_Bestaetigen}" Click="Bestaetigen_Click">Bestätigen</Button>
+            <!--<StackPanel Grid.Column="4" Grid.ColumnSpan="2" Background="White" MinHeight="325">
                 <Label Background="#4F772D" Foreground="White" Height="40" >
                     <TextBlock  Foreground="#E0CBA8" FontFamily="Gill sans MT Bold" FontSize="22" TextAlignment="Center" Width="235" Height="35" >Bereits eingladen</TextBlock>
                 </Label>
@@ -78,7 +76,7 @@
                         <DataGridTextColumn Header="Nachname" Binding="{Binding Nachname}" Width="120"/>
                     </DataGrid.Columns>
                 </DataGrid>
-            </StackPanel>
+            </StackPanel>-->
         </Grid>
     </ContentControl>
 </UserControl>
