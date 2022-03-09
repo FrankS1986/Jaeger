@@ -84,6 +84,15 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     _urkundenErstellen = new RelayCommand(() =>
                     {
 
+
+
+
+
+
+
+
+
+
                     });
                 }
                 return _urkundenErstellen;

@@ -50,7 +50,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
             {
                 var teilnahme = from a in ctx.tbl_Rueckmeldung
                                 where a.Termine_ID == jaegerID
-                                select new { a.Jäger_ID };
+                                select new { a.Jäger_ID,a.Termine_ID };
 
                 var listeJaeger = new List<Teilname>();
                 if (teilnahme.Count() >= 1)
@@ -59,16 +59,21 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                     {
                         var jaeger = from a in ctx.tbl_Jaeger
                                      where a.Jäger_ID == item.Jäger_ID
-                                     join c in  
-                                     select new { a.Jäger_ID, a.Vorname, a.Nachname };
+                                     from b in ctx. tbl_Termine
+                                     where b.Termine_ID == item.Termine_ID 
+                                     select new { a.Jäger_ID, a.Vorname, a.Nachname, a.Anrede, b.Termine_ID, b.Ort, b.DatumUhrzeit,b.Typ };
 
                         foreach (var b in jaeger)
                         {
                             listeJaeger.Add(new Teilname()
                             {
                                 ID = b.Jäger_ID,
+                                Anrede =b.Anrede,
                                 Vorname = b.Vorname,
-                                Nachname = b.Nachname
+                                Nachname = b.Nachname,
+                                Ort = b.Ort,
+                                Datum = b.DatumUhrzeit.Date,
+                                Typ = b.Typ
                             });
                         }
 
