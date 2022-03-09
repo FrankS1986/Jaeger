@@ -62,21 +62,14 @@
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2">
 
-                <DataGrid  IsReadOnly="True"   EnableRowVirtualization="False" SelectionMode="Extended" FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F"  SelectedItem="{Binding SelectEinladen}" ItemsSource="{Binding Einladen}" Height="261" AutoGenerateColumns="False" GridLinesVisibility="None">
+                <DataGrid  CanUserAddRows="False"   EnableRowVirtualization="False" SelectionMode="Extended" FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F"  ItemsSource="{Binding Einladen}" Height="261" AutoGenerateColumns="False" GridLinesVisibility="None">
                    
                         <DataGrid.Columns >
-                        
 
-                        <DataGridTextColumn   Binding="{Binding Vorname}" Header="Vorname"/>
-                        <DataGridTextColumn Binding="{Binding Nachname}" Header="Nachname" />
-                        <DataGridTemplateColumn>
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button  FontSize="12" FontFamily="Gill Sans MT Regular" BorderBrush="#230C0F" Background="White" Click="Button_Click">Einladen</Button>
-                                   
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
+
+                        <DataGridTextColumn IsReadOnly="True"  Binding="{Binding Vorname}" Header="Vorname"/>
+                        <DataGridTextColumn IsReadOnly="True" Binding="{Binding Nachname}" Header="Nachname" />
+                        <DataGridCheckBoxColumn Header="Einladen" Binding="{Binding Eingeladen}"></DataGridCheckBoxColumn>
                             
                     </DataGrid.Columns>
                     
@@ -86,7 +79,8 @@
             </StackPanel>
 
             
-                <Button Height="30" Grid.Row="3" Grid.Column="5" Margin="5"  Background="White" FontSize="12" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Stretch" Click="Button_Click_1"  >Abbrechen</Button>
+                <Button Height="30" Grid.Row="3" Grid.Column="4" Margin="5"  Background="White" FontSize="12" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Stretch" Click="Button_Click_1"  >Abbrechen</Button>
+            <Button Height="30" Grid.Row="3" Grid.Column="5" Margin="5"  Background="White" FontSize="12" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" HorizontalAlignment="Stretch" Command="{Binding EinlandungSenden}" >Einladen</Button>
 
 
         </Grid>

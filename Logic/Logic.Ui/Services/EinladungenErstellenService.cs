@@ -11,11 +11,11 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 {
     public class EinladungenErstellenService
     {
-            /// <summary>
-            /// Es wird in der Tabelle Postaussgang ein eintrag hinzugefügt.
-            /// </summary>
-            /// <param name="post"></param>
-            /// <returns></returns>
+        /// <summary>
+        /// Es wird in der Tabelle Postaussgang ein eintrag hinzugefügt.
+        /// </summary>
+        /// <param name="post"></param>
+        /// <returns></returns>
         public bool InsertPostausgang(tbl_Postausgang post)
         {
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
@@ -52,7 +52,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
             {
                 var termine = from a in ctx.tbl_Termine
                               where a.Typ != "Wildunfall"
-                              select new { a.Termine_ID, a.Ort, a.DatumUhrzeit,a.Typ };
+                              select new { a.Termine_ID, a.Ort, a.DatumUhrzeit, a.Typ };
                 var liste = new List<tbl_Termine>();
 
                 foreach (var item in termine)
@@ -63,7 +63,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                         Ort = item.Ort,
                         DatumUhrzeit = item.DatumUhrzeit,
                         Typ = item.Typ
-                        
+
 
                     });
 
@@ -73,7 +73,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
             }
         }
 
-       private List<int> jaegerIDListe = new List<int>();
+        private List<int> jaegerIDListe = new List<int>();
         /// <summary>
         /// Hier wird eine string Liste erstellt von den Bereits Eingeladenen Personen.
         /// </summary>
@@ -114,14 +114,14 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
             }
         }
 
-        
 
 
-          /// <summary>
-          ///   Hier wird eine Jaegerliste erstellt abzüglich der schon eingeladenen Personen
-          /// </summary>
-          /// <returns></returns>
-        public List<tbl_Jaeger> JaegerListe()
+
+        /// <summary>
+        ///   Hier wird eine Jaegerliste erstellt abzüglich der schon eingeladenen Personen
+        /// </summary>
+        /// <returns></returns>
+        public List<Einladung> JaegerListe()
         {
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
             {
@@ -130,38 +130,44 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                 var jaeger = from a in ctx.tbl_Jaeger
 
                              orderby a.Vorname, a.Nachname
-                             select new { a.Jäger_ID, a.Vorname, a.Nachname };
+                             select new { a.Jäger_ID,a.Anrede, a.Vorname, a.Nachname, a.Straße, a.Hausnummer, a.Adresszusatz, a.Postleitzahl, a.Wohnort };
 
-                var liste = new List<tbl_Jaeger>();
+                var liste = new List<Einladung>();
 
                 foreach (var item in jaeger)
                 {
-                    liste.Add(new tbl_Jaeger()
+                    liste.Add(new Einladung()
                     {
-                        Jäger_ID = item.Jäger_ID,
+                        ID = item.Jäger_ID,
+                        Anrede = item.Anrede,
                         Vorname = item.Vorname,
-                        Nachname = item.Nachname
+                        Nachname = item.Nachname,
+                        Strasse = item.Straße,
+                        Hausnummer = item.Hausnummer,
+                        Adresszusatz = item.Adresszusatz,
+                        Postleitzahl = item.Postleitzahl,
+                        Ort = item.Wohnort,
 
                     });
 
                 }
                 for (int i = 0; i < jaegerIDListe.Count; i++)
                 {
-                    liste = liste.Where(x => x.Jäger_ID != jaegerIDListe[i]).ToList();
+                    liste = liste.Where(x => x.ID != jaegerIDListe[i]).ToList();
                 }
-                
+
                 return liste;
 
             }
 
         }
 
-          /// <summary>
-          /// Sucht den Text im Dokument und wird erstetz
-          /// </summary>
-          /// <param name="wordApp"></param>
-          /// <param name="ToFindText"></param>
-          /// <param name="replaceWithText"></param>
+        /// <summary>
+        /// Sucht den Text im Dokument und wird erstetz
+        /// </summary>
+        /// <param name="wordApp"></param>
+        /// <param name="ToFindText"></param>
+        /// <param name="replaceWithText"></param>
         private void FindAndReplace(Word.Application wordApp, object ToFindText, object replaceWithText)
         {
             object matchCase = true;
@@ -190,21 +196,19 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                 ref matchControl);
         }
 
-       /// <summary>
-       /// Hier wird das Dokument erstellt und gespeichert
-       /// </summary>
-       /// <param name="filename"></param>
-       /// <param name="SaveAs"></param>
-       /// <param name="jaegerID"></param>
-        public void CreateWordDocument(object filename, object SaveAs, int jaegerID)
+        /// <summary>
+        /// Hier wird das Dokument erstellt und gespeichert
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <param name="SaveAs"></param>
+        /// <param name="jaegerID"></param>
+        public void CreateWordDocument(Einladung einladen, object filename, object SaveAs)
         {
 
 
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
             {
-                var jaeger = from a in ctx.tbl_Jaeger
-                             where a.Jäger_ID == jaegerID
-                             select new { a.Anrede, a.Vorname, a.Nachname, a.Straße, a.Hausnummer, a.Adresszusatz, a.Postleitzahl, a.Wohnort };
+               
 
                 Word.Application wordApp = new Word.Application();
                 object missing = Missing.Value;
@@ -224,17 +228,16 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                     myWordDoc.Activate();
 
 
-                    foreach (var item in jaeger)
-                    {
-                        this.FindAndReplace(wordApp, "<anrede>", item.Anrede);
-                        this.FindAndReplace(wordApp, "<name>", item.Vorname);
-                        this.FindAndReplace(wordApp, "<nachname>", item.Nachname);
-                        this.FindAndReplace(wordApp, "<strasse>", item.Straße);
-                        this.FindAndReplace(wordApp, "<hausnummer>", item.Hausnummer);
-                        this.FindAndReplace(wordApp, "<adresszusatz>", item.Adresszusatz);
-                        this.FindAndReplace(wordApp, "<postleitzahl>", item.Postleitzahl);
-                        this.FindAndReplace(wordApp, "<ort>", item.Wohnort);
-                    }
+                    
+                        this.FindAndReplace(wordApp, "<anrede>", einladen.Anrede );
+                        this.FindAndReplace(wordApp, "<name>", einladen.Vorname);
+                        this.FindAndReplace(wordApp, "<nachname>", einladen.Nachname);
+                        this.FindAndReplace(wordApp, "<strasse>", einladen.Strasse);
+                        this.FindAndReplace(wordApp, "<hausnummer>", einladen.Hausnummer);
+                        this.FindAndReplace(wordApp, "<adresszusatz>", einladen.Adresszusatz);
+                        this.FindAndReplace(wordApp, "<postleitzahl>", einladen.Postleitzahl);
+                        this.FindAndReplace(wordApp, "<ort>", einladen.Ort);
+                    
 
 
 
@@ -253,7 +256,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 
                 myWordDoc.Close();
                 wordApp.Quit();
-               
+
 
 
             }
@@ -265,6 +268,26 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
         }
 
 
+        public class Einladung
+        {
+            public int ID { get; set; }
+            public string Anrede { get; set; }
+            public string Vorname { get; set; }
+            public string Nachname { get; set; }
+            public string Strasse { get; set; }
 
+            public string Hausnummer { get; set; }
+
+            public string Adresszusatz { get; set; }
+
+            public string Postleitzahl { get; set; }
+            public string Ort { get; set; }
+
+            public bool Eingeladen { get; set; }
+
+
+
+        }
+             
     }
 }

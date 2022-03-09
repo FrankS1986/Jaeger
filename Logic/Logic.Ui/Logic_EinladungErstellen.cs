@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using static JaegerMeister.MvvmSample.Logic.Ui.Services.EinladungenErstellenService;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
@@ -23,7 +24,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         public Logic_EinladungErstellen()
         {
-            
+
             Termine = serv.Termine();
 
             Messenger.Default.Register<string>(this, (x) =>
@@ -42,69 +43,61 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                  }
              });
 
-            
 
-            Messenger.Default.Register<string>(this, (prop) =>
-            {
-                if (prop.Equals("ButtonEinladungErstellen"))
-                {
-                    if (SelectEinladen != null && SelectTermin != null)
-                    {
-                        var newitem = new tbl_Postausgang()
-
-                        {
-                            Dokumente_ID = 1,
-                            Jäger_ID = SelectEinladen.Jäger_ID,
-                            Termine_ID = SelectTermin.Termine_ID,
-                            DatumUhrzeit = DateTime.Now,
-
-                        };
-                        string x = SelectTermin.DatumUhrzeit.Year.ToString();
-                        string zusammengesetzt = SelectTermin.Typ + x + SelectEinladen.Nachname;
-                        serv.CreateWordDocument(Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\Einladungen.docx"), Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\" + zusammengesetzt + ".docx"), SelectEinladen.Jäger_ID);
-                        Messenger.Default.Send<EinladungenErstellenErfolgsMessage>(new EinladungenErstellenErfolgsMessage { erfolg = serv.InsertPostausgang(newitem) });
-                        BereitsEingeladen = serv.Eingeladen(SelectTermin.Termine_ID);
-                        Einladen = serv.JaegerListe();
-                    }
-                    else
-                    {
-                        Messenger.Default.Send<EinladungenErstellenErfolgsMessage>(new EinladungenErstellenErfolgsMessage { erfolg = false });
-                    }
-
-
-
-
-
-
-
-                }
-            });
 
         }
 
-        private ICommand _EinlandungSenden;
+        private ICommand _einlandungSenden;
         public ICommand EinlandungSenden
         {
             get
             {
-                if (_EinlandungSenden == null)
+                if (_einlandungSenden == null)
                 {
-                    _EinlandungSenden = new RelayCommand(() =>
+                    _einlandungSenden = new RelayCommand(() =>
                     {
 
 
 
-
-
-
-                        if (SelectEinladen != null)
+                        if (SelectTermin != null)
                         {
+                            
+                            foreach (var item in Einladen)
+                            {
+                                if (item.Eingeladen)
+                                {
+                                    var newitem = new tbl_Postausgang()
+
+                                    {
+                                        Dokumente_ID = 1,
+                                        Jäger_ID = item.ID,
+                                        Termine_ID = SelectTermin.Termine_ID,
+                                        DatumUhrzeit = DateTime.Now,
+
+                                    };
+
+                                    string x = SelectTermin.DatumUhrzeit.Year.ToString();
+                                    string zusammengesetzt = SelectTermin.Typ + x + item.Nachname;
+                                    serv.CreateWordDocument(item, Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\Einladungen.docx"), Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\" + zusammengesetzt + ".docx"));
+                                    serv.InsertPostausgang(newitem); 
+                                    BereitsEingeladen = serv.Eingeladen(SelectTermin.Termine_ID);
+                                    Einladen = serv.JaegerListe();
+                                }
+                            }
+
+                            Messenger.Default.Send<EinladungenErstellenErfolgsMessage>(new EinladungenErstellenErfolgsMessage { erfolg = true });
 
                         }
+                        else
+                        {
+                            Messenger.Default.Send<EinladungenErstellenErfolgsMessage>(new EinladungenErstellenErfolgsMessage { erfolg = false });
+                        }
+
+
 
                     });
                 }
-                return _EinlandungSenden;
+                return _einlandungSenden;
             }
         }
 
@@ -192,8 +185,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         }
 
 
-        private List<tbl_Jaeger> _Einladen;
-        public List<tbl_Jaeger> Einladen
+        private List<Einladung> _Einladen;
+        public List<Einladung> Einladen
         {
             get
             {
