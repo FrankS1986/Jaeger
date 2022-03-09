@@ -3,7 +3,6 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using JaegerMeister.MvvmSample.Logic.Ui.Services;
-using JaegerMeister.MvvmSample.Logic.Ui.Models;
 using System.Collections.Generic;
 using GalaSoft.MvvmLight.Messaging;
 using JaegerMeister.MvvmSample.Logic.Ui.Messages;
@@ -217,7 +216,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         }
 
         private string _cb_anrede;
-
         public string Cb_anrede
         {
             get
@@ -399,7 +397,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
 
         private string _tb_jagdhunde;
-public string Tb_jagdhunde
+        public string Tb_jagdhunde
         {
             get
             {
