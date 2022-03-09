@@ -1,10 +1,7 @@
-﻿using GalaSoft.MvvmLight.Messaging;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using JaegerMeister.MvvmSample.Logic.Ui.Models.JaegerVerwaltungsModels;
+
+
 
 namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 {
@@ -68,6 +65,23 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 
             }
 
+        }
+
+        public IQueryable DeleteJaeger (int id)
+        {
+            using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
+            {
+                var jaeger = from abfrage in ctx.tbl_Jaeger
+                             where abfrage.Jäger_ID == id
+                             select abfrage;
+                foreach ( tbl_Jaeger del in jaeger)
+                {
+                    ctx.tbl_Jaeger.Remove(del);
+                }
+                ctx.SaveChanges();
+
+                return jaeger;
+            }
         }
 
     }

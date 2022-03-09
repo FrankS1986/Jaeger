@@ -5,7 +5,7 @@ using GalaSoft.MvvmLight.Command;
 using JaegerMeister.MvvmSample.Logic.Ui.Services;
 using System.Collections.Generic;
 using GalaSoft.MvvmLight.Messaging;
-using JaegerMeister.MvvmSample.Logic.Ui.Messages;
+using System.Windows;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
@@ -26,7 +26,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     Lb_jaeger = servEdit.GetJaegerInfoList();
                 }
                 else if (prop.Equals("Select"))
-                {   
+                {
                     //wird ein Jäger in der Liste ausgewählt, werden seine Infos übernommen und in den Boxen dargestellt
                     if (SelectedItemJaeger != null)
                     {
@@ -85,7 +85,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         }
 
 
-   
+
 
 
         private ICommand _btn_jaeger_hinzufuegen;
@@ -118,9 +118,19 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_jaeger_entfernen = new RelayCommand(() =>
                     {
-                        Logic_Jaeger_Informationen logic = new Logic_Jaeger_Informationen();
+                        if (SelectedItemJaeger != null)
+                        {
+                            var result = MessageBox.Show("Soll der Jäger'" + SelectedItemJaeger.Vorname + " '" + SelectedItemJaeger.Nachname + "' wirklich gelöscht werden?", "Jäger löschen?", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
-                        //Hier Logik einfügen
+                            if (result == MessageBoxResult.Yes)
+                            {
+                                MessageBox.Show("Der Jäger '" + SelectedItemJaeger.Vorname + "' '" + SelectedItemJaeger.Nachname + "' wurde gelöscht.");
+                                servEdit.DeleteJaeger(SelectedItemJaeger.Jäger_ID);
+                                Messenger.Default.Send("Jaeger");
+                            }
+                        }
+
+
                     });
 
                 }
