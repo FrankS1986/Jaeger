@@ -45,17 +45,23 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
             GUI_JaegerHinzufuegen jaegerhinzufuegen = new GUI_JaegerHinzufuegen();
             Content = jaegerhinzufuegen;
         }
-
+        private void btnAbbrechen_Click(object sender, RoutedEventArgs e)
+        {
+            GUI_JaegerInformationen jaegerInfo = new GUI_JaegerInformationen();
+            Content = jaegerInfo;
+        }
         private void DataGrid_Loaded(object sender, RoutedEventArgs e)
         {
             Messenger.Default.Send("Jaeger");
         }
-        private void SelectedItemJaeger_SelectionChanged (object sender, RoutedEventArgs e)
+        private void JaegerDG_SelectionChanged (object sender, SelectionChangedEventArgs e)
         {
-            Messenger.Default.Send("SelectedItemJaeger");
+            Messenger.Default.Send("Select");
+        }
+        private void ContentControl_JaegerBearbeiten_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            Messenger.Default.Send("Change");
         }
     }
-
-
 }
 
