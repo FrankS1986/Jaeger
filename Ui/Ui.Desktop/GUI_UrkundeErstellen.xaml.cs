@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Messaging;
+using JaegerMeister.MvvmSample.Logic.Ui.Messages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +27,13 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
             InitializeComponent();
 
 
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            Messenger.Default.Send<UrkundenErstellenErfolgsMessage>(new UrkundenErstellenErfolgsMessage { erfolg = true });
+           
         }
     }
 }

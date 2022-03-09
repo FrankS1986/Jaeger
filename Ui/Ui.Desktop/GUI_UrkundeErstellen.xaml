@@ -10,9 +10,9 @@
     <ContentControl>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="230"/>
+                <ColumnDefinition Width="280"/>
                 <ColumnDefinition Width="30"/>
-                <ColumnDefinition Width="255"/>
+                <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="255"/>
             </Grid.ColumnDefinitions>
@@ -22,22 +22,36 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Label Content="Terminauswahl" FontSize="22" FontFamily="Gill Sans MT Bold" HorizontalContentAlignment="Center" Background="#4F772D" Foreground="#E0CBA8" Margin="10,0,0,0"/>
-            <DataGrid Grid.Row="1" FontSize="16" ItemsSource="{Binding Termin}" Margin="10,0,0,0">
+            <DataGrid AutoGenerateColumns="False" IsReadOnly="True"  Grid.Row="1" FontSize="12" ItemsSource="{Binding Termin}" SelectedItem="{Binding SelectedTermin}" SelectionChanged="DataGrid_SelectionChanged" Margin="10,0,0,0" GridLinesVisibility="None">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Bezeichnung" Binding="{Binding Bezeichnung}"/>
                     <DataGridTextColumn Header="Ort" Binding="{Binding Ort}"/>
-                    <DataGridTextColumn Header="Datum" Binding="{Binding DatumUhrzeit}"/>
+                    <DataGridTextColumn Header="Datum Uhrzeit" Binding="{Binding DatumUhrzeit}"/>
 
                 </DataGrid.Columns>
                 
             </DataGrid>
-            <Label Grid.Row="0" Grid.Column="2" Content="Teilnahmeurkunden" FontSize="22" FontFamily="Gill Sans MT Bold" HorizontalContentAlignment="Center" Background="#4F772D" Foreground="#E0CBA8"/>
-            <DataGrid Grid.Row="1" Grid.Column="2" DataContext="{Binding Jaegerliste}"/>
+            <Label Grid.Row="0" Grid.Column="2" Content="Teilnahme" FontSize="22" FontFamily="Gill Sans MT Bold" HorizontalContentAlignment="Center" Background="#4F772D" Foreground="#E0CBA8"></Label>
+            <DataGrid CanUserAddRows="False" AutoGenerateColumns="False"  GridLinesVisibility="None" Grid.Row="1" Grid.Column="2" ItemsSource="{Binding Jaegerliste}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn IsReadOnly="True" Header="Vorname" Binding="{Binding Vorname }"/>
+                    <DataGridTextColumn IsReadOnly="True" Header="Nachname"  Binding="{Binding Nachname }"/>
+                    <DataGridCheckBoxColumn Header="Uhrkunde" Binding="{Binding Ehrenuhrkunde}"></DataGridCheckBoxColumn>
+                </DataGrid.Columns>
+                
+            </DataGrid>
             <Label Grid.Column="5" Grid.Row="0" Content="Ehrungen" FontSize="22" FontFamily="Gill Sans MT Bold" HorizontalContentAlignment="Center" Background="#4F772D" Foreground="#E0CBA8" />
-            <DataGrid Grid.Column="5" Grid.Row="1" FontSize="16" DataContext="{Binding Dg_ehrungen_erhalten}"/>
-            <Button Grid.Row="2" Grid.Column="2" Content="Abbrechen" HorizontalAlignment="Stretch" FontSize="12" Command="{Binding Btn_abbrechen}" Height="30" Width="150" Margin="210,5,180,5" Grid.ColumnSpan="3"/>
-            <Button Grid.Column="4" Grid.Row="2" Content="Urkunden erstellen" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="12" Height="30" Width="150" Margin="95,5,10,5" Command="{Binding Btn_urkunden_erstellen}"/>
-            <Button Grid.Column="3" FontSize="25" Grid.Row="1" Command="{Binding Btn_jaeger_bewegen}" Content="→" Width="25" Height="30"/>
+            <DataGrid GridLinesVisibility="None" CanUserAddRows="False" AutoGenerateColumns="False" Grid.Column="5" Grid.Row="1" FontSize="12" ItemsSource="{Binding Ehrungen}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn IsReadOnly="True" Header="Vorname" Binding="{Binding Vorname }"/>
+                    <DataGridTextColumn IsReadOnly="True" Header="Nachname"  Binding="{Binding Nachname }"/>
+                    <DataGridCheckBoxColumn Width="55" Header="Standard" Binding="{Binding Standard}"></DataGridCheckBoxColumn>
+                    <DataGridCheckBoxColumn Header="Ehrung" Binding="{Binding Ehrenuhrkunde}"></DataGridCheckBoxColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Grid.Row="2" Grid.Column="2" Content="Abbrechen" HorizontalAlignment="Stretch" FontSize="12" Command="{Binding Abbrechen}" Height="30" Width="150"  Grid.ColumnSpan="3"/>
+            <Button Grid.Column="4" Grid.Row="2" Content="Urkunden erstellen" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="12" Height="30" Width="150" Margin="95,5,10,5" Command="{Binding UrkundenErstellen}"/>
+            <Button Background="Transparent" Grid.Column="3" FontSize="25" Grid.Row="1" Command="{Binding Jaegerbewegen}" Content="→" Width="25" Height="30"/>
         </Grid>
     </ContentControl>
 </UserControl>
