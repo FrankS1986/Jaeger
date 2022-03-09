@@ -10,11 +10,12 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 {
     class JaegerBearbeitenService
     {
-        private List<tbl_Jaeger> _getJaegerInfo = new List<tbl_Jaeger>();
+        /// <summary>
+        /// Holt alle Jägerbezogenen Daten aus der DB, außer ID10=Wildunfall, speichert in eine Liste und weist zu.
+        /// </summary>
+        /// <returns></returns>
         public List<tbl_Jaeger> GetJaegerInfoList()
         {
-            _getJaegerInfo.Clear();
-
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
             {
                 var jaegerInfos = from abfrage in ctx.tbl_Jaeger

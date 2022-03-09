@@ -94,8 +94,6 @@
     <Compile Include="Messages\RegistrierungsAbfrageBenutzer.cs" />
     <Compile Include="Messages\RegistrierungsErfolgsMessage.cs" />
     <Compile Include="Messages\SicherheitsfragestellungsErfolgsMessage.cs" />
-    <Compile Include="Models\JaegerVerwaltungsModels\EditJaegerModel.cs" />
-    <Compile Include="Models\JaegerVerwaltungsModels\GetJaegerInfoModel.cs" />
     <Compile Include="Models\JaegerVerwaltungsModels\IDVorNachnameModel.cs" />
     <Compile Include="Models\JaegerVerwaltungsModels\NeuerJaegerModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -19,12 +19,15 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         {
             Messenger.Default.Register<string>(this, (prop) =>
             {
+
                 if (prop.Equals("Jaeger"))
                 {
+                    //Ruft Methode zum Daten in Liste speichern auf und stellt sie im DataGrid dar
                     Lb_jaeger = servEdit.GetJaegerInfoList();
                 }
                 else if (prop.Equals("Select"))
-                {
+                {   
+                    //wird ein Jäger in der Liste ausgewählt, werden seine Infos übernommen und in den Boxen dargestellt
                     if (SelectedItemJaeger != null)
                     {
                         Tb_vorname = SelectedItemJaeger.Vorname;
@@ -44,6 +47,11 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                         Tb_jagdhunde = SelectedItemJaeger.Jagdhund;
 
                     }
+                }
+                else if (prop.Equals("Change"))
+                {
+                    //beim wechsel des ContentControls wild die Jägerauswahl entfernt
+                    SelectedItemJaeger = null;
                 }
             });
         }
