@@ -25,6 +25,7 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         public GUI_Kalender()
         {
             InitializeComponent();
+            
         }
         private void TerminHinzufuegen_Click(object sender, RoutedEventArgs e)
         {

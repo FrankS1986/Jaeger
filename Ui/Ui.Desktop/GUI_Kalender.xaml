@@ -32,9 +32,8 @@
                     <Image Source="Pictures/TerminHinzufuegen.png"></Image>
                 </Button>
             </Grid>
-            <DataGrid x:Name="DataGridTermine" Grid.Row="1" Grid.RowSpan="2"  ItemsSource="{Binding Dg_TermineKalender}" SelectedItem="{Binding TermineKalenderSelectedItem}" FontFamily="Gill Sans MT" FontSize="16" MinColumnWidth="194" IsReadOnly="True" IsManipulationEnabled="True" GridLinesVisibility="None"
-                       HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto" IsHitTestVisible="True" SelectionMode="Single"
-                       Background="White"  />
+            <DataGrid x:Name="DataGridTermine" Grid.Row="1" Grid.RowSpan="2"  ItemsSource="{Binding Dg_TermineKalender}" SelectedItem="{Binding TermineKalenderSelectedItem}" FontFamily="Gill Sans MT" FontSize="16" MinColumnWidth="194" IsReadOnly="True" IsManipulationEnabled="False" GridLinesVisibility="None"
+                       HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" IsHitTestVisible="True"  SelectionMode="Single" Background="White"  />
             <Viewbox  HorizontalAlignment="Center" VerticalAlignment="Center" Name="ViewBoxKalender" Grid.Column="2"   Grid.RowSpan="2"  Stretch="Fill"   >
                 <Calendar SelectedDate="{Binding SelectedDates}"  x:Name="Kalender"  DisplayDateStart="1/1/2022" DisplayDateEnd="1/1/2050" SelectionMode="SingleDate" >
                     <Calendar.Resources>
