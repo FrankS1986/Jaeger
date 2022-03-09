@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,6 +63,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                         if (SelectTermin != null)
                         {
                             
+                            string ordner = "Einladungen";
+                            Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\"+ ordner);
                             foreach (var item in Einladen)
                             {
                                 if (item.Eingeladen)
@@ -75,10 +78,12 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                                         DatumUhrzeit = DateTime.Now,
 
                                     };
-
+  
                                     string x = SelectTermin.DatumUhrzeit.Year.ToString();
-                                    string zusammengesetzt = SelectTermin.Typ + x + item.Nachname;
-                                    serv.CreateWordDocument(item, Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\Einladungen.docx"), Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\" + zusammengesetzt + ".docx"));
+                                    string zusammengesetzt = SelectTermin.Ort +SelectTermin.Typ + x + item.Nachname;
+                                    string str = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + ordner + "\\" + zusammengesetzt + ".docx";
+
+                                    serv.CreateWordDocument(item, Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\Einladungen.docx"), str);
                                     serv.InsertPostausgang(newitem); 
                                     BereitsEingeladen = serv.Eingeladen(SelectTermin.Termine_ID);
                                     Einladen = serv.JaegerListe();
