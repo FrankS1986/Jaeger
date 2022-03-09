@@ -16,22 +16,69 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         //initiert Service Klasse zum Bearbeiten des Jägers
         JaegerBearbeitenService servEdit = new JaegerBearbeitenService();
 
-        private List<GetJaegerInfoModel> _getJaegerInfoList;
-        public List<GetJaegerInfoModel> DataGridVorname
+        public Logic_Jaeger_Bearbeiten()
         {
+            Messenger.Default.Register<string>(this, (prop) =>
+            {
+                if (prop.Equals("Jaeger"))
+                {
+                    Lb_jaeger = servEdit.GetJaegerInfoList();
+                }
+                else if (prop.Equals("SelectedItemJaeger"))
+                {
+                    if (SelectedItemJaeger != null)
+                    {
+                        Tb_vorname = SelectedItemJaeger.Vorname;
+                        Tb_nachname = SelectedItemJaeger.Nachname;
+                        Cb_anrede = SelectedItemJaeger.Anrede;
+                        Dp_geburtstag = SelectedItemJaeger.Geburtsdatum.ToString();
+                        Tb_straße = SelectedItemJaeger.Straße;
+                        Tb_hausnummer = SelectedItemJaeger.Hausnummer;
+                        Tb_adresszusatz = SelectedItemJaeger.Adresszusatz;
+                        Tb_postleitzahl = SelectedItemJaeger.Postleitzahl;
+                        Tb_wohnort = SelectedItemJaeger.Wohnort;
+                        Tb_telefonnummer1 = SelectedItemJaeger.Telefonnummer1;
+                        Tb_telefonnummer2 = SelectedItemJaeger.Telefonnummer2;
+                        Tb_telefonnummer3 = SelectedItemJaeger.Telefonnummer3;
+                        Tb_email = SelectedItemJaeger.Email;
+                        Cb_funtkion = SelectedItemJaeger.Funktion;
+                        Tb_jagdhunde = SelectedItemJaeger.Jagdhund;
 
+                    }
+                }
+            });
         }
 
-        //erstellt Liste vom Typ IDVorNachnameModel, ruft serv. Methode auf zum Anzeigen im Datagrid "Lb_jaeger"
-        private List<IDVorNachnameModel> _listIDVorNachname;
-        public List<IDVorNachnameModel> Lb_jaeger
+        private tbl_Jaeger _selectedItemJaeger;
+        public tbl_Jaeger SelectedItemJaeger
         {
             get
             {
-                _listIDVorNachname = serv.ListeIDVorNachname();
-                return _listIDVorNachname;
+                return _selectedItemJaeger;
+            }
+            set
+            {
+                _selectedItemJaeger = value;
+                RaisePropertyChanged("SelectedItemJaeger");
             }
         }
+
+        private List<tbl_Jaeger> _Lb_jaeger;
+        public List<tbl_Jaeger> Lb_jaeger
+        {
+            get
+            {
+                return _Lb_jaeger;
+            }
+            set
+            {
+                _Lb_jaeger = value;
+                RaisePropertyChanged("Lb_jaeger");
+            }
+        }
+
+
+   
 
 
         private ICommand _btn_jaeger_hinzufuegen;
@@ -112,7 +159,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         }
 
         private List<tbl_Funktionen> _funktion;
-        public List <tbl_Funktionen> Aufgabe
+        public List<tbl_Funktionen> Aufgabe
         {
             get
             {
@@ -131,7 +178,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             get
             {
                 return _anrede;
-                
+
             }
             set
             {
@@ -237,9 +284,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private int _tb_postleitzahl;
+        private string _tb_postleitzahl;
 
-        public int Tb_postleitzahl
+        public string Tb_postleitzahl
         {
             get
             {
@@ -339,9 +386,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
 
 
-        private int _tb_jagdhunde;
+        private string _tb_jagdhunde;
 
-        public int Tb_jagdhunde
+        public string Tb_jagdhunde
         {
             get
             {

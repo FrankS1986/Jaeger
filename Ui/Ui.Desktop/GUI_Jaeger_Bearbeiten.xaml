@@ -18,10 +18,10 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.ColumnSpan="3" >
                 <Label Content="Personen" FontSize="22" FontFamily="Gill Sans MT Bold" Foreground="#E0CBA8" Height="40" Background="#4F772D" HorizontalContentAlignment="Center"/>
-                <DataGrid Loaded="DataGrid_Loaded" SelectedItem="{Binding SelectedItemJaeger}" ItemsSource="{Binding Lb_jaeger}" Height="290">
+                <DataGrid Loaded="DataGrid_Loaded" SelectedItem="{Binding SelectedItemJaeger}" ItemsSource="{Binding Lb_jaeger}"  Height="290" Margin="1,0,-1,0" AutoGenerateColumns="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Vorname" Width="110" Binding="{Binding DataGridVorname}" />
-                        <DataGridTextColumn Header="Nachname" Width="130" Binding="{Binding DataGridNachname}"/>
+                        <DataGridTextColumn Header="Vorname" Width="110" Binding="{Binding Vorname}" />
+                        <DataGridTextColumn Header="Nachname" Width="130" Binding="{Binding Nachname}"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 

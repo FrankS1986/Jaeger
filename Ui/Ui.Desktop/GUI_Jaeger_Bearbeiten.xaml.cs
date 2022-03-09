@@ -48,7 +48,11 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
 
         private void DataGrid_Loaded(object sender, RoutedEventArgs e)
         {
-
+            Messenger.Default.Send("Jaeger");
+        }
+        private void SelectedItemJaeger_SelectionChanged (object sender, RoutedEventArgs e)
+        {
+            Messenger.Default.Send("SelectedItemJaeger");
         }
     }
 
