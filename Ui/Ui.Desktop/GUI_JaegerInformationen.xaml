@@ -25,10 +25,14 @@
             <StackPanel Grid.ColumnSpan="3" Grid.RowSpan="3" Margin="0,0,0,5" >
                 <Label Content="Personen" FontSize="22" FontFamily="Gill Sans MT Bold" Foreground="#E0CBA8" Background="#4F772D" HorizontalContentAlignment="Center" Height="40" />
                 <DataGrid ItemsSource="{Binding Dg_Jaeger}" Height="319" Grid.Row="1" Grid.RowSpan="2" Margin="0,0,0,5" SelectedItem="{Binding SelectedListItem}" IsReadOnly="True"
-                          FontSize="16" FontFamily="Gill Sans MT Regular" CanUserResizeColumns="False" RowBackground="{x:Null}" SelectionMode="Single" />
+                          FontSize="16" FontFamily="Gill Sans MT Regular" CanUserResizeColumns="False" RowBackground="{x:Null}" SelectionMode="Single" ColumnWidth="80" GridLinesVisibility="None" >
+                </DataGrid>
             </StackPanel>
             <StackPanel  Grid.Column="4" Background="White"  Grid.RowSpan="2" Grid.ColumnSpan="2"   >
-                <Label Content="{Binding Lab_vor_und_nachname}"  FontSize="22" FontFamily="Gill Sans MT Bold" Foreground="#E0CBA8" Background="#4F772D" HorizontalContentAlignment="Center" Height="40" />
+                <WrapPanel Background="#4F772D" Height="40">
+                    <Label Content="{Binding LabelVorname}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Gill Sans MT Bold" Foreground="#E0CBA8"/>
+                    <Label Content="{Binding LabelNachname}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Gill Sans MT Bold" Foreground="#E0CBA8" />
+                </WrapPanel>
                 <DockPanel Margin="0,-5,0,0">
                     <Label Content="Vorname" FontSize="16"/>
                     <Label Content="Nachname" FontSize="16" Margin="100,0,0,0"/>
