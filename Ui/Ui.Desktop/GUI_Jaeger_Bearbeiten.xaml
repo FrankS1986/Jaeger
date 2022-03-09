@@ -18,7 +18,13 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.ColumnSpan="3" >
                 <Label Content="Personen" FontSize="22" FontFamily="Gill Sans MT Bold" Foreground="#E0CBA8" Height="40" Background="#4F772D" HorizontalContentAlignment="Center"/>
-                <ListBox ItemsSource="{Binding Lb_jaeger}" Height="290"/>
+                <DataGrid Loaded="DataGrid_Loaded" SelectedItem="{Binding SelectedItemJaeger}" ItemsSource="{Binding Lb_jaeger}" Height="290">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Vorname" Width="110" Binding="{Binding DataGridVorname}" />
+                        <DataGridTextColumn Header="Nachname" Width="130" Binding="{Binding DataGridNachname}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                
              
             </StackPanel>
             <StackPanel Grid.Column="4" Background="White" Height="330" VerticalAlignment="Top" Margin="0,0,-34,0">
@@ -81,7 +87,7 @@
             </StackPanel>
             <Button Command="{Binding Btn_bestaetigen}" Grid.Column="4" Content="Bestätigen" Background="White" Height="30"   BorderBrush="#230C0F" Margin="256,330,-34,0" />
             <Button Command="{Binding Btn_abbrechen}" Grid.Column="4" Content="Abbrechen" Background="White" Height="30"  BorderBrush="#230C0F" Margin="0,330,263,0" />
-            <Button Command="{Binding Btn_hinzufuegen}" Grid.Column="2" Content="Hinzufügen" Height="30" Background="White" BorderBrush="#230C0F" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"/>
+            <Button Click="btnHinzufuegen_Click" Command="{Binding Btn_hinzufuegen}" Grid.Column="2" Content="Hinzufügen" Height="30" Background="White" BorderBrush="#230C0F" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"/>
             <Button Command="{Binding Btn_jaeger_entfernen}" Content="Entfernen" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"  BorderBrush="#230C0F" Background="White" Height="30"/>
         </Grid>
     </ContentControl>

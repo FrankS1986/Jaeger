@@ -5,17 +5,25 @@ using GalaSoft.MvvmLight.Command;
 using JaegerMeister.MvvmSample.Logic.Ui.Services;
 using JaegerMeister.MvvmSample.Logic.Ui.Models;
 using System.Collections.Generic;
+using GalaSoft.MvvmLight.Messaging;
+using JaegerMeister.MvvmSample.Logic.Ui.Messages;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
 
     public class Logic_Jaeger_Bearbeiten : ViewModelBase, INotifyPropertyChanged
     {
-        //initiert Service Klasse mit Methode zum füllen der ListBox
-        JaegerHinzufuegenService serv = new JaegerHinzufuegenService();
+        //initiert Service Klasse zum Bearbeiten des Jägers
+        JaegerBearbeitenService servEdit = new JaegerBearbeitenService();
+
+        private List<GetJaegerInfoModel> _getJaegerInfoList;
+        public List<GetJaegerInfoModel> DataGridVorname
+        {
+
+        }
 
         //erstellt Liste vom Typ IDVorNachnameModel, ruft serv. Methode auf zum Anzeigen im Datagrid "Lb_jaeger"
-        private List<IDVorNachnameModel> _listIDVorNachname = new List<IDVorNachnameModel>();
+        private List<IDVorNachnameModel> _listIDVorNachname;
         public List<IDVorNachnameModel> Lb_jaeger
         {
             get
@@ -24,6 +32,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 return _listIDVorNachname;
             }
         }
+
 
         private ICommand _btn_jaeger_hinzufuegen;
 
@@ -75,11 +84,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_bestaetigen = new RelayCommand(() =>
                     {
-                        Logic_Jaeger_Informationen logic = new Logic_Jaeger_Informationen();
 
-                        //Hier Logik einfügen
                     });
-
                 }
                 return _btn_bestaetigen;
             }
@@ -105,22 +111,36 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private string _tb_vor_und_nachname;
-
-        public string Tb_vor_und_nachname
+        private List<tbl_Funktionen> _funktion;
+        public List <tbl_Funktionen> Aufgabe
         {
             get
             {
-                return _tb_vor_und_nachname;
+                return _funktion;
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _funktion = value;
+                RaisePropertyChanged("Funktion");
+            }
+        }
+
+        private List<tbl_Anrede> _anrede;
+        public List<tbl_Anrede> Anrede
+        {
+            get
+            {
+                return _anrede;
+                
+            }
+            set
+            {
+                _anrede = value;
+                RaisePropertyChanged("Anrede");
             }
         }
 
         private string _tb_vorname;
-
         public string Tb_vorname
         {
             get

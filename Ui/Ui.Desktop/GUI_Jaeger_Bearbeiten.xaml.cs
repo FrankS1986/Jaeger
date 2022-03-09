@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Messaging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using JaegerMeister.MvvmSample.Logic.Ui.Messages;
 
 
 
@@ -25,8 +27,31 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         public Jaeger_Bearbeiten()
         {
             InitializeComponent();
+            Messenger.Default.Register<JaegerBearbeitenErfolgsMessage>(this, (JaegerBearbeitenErfolgsMessage editSuccess) =>
+            {
+                if (editSuccess.JaegerBearbeitenErfolg == true)
+                {
+                    MessageBox.Show("Jäger wurde erfolgreich bearbeitet");
+                }
+                else
+                {
+                    MessageBox.Show("Irgendetwas ist schief gelaufen, sorry.");
+                }
+            });
         }
 
-   
+        private void btnHinzufuegen_Click(object sender, RoutedEventArgs e)
+        {
+            GUI_JaegerHinzufuegen jaegerhinzufuegen = new GUI_JaegerHinzufuegen();
+            Content = jaegerhinzufuegen;
+        }
+
+        private void DataGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
+
+
 }
+
