@@ -13,7 +13,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
     public class UrkundenerstellenService
     {
         /// <summary>
-        /// erstellt Termine Liste
+        /// Erstellt eine Termine Liste von Typ Treibjagd
         /// </summary>
         /// <returns></returns>
         public List<tbl_Termine> TermineListe()
@@ -42,7 +42,11 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 
         }
 
-
+         /// <summary>
+         /// Erstellt eine Liste von Jägern die sich für diesen Termin angemeldet haben
+         /// </summary>
+         /// <param name="jaegerID"></param>
+         /// <returns></returns>
         public List<Teilname> Jaeger(int jaegerID)
         {
 
@@ -50,7 +54,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
             {
                 var teilnahme = from a in ctx.tbl_Rueckmeldung
                                 where a.Termine_ID == jaegerID
-                                select new { a.Jäger_ID,a.Termine_ID };
+                                select new { a.Jäger_ID, a.Termine_ID };
 
                 var listeJaeger = new List<Teilname>();
                 if (teilnahme.Count() >= 1)
@@ -59,16 +63,16 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                     {
                         var jaeger = from a in ctx.tbl_Jaeger
                                      where a.Jäger_ID == item.Jäger_ID
-                                     from b in ctx. tbl_Termine
-                                     where b.Termine_ID == item.Termine_ID 
-                                     select new { a.Jäger_ID, a.Vorname, a.Nachname, a.Anrede, b.Termine_ID, b.Ort, b.DatumUhrzeit,b.Typ };
+                                     from b in ctx.tbl_Termine
+                                     where b.Termine_ID == item.Termine_ID
+                                     select new { a.Jäger_ID, a.Vorname, a.Nachname, a.Anrede, b.Termine_ID, b.Ort, b.DatumUhrzeit, b.Typ };
 
                         foreach (var b in jaeger)
                         {
                             listeJaeger.Add(new Teilname()
                             {
                                 ID = b.Jäger_ID,
-                                Anrede =b.Anrede,
+                                Anrede = b.Anrede,
                                 Vorname = b.Vorname,
                                 Nachname = b.Nachname,
                                 Ort = b.Ort,
@@ -84,6 +88,11 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                 return listeJaeger;
             }
         }
+        /// <summary>
+        /// Erstellt eine Liste von Jägern die Extrag Urkunden bekommen sollen
+        /// </summary>
+        /// <param name="xy"></param>
+        /// <returns></returns>
         public List<Urkunden> EhrungenErstellen(List<Teilname> xy)
         {
             var liste = new List<Urkunden>();
@@ -97,6 +106,12 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                         ID = i.ID,
                         Vorname = i.Vorname,
                         Nachname = i.Nachname,
+                        Ort= i.Ort,
+                        Anrede=i.Anrede,
+                        Datum = i.Datum.Date,
+                        Typ = i.Typ
+
+
 
                     });
                 }
@@ -104,8 +119,13 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
             return liste;
         }
 
-
-        public void Erstellen(List<Teilname> teilname, List<Urkunden> urkunden,object filename, object SaveAs)
+         /// <summary>
+         /// Erstellt für den Teilnehmenden Jäger eine Teilnahme Uhrkunde
+         /// </summary>
+         /// <param name="teilname"></param>
+         /// <param name="filename"></param>
+         /// <param name="SaveAs"></param>
+        public void Erstellen(Teilname teilname, object filename, object SaveAs)
         {
 
             Word.Application wordApp = new Word.Application();
@@ -126,18 +146,80 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                 myWordDoc.Activate();
 
 
-                foreach (var item in teilname)
-                {
-                    this.FindAndReplace(wordApp, "<anrede>", item.Anrede);
-                    this.FindAndReplace(wordApp, "<name>", item.Vorname);
-                    this.FindAndReplace(wordApp, "<nachname>", item.Nachname);
 
-                    this.FindAndReplace(wordApp, "<typ>", item.Typ);
-                    this.FindAndReplace(wordApp, "<ort>", item.Ort);
-                    this.FindAndReplace(wordApp, "<datum>", item.Datum.Date);
+                this.FindAndReplace(wordApp, "<anrede>", teilname.Anrede);
+                this.FindAndReplace(wordApp, "<name>", teilname.Vorname);
+                this.FindAndReplace(wordApp, "<nachname>", teilname.Nachname);
 
-                    this.FindAndReplace(wordApp, "<now>", DateTime.Now.Date);
-                }
+                this.FindAndReplace(wordApp, "<typ>", teilname.Typ);
+                this.FindAndReplace(wordApp, "<ort>", teilname.Ort);
+                this.FindAndReplace(wordApp, "<datum>", teilname.Datum.Date);
+
+                this.FindAndReplace(wordApp, "<now>", DateTime.Now.Date);
+
+
+
+
+            }
+            else
+            {
+
+            }
+
+            //Save as
+            myWordDoc.SaveAs2(ref SaveAs, ref missing, ref missing, ref missing,
+                            ref missing, ref missing, ref missing,
+                            ref missing, ref missing, ref missing,
+                            ref missing, ref missing, ref missing,
+                            ref missing, ref missing, ref missing);
+
+            myWordDoc.Close();
+            wordApp.Quit();
+
+
+
+        }
+
+
+
+         /// <summary>
+         /// Erstellt eine Ehrenurkunde oder eine Standardurkunde für die ausgewählten Jäger
+         /// </summary>
+         /// <param name="teilname"></param>
+         /// <param name="filename"></param>
+         /// <param name="SaveAs"></param>
+        public void UrkundenErstellen(Urkunden teilname, object filename, object SaveAs)
+        {
+
+            Word.Application wordApp = new Word.Application();
+            object missing = Missing.Value;
+            Word.Document myWordDoc = null;
+
+            if (File.Exists((string)filename))
+            {
+                object readOnly = false;
+                object isVisible = false;
+                wordApp.Visible = false;
+
+                myWordDoc = wordApp.Documents.Open(ref filename, ref missing, ref readOnly,
+                                        ref missing, ref missing, ref missing,
+                                        ref missing, ref missing, ref missing,
+                                        ref missing, ref missing, ref missing,
+                                        ref missing, ref missing, ref missing, ref missing);
+                myWordDoc.Activate();
+
+
+
+                this.FindAndReplace(wordApp, "<anrede>", teilname.Anrede);
+                this.FindAndReplace(wordApp, "<name>", teilname.Vorname);
+                this.FindAndReplace(wordApp, "<nachname>", teilname.Nachname);
+
+                this.FindAndReplace(wordApp, "<typ>", teilname.Typ);
+                this.FindAndReplace(wordApp, "<ort>", teilname.Ort);
+                this.FindAndReplace(wordApp, "<datum>", teilname.Datum.Date);
+
+                this.FindAndReplace(wordApp, "<now>", DateTime.Now.Date);
+
 
 
 
@@ -165,14 +247,14 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 
 
 
-    
 
 
-
-
-
-
-
+         /// <summary>
+         /// Findet den Text im Dokument
+         /// </summary>
+         /// <param name="wordApp"></param>
+         /// <param name="ToFindText"></param>
+         /// <param name="replaceWithText"></param>
         private void FindAndReplace(Word.Application wordApp, object ToFindText, object replaceWithText)
         {
             object matchCase = true;
@@ -221,6 +303,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 
         public class Urkunden
         {
+            public string Anrede { get; set; }
             public string Vorname { get; set; }
             public string Nachname { get; set; }
             public int ID { get; set; }

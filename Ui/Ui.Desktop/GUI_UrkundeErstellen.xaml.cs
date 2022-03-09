@@ -2,6 +2,7 @@
 using JaegerMeister.MvvmSample.Logic.Ui.Messages;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,16 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         public GUI_UrkundeErstellen()
         {
             InitializeComponent();
+            Messenger.Default.Register<UrkundenErstellenProgressbarStartenMessage>(this, (UrkundenErstellenProgressbarStartenMessage loginProof) =>
+            {
+                if (loginProof.erfolg == true)
+                {
+                    GUI_ProgressbarWindow window = new GUI_ProgressbarWindow();
+                    
+                    window.Show();
+                }
 
+            });
 
         }
 

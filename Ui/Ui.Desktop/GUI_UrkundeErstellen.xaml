@@ -32,7 +32,7 @@
                 
             </DataGrid>
             <Label Grid.Row="0" Grid.Column="2" Content="Teilnahme" FontSize="22" FontFamily="Gill Sans MT Bold" HorizontalContentAlignment="Center" Background="#4F772D" Foreground="#E0CBA8"></Label>
-            <DataGrid CanUserAddRows="False" AutoGenerateColumns="False"  GridLinesVisibility="None" Grid.Row="1" Grid.Column="2" ItemsSource="{Binding Jaegerliste}">
+            <DataGrid CanUserAddRows="False" AutoGenerateColumns="False"  GridLinesVisibility="None" Grid.Row="1" Grid.Column="2" ItemsSource="{Binding Jaegerliste}" SelectedItem="{Binding SelectedJaeger}" >
                 <DataGrid.Columns>
                     <DataGridTextColumn IsReadOnly="True" Header="Vorname" Binding="{Binding Vorname }"/>
                     <DataGridTextColumn IsReadOnly="True" Header="Nachname"  Binding="{Binding Nachname }"/>

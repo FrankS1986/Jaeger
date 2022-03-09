@@ -1,13 +1,16 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
+using JaegerMeister.MvvmSample.Logic.Ui.Dokumente;
 using JaegerMeister.MvvmSample.Logic.Ui.Messages;
 using JaegerMeister.MvvmSample.Logic.Ui.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using static JaegerMeister.MvvmSample.Logic.Ui.Services.UrkundenerstellenService;
@@ -29,15 +32,34 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     if (SelectedTermin != null)
                     {
-                        Jaegerliste.Clear();
+                        if (Jaegerliste != null)
+                        {
+                            Jaegerliste.Clear();
+                        }
                         Jaegerliste = serv.Jaeger(SelectedTermin.Termine_ID);
-                        Ehrungen.Clear();
+                        if (Ehrungen != null)
+                        {
+                            Ehrungen.Clear();
+                        }
                     }
                 }
 
             });
         }
+        private int _laden;
+        public int Laden
+        {
+            get
+            {
+                return _laden;
+            }
 
+            set
+            {
+                _laden = value;
+                RaisePropertyChanged("Laden");
+            }
+        }
         private ICommand _jaegerbewegen;
 
         public ICommand Jaegerbewegen
@@ -73,6 +95,12 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 return _abbrechen;
             }
         }
+
+         void Aufgabe()
+        {
+            Messenger.Default.Send<UrkundenErstellenProgressbarStartenMessage>(new UrkundenErstellenProgressbarStartenMessage { erfolg = true });
+        }
+
         private ICommand _urkundenErstellen;
 
         public ICommand UrkundenErstellen
@@ -83,14 +111,77 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _urkundenErstellen = new RelayCommand(() =>
                     {
+                        Aufgabe();
+                       
+                        
+                        if (SelectedTermin != null)
+                        {
+                            int dokumente = Jaegerliste.Count();
+
+                            int count = 0;
+                            if (Ehrungen != null)
+                            {
+                                foreach (var i in Ehrungen)
+                                {
+                                    if (i.Standard)
+                                    {
+                                        count++;
+                                    }
+                                    if (i.Ehrenuhrkunde)
+                                    {
+                                        count++;
+                                    }
+                                }
+                            }
+                            int result = 100 / (count + dokumente);
+                            
+                            
+                           
+
+                            Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + SelectedTermin.Bezeichnung + SelectedTermin.DatumUhrzeit.Year);
+                            string ordner = SelectedTermin.Bezeichnung + SelectedTermin.DatumUhrzeit.Year;
+                            foreach (var item in Jaegerliste)
+                            {
+                                
+                                Laden += result;
+                                
+                                string x = SelectedTermin.DatumUhrzeit.Year.ToString();
+                                string zusammengesetzt = SelectedTermin.Typ + x + item.Nachname + item.ID.ToString();
+                                string str = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + ordner + "\\" + zusammengesetzt + ".docx";
+
+                                serv.Erstellen(item, Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\JaegerTeilnahmeurkunde.docx"), str);
+
+                            }
 
 
+                            if (Ehrungen != null)
+                            {
+                                foreach (var item in Ehrungen)
+                                {
+                                    if (item.Standard)
+                                    {
+                                        Laden += result;
+                                        string x = SelectedTermin.DatumUhrzeit.Year.ToString();
+                                        string zusammengesetzt = "StandardUrkunde" + SelectedTermin.Typ + x + item.Nachname + item.ID.ToString();
+                                        string str = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + ordner + "\\" + zusammengesetzt + ".docx";
 
+                                        serv.UrkundenErstellen(item, Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\JaegerStandardehrung.docx"), str);
+                                    }
 
+                                    if (item.Ehrenuhrkunde)
+                                    {
+                                        Laden += result;
+                                        string x = SelectedTermin.DatumUhrzeit.Year.ToString();
+                                        string zusammengesetzt = "Ehrenuhrkunde" + SelectedTermin.Typ + x + item.Nachname + item.ID.ToString();
+                                        string str = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + ordner + "\\" + zusammengesetzt + ".docx";
 
+                                        serv.UrkundenErstellen(item, Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\JaegerEhrenurkunde.docx"), str);
+                                    }
 
+                                }
+                            }
 
-
+                        }
 
 
                     });
@@ -114,6 +205,22 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             {
                 _selectedTermin = value;
                 RaisePropertyChanged("SelectedTermin");
+            }
+        }
+
+
+        private Teilname _selectedJaeger;
+
+        public Teilname SelectedJaeger
+        {
+            get
+            {
+                return _selectedJaeger;
+            }
+            set
+            {
+                _selectedJaeger = value;
+                RaisePropertyChanged("SelectedJaeger");
             }
         }
 
