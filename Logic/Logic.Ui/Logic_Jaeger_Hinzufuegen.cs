@@ -55,7 +55,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         //erstellt Liste vom Typ IDVorNachnameModel, ruft serv. Methode auf zum Anzeigen im Datagrid "JaegerListe"
         private List<IDVorNachnameModel> _listIDVorNachname = new List<IDVorNachnameModel>();
-
         public List<IDVorNachnameModel> JaegerListe
         {
             get

@@ -25,12 +25,17 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         public GUI_JaegerHinzufuegen()
         {
             InitializeComponent();
+
+            //registriert ob das hinzufügen erfolgreich war. Informiert User per MessageBox über den Erfolg und leitet weiter zur Jäger Info GUI, bei misserfolg wird lediglich MessageBox gezeigt
             Messenger.Default.Register<JaegerHinzufuegenErfolgsMessage>(this, (JaegerHinzufuegenErfolgsMessage loginProof) =>
             {
                 if (loginProof.Success == true)
                 {
                     MessageBox.Show("Jäger erfolgreich hinzugefügt");
-                  
+
+                    GUI_JaegerInformationen jaegerInfos = new GUI_JaegerInformationen();
+
+                    Content = jaegerInfos;
                 }
                 else
                 {

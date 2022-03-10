@@ -45,8 +45,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
             return _listeIDVorNachname;
         }
         #endregion ListeIDVorNachname
-
-        
+                
         #region boolNeuerJaeger
         /// <summary>
         /// Methode um einen neuen Jäger in der DB anzulegen übernimmt die Angaben aus den ausgeüllten Feldern und speichert sie entsprechend in der DB
@@ -87,6 +86,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                 return liste;
             }
         }
+
         public List<tbl_Funktionen> Funktionen()
         {
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())

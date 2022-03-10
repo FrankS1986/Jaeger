@@ -21,9 +21,9 @@
                 <Label Content="Personen" FontSize="22" FontFamily="Gill Sans MT Bold" Foreground="#E0CBA8" Background="#4F772D" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="286"/>
                 <DataGrid FontSize="16" ItemsSource="{Binding JaegerListe}" Height="323" GridLinesVisibility="None" AutoGenerateColumns="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding ID}" Header="ID" Width="30"/>
-                        <DataGridTextColumn Binding="{Binding Vorname}" Header="Vorname" Width="110"/>
-                        <DataGridTextColumn Binding="{Binding Nachname}" Header="Nachname" Width="130"/>
+                        <!--<DataGridTextColumn Binding="{Binding ID}" Header="ID" Width="30"/>-->
+                        <DataGridTextColumn Binding="{Binding Vorname}" Header="Vorname" Width="125"/>
+                        <DataGridTextColumn Binding="{Binding Nachname}" Header="Nachname" Width="145"/>
                     </DataGrid.Columns>
                     </DataGrid>
             </StackPanel>
