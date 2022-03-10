@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui.Models
 {
-    //Klasse für den Bau der Liste, wie oft eine Tierart erlegt wurde.
+    //Klasse für den Bau der Liste, wie oft eine Tierart erlegt wurde, für die Abschussliste
     public class TierAbschussModel
     {
         private string _tierart;
