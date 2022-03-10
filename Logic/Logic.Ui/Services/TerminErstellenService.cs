@@ -56,7 +56,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Bitte verwenden Sie keine Buchtsaben für Zeitangaben!");
+                        MessageBox.Show("Bitte verwenden Sie dieses Format als Zeitangabe: 15:30!");
                         return false;
                     }
                 }
@@ -100,7 +100,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Bitte verwenden Sie keine Buchtsaben für Zeitangaben!");
+                        MessageBox.Show("Bitte verwenden Sie dieses Format als Zeitangabe: 15:30!");
                         return false;
                     }
                 }
