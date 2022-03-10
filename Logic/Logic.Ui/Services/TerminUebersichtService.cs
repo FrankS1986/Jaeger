@@ -49,12 +49,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                 var termine = from a in ctx.tbl_Termine
                               where a.Termine_ID == id
                               select a;
-                foreach (tbl_Termine del in termine)
-                {
-                    ctx.tbl_Termine.Remove(del);
-                }
+                ctx.tbl_Termine.RemoveRange(termine);
                 ctx.SaveChanges();
-
                 return termine;
             }
         }
