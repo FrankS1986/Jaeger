@@ -22,8 +22,8 @@
                 <DataGrid IsReadOnly="True" FontSize="16" ItemsSource="{Binding JaegerListe}" Height="323" GridLinesVisibility="None" AutoGenerateColumns="False">
                     <DataGrid.Columns>
                         <!--<DataGridTextColumn Binding="{Binding ID}" Header="ID" Width="30"/>-->
-                        <DataGridTextColumn Binding="{Binding Vorname}" Header="Vorname" Width="125"/>
-                        <DataGridTextColumn Binding="{Binding Nachname}" Header="Nachname" Width="145"/>
+                        <DataGridTextColumn Binding="{Binding Vorname}" Header="Vorname" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding Nachname}" Header="Nachname" Width="130"/>
                     </DataGrid.Columns>
                     </DataGrid>
             </StackPanel>
