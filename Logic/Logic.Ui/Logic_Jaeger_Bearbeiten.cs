@@ -6,6 +6,8 @@ using JaegerMeister.MvvmSample.Logic.Ui.Services;
 using System.Collections.Generic;
 using GalaSoft.MvvmLight.Messaging;
 using System.Windows;
+using System;
+using JaegerMeister.MvvmSample.Logic.Ui.Messages;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
@@ -15,8 +17,13 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         //initiert Service Klasse zum Bearbeiten des Jägers
         JaegerBearbeitenService servEdit = new JaegerBearbeitenService();
 
+        JaegerHinzufuegenService serv = new JaegerHinzufuegenService();
+
         public Logic_Jaeger_Bearbeiten()
         {
+            //Aufgabe = serv.Funktionen();
+            //Anrede = serv.Anrede();
+
             Messenger.Default.Register<string>(this, (prop) =>
             {
 
@@ -33,7 +40,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                         Tb_vorname = SelectedItemJaeger.Vorname;
                         Tb_nachname = SelectedItemJaeger.Nachname;
                         Cb_anrede = SelectedItemJaeger.Anrede;
-                        Dp_geburtstag = SelectedItemJaeger.Geburtsdatum.ToString();
+                        Dp_geburtstag = (DateTime)SelectedItemJaeger.Geburtsdatum;
                         Tb_straße = SelectedItemJaeger.Straße;
                         Tb_hausnummer = SelectedItemJaeger.Hausnummer;
                         Tb_adresszusatz = SelectedItemJaeger.Adresszusatz;
@@ -43,15 +50,30 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                         Tb_telefonnummer2 = SelectedItemJaeger.Telefonnummer2;
                         Tb_telefonnummer3 = SelectedItemJaeger.Telefonnummer3;
                         Tb_email = SelectedItemJaeger.Email;
-                        Cb_funtkion = SelectedItemJaeger.Funktion;
+                        Cb_funktion = SelectedItemJaeger.Funktion;
                         Tb_jagdhunde = SelectedItemJaeger.Jagdhund;
 
                     }
                 }
                 else if (prop.Equals("Change"))
                 {
-                    //beim wechsel des ContentControls wild die Jägerauswahl entfernt
+                    //beim wechsel des ContentControls wild die Jägerauswahl entfernt & die Boxen zurückgesetzt
                     SelectedItemJaeger = null;
+
+                    #region TextBoxenZurücksetzen
+                    Tb_vorname = null;
+                    Tb_nachname = null;
+                    Tb_straße = null;
+                    Tb_hausnummer = null;
+                    Tb_adresszusatz = null;
+                    Tb_postleitzahl = null;
+                    Tb_wohnort = null;
+                    Tb_telefonnummer1 = null;
+                    Tb_telefonnummer2 = null;
+                    Tb_telefonnummer3 = null;
+                    Tb_email = null;
+                    Tb_jagdhunde = null;
+                    #endregion TextBoxenZurücksetzen
                 }
             });
         }
@@ -84,29 +106,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-
-
-
-
-        private ICommand _btn_jaeger_hinzufuegen;
-
-        public ICommand Btn_jaeger_hinzufuegen
-        {
-            get
-            {
-                if (_btn_jaeger_hinzufuegen == null)
-                {
-                    _btn_jaeger_hinzufuegen = new RelayCommand(() =>
-                    {
-                        Logic_Jaeger_Informationen logic = new Logic_Jaeger_Informationen();
-
-                        //Hier Logik einfügen
-                    });
-
-                }
-                return _btn_jaeger_hinzufuegen;
-            }
-        }
 
         private ICommand _btn_jaeger_entfernen;
 
@@ -148,31 +147,37 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_bestaetigen = new RelayCommand(() =>
                     {
+                        if (SelectedItemJaeger != null)
+                        {
+                            if (!string.IsNullOrEmpty(Tb_vorname) && !string.IsNullOrEmpty(Tb_nachname) && !string.IsNullOrEmpty(Tb_straße) && !string.IsNullOrEmpty(Tb_hausnummer) && !string.IsNullOrEmpty(Tb_postleitzahl) && !string.IsNullOrEmpty(Tb_wohnort) && !string.IsNullOrEmpty(Tb_telefonnummer1) && Cb_anrede != null)
+                            {
+                                var newItem = new tbl_Jaeger()
+                                {
+                                    Anrede = Cb_anrede,
+                                    Vorname = Tb_vorname,
+                                    Nachname = Tb_nachname,
+                                    Straße = Tb_straße,
+                                    Hausnummer = Tb_hausnummer,
+                                    Adresszusatz = Tb_adresszusatz,
+                                    Postleitzahl = Tb_postleitzahl,
+                                    Wohnort = Tb_wohnort,
+                                    Telefonnummer1 = Tb_telefonnummer1,
+                                    Telefonnummer2 = Tb_telefonnummer2,
+                                    Telefonnummer3 = Tb_telefonnummer3,
+                                    Email = Tb_email,
+                                    Geburtsdatum = Dp_geburtstag,
+                                    Funktion = Cb_funktion,
+                                    Jagdhund = Tb_jagdhunde
+                                };
 
+                                Messenger.Default.Send<JaegerBearbeitenErfolgsMessage>(new JaegerBearbeitenErfolgsMessage { JaegerBearbeitenErfolg = servEdit.OverwriteJaegerInfo(newItem, SelectedItemJaeger.Jäger_ID) });
+                            }
+                        }
                     });
                 }
                 return _btn_bestaetigen;
             }
-        }
 
-        private ICommand _btn_abbrechen;
-
-        public ICommand Btn_abbrechen
-        {
-            get
-            {
-                if (_btn_abbrechen == null)
-                {
-                    _btn_abbrechen = new RelayCommand(() =>
-                    {
-                        Logic_Jaeger_Informationen logic = new Logic_Jaeger_Informationen();
-
-                        //Hier Logik einfügen
-                    });
-
-                }
-                return _btn_abbrechen;
-            }
         }
 
         private List<tbl_Funktionen> _funktion;
@@ -188,6 +193,20 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 RaisePropertyChanged("Funktion");
             }
         }
+
+        //private tbl_Anrede _cb_anrede;
+        //public tbl_Anrede Cb_anrede
+        //{
+        //    get
+        //    {
+        //        return _cb_anrede;
+        //    }
+        //    set
+        //    {
+        //        _cb_anrede = value;
+        //        RaisePropertyChanged("Cb_anrede");
+        //    }
+        //}
 
         private List<tbl_Anrede> _anrede;
         public List<tbl_Anrede> Anrede
@@ -247,9 +266,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private string _dp_geburtstag;
+        private DateTime _dp_geburtstag;
 
-        public string Dp_geburtstag
+        public DateTime Dp_geburtstag
         {
             get
             {
@@ -399,7 +418,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         private string _cb_funktion;
 
-        public string Cb_funtkion
+        public string Cb_funktion
         {
             get
             {

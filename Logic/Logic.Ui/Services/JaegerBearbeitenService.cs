@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 
@@ -65,6 +66,46 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 
             }
 
+        }
+
+        public bool OverwriteJaegerInfo(tbl_Jaeger neuerJaeger, int id)
+        {
+            using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
+            {
+                var jaeger = from abfrage in ctx.tbl_Jaeger
+                             where abfrage.Jäger_ID == id
+                             select new
+                             {
+                                 abfrage.Jäger_ID,
+                                 abfrage.Vorname,
+                                 abfrage.Nachname,
+                                 abfrage.Anrede,
+                                 abfrage.Straße,
+                                 abfrage.Hausnummer,
+                                 abfrage.Adresszusatz,
+                                 abfrage.Postleitzahl,
+                                 abfrage.Wohnort,
+                                 abfrage.Telefonnummer1,
+                                 abfrage.Telefonnummer2,
+                                 abfrage.Telefonnummer3,
+                                 abfrage.Email,
+                                 abfrage.Geburtsdatum,
+                                 abfrage.Funktion,
+                                 abfrage.Jagdhund
+
+                             };
+                try
+                {
+                    ctx.tbl_Jaeger.Add(neuerJaeger);
+                    ctx.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                    throw ex;
+                }
+            }
         }
 
         public IQueryable DeleteJaeger (int id)
