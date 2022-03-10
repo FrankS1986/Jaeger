@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Messaging;
+using JaegerMeister.MvvmSample.Logic.Ui.Messages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,7 +26,13 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         {
             InitializeComponent();
 
-            
+            Messenger.Default.Register<ProgressbarValueMessage>(this, (ProgressbarValueMessage wert) =>
+            {
+               // MessageBox.Show("e");
+                //Ladebalken.Value = wert.Value;
+            });
+
+
         }
     }
 }

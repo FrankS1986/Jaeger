@@ -96,10 +96,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-         void Aufgabe()
-        {
-            Messenger.Default.Send<UrkundenErstellenProgressbarStartenMessage>(new UrkundenErstellenProgressbarStartenMessage { erfolg = true });
-        }
+         
 
         private ICommand _urkundenErstellen;
 
@@ -111,9 +108,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _urkundenErstellen = new RelayCommand(() =>
                     {
-                        Aufgabe();
-                       
-                        
+                        Messenger.Default.Send<UrkundenErstellenProgressbarStartenMessage>(new UrkundenErstellenProgressbarStartenMessage { erfolg = true });
+
+
                         if (SelectedTermin != null)
                         {
                             int dokumente = Jaegerliste.Count();
@@ -143,8 +140,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                             foreach (var item in Jaegerliste)
                             {
                                 
-                                Laden += result;
                                 
+                                Messenger.Default.Send<ProgressbarValueMessage>(new ProgressbarValueMessage { Value = Laden += result});
                                 string x = SelectedTermin.DatumUhrzeit.Year.ToString();
                                 string zusammengesetzt = SelectedTermin.Typ + x + item.Nachname + item.ID.ToString();
                                 string str = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + ordner + "\\" + zusammengesetzt + ".docx";
@@ -160,7 +157,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                                 {
                                     if (item.Standard)
                                     {
-                                        Laden += result;
+                                        Messenger.Default.Send<ProgressbarValueMessage>(new ProgressbarValueMessage { Value = Laden += result });
                                         string x = SelectedTermin.DatumUhrzeit.Year.ToString();
                                         string zusammengesetzt = "StandardUrkunde" + SelectedTermin.Typ + x + item.Nachname + item.ID.ToString();
                                         string str = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + ordner + "\\" + zusammengesetzt + ".docx";
@@ -170,7 +167,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
                                     if (item.Ehrenuhrkunde)
                                     {
-                                        Laden += result;
+                                        Messenger.Default.Send<ProgressbarValueMessage>(new ProgressbarValueMessage { Value = Laden += result });
                                         string x = SelectedTermin.DatumUhrzeit.Year.ToString();
                                         string zusammengesetzt = "Ehrenuhrkunde" + SelectedTermin.Typ + x + item.Nachname + item.ID.ToString();
                                         string str = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + ordner + "\\" + zusammengesetzt + ".docx";

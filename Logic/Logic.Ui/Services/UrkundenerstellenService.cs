@@ -131,7 +131,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
             Word.Application wordApp = new Word.Application();
             object missing = Missing.Value;
             Word.Document myWordDoc = null;
-
+              // Überprüft  ob das Dokument Existiert
             if (File.Exists((string)filename))
             {
                 object readOnly = false;

@@ -45,5 +45,11 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
             Messenger.Default.Send<UrkundenErstellenErfolgsMessage>(new UrkundenErstellenErfolgsMessage { erfolg = true });
            
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            GUI_Kalender kalender = new GUI_Kalender();
+            UrkundenErstellen.Content = kalender;
+        }
     }
 }
