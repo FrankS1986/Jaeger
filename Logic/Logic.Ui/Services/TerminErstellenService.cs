@@ -33,6 +33,11 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                             MessageBox.Show("Die Zeitangabe ist ungültig!");
                             return false;
                         }
+                        else if (datum < DateTime.Today)
+                        {
+                            MessageBox.Show("Sie haben einen Tag ausgewählt, der in der Vergangenheit liegt!");
+                            return false;
+                        }
                         else
                         {
                             datum = datum.AddHours(Convert.ToDouble(einheit[0]));
@@ -71,6 +76,11 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                         else if (Convert.ToDouble(einheit[1]) >= 60)
                         {
                             MessageBox.Show("Die Zeitangabe ist ungültig!");
+                            return false;
+                        }
+                        else if (datum < DateTime.Today)
+                        {
+                            MessageBox.Show("Sie haben einen Tag ausgewählt, der in der Vergangenheit liegt!");
                             return false;
                         }
                         else
