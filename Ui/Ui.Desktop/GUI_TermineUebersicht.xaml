@@ -69,7 +69,7 @@
                 <TextBox FontFamily="Gill Sans MT Regular" FontSize="12" Text="{Binding Txt_UebersichtBezeichnung}" IsReadOnly="True" Margin="20,1"></TextBox>
                 <Label FontFamily="Gill Sans MT Regular" FontSize="18"  Margin="20,1">Wo?</Label>
                 <TextBox FontFamily="Gill Sans MT Regular" FontSize="12" Text="{Binding Txt_UebersichtOrt}" IsReadOnly="True" Margin="20,1"></TextBox>
-                <Label FontFamily="Gill Sans MT Regular" FontSize="18" Margin="20,1">Datum</Label>
+                <Label FontFamily="Gill Sans MT Regular" FontSize="18" Margin="20,1">Datum und Uhrzeit</Label>
                 <TextBox FontFamily="Gill Sans MT Regular" FontSize="12" Text="{Binding Txt_UebersichtDatum}" IsReadOnly="True" Margin="20,1"></TextBox>
             </StackPanel>
         </Grid>
