@@ -27,7 +27,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             BBnachname = "#230C0F";
             BBgeburtstag = "#230C0F";
             BBstrasse = "#230C0F";
-            BBhausnummer = "#230C0F";
+            //BBhausnummer = "#230C0F";
             BBadresszusatz = "#230C0F";
             BBplz = "#230C0F";
             BBwohnort = "#230C0F";
@@ -46,7 +46,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         /// <returns></returns>
         private string ValidateInput(string field)
         {
-            if (string.IsNullOrEmpty(field) || field == " " || field == "  " || field == "   ")
+            field.Trim();
+            if (string.IsNullOrEmpty(field))
             {
                 return "Red";
             }
@@ -80,7 +81,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     _btn_jaeger_hinzufuegen = new RelayCommand(() =>
                     {
 
-                        if (!string.IsNullOrEmpty(Tb_vorname) && !string.IsNullOrEmpty(Tb_nachname) && !string.IsNullOrEmpty(Tb_straße) && !string.IsNullOrEmpty(Tb_hausnummer) && !string.IsNullOrEmpty(Tb_postleitzahl) && !string.IsNullOrEmpty(Tb_wohnort) && !string.IsNullOrEmpty(Tb_telefonnummer1) && Cb_anrede != null)
+                        if (!string.IsNullOrEmpty(Tb_vorname) && !string.IsNullOrEmpty(Tb_nachname) && !string.IsNullOrEmpty(Tb_straße) && /*!string.IsNullOrEmpty(Tb_hausnummer) && */!string.IsNullOrEmpty(Tb_postleitzahl) && !string.IsNullOrEmpty(Tb_wohnort) && !string.IsNullOrEmpty(Tb_telefonnummer1) && Cb_anrede != null)
                         {
                             var newItem = new tbl_Jaeger()
                             {
@@ -88,7 +89,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                                 Vorname = Tb_vorname,
                                 Nachname = Tb_nachname,
                                 Straße = Tb_straße,
-                                Hausnummer = Tb_hausnummer,
+                                Hausnummer = Tb_hausnummer.ToString(),
                                 Adresszusatz = Tb_adresszusatz,
                                 Postleitzahl = Tb_postleitzahl,
                                 Wohnort = Tb_wohnort,
@@ -105,7 +106,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                             Tb_vorname = null;
                             Tb_nachname = null;
                             Tb_straße = null;
-                            Tb_hausnummer = null;
+                            Tb_hausnummer = 0;
                             Tb_adresszusatz = null;
                             Tb_postleitzahl = null;
                             Tb_wohnort = null;
@@ -126,7 +127,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                             BBvorname = ValidateInput(Tb_vorname);
                             BBnachname = ValidateInput(Tb_nachname);
                             BBstrasse = ValidateInput(Tb_straße);
-                            BBhausnummer = ValidateInput(Tb_hausnummer);
+                            //BBhausnummer = ValidateInput(Tb_hausnummer);
                             BBplz = ValidateInput(Tb_postleitzahl);
                             BBwohnort = ValidateInput(Tb_wohnort);
                             BBtel1 = ValidateInput(Tb_telefonnummer1);
@@ -351,8 +352,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private string _BBhausnummer;
-        public string BBhausnummer
+        private int _BBhausnummer;
+        public int BBhausnummer
         {
             get
             {
@@ -365,8 +366,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-        private string _tb_hausnummer;
-        public string Tb_hausnummer
+        private int _tb_hausnummer;
+        public int Tb_hausnummer
         {
             get
             {

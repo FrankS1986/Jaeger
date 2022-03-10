@@ -21,12 +21,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
             _listeIDVorNachname.Clear();
 
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
-            {
-               //If Abfrage um zu vermeiden, dass die Liste mehrmals hintereinander angezeigt wird
-               
-                    /* Ruft alles aus der DB außer ID 10, welche für Wildunfalle steht*/
+            {   /* Ruft alles aus der DB außer ID 10, welche für Wildunfalle steht*/
                     var nameIndex = from abfrage in ctx.tbl_Jaeger
-                                    where abfrage.Jäger_ID != 10
+                                    where abfrage.Vorname != "Wildunfall"
                                     select new
                                     {
                                         abfrage.Jäger_ID,
@@ -57,20 +54,26 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
             {
                {
-
-                    try
+                    if (Int32.TryParse(neuerJaeger.Hausnummer, out int stringToInt))
                     {
-                        ctx.tbl_Jaeger.Add(neuerJaeger);
-                        ctx.SaveChanges();
-                        return true;
-                    }
 
-                    catch (Exception ex)
+                        try
+                        {
+                            ctx.tbl_Jaeger.Add(neuerJaeger);
+                            ctx.SaveChanges();
+                            return true;
+                        }
+
+                        catch (Exception ex)
+                        {
+                            return false;
+                            throw ex;
+                        }
+                    }
+                    else
                     {
                         return false;
-                        throw ex;
                     }
-
 
                 }
             }

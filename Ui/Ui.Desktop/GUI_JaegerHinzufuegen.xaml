@@ -19,7 +19,7 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.ColumnSpan="3" Grid.RowSpan="3">
                 <Label Content="Personen" FontSize="22" FontFamily="Gill Sans MT Bold" Foreground="#E0CBA8" Background="#4F772D" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="286"/>
-                <DataGrid FontSize="16" ItemsSource="{Binding JaegerListe}" Height="323" GridLinesVisibility="None" AutoGenerateColumns="False">
+                <DataGrid IsReadOnly="True" FontSize="16" ItemsSource="{Binding JaegerListe}" Height="323" GridLinesVisibility="None" AutoGenerateColumns="False">
                     <DataGrid.Columns>
                         <!--<DataGridTextColumn Binding="{Binding ID}" Header="ID" Width="30"/>-->
                         <DataGridTextColumn Binding="{Binding Vorname}" Header="Vorname" Width="125"/>
