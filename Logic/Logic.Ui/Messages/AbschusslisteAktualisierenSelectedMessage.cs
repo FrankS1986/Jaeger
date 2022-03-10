@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui.Messages
 {
+    //Klasse für die Message die einen erfolgreichen/nicht erfolgreichen neuen eingetragenen
+    //Abschuss meldet
    public class AbschusslisteAktualisierenSelectedMessage
     {
         public bool? Abfrage { get; set; }
