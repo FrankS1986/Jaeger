@@ -37,15 +37,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         {
             get
             {
-                GesamtAbschuesse = 0;
-                _abschuesse = 0;
                 _abschussListe =  service_Abschussliste.JaegerAbschuesse();
-                foreach(var item in _abschussListe)
-                {
-                    _abschuesse += item.Abschüsse;
-                }
-                GesamtAbschuesse = _abschuesse;
-                RaisePropertyChanged("GesamtAbschuesse");
                 return _abschussListe;
             }
             set
@@ -57,12 +49,19 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         //Diese Property fuellt das Datagrid mit den Tieren und wie oft sie erlegt worden sind.
         //Dies schließt Unfaelle mit ein!        
-        List<TierAbschussModel> _tierErlegtListe = new List<TierAbschussModel>();
+        List<TierAbschussModel> _tierErlegtListe = new List<TierAbschussModel>();       
         public List<TierAbschussModel> TierSchussListe
         {
             get
             {
                 _tierErlegtListe = service_Abschussliste.TierAbschussListeMethode(_tierartSelectedItem.Tierart);
+                GesamtAbschuesse = 0;
+                _abschuesse = 0;
+                foreach (var item in _tierErlegtListe)
+                {
+                    _abschuesse += item.Abschüsse;
+                }
+                GesamtAbschuesse = _abschuesse;
                 return _tierErlegtListe;
             }
             set
