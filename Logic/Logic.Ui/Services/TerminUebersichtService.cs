@@ -19,6 +19,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
             {
                 var termine = from a in ctx.tbl_Termine
+                              where a.Bezeichnung != "Wildunfall" && a.DatumUhrzeit >= DateTime.Today
+                              orderby a.DatumUhrzeit
                               select new { a.Termine_ID, a.Bezeichnung, a.Typ, a.Ort, a.DatumUhrzeit };
                 var liste = new List<tbl_Termine>();
 

@@ -45,7 +45,7 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
             Content = einladungsrueckmeldung;
         }
 
-        private void DataGrid_Loaded(object sender, RoutedEventArgs e)
+        private void Termine_Loaded(object sender, RoutedEventArgs e)
         {
             Messenger.Default.Send("Termine");
         }

@@ -19,15 +19,62 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
     public class Logic_Termine : ViewModelBase, INotifyPropertyChanged
     {
-        TerminUebersichtService serv1 = new TerminUebersichtService();
-        TerminErstellenService serv2 = new TerminErstellenService();
+        TerminUebersichtService ueber = new TerminUebersichtService();
+        TerminErstellenService erstell = new TerminErstellenService();
+        public class Type
+        {
+            private string _typ;
+            public string Typ
+            {
+                get
+                {
+                    return _typ;
+                }
+                set
+                {
+                    _typ = value;
+                }
+            }
+        }
+        private ObservableCollection<Type> _typ;
+        public ObservableCollection<Type> Typ
+        {
+            get
+            {
+                return _typ;
+            }
+            set
+            {
+                _typ = value;
+            }
+        }
+        private Type _selectedTyp;
+        public Type SelectedTyp
+        {
+            get
+            {
+                return _selectedTyp;
+            }
+            set
+            {
+                _selectedTyp = value;
+            }
+        }
         public Logic_Termine()
         {
+            Typ = new ObservableCollection<Type>()
+            {
+                new Type() {Typ="Treibjagd"},
+                new Type() {Typ="Geburtstag"},
+                new Type() {Typ="Treffen"},
+                new Type() {Typ="Versammlung"},
+                new Type() {Typ="Sonstige"}
+            };
             Messenger.Default.Register<string>(this, (prop) =>
             {
                 if (prop.Equals("Termine"))
                 {
-                    List_UebersichtAnstehendeTermine = serv1.terminUebersicht();
+                    List_UebersichtAnstehendeTermine = ueber.terminUebersicht();
                 }
                 else if (prop.Equals("Select"))
                 {
@@ -36,18 +83,48 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                         Txt_UebersichtBezeichnung = SelectedTermin.Bezeichnung;
                         Txt_UebersichtOrt = SelectedTermin.Ort;
                         Txt_UebersichtDatum = SelectedTermin.DatumUhrzeit.ToString();
-                        List_UebersichtEingeladenePersonen = serv1.Personen(SelectedTermin.Termine_ID);
+                        List_UebersichtEingeladenePersonen = ueber.Personen(SelectedTermin.Termine_ID);
                     }
                 }
+                //<summary
+                //Nimmt die Informationen vom ausgewählten Termin und packt diese in die entsprechenden Boxen.
+                //</summary>
                 else if (prop.Equals("Bearbeiten"))
                 {
                     if (SelectedTermin != null)
                     {
+                        int count = 0;
                         id = SelectedTermin.Termine_ID;
-                        string[] zeit = SelectedTermin.DatumUhrzeit.ToString().Split();
                         Txt_Bezeichnung = SelectedTermin.Bezeichnung;
                         Txt_Ort = SelectedTermin.Ort;
-                        Txt_Typ = SelectedTermin.Typ;
+                        //<summary>
+                        //Wenn der Termin-Typ vorhanden ist, wird dieser in der ComboBox ausgewählt. Wenn nicht, dann wird ein neuer Termin-Typ erstellt und dieser wird dann ausgewählt.
+                        //</summary>
+                        foreach (var item in Typ)
+                        {
+                            if (item.Typ == SelectedTermin.Typ)
+                            {
+                                SelectedTyp = item;
+                                break;
+                            }
+                            else
+                            {
+                                count++;
+                            }
+                        }
+                        if (count == Typ.Count)
+                        {
+                            Typ.Add(new Type() { Typ = SelectedTermin.Typ });
+                            foreach (var item in Typ)
+                            {
+                                if (item.Typ == SelectedTermin.Typ)
+                                {
+                                    SelectedTyp = item;
+                                    break;
+                                }
+                            }
+                        }
+                        string[] zeit = SelectedTermin.DatumUhrzeit.ToString().Split();
                         Datepicker_Datum = Convert.ToDateTime(zeit[0]);
                         Txt_Uhrzeit = zeit[1];
                     }
@@ -57,7 +134,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     id = 0;
                     Txt_Bezeichnung = "";
                     Txt_Ort = "";
-                    Txt_Typ = "";
+                    SelectedTyp = null;
                     Datepicker_Datum = DateTime.Today;
                     Txt_Uhrzeit = "";
                 }
@@ -65,14 +142,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     Datepicker_Datum = DateTime.Today;
                 }
-                else if (prop.Equals("Bestaetigen"))
-                {
-                    serv2.Termin(id, Txt_Bezeichnung, Txt_Ort, Txt_Uhrzeit, Txt_Typ, Datepicker_Datum);
-                }
             });
         }
         public int id = 0;
-        private string _txt_UebersichtOrt, _txt_UebersichtDatum, _txt_bezeichnung, _txt_Ort;
 
         private List<tbl_Termine> _list_UebersichtAnstehendeTermine;
         public List<tbl_Termine> List_UebersichtAnstehendeTermine
@@ -140,7 +212,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_UebersichtTerminhinzufuegen = new RelayCommand(() =>
                     {
-                        Messenger.Default.Send("Termin");
+
                     });
                 }
                 return _btn_UebersichtTerminhinzufuegen;
@@ -160,7 +232,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                         if (result == MessageBoxResult.Yes)
                         {
                             MessageBox.Show("Der Termin '" + SelectedTermin.Bezeichnung + "' wurde gelöscht.");
-                            serv1.terminLoeschen(SelectedTermin.Termine_ID);
+                            ueber.terminLoeschen(SelectedTermin.Termine_ID);
                             Messenger.Default.Send("Termine");
                         }
                         else if (result == MessageBoxResult.No)
@@ -181,7 +253,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_UebersichtBearbeiten = new RelayCommand(() =>
                     {
-                        
+
                     });
                 }
                 return _btn_UebersichtBearbeiten;
@@ -196,7 +268,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_Abbruch = new RelayCommand(() =>
                     {
-                        
+
                     });
                 }
                 return _btn_Abbruch;
@@ -211,7 +283,25 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_Bestaetigen = new RelayCommand(() =>
                     {
-                        Messenger.Default.Send("Bestaetigen");
+                        if (Txt_Bezeichnung == null || Txt_Ort == null || SelectedTyp == null || Txt_Uhrzeit == null)
+                        {
+                            MessageBox.Show("Bitte füllen Sie alle Felder aus!");
+                        }
+                        else
+                        {
+                            if (erstell.Termin(id, Txt_Bezeichnung, Txt_Ort, Txt_Uhrzeit, SelectedTyp.Typ, Datepicker_Datum))
+                            {
+                                Messenger.Default.Send("Richtig");
+                                Txt_UebersichtBezeichnung = "";
+                                Txt_UebersichtOrt = "";
+                                Txt_UebersichtDatum = "";
+                                Txt_Bezeichnung = "";
+                                Txt_Ort = "";
+                                SelectedTyp = null;
+                                Datepicker_Datum = DateTime.Today;
+                                Txt_Uhrzeit = "";
+                            }
+                        }
                     });
                 }
                 return _btn_Bestaetigen;
@@ -230,6 +320,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 RaisePropertyChanged("Txt_UebersichtBezeichnung");
             }
         }
+        private string _txt_UebersichtOrt;
         public string Txt_UebersichtOrt
         {
             get
@@ -242,6 +333,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 RaisePropertyChanged("Txt_UebersichtOrt");
             }
         }
+        private string _txt_UebersichtDatum;
         public string Txt_UebersichtDatum
         {
             get
@@ -254,6 +346,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 RaisePropertyChanged("Txt_UebersichtDatum");
             }
         }
+        private string _txt_bezeichnung;
         public string Txt_Bezeichnung
         {
             get
@@ -266,6 +359,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 RaisePropertyChanged("Txt_Bezeichnung");
             }
         }
+        private string _txt_Ort;
         public string Txt_Ort
         {
             get

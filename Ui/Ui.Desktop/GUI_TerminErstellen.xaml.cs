@@ -37,11 +37,15 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
 
         private void Bestaetigen_Click(object sender, RoutedEventArgs e)
         {
-            Messenger.Default.Send("Bestaetigen");
+            Messenger.Default.Register<string>(this, (prop) =>
+            {
+                if (prop.Equals("Richtig"))
+                {
+                    GUI_TermineUebersicht termineUebersicht = new GUI_TermineUebersicht();
 
-            GUI_TermineUebersicht termineUebersicht = new GUI_TermineUebersicht();
-
-            Content = termineUebersicht;
+                    Content = termineUebersicht;
+                }
+            });
         }
     }
 }
