@@ -39,7 +39,7 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
                 }
                 else
                 {
-                    MessageBox.Show("Irgendetwas ist schief gelaufen, sorry.");
+                    MessageBox.Show("Alle Pflichtfelder müssen korrekt ausgefüllt sein.");
                 }
             });
         }
