@@ -2,6 +2,7 @@
 using JaegerMeister.MvvmSample.Logic.Ui.Messages;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -25,13 +26,34 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         public GUI_ProgressbarWindow()
         {
             InitializeComponent();
-
-            Messenger.Default.Register<ProgressbarValueMessage>(this, (ProgressbarValueMessage wert) =>
+            // Beendet die Seite GUI_ProgressbarWindow
+            Messenger.Default.Register<ProgressbarValueMessage>(this, (ProgressbarValueMessage loginProof) =>
             {
-               // MessageBox.Show("e");
-                //Ladebalken.Value = wert.Value;
+                MessageBox.Show("Dokumente erstellen abgeschlossen");
+                Close();
+
             });
 
+
+
+        }
+        /// <summary>
+        /// Prosse arbeiten weiter auch wenn das programm geschlossen wird
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = false;
+        }
+
+        /// <summary>
+        /// Beendet die Registrierung  vom Messenger.Default.Register
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            Messenger.Default.Unregister<ProgressbarValueMessage>(this);
 
         }
     }

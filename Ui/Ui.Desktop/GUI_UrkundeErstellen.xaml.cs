@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -28,10 +29,11 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
             InitializeComponent();
             Messenger.Default.Register<UrkundenErstellenProgressbarStartenMessage>(this, (UrkundenErstellenProgressbarStartenMessage loginProof) =>
             {
-                if (loginProof.erfolg == true)
+                if (loginProof.Erfolg == true)
                 {
+                    // Öffnet den Ladebildschirm
                     GUI_ProgressbarWindow window = new GUI_ProgressbarWindow();
-                    
+
                     window.Show();
                 }
 
@@ -39,17 +41,30 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
 
         }
 
+
+
+        /// <summary>
+        /// Sendet eine Nachricht  wenn der user eine eine Auswahl trifft
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-            Messenger.Default.Send<UrkundenErstellenErfolgsMessage>(new UrkundenErstellenErfolgsMessage { erfolg = true });
-           
-        }
+            Messenger.Default.Send<UrkundenErstellenErfolgsMessage>(new UrkundenErstellenErfolgsMessage { Erfolg = true });
 
+        }
+         /// <summary>
+         /// Öffnet neu Seite
+         /// </summary>
+         /// <param name="sender"></param>
+         /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             GUI_Kalender kalender = new GUI_Kalender();
             UrkundenErstellen.Content = kalender;
         }
+
+
     }
 }

@@ -5,9 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui.Messages
-{
-   public class UrkundenErstellenProgressbarStartenMessage
+{     /// <summary>
+      /// Sendet eine Message das so das sich der Lade Bildschrim öffnet
+      /// </summary>
+    public class UrkundenErstellenProgressbarStartenMessage
     {
-        public bool? erfolg { get; set; }
+        public bool? Erfolg { get; set; }
     }
 }

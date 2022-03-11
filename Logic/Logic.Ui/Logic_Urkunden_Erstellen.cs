@@ -22,13 +22,15 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         UrkundenerstellenService serv = new UrkundenerstellenService();
 
-
+        /// <summary>
+        /// Leert die Listen
+        /// </summary>
         public Logic_Urkunden_Erstellen()
         {
             Termin = serv.TermineListe();
             Messenger.Default.Register<UrkundenErstellenErfolgsMessage>(this, (UrkundenErstellenErfolgsMessage loginProof) =>
             {
-                if (loginProof.erfolg == true)
+                if (loginProof.Erfolg == true)
                 {
                     if (SelectedTermin != null)
                     {
@@ -46,6 +48,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
             });
         }
+
         private int _laden;
         public int Laden
         {
@@ -96,7 +99,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
-         
+
 
         private ICommand _urkundenErstellen;
 
@@ -108,75 +111,22 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _urkundenErstellen = new RelayCommand(() =>
                     {
-                        Messenger.Default.Send<UrkundenErstellenProgressbarStartenMessage>(new UrkundenErstellenProgressbarStartenMessage { erfolg = true });
+                        Messenger.Default.Send<UrkundenErstellenProgressbarStartenMessage>(new UrkundenErstellenProgressbarStartenMessage { Erfolg = true });
 
 
                         if (SelectedTermin != null)
                         {
-                            int dokumente = Jaegerliste.Count();
 
-                            int count = 0;
-                            if (Ehrungen != null)
-                            {
-                                foreach (var i in Ehrungen)
-                                {
-                                    if (i.Standard)
-                                    {
-                                        count++;
-                                    }
-                                    if (i.Ehrenuhrkunde)
-                                    {
-                                        count++;
-                                    }
-                                }
-                            }
-                            int result = 100 / (count + dokumente);
-                            
-                            
-                           
-
-                            Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + SelectedTermin.Bezeichnung + SelectedTermin.DatumUhrzeit.Year);
-                            string ordner = SelectedTermin.Bezeichnung + SelectedTermin.DatumUhrzeit.Year;
-                            foreach (var item in Jaegerliste)
-                            {
-                                
-                                
-                                Messenger.Default.Send<ProgressbarValueMessage>(new ProgressbarValueMessage { Value = Laden += result});
-                                string x = SelectedTermin.DatumUhrzeit.Year.ToString();
-                                string zusammengesetzt = SelectedTermin.Typ + x + item.Nachname + item.ID.ToString();
-                                string str = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + ordner + "\\" + zusammengesetzt + ".docx";
-
-                                serv.Erstellen(item, Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\JaegerTeilnahmeurkunde.docx"), str);
-
-                            }
+                            // Hier wird ein Thread erstellt der den Fortschritt der Dokumente erstellung übergibt
+                            BackgroundWorker worker = new BackgroundWorker();
+                            worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
+                            worker.WorkerReportsProgress = true;
+                            worker.DoWork += worker_DoWork;
+                            worker.ProgressChanged += worker_ProgressChanged;
+                            worker.RunWorkerAsync();
 
 
-                            if (Ehrungen != null)
-                            {
-                                foreach (var item in Ehrungen)
-                                {
-                                    if (item.Standard)
-                                    {
-                                        Messenger.Default.Send<ProgressbarValueMessage>(new ProgressbarValueMessage { Value = Laden += result });
-                                        string x = SelectedTermin.DatumUhrzeit.Year.ToString();
-                                        string zusammengesetzt = "StandardUrkunde" + SelectedTermin.Typ + x + item.Nachname + item.ID.ToString();
-                                        string str = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + ordner + "\\" + zusammengesetzt + ".docx";
 
-                                        serv.UrkundenErstellen(item, Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\JaegerStandardehrung.docx"), str);
-                                    }
-
-                                    if (item.Ehrenuhrkunde)
-                                    {
-                                        Messenger.Default.Send<ProgressbarValueMessage>(new ProgressbarValueMessage { Value = Laden += result });
-                                        string x = SelectedTermin.DatumUhrzeit.Year.ToString();
-                                        string zusammengesetzt = "Ehrenuhrkunde" + SelectedTermin.Typ + x + item.Nachname + item.ID.ToString();
-                                        string str = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + ordner + "\\" + zusammengesetzt + ".docx";
-
-                                        serv.UrkundenErstellen(item, Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\JaegerEhrenurkunde.docx"), str);
-                                    }
-
-                                }
-                            }
 
                         }
 
@@ -187,8 +137,106 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
+        /// <summary>
+        /// Übergibt den Status
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+
+            Laden = e.ProgressPercentage;
+
+        }
+        /// <summary>
+        /// Erstellt Dokumente
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void worker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            int anzahlDokumente = Jaegerliste.Count();
+
+            int count = 0;
+            if (Ehrungen != null)
+            {
+                foreach (var i in Ehrungen)
+                {
+                    if (i.Standard)
+                    {
+                        count++;
+                    }
+                    if (i.Ehrenurkunde)
+                    {
+                        count++;
+                    }
+                }
+            }
+            int result = 100 / (count + anzahlDokumente);
+
+            var worker = sender as BackgroundWorker;
+            worker.ReportProgress(0);
+            Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + SelectedTermin.Typ + SelectedTermin.DatumUhrzeit.Year);
+            string ordner = SelectedTermin.Typ + SelectedTermin.DatumUhrzeit.Year;
+            foreach (var item in Jaegerliste)
+            {
 
 
+                worker.ReportProgress(Laden += result);
+
+                string datum = SelectedTermin.DatumUhrzeit.Year.ToString();
+                string zusammengesetzt = SelectedTermin.Typ + datum + item.Nachname + item.ID.ToString();
+                string speicherort = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + ordner + "\\" + zusammengesetzt + ".docx";
+
+                serv.Erstellen(item, Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\JaegerTeilnahmeurkunde.docx"), speicherort);
+
+            }
+
+
+            if (Ehrungen != null)
+            {
+                foreach (var item in Ehrungen)
+                {    //Überprüft den ob ein Hacken gesetzt wurde oder nicht
+                    if (item.Standard)
+                    {
+                        worker.ReportProgress(Laden += result);
+                       
+                        string datum = SelectedTermin.DatumUhrzeit.Year.ToString();
+                        string zusammengesetzt = "StandardUrkunde" + SelectedTermin.Typ + datum + item.Nachname + item.ID.ToString();
+                        string speicherort = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + ordner + "\\" + zusammengesetzt + ".docx";
+
+                        serv.UrkundenErstellen(item, Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\JaegerStandardehrung.docx"), speicherort);
+                    }
+                    //Überprüft den ob ein Hacken gesetzt wurde oder nicht
+                    if (item.Ehrenurkunde)
+                    {
+                        worker.ReportProgress(Laden += result);
+
+                        string datum = SelectedTermin.DatumUhrzeit.Year.ToString();
+                        string zusammengesetzt = "Ehrenurkunde" + SelectedTermin.Typ + datum + item.Nachname + item.ID.ToString();
+                        string speicherort = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + ordner + "\\" + zusammengesetzt + ".docx";
+
+                        serv.UrkundenErstellen(item, Paths.GetFilePath("Logic\\Logic.Ui\\Dokumente\\JaegerEhrenurkunde.docx"), speicherort);
+                    }
+
+                }
+            }
+
+            worker.ReportProgress(100);
+        }
+        /// <summary>
+        /// Sendet eine Nachricht wenn alle Dokumente erstellt wurden
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            Laden = 100;
+            Messenger.Default.Send<ProgressbarValueMessage>(new ProgressbarValueMessage { });
+
+            Laden = 0;
+
+        }
 
         private tbl_Termine _selectedTermin;
 
@@ -223,19 +271,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
 
 
-        private string _dg_urkunden_erhalten;
-
-        public string Dg_urkunden_erhalten
-        {
-            get
-            {
-                return _dg_urkunden_erhalten;
-            }
-            set
-            {
-                _dg_urkunden_erhalten = value;
-            }
-        }
+       
 
         private List<tbl_Termine> _termine;
         public List<tbl_Termine> Termin

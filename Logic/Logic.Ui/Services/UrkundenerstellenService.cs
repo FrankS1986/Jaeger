@@ -22,31 +22,32 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
             {
                 var termine = from a in ctx.tbl_Termine
                               where a.Typ == "Treibjagd"
-                              select new { a.Termine_ID, a.Ort, a.DatumUhrzeit, a.Bezeichnung };
-                var liste = new List<tbl_Termine>();
+                              select new { a.Termine_ID, a.Ort, a.DatumUhrzeit, a.Bezeichnung, a.Typ };
+                var terminListe = new List<tbl_Termine>();
 
                 foreach (var item in termine)
                 {
-                    liste.Add(new tbl_Termine()
+                    terminListe.Add(new tbl_Termine()
                     {
                         Termine_ID = item.Termine_ID,
                         Bezeichnung = item.Bezeichnung,
                         Ort = item.Ort,
-                        DatumUhrzeit = item.DatumUhrzeit
+                        DatumUhrzeit = item.DatumUhrzeit,
+                        Typ = item.Typ
 
                     });
 
                 }
-                return liste;
+                return terminListe;
             }
 
         }
 
-         /// <summary>
-         /// Erstellt eine Liste von Jägern die sich für diesen Termin angemeldet haben
-         /// </summary>
-         /// <param name="jaegerID"></param>
-         /// <returns></returns>
+        /// <summary>
+        /// Erstellt eine Liste von Jägern die sich für diesen Termin angemeldet haben
+        /// </summary>
+        /// <param name="jaegerID"></param>
+        /// <returns></returns>
         public List<Teilname> Jaeger(int jaegerID)
         {
 
@@ -91,14 +92,14 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
         /// <summary>
         /// Erstellt eine Liste von Jägern die Extrag Urkunden bekommen sollen
         /// </summary>
-        /// <param name="xy"></param>
+        /// <param name="teilnameliste"></param>
         /// <returns></returns>
-        public List<Urkunden> EhrungenErstellen(List<Teilname> xy)
+        public List<Urkunden> EhrungenErstellen(List<Teilname> teilnameliste)
         {
             var liste = new List<Urkunden>();
-            foreach (var i in xy)
+            foreach (var i in teilnameliste)
             {
-                if (i.Ehrenuhrkunde)
+                if (i.Urkunde)
                 {
                     liste.Add(new Urkunden()
                     {
@@ -106,8 +107,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                         ID = i.ID,
                         Vorname = i.Vorname,
                         Nachname = i.Nachname,
-                        Ort= i.Ort,
-                        Anrede=i.Anrede,
+                        Ort = i.Ort,
+                        Anrede = i.Anrede,
                         Datum = i.Datum.Date,
                         Typ = i.Typ
 
@@ -119,19 +120,19 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
             return liste;
         }
 
-         /// <summary>
-         /// Erstellt für den Teilnehmenden Jäger eine Teilnahme Uhrkunde
-         /// </summary>
-         /// <param name="teilname"></param>
-         /// <param name="filename"></param>
-         /// <param name="SaveAs"></param>
+        /// <summary>
+        /// Erstellt für den Teilnehmenden Jäger eine Teilnahme Uhrkunde
+        /// </summary>
+        /// <param name="teilname"></param>
+        /// <param name="filename"></param>
+        /// <param name="SaveAs"></param>
         public void Erstellen(Teilname teilname, object filename, object SaveAs)
         {
 
             Word.Application wordApp = new Word.Application();
             object missing = Missing.Value;
             Word.Document myWordDoc = null;
-              // Überprüft  ob das Dokument Existiert
+            // Überprüft  ob das Dokument Existiert
             if (File.Exists((string)filename))
             {
                 object readOnly = false;
@@ -182,12 +183,12 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 
 
 
-         /// <summary>
-         /// Erstellt eine Ehrenurkunde oder eine Standardurkunde für die ausgewählten Jäger
-         /// </summary>
-         /// <param name="teilname"></param>
-         /// <param name="filename"></param>
-         /// <param name="SaveAs"></param>
+        /// <summary>
+        /// Erstellt eine Ehrenurkunde oder eine Standardurkunde für die ausgewählten Jäger
+        /// </summary>
+        /// <param name="teilname"></param>
+        /// <param name="filename"></param>
+        /// <param name="SaveAs"></param>
         public void UrkundenErstellen(Urkunden teilname, object filename, object SaveAs)
         {
 
@@ -249,12 +250,12 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 
 
 
-         /// <summary>
-         /// Findet den Text im Dokument
-         /// </summary>
-         /// <param name="wordApp"></param>
-         /// <param name="ToFindText"></param>
-         /// <param name="replaceWithText"></param>
+        /// <summary>
+        /// Findet den Text im Dokument
+        /// </summary>
+        /// <param name="wordApp"></param>
+        /// <param name="ToFindText"></param>
+        /// <param name="replaceWithText"></param>
         private void FindAndReplace(Word.Application wordApp, object ToFindText, object replaceWithText)
         {
             object matchCase = true;
@@ -282,7 +283,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                 ref matchDiactitics, ref matchAlefHamza,
                 ref matchControl);
         }
-
+        /// <summary>
+        ///  Die Klasse wird benötigt um Jäger um checkboxen im Datagrid auswählen zukönnen
+        /// </summary>
         public class Teilname
         {
             public string Anrede { get; set; }
@@ -296,11 +299,14 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 
             public int ID { get; set; }
 
-            public bool Ehrenuhrkunde { get; set; }
+            public bool Urkunde { get; set; }
 
 
         }
 
+        /// <summary>
+        /// Die Klasse wird benötigt um Jäger um checkboxen im Datagrid auswählen zukönnen
+        /// </summary>
         public class Urkunden
         {
             public string Anrede { get; set; }
@@ -312,7 +318,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
             public string Ort { get; set; }
             public DateTime Datum { get; set; }
 
-            public bool Ehrenuhrkunde { get; set; }
+            public bool Ehrenurkunde { get; set; }
             public bool Standard { get; set; }
 
 
