@@ -5,11 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui.Messages
-{
-   public class WildunfaelleErfolgsMessage
+{          /// <summary>
+           /// gibt aus ob der Wildunfall geklappt hat oder nicht
+           /// </summary>
+    public class WildunfaelleErfolgsMessage
     {
-      
-            public bool? wildunfallhizugefügt { get; set; }
-      
+
+        public bool? Wildunfallhinzugefuegt { get; set; }
+
     }
 }

@@ -17,7 +17,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
     {
         WildunfaelleService serv = new WildunfaelleService();
         public Logic_Wildunfaelle()
-        {    // Ort wird zurück gesetz beim neu laden des Fensters
+        {   
+            // Ort wird zurück gesetz beim neu laden des Fensters
             Datum = DateTime.Today.ToString();
             Messenger.Default.Register<string>(this, (prop) =>
             {
@@ -95,18 +96,18 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     {
                         if (StartDate <= DateTime.Today)
                         {
-                            if (!string.IsNullOrEmpty(Ort) && Tiere != null)
+                            if (!string.IsNullOrEmpty(Ort) && Tiere != null && !Ort.Contains(" "))
                             {
 
-
-                                Messenger.Default.Send<WildunfaelleErfolgsMessage>(new WildunfaelleErfolgsMessage { wildunfallhizugefügt = serv.Tierhinzufuegen(StartDate, SelectItem.Tiere_ID, Ort) });
+                                // neuer eintrag In Datenbank
+                                Messenger.Default.Send<WildunfaelleErfolgsMessage>(new WildunfaelleErfolgsMessage { Wildunfallhinzugefuegt = serv.Tierhinzufuegen(StartDate, SelectItem.Tiere_ID, Ort) });
 
                                 var newitem = new tbl_Jagderfolge()
 
                                 {
-                                    Jäger_ID = serv.jaegerID,
-                                    Termine_ID = serv.datumID,
-                                    Tiere_ID = serv.tierartID
+                                    Jäger_ID = serv.JaegerID,
+                                    Termine_ID = serv.DatumID,
+                                    Tiere_ID = serv.TierartID
 
 
                                 };
@@ -117,13 +118,13 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
                             else
                             {
-                                Messenger.Default.Send<WildunfaelleErfolgsMessage>(new WildunfaelleErfolgsMessage { wildunfallhizugefügt = false });
+                                Messenger.Default.Send<WildunfaelleErfolgsMessage>(new WildunfaelleErfolgsMessage { Wildunfallhinzugefuegt = false });
                             }
                         }
 
                         else
                         {
-                            Messenger.Default.Send<WildunfaelleErfolgsMessage>(new WildunfaelleErfolgsMessage { wildunfallhizugefügt = false });
+                            Messenger.Default.Send<WildunfaelleErfolgsMessage>(new WildunfaelleErfolgsMessage { Wildunfallhinzugefuegt = false });
                         }
 
                     });

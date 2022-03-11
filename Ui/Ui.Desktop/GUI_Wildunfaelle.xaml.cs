@@ -43,7 +43,7 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         {
             Messenger.Default.Register<WildunfaelleErfolgsMessage>(this, (WildunfaelleErfolgsMessage unfall) =>
             {
-                if (unfall.wildunfallhizugefügt == true)
+                if (unfall.Wildunfallhinzugefuegt == true)
                 {
                     MessageBox.Show("Wildunfall erfolgreich hinzugefügt");
 
@@ -65,9 +65,6 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
             Messenger.Default.Unregister<WildunfaelleErfolgsMessage>(this);
         }
 
-        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            
-        }
+       
     }
 }

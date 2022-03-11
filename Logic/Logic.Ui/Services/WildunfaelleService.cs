@@ -8,7 +8,10 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 {
     public class WildunfaelleService
     {
-
+             /// <summary>
+             /// Liste Tiere wird erstellt und sortiert
+             /// </summary>
+             /// <returns></returns>
         public List<tbl_Tiere> Tiere()
         {
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
@@ -23,12 +26,12 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
         }
 
 
-        public int datumID;
-        public int tierartID;
-        public DateTime time;
-        public int jaegerID;
+        public int DatumID;
+        public int TierartID;
+        public DateTime Time;
+        public int JaegerID;
         /// <summary>
-        ///      Erstellt ein Termin zum Wildunfall und ids abgefragt
+        ///      Erstellt ein Termin zum Wildunfall und ids werden abgefragt
         /// </summary>
         /// <param name="date"></param>
         /// <param name="id"></param>
@@ -38,7 +41,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
         {
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
             {
-                time = date;
+                Time = date;
                 try
                 {
                     tbl_Termine itbl_Termine = new tbl_Termine
@@ -54,56 +57,44 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 
 
 
-                    var IndexName = from a in ctx.tbl_Jaeger
+                    var indexName = from a in ctx.tbl_Jaeger
                                     where a.Vorname == "Wildunfall"
                                     select new { a.Jäger_ID };
 
-                    if (IndexName.Count() == 1)
+                    if (indexName.Count() == 1)
                     {
-                        foreach (var j in IndexName)
+                        foreach (var j in indexName)
                         {
-                            jaegerID = j.Jäger_ID;
+                            JaegerID = j.Jäger_ID;
                         }
 
                     }
 
-                    var IndexTier = from a in ctx.tbl_Tiere
+                    var indexTier = from a in ctx.tbl_Tiere
                                     where a.Tiere_ID == id
                                     select new { a.Tiere_ID };
 
-                    if (IndexTier.Count() == 1)
+                    if (indexTier.Count() == 1)
                     {
-                        foreach (var j in IndexTier)
+                        foreach (var j in indexTier)
                         {
-                            tierartID = j.Tiere_ID;
+                            TierartID = j.Tiere_ID;
                         }
 
                     }
 
-
-
-                    var IndexTermin = from tbl_Termine in ctx.tbl_Termine
+                    var indexTermin = from a in ctx.tbl_Termine
                                       select new
                                       {
-                                          Termine_ID = tbl_Termine.Termine_ID,
-                                          Ort = tbl_Termine.Ort,
-                                          DatumUhrzeit = tbl_Termine.DatumUhrzeit,
-                                          Bezeichnung = tbl_Termine.Bezeichnung,
-                                          Typ = tbl_Termine.Typ
+                                          Termine_ID = a.Termine_ID,
+                                          Ort = a.Ort,
+                                          DatumUhrzeit = a.DatumUhrzeit,
+                                          Bezeichnung = a.Bezeichnung,
+                                          Typ = a.Typ
                                       };
 
-
-                    int ergebnis = IndexTermin.Count();
-                    datumID = ergebnis;
-
-
-
-
-
-
-
-
-
+                    int ergebnis = indexTermin.Count();
+                    DatumID = ergebnis;
 
                     return true;
                 }
@@ -115,11 +106,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                     throw ex;
                 }
 
-
-
-
             }
-
 
         }
         /// <summary>
