@@ -34,7 +34,7 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         private void CheckIsNumeric(TextCompositionEventArgs e)
         {
             int result;
-
+            Abschuesse.Text.Contains(" ");
             if (!(int.TryParse(e.Text, out result)))
             {
                 e.Handled = true;

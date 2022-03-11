@@ -111,6 +111,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             set
             {
                 _abschuesse = value;
+
                 RaisePropertyChanged("Abschuesse");
             }
         }
