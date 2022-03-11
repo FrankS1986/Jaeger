@@ -94,7 +94,6 @@
     <Compile Include="Messages\LoginProofMessage.cs" />
     <Compile Include="Messages\RegistrierungsAbfrageBenutzer.cs" />
     <Compile Include="Messages\RegistrierungsErfolgsMessage.cs" />
-    <Compile Include="Models\GeburtstagModel.cs" />
     <Compile Include="Models\KalenderNextTerminModel.cs" />
     <Compile Include="Models\KalenderTermineModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

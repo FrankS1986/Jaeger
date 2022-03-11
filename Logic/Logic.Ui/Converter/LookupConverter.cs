@@ -12,9 +12,17 @@ using JaegerMeister.MvvmSample.Logic.Ui.Services;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui.Converter
 {
-    //LookupConverter markiert die Termine aus der Liste farblich
+    
     public class LookupConverter : IMultiValueConverter
     {
+        /// <summary>
+        /// LookupConverter markiert die Termine aus der Liste List<DateTime> farblich.
+        /// </summary>
+        /// <param name="values"></param>
+        /// <param name="targetType"></param>
+        /// <param name="parameter"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
             var date = (DateTime)values[0];

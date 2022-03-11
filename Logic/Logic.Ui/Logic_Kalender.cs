@@ -19,17 +19,18 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 {
     public class Logic_Kalender : ViewModelBase, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Aufruf der Klasse Kalenderservice.
+        /// </summary>
         KalenderService serv = new KalenderService();
-
-        
-        //Liste für die Anzeige der Termine im Kalender
-        public List<DateTime> Dates { get; } = new List<DateTime>();      
+        /// <summary>
+        /// Aufruf der Liste DateTime(LookUpConverter).
+        /// </summary>
+        public List<DateTime> Dates { get; } = new List<DateTime>();
         public Logic_Kalender()
         {
             Dg_TermineKalender = serv.Termine();
             Dg_KalenderAnzeige = serv.NextTermin(DateTime.Now);
-            
-            //Liste Termine wird befüllt. Neues DateTime erstellt.
             foreach (KalenderTermineModel termin in Dg_TermineKalender)
             {
                 DateTime dateTime = new DateTime(termin.DatumUhrzeit.Year, termin.DatumUhrzeit.Month, termin.DatumUhrzeit.Day);
