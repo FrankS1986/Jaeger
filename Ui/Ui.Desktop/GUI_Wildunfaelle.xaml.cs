@@ -27,6 +27,20 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         {
             InitializeComponent();
 
+           
+
+
+            Messenger.Default.Send("zuruecksetzen");
+
+
+        }
+           /// <summary>
+           /// Register wird initialisiert
+           /// </summary>
+           /// <param name="sender"></param>
+           /// <param name="e"></param>
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
             Messenger.Default.Register<WildunfaelleErfolgsMessage>(this, (WildunfaelleErfolgsMessage unfall) =>
             {
                 if (unfall.wildunfallhizugefügt == true)
@@ -40,15 +54,20 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
                     MessageBox.Show("Hinzufügen vom dem Wildunfall hat nicht geklappt ");
                 }
             });
-
-
-            Messenger.Default.Send("B");
-
-
+        }
+          /// <summary>
+          /// Register wird zurückgesetzt
+          /// </summary>
+          /// <param name="sender"></param>
+          /// <param name="e"></param>
+        private void UserControl_Unloaded(object sender, RoutedEventArgs e)
+        {
+            Messenger.Default.Unregister<WildunfaelleErfolgsMessage>(this);
         }
 
-        
-
-
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            
+        }
     }
 }
