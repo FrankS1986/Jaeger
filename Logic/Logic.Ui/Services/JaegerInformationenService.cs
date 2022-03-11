@@ -12,24 +12,24 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
         //Datenbank Verbindung InformationModel Liste
         public List<JaegerInformationModel> Jaeger()
         {
-            List<JaegerInformationModel> jaeger;
+            List<JaegerInformationModel> _jaeger;
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
             {
                 var infoJaeger = from a in ctx.tbl_Jaeger
-                                 where a.Nachname != "Wildunfall" && a.Vorname != "Wildunfall"
+                                 where a.Nachname != "Wildunfall"
                                  select new { a.Vorname, a.Nachname, a.Jäger_ID };
 
-                jaeger = new List<JaegerInformationModel>();
+                _jaeger = new List<JaegerInformationModel>();
                 foreach (var tempInfo in infoJaeger)
                 {
                     JaegerInformationModel info = new JaegerInformationModel();
                     info.Vorname = tempInfo.Vorname;
                     info.Nachname = tempInfo.Nachname;
                     info.Jäger_ID = tempInfo.Jäger_ID;
-                    jaeger.Add((JaegerInformationModel)info);
+                    _jaeger.Add((JaegerInformationModel)info);
                 }
             }
-            return jaeger;
+            return _jaeger;
         }
         //Datenbank Verbindung ID wird gesucht!
         public JaegerInformationSelectedModel Selected(int ID)
