@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui.Messages
 {
-   public class AbschusslisteAktualisierenSelectedMessage
+    /// <summary>
+    ///   Abfrage für ergfolgreichen Eintrag
+    /// </summary>
+    public class AbschusslisteAktualisierenSelectedMessage
     {
         public bool? Abfrage { get; set; }
     }
