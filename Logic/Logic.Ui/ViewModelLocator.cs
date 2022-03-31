@@ -1,6 +1,7 @@
 using CommonServiceLocator;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
+using JaegerMeister.MvvmSample.Logic.Ui.ViewModels;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
@@ -29,52 +30,52 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
-            SimpleIoc.Default.Register<Logic_DokumenteVerwalten>();
-            SimpleIoc.Default.Register<Logic_Urkunden_Erstellen>();
-            SimpleIoc.Default.Register<Logic_Admin>();
-            SimpleIoc.Default.Register<Logic_Termine>();
-            SimpleIoc.Default.Register<Logic_Abschussliste>();
-            SimpleIoc.Default.Register<Logic_Wildunfaelle>();
-            SimpleIoc.Default.Register<Logic_PasswortErneuern>();
-            SimpleIoc.Default.Register<Logic_Jaeger_Informationen>();
-            SimpleIoc.Default.Register<Logic_Jaeger_Hinzufuegen>();
-            SimpleIoc.Default.Register<Logic_Jaeger_Bearbeiten>();
-            SimpleIoc.Default.Register<Logic_EinladungErstellen>();
-            SimpleIoc.Default.Register<Logic_Einladungsuebersicht>();
-            SimpleIoc.Default.Register<Logic_Login>();
-            SimpleIoc.Default.Register<Logic_Sicherheitsfrage>();
-            SimpleIoc.Default.Register<Logic_Abschussliste>();
-            SimpleIoc.Default.Register<Logic_Registrierung>();
-            SimpleIoc.Default.Register<Logic_AbschusslisteAktualisieren>();
-            SimpleIoc.Default.Register<Logic_Einladungsrueckmeldung>();
-            SimpleIoc.Default.Register<Logic_PasswortAendern>();
-            SimpleIoc.Default.Register<Logic_NeuesPasswort>();
-            SimpleIoc.Default.Register<Logic_SicherheitsFragestellung>();
-            SimpleIoc.Default.Register<Logic_Kalender>();            
+            SimpleIoc.Default.Register<DokumenteVerwaltenViewModel>();
+            SimpleIoc.Default.Register<UrkundeErstellenViewModel>();
+            SimpleIoc.Default.Register<AdminViewModel>();
+            SimpleIoc.Default.Register<TermineViewModel>();
+            SimpleIoc.Default.Register<AbschusslisteViewModel>();
+            SimpleIoc.Default.Register<WildunfaelleViewModel>();
+            SimpleIoc.Default.Register<PasswortErneuernViewModel>();
+            SimpleIoc.Default.Register<JaegerInformationenViewModel>();
+            SimpleIoc.Default.Register<JaegerHinzufuegenViewModel>();
+            SimpleIoc.Default.Register<JaegerBearbeitenViewModel>();
+            SimpleIoc.Default.Register<EinladungErstellenViewModel>();
+            SimpleIoc.Default.Register<EinladungsuebersichtViewModel>();
+            SimpleIoc.Default.Register<LoginViewModel>();
+            SimpleIoc.Default.Register<SicherheitsfrageViewModel>();
+            SimpleIoc.Default.Register<AbschusslisteViewModel>();
+            SimpleIoc.Default.Register<RegistrierungViewModel>();
+            SimpleIoc.Default.Register<AbschusslisteAktualisierenViewModel>();
+            SimpleIoc.Default.Register<EinladungsrueckmeldungViewModel>();
+            SimpleIoc.Default.Register<PasswortAendernViewModel>();
+            SimpleIoc.Default.Register<NeuesPasswortViewModel>();
+            SimpleIoc.Default.Register<SicherheitsFragestellungViewModel>();
+            SimpleIoc.Default.Register<KalenderViewModel>();            
         }
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
-        public Logic_DokumenteVerwalten logic_DokumenteVerwalten => ServiceLocator.Current.GetInstance<Logic_DokumenteVerwalten>();
-        public Logic_Urkunden_Erstellen logic_UrkundenErstellen => ServiceLocator.Current.GetInstance<Logic_Urkunden_Erstellen>();
-        public Logic_Admin logic_Admin => ServiceLocator.Current.GetInstance<Logic_Admin>();
-        public Logic_Termine logic_Termine => ServiceLocator.Current.GetInstance<Logic_Termine>();
-        public Logic_Abschussliste logic_Abschussliste => ServiceLocator.Current.GetInstance<Logic_Abschussliste>();        
-        public Logic_Wildunfaelle logic_Wildunfaelle => ServiceLocator.Current.GetInstance<Logic_Wildunfaelle>();        
-        public Logic_PasswortErneuern logic_PasswortErneuern => ServiceLocator.Current.GetInstance<Logic_PasswortErneuern>();
-        public Logic_EinladungErstellen logic_EinladungErstellen => ServiceLocator.Current.GetInstance<Logic_EinladungErstellen>();
-        public Logic_Einladungsuebersicht logic_EinladungsUebersicht => ServiceLocator.Current.GetInstance<Logic_Einladungsuebersicht>();
-        public Logic_Login logic_Login => ServiceLocator.Current.GetInstance<Logic_Login>();       
-        public Logic_AbschusslisteAktualisieren logic_AbschusslisteAktualisieren => ServiceLocator.Current.GetInstance<Logic_AbschusslisteAktualisieren>();
-        public Logic_PasswortAendern logic_PasswortAendern => ServiceLocator.Current.GetInstance<Logic_PasswortAendern>();
-        public Logic_NeuesPasswort logic_NeuesPasswort => ServiceLocator.Current.GetInstance<Logic_NeuesPasswort>();
-        public Logic_Registrierung logic_Registrierung => ServiceLocator.Current.GetInstance<Logic_Registrierung>();
-        public Logic_Sicherheitsfrage logic_SicherheitsfrageZuruecksetzen => ServiceLocator.Current.GetInstance<Logic_Sicherheitsfrage>();
-        public Logic_Jaeger_Informationen logic_JaegerInformationen => ServiceLocator.Current.GetInstance<Logic_Jaeger_Informationen>();
-        public Logic_Jaeger_Hinzufuegen logic_Jaeger_Hinzufuegen => ServiceLocator.Current.GetInstance<Logic_Jaeger_Hinzufuegen>();
-        public Logic_Jaeger_Bearbeiten logic_jaegerBearbeiten => ServiceLocator.Current.GetInstance<Logic_Jaeger_Bearbeiten>();
-        public Logic_Einladungsrueckmeldung logic_EinladungsRueckmeldung => ServiceLocator.Current.GetInstance<Logic_Einladungsrueckmeldung>();
-        public Logic_SicherheitsFragestellung logic_SicherheitsFragestellung => ServiceLocator.Current.GetInstance<Logic_SicherheitsFragestellung>();
-        public Logic_Kalender logic_Kalender => ServiceLocator.Current.GetInstance<Logic_Kalender>();
+        public DokumenteVerwaltenViewModel DokumenteVerwalten => ServiceLocator.Current.GetInstance<DokumenteVerwaltenViewModel>();
+        public UrkundeErstellenViewModel UrkundenErstellen => ServiceLocator.Current.GetInstance<UrkundeErstellenViewModel>();
+        public AdminViewModel Admin => ServiceLocator.Current.GetInstance<AdminViewModel>();
+        public TermineViewModel Termine => ServiceLocator.Current.GetInstance<TermineViewModel>();
+        public AbschusslisteViewModel Abschussliste => ServiceLocator.Current.GetInstance<AbschusslisteViewModel>();        
+        public WildunfaelleViewModel Wildunfaelle => ServiceLocator.Current.GetInstance<WildunfaelleViewModel>();        
+        public PasswortErneuernViewModel PasswortErneuern => ServiceLocator.Current.GetInstance<PasswortErneuernViewModel>();
+        public EinladungErstellenViewModel EinladungErstellen => ServiceLocator.Current.GetInstance<EinladungErstellenViewModel>();
+        public EinladungsuebersichtViewModel EinladungsUebersicht => ServiceLocator.Current.GetInstance<EinladungsuebersichtViewModel>();
+        public LoginViewModel Login => ServiceLocator.Current.GetInstance<LoginViewModel>();       
+        public AbschusslisteAktualisierenViewModel AbschusslisteAktualisieren => ServiceLocator.Current.GetInstance<AbschusslisteAktualisierenViewModel>();
+        public PasswortAendernViewModel PasswortAendern => ServiceLocator.Current.GetInstance<PasswortAendernViewModel>();
+        public NeuesPasswortViewModel NeuesPasswort => ServiceLocator.Current.GetInstance<NeuesPasswortViewModel>();
+        public RegistrierungViewModel Registrierung => ServiceLocator.Current.GetInstance<RegistrierungViewModel>();
+        public SicherheitsfrageViewModel SicherheitsfrageZuruecksetzen => ServiceLocator.Current.GetInstance<SicherheitsfrageViewModel>();
+        public JaegerInformationenViewModel JaegerInformationen => ServiceLocator.Current.GetInstance<JaegerInformationenViewModel>();
+        public JaegerHinzufuegenViewModel Jaeger_Hinzufuegen => ServiceLocator.Current.GetInstance<JaegerHinzufuegenViewModel>();
+        public JaegerBearbeitenViewModel jaegerBearbeiten => ServiceLocator.Current.GetInstance<JaegerBearbeitenViewModel>();
+        public EinladungsrueckmeldungViewModel EinladungsRueckmeldung => ServiceLocator.Current.GetInstance<EinladungsrueckmeldungViewModel>();
+        public SicherheitsFragestellungViewModel SicherheitsFragestellung => ServiceLocator.Current.GetInstance<SicherheitsFragestellungViewModel>();
+        public KalenderViewModel Kalender => ServiceLocator.Current.GetInstance<KalenderViewModel>();
 
 
         public static void Cleanup()

@@ -1,0 +1,116 @@
+﻿using System.ComponentModel;
+using System.Windows.Input;
+using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
+using JaegerMeister.MvvmSample.Logic.Ui.Messages;
+
+namespace JaegerMeister.MvvmSample.Logic.Ui.ViewModels
+{
+    public class LoginViewModel : ViewModelBase, INotifyPropertyChanged
+    {
+        Service service = new Service();
+
+
+        #region Properties
+        private ICommand _btn_abbruch;
+        public ICommand btn_Abbruch
+        {
+            get
+            {
+                if (_btn_abbruch == null)
+                {
+                    _btn_abbruch = new RelayCommand(() =>
+                    {
+
+                    });
+
+                }
+                return _btn_abbruch;
+            }
+        }
+
+
+        private ICommand _btn_Registrieren;
+        public ICommand btn_Registrieren
+        {
+            get
+            {
+                if (_btn_Registrieren == null)
+                {
+                    _btn_Registrieren = new RelayCommand(() =>
+                    {
+
+                    });
+
+                }
+                return _btn_Registrieren;
+            }
+        }
+
+        private ICommand _btn_bestaetigen;
+        public ICommand btn_Bestaetigen
+        {
+
+            get
+            {
+                if (_btn_bestaetigen == null)
+                {
+                    _btn_bestaetigen = new RelayCommand(() =>
+                    {
+                        Messenger.Default.Send<LoginProofMessage>(new LoginProofMessage{proof = service.LoginSuccessful(tb_Benutzername, passwort) });
+
+                        Messenger.Default.Send<AdminAbfrage>(new AdminAbfrage { Abfrage = service.AdminSuccessful(tb_Benutzername) });
+                    });
+                }
+                return _btn_bestaetigen;
+            }
+        }
+
+        private string _tb_benutzername;
+        public string tb_Benutzername
+        {
+            get
+            {
+                return _tb_benutzername;
+            }
+            set
+            {
+                _tb_benutzername = value;
+                RaisePropertyChanged("tb_Benutzername");
+            }
+        }
+        private string _passwort;
+        public string passwort
+        {
+            get
+            {
+                return _passwort;
+            }
+            set
+            {
+                _passwort = value;
+                RaisePropertyChanged("passwort");
+            }
+        }
+
+        private ICommand _btn_passwortvergessen;
+        public ICommand btn_Passwortvergessen
+        {
+            get
+            {
+                if (_btn_passwortvergessen == null)
+                {
+                    _btn_passwortvergessen = new RelayCommand(() =>
+                    {
+                        ///Logic
+                    });
+                }
+                return _btn_passwortvergessen;
+            }
+        }
+
+        #endregion Properties
+    }
+}
+

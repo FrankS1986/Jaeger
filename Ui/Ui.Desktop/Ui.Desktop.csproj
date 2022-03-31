@@ -77,170 +77,170 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="GUI_DokumenteVerwalten.xaml.cs">
-      <DependentUpon>GUI_DokumenteVerwalten.xaml</DependentUpon>
+    <Compile Include="Controls\AbschusslisteAktualisierenControl.xaml.cs">
+      <DependentUpon>AbschusslisteAktualisierenControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI_Admin.xaml.cs">
-      <DependentUpon>GUI_Admin.xaml</DependentUpon>
+    <Compile Include="Controls\AbschusslisteControl.xaml.cs">
+      <DependentUpon>AbschusslisteControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI_EinladungsRueckmeldung.xaml.cs">
-      <DependentUpon>GUI_EinladungsRueckmeldung.xaml</DependentUpon>
+    <Compile Include="Controls\AdminControl.xaml.cs">
+      <DependentUpon>AdminControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI_Login.xaml.cs">
-      <DependentUpon>GUI_Login.xaml</DependentUpon>
+    <Compile Include="Controls\DokumenteVerwaltenControl.xaml.cs">
+      <DependentUpon>DokumenteVerwaltenControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI_AbschusslisteAktualisieren.xaml.cs">
-      <DependentUpon>GUI_AbschusslisteAktualisieren.xaml</DependentUpon>
+    <Compile Include="Controls\EinladungErstellenControl.xaml.cs">
+      <DependentUpon>EinladungErstellenControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI_Abschussliste.xaml.cs">
-      <DependentUpon>GUI_Abschussliste.xaml</DependentUpon>
+    <Compile Include="Controls\EinladungsRueckmeldungControl.xaml.cs">
+      <DependentUpon>EinladungsRueckmeldungControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI_TerminErstellen.xaml.cs">
-      <DependentUpon>GUI_TerminErstellen.xaml</DependentUpon>
+    <Compile Include="Controls\EinladungsuebersichtControl.xaml.cs">
+      <DependentUpon>EinladungsuebersichtControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI_TermineUebersicht.xaml.cs">
-      <DependentUpon>GUI_TermineUebersicht.xaml</DependentUpon>
+    <Compile Include="Controls\JaegerBearbeitenControl.xaml.cs">
+      <DependentUpon>JaegerBearbeitenControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI_PasswortErneuern.xaml.cs">
-      <DependentUpon>GUI_PasswortErneuern.xaml</DependentUpon>
+    <Compile Include="Controls\JaegerHinzufuegenControl.xaml.cs">
+      <DependentUpon>JaegerHinzufuegenControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI_PasswortAendern.xaml.cs">
-      <DependentUpon>GUI_PasswortAendern.xaml</DependentUpon>
+    <Compile Include="Controls\JaegerInformationenControl.xaml.cs">
+      <DependentUpon>JaegerInformationenControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI_JaegerBearbeiten.xaml.cs">
-      <DependentUpon>GUI_JaegerBearbeiten.xaml</DependentUpon>
+    <Compile Include="Controls\KalenderControl.xaml.cs">
+      <DependentUpon>KalenderControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI_EinladungErstellen.xaml.cs">
-      <DependentUpon>GUI_EinladungErstellen.xaml</DependentUpon>
+    <Compile Include="Controls\TerminErstellenControl.xaml.cs">
+      <DependentUpon>TerminErstellenControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI_Einladungsuebersicht.xaml.cs">
-      <DependentUpon>GUI_Einladungsuebersicht.xaml</DependentUpon>
+    <Compile Include="Controls\TermineUebersichtControl.xaml.cs">
+      <DependentUpon>TermineUebersichtControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI_JaegerHinzufuegen.xaml.cs">
-      <DependentUpon>GUI_JaegerHinzufuegen.xaml</DependentUpon>
+    <Compile Include="Controls\UrkundeErstellenControl.xaml.cs">
+      <DependentUpon>UrkundeErstellenControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI_JaegerInformationen.xaml.cs">
-      <DependentUpon>GUI_JaegerInformationen.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="GUI_Kalender.xaml.cs">
-      <DependentUpon>GUI_Kalender.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="GUI_NeuesPasswort.xaml.cs">
-      <DependentUpon>GUI_NeuesPasswort.xaml</DependentUpon>
+    <Compile Include="Controls\WildunfaelleControl.xaml.cs">
+      <DependentUpon>WildunfaelleControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\SharedAssemblyInfo.cs" />
-    <Page Include="GUI_DokumenteVerwalten.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="GUI_Admin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="GUI_EinladungsRueckmeldung.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Compile Include="GUI_SicherheitsFragestellung.xaml.cs">
-      <DependentUpon>GUI_SicherheitsFragestellung.xaml</DependentUpon>
+    <Compile Include="Windows\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI_Wildunfaelle.xaml.cs">
-      <DependentUpon>GUI_Wildunfaelle.xaml</DependentUpon>
+    <Compile Include="Windows\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
-    <Page Include="GUI_EinladungErstellen.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="GUI_Einladungsuebersicht.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="GUI_Login.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="GUI_PasswortAendern.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="GUI_Abschussliste.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="GUI_AbschusslisteAktualisieren.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="GUI_TerminErstellen.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="GUI_TermineUebersicht.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="GUI_JaegerBearbeiten.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="GUI_JaegerHinzufuegen.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="GUI_Registrierung.xaml.cs">
-      <DependentUpon>GUI_Registrierung.xaml</DependentUpon>
+    <Compile Include="Windows\NeuesPasswortWindow.xaml.cs">
+      <DependentUpon>NeuesPasswortWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI_UrkundeErstellen.xaml.cs">
-      <DependentUpon>GUI_UrkundeErstellen.xaml</DependentUpon>
+    <Compile Include="Windows\PasswortAendernWindow.xaml.cs">
+      <DependentUpon>PasswortAendernWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI_Sicherheitsfrage.xaml.cs">
-      <DependentUpon>GUI_Sicherheitsfrage.xaml</DependentUpon>
+    <Compile Include="Windows\PasswortErneuernWindow.xaml.cs">
+      <DependentUpon>PasswortErneuernWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="GUI_JaegerInformationen.xaml">
+    <Compile Include="Windows\RegistrierungWindow.xaml.cs">
+      <DependentUpon>RegistrierungWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SicherheitsFragestellungWindow.xaml.cs">
+      <DependentUpon>SicherheitsFragestellungWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SicherheitsfrageWindow.xaml.cs">
+      <DependentUpon>SicherheitsfrageWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\AbschusslisteAktualisierenControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="GUI_Kalender.xaml">
+    <Page Include="Controls\AbschusslisteControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="GUI_MainWindow.xaml">
+    <Page Include="Controls\AdminControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\DokumenteVerwaltenControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\EinladungErstellenControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\EinladungsRueckmeldungControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\EinladungsuebersichtControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\JaegerBearbeitenControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\JaegerHinzufuegenControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\JaegerInformationenControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\KalenderControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\TerminErstellenControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TermineUebersichtControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\UrkundeErstellenControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\WildunfaelleControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="GUI_MainWindow.xaml.cs">
-      <DependentUpon>GUI_MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="GUI_SicherheitsFragestellung.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="GUI_Wildunfaelle.xaml">
+    <Page Include="Windows\LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GUI_PasswortErneuern.xaml">
+    <Page Include="Windows\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\NeuesPasswortWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GUI_NeuesPasswort.xaml">
+    <Page Include="Windows\PasswortAendernWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\PasswortErneuernWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GUI_Registrierung.xaml">
+    <Page Include="Windows\RegistrierungWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GUI_UrkundeErstellen.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Windows\SicherheitsFragestellungWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="GUI_Sicherheitsfrage.xaml">
+    <Page Include="Windows\SicherheitsfrageWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -294,6 +294,5 @@
     <Resource Include="Pictures\HinzufügenIcon.png" />
     <Resource Include="Pictures\Logo.png" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
