@@ -15,18 +15,18 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         AbschusslisteAktualisierenService serv = new AbschusslisteAktualisierenService();
 
         /// <summary>
-        /// Weiterleitung zu anderen Fenstern
+        /// Befüllt den Datagrid und die Textbox
         /// </summary>
         public Logic_AbschusslisteAktualisieren()
         {
             Tierart = serv.Tiere();
             Termine = serv.Termine();
-           
+
             Messenger.Default.Register<string>(this, (prop) =>
             {
                 if (prop.Equals("Abschussliste"))
-                {                    
-                    Abschuesse = 0;                   
+                {
+                    Abschuesse = 0;
                 }
             });
 
@@ -146,7 +146,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         }
         #endregion
 
-        //Buttonbefehl bei dem Versuch einen neuen Abschuss hinzu zufuegen
+        /// <summary>
+        /// Speichert die bei erfolgreichen eingaben in der Datenbank
+        /// </summary>
         private ICommand _abschusslisteAkualisieren;
         public ICommand AbschusslisteAkualisieren
         {
@@ -156,7 +158,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _abschusslisteAkualisieren = new RelayCommand(() =>
                     {
-                        if (JaegerId != null && SelectTermin != null && TierId != null)
+                        if (JaegerId != null && SelectTermin != null && TierId != null && Abschuesse != 0)
                         {
                             var newitem = new tbl_Jagderfolge()
                             {

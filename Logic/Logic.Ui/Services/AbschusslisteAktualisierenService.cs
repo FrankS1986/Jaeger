@@ -1,5 +1,5 @@
 ﻿using System;
-using System;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,9 +9,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 {
     public class AbschusslisteAktualisierenService
     {
-        List<int> _listeID = new List<int>();
+        
         /// <summary>
-        /// Es wird eine Liste von Tieren erstellt die man dann in der combobox auswählen kann.
+        /// Es wird eine Liste von Tieren erstellt.
         /// </summary>
         /// <returns></returns>
         public List<tbl_Tiere> Tiere()
@@ -26,7 +26,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
         }
 
         /// <summary>
-        /// Erstellt Liste mit Terminen die vom Typ Treibjagd sind
+        /// Erstellt eine Liste mit Terminen die vom Typ Treibjagd sind
         /// </summary>
         /// <returns></returns>
         public List<tbl_Termine> Termine()
@@ -52,7 +52,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
         }
 
         /// <summary>
-        /// Erzeugt eine Liste der Eingeladenen Jäger zum Termin
+        /// Erstellt eine Liste der Eingeladenen Jäger zum Termin
         /// </summary>
         /// <param name="jaegerID"></param>
         /// <returns></returns>

@@ -30,12 +30,26 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
 
             Messenger.Default.Send("Abschussliste");
         }
-
+        /// <summary>
+        /// Textbox Abschuesse nimmt nur noch zahlen an
+        /// </summary>
+        /// <param name="e"></param>
         private void CheckIsNumeric(TextCompositionEventArgs e)
         {
             int result;
             Abschuesse.Text.Contains(" ");
             if (!(int.TryParse(e.Text, out result)))
+            {
+                e.Handled = true;
+            }
+        }
+        /// <summary>
+        /// Textbox Abschuesse nimmt keine Leerzeichen mehr an
+        /// </summary>
+        /// <param name="e"></param>
+        private void CheckSpace(KeyEventArgs e)
+        {
+            if (e.Key == Key.Space)
             {
                 e.Handled = true;
             }
@@ -54,6 +68,7 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             CheckIsNumeric(e);
+
         }
         /// <summary>
         /// Es wird der Messenger Registriert
@@ -84,5 +99,17 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         {
             Messenger.Default.Unregister<AbschusslisteAktualisierenSelectedMessage>(this);
         }
+        /// <summary>
+        /// verhindert leerzeichen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Abschuesse_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            CheckSpace(e);
+        }
+
+
+
     }
 }
