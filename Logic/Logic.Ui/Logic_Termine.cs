@@ -75,6 +75,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 if (prop.Equals("Termine"))
                 {
                     List_UebersichtAnstehendeTermine = ueber.terminUebersicht();
+                    //ueber.AutoDeleteTermin();
                 }
                 else if (prop.Equals("Select"))
                 {
@@ -82,7 +83,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     {
                         Txt_UebersichtBezeichnung = SelectedTermin.Bezeichnung;
                         Txt_UebersichtOrt = SelectedTermin.Ort;
-                        Txt_UebersichtDatum = SelectedTermin.DatumUhrzeit.ToString();
+                        Txt_UebersichtDatum = SelectedTermin.DatumUhrzeit.ToString("f");
                         List_UebersichtEingeladenePersonen = ueber.Personen(SelectedTermin.Termine_ID);
                     }
                 }
@@ -231,13 +232,15 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
                         if (result == MessageBoxResult.Yes)
                         {
-                            MessageBox.Show("Der Termin '" + SelectedTermin.Bezeichnung + "' wurde gelöscht.");
-                            ueber.terminLoeschen(SelectedTermin.Termine_ID);
-                            Messenger.Default.Send("Termine");
-                        }
-                        else if (result == MessageBoxResult.No)
-                        {
-                            MessageBox.Show("Der Termin '" + SelectedTermin.Bezeichnung + "' wird nicht gelöscht.");
+                            if (ueber.terminLoeschen(SelectedTermin.Termine_ID))
+                            {
+                                MessageBox.Show("Der Termin '" + SelectedTermin.Bezeichnung + "' wurde gelöscht.");
+                                Messenger.Default.Send("Termine");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Der Termin '" + SelectedTermin.Bezeichnung + "' kann nicht gelöscht werden!");
+                            }
                         }
                     });
                 }
