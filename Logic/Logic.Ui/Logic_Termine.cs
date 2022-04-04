@@ -14,63 +14,63 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
     public class Logic_Termine : ViewModelBase, INotifyPropertyChanged
     {
+        public int id = 0;
         TerminUebersichtService ueber = new TerminUebersichtService();
         TerminErstellenService erstell = new TerminErstellenService();
         public class Type
         {
-            private string typ;
-            public string Typ
+            private string terminTyp;
+            public string TerminTyp
             {
                 get
                 {
-                    return typ;
+                    return terminTyp;
                 }
                 set
                 {
-                    typ = value;
+                    terminTyp = value;
                 }
             }
         }
-        private ObservableCollection<Type> typ;
-        public ObservableCollection<Type> Typ
+        private ObservableCollection<Type> terminTyp;
+        public ObservableCollection<Type> TerminTyp
         {
             get
             {
-                return typ;
+                return terminTyp;
             }
             set
             {
-                typ = value;
+                terminTyp = value;
             }
         }
-        private Type selectedType;
-        public Type SelectedTyp
+        private Type selectedTerminTyp;
+        public Type SelectedTerminTyp
         {
             get
             {
-                return selectedType;
+                return selectedTerminTyp;
             }
             set
             {
-                selectedType = value;
+                selectedTerminTyp = value;
             }
         }
         public Logic_Termine()
         {
-            Typ = new ObservableCollection<Type>()
+            TerminTyp = new ObservableCollection<Type>()
             {
-                new Type() {Typ="Treibjagd"},
-                new Type() {Typ="Geburtstag"},
-                new Type() {Typ="Treffen"},
-                new Type() {Typ="Versammlung"},
-                new Type() {Typ="Sonstige"}
+                new Type() {TerminTyp="Treibjagd"},
+                new Type() {TerminTyp="Geburtstag"},
+                new Type() {TerminTyp="Treffen"},
+                new Type() {TerminTyp="Versammlung"},
+                new Type() {TerminTyp="Sonstige"}
             };
             Messenger.Default.Register<string>(this, (prop) =>
             {
                 if (prop.Equals("Termine"))
                 {
                     UebersichtAnstehendeTermine = ueber.TerminUebersicht();
-                    //ueber.AutoDeleteTermin();
                 }
                 else if (prop.Equals("Select"))
                 {
@@ -96,11 +96,11 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                         //<summary>
                         //Wenn der Termin-Typ vorhanden ist, wird dieser in der ComboBox ausgewählt. Wenn nicht, dann wird ein neuer Termin-Typ erstellt und dieser wird dann ausgewählt.
                         //</summary>
-                        foreach (var item in Typ)
+                        foreach (var typ in TerminTyp)
                         {
-                            if (item.Typ == SelectedTermin.Typ)
+                            if (typ.TerminTyp == SelectedTermin.Typ)
                             {
-                                SelectedTyp = item;
+                                SelectedTerminTyp = typ;
                                 break;
                             }
                             else
@@ -108,14 +108,14 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                                 count++;
                             }
                         }
-                        if (count == Typ.Count)
+                        if (count == TerminTyp.Count)
                         {
-                            Typ.Add(new Type() { Typ = SelectedTermin.Typ });
-                            foreach (var item in Typ)
+                            TerminTyp.Add(new Type() { TerminTyp = SelectedTermin.Typ });
+                            foreach (var typ in TerminTyp)
                             {
-                                if (item.Typ == SelectedTermin.Typ)
+                                if (typ.TerminTyp == SelectedTermin.Typ)
                                 {
-                                    SelectedTyp = item;
+                                    SelectedTerminTyp = typ;
                                     break;
                                 }
                             }
@@ -130,7 +130,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     id = 0;
                     ErstellBezeichnung = "";
                     ErstellOrt = "";
-                    SelectedTyp = null;
+                    SelectedTerminTyp = null;
                     ErstellDatum = DateTime.Today;
                     ErstellUhrzeit = "";
                 }
@@ -140,7 +140,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 }
             });
         }
-        public int id = 0;
 
         private List<tbl_Termine> uebersichtAnstehendeTermine;
         public List<tbl_Termine> UebersichtAnstehendeTermine
@@ -281,13 +280,13 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     bestaetigen = new RelayCommand(() =>
                     {
-                        if (ErstellBezeichnung == null || ErstellOrt == null || SelectedTyp == null || ErstellUhrzeit == null)
+                        if (ErstellBezeichnung == null || ErstellOrt == null || SelectedTerminTyp == null || ErstellUhrzeit == null)
                         {
                             MessageBox.Show("Bitte füllen Sie alle Felder aus!");
                         }
                         else
                         {
-                            if (erstell.TerminErstellen(id, ErstellBezeichnung, ErstellOrt, ErstellUhrzeit, SelectedTyp.Typ, ErstellDatum))
+                            if (erstell.TerminErstellen(id, ErstellBezeichnung, ErstellOrt, ErstellUhrzeit, SelectedTerminTyp.TerminTyp, ErstellDatum))
                             {
                                 Messenger.Default.Send("Richtig");
                                 UebersichtBezeichnung = "";
@@ -295,7 +294,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                                 UebersichtDatum = "";
                                 ErstellBezeichnung = "";
                                 ErstellOrt = "";
-                                SelectedTyp = null;
+                                SelectedTerminTyp = null;
                                 ErstellDatum = DateTime.Today;
                                 ErstellUhrzeit = "";
                             }

@@ -41,7 +41,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
         /// </summary>
         /// <param name="terminID"></param>
         /// <returns></returns>
-        /// TODO: Foreign Keys mitberücksichtigen.
+        /// TODO: Foreign Keys berücksichtigen.
         public bool TerminLoeschen(int terminID)
         {
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
@@ -95,7 +95,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
         /// Löscht alle Termine, die über ein Jahr alt sind.
         /// </summary>
         /// <returns></returns>
-        /// TODO: Foreign Keys mitberücksichtigen.
+        /// TODO: Foreign Keys berücksichtigen.
         public IQueryable AutoDeleteTermin()
         {
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
