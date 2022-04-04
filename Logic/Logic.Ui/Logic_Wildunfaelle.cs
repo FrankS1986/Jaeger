@@ -6,9 +6,6 @@ using JaegerMeister.MvvmSample.Logic.Ui.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
@@ -17,7 +14,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
     {
         WildunfaelleService serv = new WildunfaelleService();
         public Logic_Wildunfaelle()
-        {   
+        {
             // Ort wird zurück gesetz beim neu laden des Fensters
             Datum = DateTime.Today.ToString();
             Messenger.Default.Register<string>(this, (prop) =>
@@ -32,6 +29,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
 
         }
+        #region Properties
         private DateTime _startDate;
         public DateTime StartDate
         {
@@ -84,6 +82,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
 
+        #endregion Properties
 
         private ICommand _wildunfaelle;
         public ICommand Wildunfaelle

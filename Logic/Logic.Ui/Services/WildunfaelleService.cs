@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 {
     public class WildunfaelleService
     {
-             /// <summary>
-             /// Liste Tiere wird erstellt und sortiert
-             /// </summary>
-             /// <returns></returns>
+        /// <summary>
+        /// Liste Tiere wird erstellt und sortiert
+        /// </summary>
+        /// <returns></returns>
         public List<tbl_Tiere> Tiere()
         {
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
