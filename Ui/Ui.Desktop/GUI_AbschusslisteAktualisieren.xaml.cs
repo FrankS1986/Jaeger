@@ -1,19 +1,8 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
 using JaegerMeister.MvvmSample.Logic.Ui.Messages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
@@ -21,9 +10,12 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
     /// Interaktionslogik für GUI_AbschusslisteAktualisieren.xaml
     /// </summary>
     public partial class GUI_AbschusslisteAktualisieren : UserControl
-    {         /// <summary>
-              /// Abschussliste wird zurückgesetzt
-              /// </summary>
+    {
+
+
+        /// <summary>
+        /// Abschussliste wird zurückgesetzt
+        /// </summary>
         public GUI_AbschusslisteAktualisieren()
         {
             InitializeComponent();

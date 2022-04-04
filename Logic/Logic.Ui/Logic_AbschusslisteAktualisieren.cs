@@ -3,7 +3,6 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using JaegerMeister.MvvmSample.Logic.Ui.Messages;
 using JaegerMeister.MvvmSample.Logic.Ui.Services;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Input;
@@ -42,6 +41,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             });
         }
         //Properties zur Erstellung eines neuen Abschusses
+
         #region Properties
         private List<tbl_Tiere> _tierart;
         public List<tbl_Tiere> Tierart
