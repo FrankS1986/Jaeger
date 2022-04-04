@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace JaegerMeister.MvvmSample.Logic.Ui.Models
+﻿namespace JaegerMeister.MvvmSample.Logic.Ui.Models
 {
     //Klasse für den Bau der Liste, wie oft eine Tierart erlegt wurde, für die Abschussliste
     public class TierAbschussModel
