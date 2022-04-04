@@ -17,7 +17,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
         /// Holt die entsprechenden Daten aus der Tabelle tbl_Termine und packt diese in eine Liste.
         /// </summary>
         /// <returns></returns>
-        public List<tbl_Termine> terminUebersicht()
+        public List<tbl_Termine> TerminUebersicht()
         {
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
             {
@@ -47,7 +47,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
         /// <param name="termin_id"></param>
         /// <returns></returns>
         /// TODO: Foreign Keys mitberücksichtigen.
-        public bool terminLoeschen(int termin_id)
+        public bool TerminLoeschen(int termin_id)
         {
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
             {

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="JaegerMeister.MvvmSample.Ui.Desktop.GUI_TermineUebersicht"
+﻿<UserControl x:Class="JaegerMeister.MvvmSample.Ui.Desktop.TermineUebersichtControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -25,7 +25,7 @@
                 <Label Background="#4F772D"  Foreground="White" Height="40">
                     <TextBlock Foreground="#E0CBA8" FontSize="22" FontFamily="Gill Sans MT Bold" TextAlignment="Center" Width="247" Height="30" >anstehende Termine</TextBlock>
                 </Label>
-                <DataGrid x:Name="Termine" MinHeight="302" MaxHeight="302" FontFamily="Gill Sans MT Regular" FontSize="12" MinColumnWidth="100" MaxColumnWidth="200" ItemsSource="{Binding List_UebersichtAnstehendeTermine }" SelectedItem="{Binding SelectedTermin, Mode=TwoWay}" Loaded="Termine_Loaded" SelectionChanged="Termine_SelectionChanged" AutoGenerateColumns="False" GridLinesVisibility="None" IsReadOnly="True">
+                <DataGrid x:Name="Termine" MinHeight="302" MaxHeight="302" FontFamily="Gill Sans MT Regular" FontSize="12" MinColumnWidth="100" MaxColumnWidth="200" ItemsSource="{Binding UebersichtAnstehendeTermine }" SelectedItem="{Binding SelectedTermin, Mode=TwoWay}" Loaded="Termine_Loaded" SelectionChanged="Termine_SelectionChanged" AutoGenerateColumns="False" GridLinesVisibility="None" IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Bezeichnung" Binding="{Binding Bezeichnung}" Width="120"/>
                         <DataGridTextColumn Header="Datum" Binding="{Binding DatumUhrzeit, StringFormat=dd.MM.yyyy}" Width="120"/>
@@ -33,18 +33,18 @@
                 </DataGrid>
             </StackPanel>
             <StackPanel Grid.Row="1">
-                <Button Click="termin_hinzufuegen_Click" FontSize="16" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Background="White" Height="30" Command="{ Binding Btn_UebersichtTerminhinzufuegen}">Termin hinzufügen</Button>
+                <Button Click="Termin_hinzufuegen_Click" FontSize="16" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Background="White" Height="30" Command="{ Binding UebersichtTerminhinzufuegen}">Termin hinzufügen</Button>
             </StackPanel>
             <StackPanel Grid.Column="2">
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="4">
-                <Button x:Name="Btn_ÜbersichtRueckmeldungen" Click="Btn_ÜbersichtRueckmeldungen_Click" Content="Rückmeldungen" FontSize="16" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Background="White" Command="{ Binding Btn_UebersichtRueckmeldungen}" Height="31"></Button>
+                <Button x:Name="Btn_ÜbersichtRueckmeldungen" Click="Btn_ÜbersichtRueckmeldungen_Click" Content="Rückmeldungen" FontSize="16" BorderBrush="#230C0F" FontFamily="Gill Sans MT Regular" Background="White" Command="{ Binding UebersichtRueckmeldungen}" Height="31"></Button>
             </StackPanel>
             <StackPanel  Grid.Column="4" Background="White">
                 <Label Background="#4F772D" Foreground="White" Height="40">
                     <TextBlock  Foreground="#E0CBA8" FontSize="22" FontFamily="Gill Sans MT Bold" TextAlignment="Center" Width="246" Height="30" >Eingeladene Personen</TextBlock>
                 </Label>
-                <DataGrid x:Name="Personen" FontFamily="Gill Sans MT Regular" MinHeight="302" MaxHeight="302" FontSize="12" ItemsSource="{Binding List_UebersichtEingeladenePersonen }" AutoGenerateColumns="False" GridLinesVisibility="None" ColumnWidth="Auto" IsReadOnly="True">
+                <DataGrid x:Name="Personen" FontFamily="Gill Sans MT Regular" MinHeight="302" MaxHeight="302" FontSize="12" ItemsSource="{Binding UebersichtEingeladenePersonen }" AutoGenerateColumns="False" GridLinesVisibility="None" ColumnWidth="Auto" IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Vorname" Binding="{Binding Vorname}" Width="120"/>
                         <DataGridTextColumn Header="Nachname" Binding="{Binding Nachname}" Width="120"/>
@@ -56,21 +56,21 @@
                     <TextBlock  Foreground="#E0CBA8" FontSize="22" FontFamily="Gill Sans MT Bold"  TextAlignment="Center" Width="257" Height="30" >Terminbezeichnung</TextBlock>
                 </Label>
                 <TextBlock HorizontalAlignment="Right">
-                    <Button x:Name="Bearbeiten" Background="{x:Null}" BorderBrush="{x:Null}"  FontFamily="Gill Sans MT Regular" Command="{Binding Btn_UebersichtBearbeiten}" Click="Bearbeiten_Click">
+                    <Button x:Name="Bearbeiten" Background="{x:Null}" BorderBrush="{x:Null}"  FontFamily="Gill Sans MT Regular" Command="{Binding UebersichtBearbeiten}" Click="Bearbeiten_Click">
                         <Image Source="Pictures\bearbeiten.png" Height="30" Width="30"></Image>
                     </Button>
-                    <Button Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Gill Sans MT Regular" Command="{Binding Btn_UebersichtLoeschen}">
+                    <Button Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Gill Sans MT Regular" Command="{Binding UebersichtLoeschen}">
                         <Image Source="Pictures\delete.png" Height="30" Width="30"></Image>
                     </Button>
                 </TextBlock>
                 <Label></Label>
                 <Label></Label>
                 <Label FontFamily="Gill Sans MT Regular" FontSize="18" Margin="20,1">Bezeichnung</Label>
-                <TextBox FontFamily="Gill Sans MT Regular" FontSize="12" Text="{Binding Txt_UebersichtBezeichnung}" IsReadOnly="True" Margin="20,1"></TextBox>
+                <TextBox FontFamily="Gill Sans MT Regular" FontSize="12" Text="{Binding UebersichtBezeichnung}" IsReadOnly="True" Margin="20,1"></TextBox>
                 <Label FontFamily="Gill Sans MT Regular" FontSize="18" Margin="20,1">Wo?</Label>
-                <TextBox FontFamily="Gill Sans MT Regular" FontSize="12" Text="{Binding Txt_UebersichtOrt}" IsReadOnly="True" Margin="20,1"></TextBox>
+                <TextBox FontFamily="Gill Sans MT Regular" FontSize="12" Text="{Binding UebersichtOrt}" IsReadOnly="True" Margin="20,1"></TextBox>
                 <Label FontFamily="Gill Sans MT Regular" FontSize="18" Margin="20,1">Datum und Uhrzeit</Label>
-                <TextBox FontFamily="Gill Sans MT Regular" FontSize="12" Text="{Binding Txt_UebersichtDatum}" IsReadOnly="True" Margin="20,1"></TextBox>
+                <TextBox FontFamily="Gill Sans MT Regular" FontSize="12" Text="{Binding UebersichtDatum}" IsReadOnly="True" Margin="20,1"></TextBox>
             </StackPanel>
         </Grid>
     </ContentControl>

@@ -20,7 +20,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
         /// <param name="typ"></param>
         /// <param name="datum"></param>
         /// <returns></returns>
-        public bool Termin(int termin_id, string bezeichnung, string ort, string zeit, string typ, DateTime datum)
+        public bool TerminErstellen(int termin_id, string bezeichnung, string ort, string zeit, string typ, DateTime datum)
         {
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
             {

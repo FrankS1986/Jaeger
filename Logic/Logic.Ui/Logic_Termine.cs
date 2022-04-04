@@ -23,41 +23,41 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         TerminErstellenService erstell = new TerminErstellenService();
         public class Type
         {
-            private string _typ;
+            private string typ;
             public string Typ
             {
                 get
                 {
-                    return _typ;
+                    return typ;
                 }
                 set
                 {
-                    _typ = value;
+                    typ = value;
                 }
             }
         }
-        private ObservableCollection<Type> _typ;
+        private ObservableCollection<Type> typ;
         public ObservableCollection<Type> Typ
         {
             get
             {
-                return _typ;
+                return typ;
             }
             set
             {
-                _typ = value;
+                typ = value;
             }
         }
-        private Type _selectedTyp;
+        private Type selectedType;
         public Type SelectedTyp
         {
             get
             {
-                return _selectedTyp;
+                return selectedType;
             }
             set
             {
-                _selectedTyp = value;
+                selectedType = value;
             }
         }
         public Logic_Termine()
@@ -74,17 +74,17 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             {
                 if (prop.Equals("Termine"))
                 {
-                    List_UebersichtAnstehendeTermine = ueber.terminUebersicht();
+                    UebersichtAnstehendeTermine = ueber.TerminUebersicht();
                     //ueber.AutoDeleteTermin();
                 }
                 else if (prop.Equals("Select"))
                 {
                     if (SelectedTermin != null)
                     {
-                        Txt_UebersichtBezeichnung = SelectedTermin.Bezeichnung;
-                        Txt_UebersichtOrt = SelectedTermin.Ort;
-                        Txt_UebersichtDatum = SelectedTermin.DatumUhrzeit.ToString("f");
-                        List_UebersichtEingeladenePersonen = ueber.Personen(SelectedTermin.Termine_ID);
+                        UebersichtBezeichnung = SelectedTermin.Bezeichnung;
+                        UebersichtOrt = SelectedTermin.Ort;
+                        UebersichtDatum = SelectedTermin.DatumUhrzeit.ToString("f");
+                        UebersichtEingeladenePersonen = ueber.Personen(SelectedTermin.Termine_ID);
                     }
                 }
                 //<summary
@@ -96,8 +96,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     {
                         int count = 0;
                         id = SelectedTermin.Termine_ID;
-                        Txt_Bezeichnung = SelectedTermin.Bezeichnung;
-                        Txt_Ort = SelectedTermin.Ort;
+                        ErstellBezeichnung = SelectedTermin.Bezeichnung;
+                        ErstellOrt = SelectedTermin.Ort;
                         //<summary>
                         //Wenn der Termin-Typ vorhanden ist, wird dieser in der ComboBox ausgewählt. Wenn nicht, dann wird ein neuer Termin-Typ erstellt und dieser wird dann ausgewählt.
                         //</summary>
@@ -126,113 +126,113 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                             }
                         }
                         string[] zeit = SelectedTermin.DatumUhrzeit.ToString().Split();
-                        Datepicker_Datum = Convert.ToDateTime(zeit[0]);
-                        Txt_Uhrzeit = zeit[1];
+                        ErstellDatum = Convert.ToDateTime(zeit[0]);
+                        ErstellUhrzeit = zeit[1];
                     }
                 }
                 else if (prop.Equals("Abbruch"))
                 {
                     id = 0;
-                    Txt_Bezeichnung = "";
-                    Txt_Ort = "";
+                    ErstellBezeichnung = "";
+                    ErstellOrt = "";
                     SelectedTyp = null;
-                    Datepicker_Datum = DateTime.Today;
-                    Txt_Uhrzeit = "";
+                    ErstellDatum = DateTime.Today;
+                    ErstellUhrzeit = "";
                 }
                 else if (prop.Equals("Termin"))
                 {
-                    Datepicker_Datum = DateTime.Today;
+                    ErstellDatum = DateTime.Today;
                 }
             });
         }
         public int id = 0;
 
-        private List<tbl_Termine> _list_UebersichtAnstehendeTermine;
-        public List<tbl_Termine> List_UebersichtAnstehendeTermine
+        private List<tbl_Termine> uebersichtAnstehendeTermine;
+        public List<tbl_Termine> UebersichtAnstehendeTermine
         {
             get
             {
-                return _list_UebersichtAnstehendeTermine;
+                return uebersichtAnstehendeTermine;
             }
             set
             {
-                _list_UebersichtAnstehendeTermine = value;
-                RaisePropertyChanged("List_UebersichtAnstehendeTermine");
+                uebersichtAnstehendeTermine = value;
+                RaisePropertyChanged("UebersichtAnstehendeTermine");
             }
         }
 
-        private tbl_Termine _selectedTermin;
+        private tbl_Termine selectedTermin;
         public tbl_Termine SelectedTermin
         {
             get
             {
-                return _selectedTermin;
+                return selectedTermin;
             }
 
             set
             {
-                _selectedTermin = value;
+                selectedTermin = value;
                 RaisePropertyChanged("SelectedTermin");
             }
         }
-        private List<tbl_Jaeger> _list_UebersichtEingeladenePersonen;
-        public List<tbl_Jaeger> List_UebersichtEingeladenePersonen
+        private List<tbl_Jaeger> uebersichtEingeladenePersonen;
+        public List<tbl_Jaeger> UebersichtEingeladenePersonen
         {
             get
             {
-                return _list_UebersichtEingeladenePersonen;
+                return uebersichtEingeladenePersonen;
             }
             set
             {
-                _list_UebersichtEingeladenePersonen = value;
-                RaisePropertyChanged("List_UebersichtEingeladenePersonen");
+                uebersichtEingeladenePersonen = value;
+                RaisePropertyChanged("UebersichtEingeladenePersonen");
             }
         }
-        private ICommand _btn_UebersichtRueckmeldungen;
-        public ICommand Btn_UebersichtRueckmeldungen
+        private ICommand uebersichtRueckmeldungen;
+        public ICommand UebersichtRueckmeldungen
         {
             get
             {
-                if (_btn_UebersichtRueckmeldungen == null)
+                if (uebersichtRueckmeldungen == null)
                 {
-                    _btn_UebersichtRueckmeldungen = new RelayCommand(() =>
+                    uebersichtRueckmeldungen = new RelayCommand(() =>
                     {
 
                     });
                 }
-                return _btn_UebersichtRueckmeldungen;
+                return uebersichtRueckmeldungen;
             }
         }
 
-        private ICommand _btn_UebersichtTerminhinzufuegen;
-        public ICommand Btn_UebersichtTerminhinzufuegen
+        private ICommand uebersichtTerminhinzufuegen;
+        public ICommand UebersichtTerminhinzufuegen
         {
             get
             {
-                if (_btn_UebersichtTerminhinzufuegen == null)
+                if (uebersichtTerminhinzufuegen == null)
                 {
-                    _btn_UebersichtTerminhinzufuegen = new RelayCommand(() =>
+                    uebersichtTerminhinzufuegen = new RelayCommand(() =>
                     {
 
                     });
                 }
-                return _btn_UebersichtTerminhinzufuegen;
+                return uebersichtTerminhinzufuegen;
             }
         }
-        private ICommand _btn_UebersichtLoeschen;
-        public ICommand Btn_UebersichtLoeschen
+        private ICommand uebersichtLoeschen;
+        public ICommand UebersichtLoeschen
         {
             get
             {
-                if (_btn_UebersichtLoeschen == null)
+                if (uebersichtLoeschen == null)
                 {
-                    _btn_UebersichtLoeschen = new RelayCommand(() =>
+                    uebersichtLoeschen = new RelayCommand(() =>
                     {
                         var result = MessageBox.Show("Möchten Sie wirklich den Termin '" + SelectedTermin.Bezeichnung + "' löschen?", "Termin löschen?", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
                         if (result == MessageBoxResult.Yes)
                         {
-                            if (ueber.terminLoeschen(SelectedTermin.Termine_ID))
+                            if (ueber.TerminLoeschen(SelectedTermin.Termine_ID))
                             {
                                 MessageBox.Show("Der Termin '" + SelectedTermin.Bezeichnung + "' wurde gelöscht.");
                                 Messenger.Default.Send("Termine");
@@ -244,174 +244,161 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                         }
                     });
                 }
-                return _btn_UebersichtLoeschen;
+                return uebersichtLoeschen;
             }
         }
-        private ICommand _btn_UebersichtBearbeiten;
-        public ICommand Btn_UebersichtBearbeiten
+        private ICommand uebersichtBearbeiten;
+        public ICommand UebersichtBearbeiten
         {
             get
             {
-                if (_btn_UebersichtBearbeiten == null)
+                if (uebersichtBearbeiten == null)
                 {
-                    _btn_UebersichtBearbeiten = new RelayCommand(() =>
+                    uebersichtBearbeiten = new RelayCommand(() =>
                     {
 
                     });
                 }
-                return _btn_UebersichtBearbeiten;
+                return uebersichtBearbeiten;
             }
         }
-        private ICommand _btn_Abbruch;
-        public ICommand Btn_Abbruch
+        private ICommand abbruch;
+        public ICommand Abbruch
         {
             get
             {
-                if (_btn_Abbruch == null)
+                if (abbruch == null)
                 {
-                    _btn_Abbruch = new RelayCommand(() =>
+                    abbruch = new RelayCommand(() =>
                     {
 
                     });
                 }
-                return _btn_Abbruch;
+                return abbruch;
             }
         }
-        private ICommand _btn_Bestaetigen;
-        public ICommand Btn_Bestaetigen
+        private ICommand bestaetigen;
+        public ICommand Bestaetigen
         {
             get
             {
-                if (_btn_Bestaetigen == null)
+                if (bestaetigen == null)
                 {
-                    _btn_Bestaetigen = new RelayCommand(() =>
+                    bestaetigen = new RelayCommand(() =>
                     {
-                        if (Txt_Bezeichnung == null || Txt_Ort == null || SelectedTyp == null || Txt_Uhrzeit == null)
+                        if (ErstellBezeichnung == null || ErstellOrt == null || SelectedTyp == null || ErstellUhrzeit == null)
                         {
                             MessageBox.Show("Bitte füllen Sie alle Felder aus!");
                         }
                         else
                         {
-                            if (erstell.Termin(id, Txt_Bezeichnung, Txt_Ort, Txt_Uhrzeit, SelectedTyp.Typ, Datepicker_Datum))
+                            if (erstell.TerminErstellen(id, ErstellBezeichnung, ErstellOrt, ErstellUhrzeit, SelectedTyp.Typ, ErstellDatum))
                             {
                                 Messenger.Default.Send("Richtig");
-                                Txt_UebersichtBezeichnung = "";
-                                Txt_UebersichtOrt = "";
-                                Txt_UebersichtDatum = "";
-                                Txt_Bezeichnung = "";
-                                Txt_Ort = "";
+                                UebersichtBezeichnung = "";
+                                UebersichtOrt = "";
+                                UebersichtDatum = "";
+                                ErstellBezeichnung = "";
+                                ErstellOrt = "";
                                 SelectedTyp = null;
-                                Datepicker_Datum = DateTime.Today;
-                                Txt_Uhrzeit = "";
+                                ErstellDatum = DateTime.Today;
+                                ErstellUhrzeit = "";
                             }
                         }
                     });
                 }
-                return _btn_Bestaetigen;
+                return bestaetigen;
             }
         }
-        private string _txt_UebersichtBezeichnung;
-        public string Txt_UebersichtBezeichnung
+        private string uebersichtBezeichnung;
+        public string UebersichtBezeichnung
         {
             get
             {
-                return _txt_UebersichtBezeichnung;
+                return uebersichtBezeichnung;
             }
             set
             {
-                _txt_UebersichtBezeichnung = value;
-                RaisePropertyChanged("Txt_UebersichtBezeichnung");
+                uebersichtBezeichnung = value;
+                RaisePropertyChanged("UebersichtBezeichnung");
             }
         }
-        private string _txt_UebersichtOrt;
-        public string Txt_UebersichtOrt
+        private string uebersichtOrt;
+        public string UebersichtOrt
         {
             get
             {
-                return _txt_UebersichtOrt;
+                return uebersichtOrt;
             }
             set
             {
-                _txt_UebersichtOrt = value;
-                RaisePropertyChanged("Txt_UebersichtOrt");
+                uebersichtOrt = value;
+                RaisePropertyChanged("UebersichtOrt");
             }
         }
-        private string _txt_UebersichtDatum;
-        public string Txt_UebersichtDatum
+        private string uebersichtDatum;
+        public string UebersichtDatum
         {
             get
             {
-                return _txt_UebersichtDatum;
+                return uebersichtDatum;
             }
             set
             {
-                _txt_UebersichtDatum = value;
-                RaisePropertyChanged("Txt_UebersichtDatum");
+                uebersichtDatum = value;
+                RaisePropertyChanged("UebersichtDatum");
             }
         }
-        private string _txt_bezeichnung;
-        public string Txt_Bezeichnung
+        private string erstellBezeichnung;
+        public string ErstellBezeichnung
         {
             get
             {
-                return _txt_bezeichnung;
+                return erstellBezeichnung;
             }
             set
             {
-                _txt_bezeichnung = value;
-                RaisePropertyChanged("Txt_Bezeichnung");
+                erstellBezeichnung = value;
+                RaisePropertyChanged("ErstellBezeichnung");
             }
         }
-        private string _txt_Ort;
-        public string Txt_Ort
+        private string erstellOrt;
+        public string ErstellOrt
         {
             get
             {
-                return _txt_Ort;
+                return erstellOrt;
             }
             set
             {
-                _txt_Ort = value;
-                RaisePropertyChanged("Txt_Ort");
+                erstellOrt = value;
+                RaisePropertyChanged("ErstellOrt");
             }
         }
-        private string _txt_Typ;
-        public string Txt_Typ
+        private DateTime erstellDatum;
+        public DateTime ErstellDatum
         {
             get
             {
-                return _txt_Typ;
+                return erstellDatum;
             }
             set
             {
-                _txt_Typ = value;
-                RaisePropertyChanged("Txt_Typ");
+                erstellDatum = value;
+                RaisePropertyChanged("ErstellDatum");
             }
         }
-        private DateTime _datepicker_Datum;
-        public DateTime Datepicker_Datum
+        private string erstellUhrzeit;
+        public string ErstellUhrzeit
         {
             get
             {
-                return _datepicker_Datum;
+                return erstellUhrzeit;
             }
             set
             {
-                _datepicker_Datum = value;
-                RaisePropertyChanged("Datepicker_Datum");
-            }
-        }
-        private string _txt_Uhrzeit;
-        public string Txt_Uhrzeit
-        {
-            get
-            {
-                return _txt_Uhrzeit;
-            }
-            set
-            {
-                _txt_Uhrzeit = value;
-                RaisePropertyChanged("Txt_Uhrzeit");
+                erstellUhrzeit = value;
+                RaisePropertyChanged("ErstellUhrzeit");
             }
         }
     }

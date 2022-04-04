@@ -48,7 +48,7 @@ namespace Ui.Desktop
 
         private void btn_Termin(object sender, RoutedEventArgs e)
         {
-            GUI_TermineUebersicht termine = new GUI_TermineUebersicht();
+            TermineUebersichtControl termine = new TermineUebersichtControl();
             Contmain.Content = termine;
         }
 

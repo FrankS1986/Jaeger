@@ -75,8 +75,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         public Logic_Einladungsrueckmeldung logic_EinladungsRueckmeldung => ServiceLocator.Current.GetInstance<Logic_Einladungsrueckmeldung>();
         public Logic_SicherheitsFragestellung logic_SicherheitsFragestellung => ServiceLocator.Current.GetInstance<Logic_SicherheitsFragestellung>();
         public Logic_Kalender logic_Kalender => ServiceLocator.Current.GetInstance<Logic_Kalender>();
-
-
         public static void Cleanup()
         {
             
