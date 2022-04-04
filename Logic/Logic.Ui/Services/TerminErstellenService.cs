@@ -1,31 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 {
-    class TerminErstellenService
+    public class TerminErstellenService
     {
         /// <summary>
         /// Wenn ein Termin bearbeitet wird, wird dieser in der Datebank überschrieben. Ansonsten wird ein neuer Termin angelegt.
         /// </summary>
-        /// <param name="termin_id"></param>
+        /// <param name="terminID"></param>
         /// <param name="bezeichnung"></param>
         /// <param name="ort"></param>
         /// <param name="zeit"></param>
         /// <param name="typ"></param>
         /// <param name="datum"></param>
         /// <returns></returns>
-        public bool TerminErstellen(int termin_id, string bezeichnung, string ort, string zeit, string typ, DateTime datum)
+        public bool TerminErstellen(int terminID, string bezeichnung, string ort, string zeit, string typ, DateTime datum)
         {
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
             {
                 var checkSpecialChar = new Regex("^[a-zA-Z0-9 äÄöÖüÜßáàâéèê]*$");
-                if (termin_id == 0)
+                if (terminID == 0)
                 {
                     try
                     {
@@ -75,7 +72,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                 else
                 {
                     var liste = from a in ctx.tbl_Termine
-                                where a.Termine_ID == termin_id
+                                where a.Termine_ID == terminID
                                 select a;
                     try
                     {

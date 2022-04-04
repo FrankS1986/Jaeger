@@ -95,11 +95,11 @@
     <Compile Include="GUI_Abschussliste.xaml.cs">
       <DependentUpon>GUI_Abschussliste.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TerminErstellenControl.xaml.cs">
-      <DependentUpon>TerminErstellenControl.xaml</DependentUpon>
+    <Compile Include="GUI_TerminErstellen.xaml.cs">
+      <DependentUpon>GUI_TerminErstellen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TermineUebersichtControl.xaml.cs">
-      <DependentUpon>TermineUebersichtControl.xaml</DependentUpon>
+    <Compile Include="GUI_TerminUebersicht.xaml.cs">
+      <DependentUpon>GUI_TerminUebersicht.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI_PasswortErneuern.xaml.cs">
       <DependentUpon>GUI_PasswortErneuern.xaml</DependentUpon>
@@ -171,11 +171,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="TerminErstellenControl.xaml">
+    <Page Include="GUI_TerminErstellen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TermineUebersichtControl.xaml">
+    <Page Include="GUI_TerminUebersicht.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

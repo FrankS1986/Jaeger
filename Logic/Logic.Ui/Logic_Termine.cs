@@ -1,17 +1,12 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
-using JaegerMeister.MvvmSample.Logic.Ui.Models;
 using JaegerMeister.MvvmSample.Logic.Ui.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
@@ -84,7 +79,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                         UebersichtBezeichnung = SelectedTermin.Bezeichnung;
                         UebersichtOrt = SelectedTermin.Ort;
                         UebersichtDatum = SelectedTermin.DatumUhrzeit.ToString("f");
-                        UebersichtEingeladenePersonen = ueber.Personen(SelectedTermin.Termine_ID);
+                        UebersichtEingeladenePersonen = ueber.EingeladenePersonen(SelectedTermin.Termine_ID);
                     }
                 }
                 //<summary

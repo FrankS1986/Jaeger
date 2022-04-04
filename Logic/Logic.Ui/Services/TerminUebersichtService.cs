@@ -1,12 +1,7 @@
-﻿using JaegerMeister.MvvmSample.Logic.Ui.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Data.Entity.SqlServer;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 {
@@ -44,15 +39,15 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
         /// <summary>
         /// Sucht den Datensatz durch den mitgegebenen Integer in der Datenbank um diesen dann zu löschen.
         /// </summary>
-        /// <param name="termin_id"></param>
+        /// <param name="terminID"></param>
         /// <returns></returns>
         /// TODO: Foreign Keys mitberücksichtigen.
-        public bool TerminLoeschen(int termin_id)
+        public bool TerminLoeschen(int terminID)
         {
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
             {
                 var post = from a in ctx.tbl_Postausgang
-                           where a.Termine_ID == termin_id
+                           where a.Termine_ID == terminID
                            select new { a.Termine_ID };
                 if (post.Count() > 0)
                 {
@@ -61,7 +56,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                 else
                 {
                     var termine = from a in ctx.tbl_Termine
-                                  where a.Termine_ID == termin_id
+                                  where a.Termine_ID == terminID
                                   select a;
                     ctx.tbl_Termine.RemoveRange(termine);
                     ctx.SaveChanges();
@@ -72,9 +67,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
         /// <summary>
         /// Sucht die eingeladenen Personen, die zu dem asugewählten Termin zugeordnet sind.
         /// </summary>
-        /// <param name="termin_id"></param>
+        /// <param name="terminID"></param>
         /// <returns></returns>
-        public List<tbl_Jaeger> Personen(int termin_id)
+        public List<tbl_Jaeger> EingeladenePersonen(int terminID)
         {
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
             {
@@ -84,7 +79,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 
                 foreach (var item in personen)
                 {
-                    if (item.Termine_ID == termin_id)
+                    if (item.Termine_ID == terminID)
                     {
                         liste.Add(new tbl_Jaeger()
                         {

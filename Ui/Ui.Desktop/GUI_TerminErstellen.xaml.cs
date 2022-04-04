@@ -4,9 +4,9 @@ using System.Windows.Controls;
 
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
-    public partial class TerminErstellenControl : UserControl
+    public partial class GUI_TerminErstellen : UserControl
     {
-        public TerminErstellenControl()
+        public GUI_TerminErstellen()
         {
             InitializeComponent();
         }
@@ -15,7 +15,7 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         {
             Messenger.Default.Send("Abbruch");
 
-            TermineUebersichtControl termineUebersicht = new TermineUebersichtControl();
+            GUI_TermineUebersicht termineUebersicht = new GUI_TermineUebersicht();
 
             Content = termineUebersicht;
         }
@@ -26,7 +26,7 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
             {
                 if (prop.Equals("Richtig"))
                 {
-                    TermineUebersichtControl termineUebersicht = new TermineUebersichtControl();
+                    GUI_TermineUebersicht termineUebersicht = new GUI_TermineUebersicht();
 
                     Content = termineUebersicht;
                 }

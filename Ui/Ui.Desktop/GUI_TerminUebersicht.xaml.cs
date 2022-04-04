@@ -4,10 +4,10 @@ using GalaSoft.MvvmLight.Messaging;
 
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
-    public partial class TermineUebersichtControl : UserControl
+    public partial class GUI_TermineUebersicht : UserControl
     {
 
-        public TermineUebersichtControl()
+        public GUI_TermineUebersicht()
         {
             InitializeComponent();
         }
@@ -16,7 +16,7 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         {
             Messenger.Default.Send("Termin");
 
-            TerminErstellenControl terminErstellen = new TerminErstellenControl();
+            GUI_TerminErstellen terminErstellen = new GUI_TerminErstellen();
 
             Content = terminErstellen;
         }
@@ -42,7 +42,7 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         {
             Messenger.Default.Send("Bearbeiten");
 
-            TerminErstellenControl terminErstellen = new TerminErstellenControl();
+            GUI_TerminErstellen terminErstellen = new GUI_TerminErstellen();
 
             Content = terminErstellen;
         }
