@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
 using System.ComponentModel;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
@@ -18,11 +13,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         PasswortErneuernService passwortErneuernService = new PasswortErneuernService();
 
 
-        public Logic_PasswortErneuern()
-        {
-
-        }
-
+        #region Properties
 
         private string _Benutzername;
         public string Benutzername
@@ -42,38 +33,38 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
 
 
-        private string _neuespasswort;
+        private string _Neuespasswort;
         public string Neuespasswort
         {
             get
             {
-                return _neuespasswort;
+                return _Neuespasswort;
 
             }
 
             set
             {
-                _neuespasswort = value;
+                _Neuespasswort = value;
                 RaisePropertyChanged("Neuespasswort");
             }
         }
-        private string _passwortbestaetigen;
+        private string _Passwortbestaetigen;
         public string Passwortbestaetigen
         {
             get
             {
-                return _passwortbestaetigen;
+                return _Passwortbestaetigen;
 
             }
 
             set
             {
-                _passwortbestaetigen = value;
+                _Passwortbestaetigen = value;
                 RaisePropertyChanged("Passwortbestaetigen");
             }
         }
 
-
+        #endregion Properties
 
         private ICommand _Bestaetigen;
         public ICommand Bestaetigen
@@ -85,7 +76,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     _Bestaetigen = new RelayCommand(() =>
                     {
 
-                        if (passwortErneuernService.PasswortErneuern(Benutzername, Neuespasswort))
+                        if (passwortErneuernService.PasswoerterUeberprüfen(Benutzername, Neuespasswort))
                         {
                             if (Neuespasswort == Passwortbestaetigen)
                             {

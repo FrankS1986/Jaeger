@@ -1,16 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 {
+   
     public class PasswortErneuernService
     {
 
         public bool passwortVergeben;
-        public bool PasswortErneuern(string benutzer, string passwort)
+        /// <summary>
+        /// prüft ob das passwort schon mal vergeben wurden wenn nein dann wird das alte passwort ersetzt und in der Tabelle Passwörter gespeichert.
+        /// </summary>
+        /// <param name="benutzer"></param>
+        /// <param name="passwort"></param>
+        /// <returns></returns>
+        public bool PasswoerterUeberprüfen(string benutzer, string passwort)
         {
 
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())
@@ -41,11 +46,11 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                 if (listebenutzer.Count() == 1 && passwortVergeben)
                 {
 
-                       foreach(var item in listebenutzer)
+                    foreach (var item in listebenutzer)
                     {
                         item.Passwort = passwort;
                         item.DatumUhrzeit = DateTime.Now;
-                          
+
 
                     }
 
@@ -63,6 +68,10 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 
 
         int altespasswort;
+        /// <summary>
+        ///  Löscht das Passwort was anlängsten drin ist wenn es über 5 Passwörter gibt
+        /// </summary>
+        /// <param name="benutzer"></param>
         public void PasswortLoeschen(string benutzer)
         {
             using (TreibjagdTestEntities ctx = new TreibjagdTestEntities())

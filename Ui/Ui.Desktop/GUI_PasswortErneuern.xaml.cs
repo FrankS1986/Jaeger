@@ -1,21 +1,9 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
 using JaegerMeister.MvvmSample.Logic.Ui;
 using JaegerMeister.MvvmSample.Logic.Ui.Messages;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Ui.Desktop;
 
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
@@ -29,7 +17,7 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         {
             InitializeComponent();
 
-          
+
             Messenger.Default.Register<PasswortErneuernErfolgsMessage>(this, (PasswortErneuernErfolgsMessage loginProof) =>
             {
                 if (loginProof.passwortErneuernErfolgsMessage == true)
@@ -62,7 +50,10 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
             });
 
         }
-
+        /// <summary>
+        /// Unregistriert den Messenger sodass nicht mehere gleiche Seiten aufgehen
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnClosing(CancelEventArgs e)
         {
             Messenger.Default.Unregister<PasswortErneuernErfolgsMessage>(this);
