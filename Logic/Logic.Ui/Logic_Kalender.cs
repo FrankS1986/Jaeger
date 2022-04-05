@@ -16,15 +16,15 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         /// <summary>
         /// Aufruf der Klasse Kalenderservice.
         /// </summary>
-        KalenderService serv = new KalenderService();
+        KalenderService kalenderService = new KalenderService();
         /// <summary>
         /// Aufruf der Liste DateTime(LookUpConverter).
         /// </summary>
         public List<DateTime> Dates { get; } = new List<DateTime>();
         public Logic_Kalender()
         {
-            TermineListe = serv.Termine();
-            KalenderAnzeige = serv.NextTermin(DateTime.Now);
+            TermineListe = kalenderService.Termine();
+            KalenderAnzeige = kalenderService.NextTermin(DateTime.Now);
             foreach (KalenderTermineModel termin in TermineListe)
             {
                 DateTime dateTime = new DateTime(termin.DatumUhrzeit.Year, termin.DatumUhrzeit.Month, termin.DatumUhrzeit.Day);
@@ -32,43 +32,43 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
         }
         #region Properties
-        private DateTime _selectedDates;
+        private DateTime _SelectedDates;
         public DateTime SelectedDates
         {
             get
             {
-                return _selectedDates;
+                return _SelectedDates;
             }
             set
             {
-                _selectedDates = value;
-                KalenderAnzeige = serv.NextTermin(value);
+                _SelectedDates = value;
+                KalenderAnzeige = kalenderService.NextTermin(value);
                 RaisePropertyChanged("SelectedDates");
             }
         }
-        private List<KalenderTermineModel> _termineListe;
+        private List<KalenderTermineModel> _TermineListe;
         public List<KalenderTermineModel> TermineListe
         {
             get
             {
-                return _termineListe;
+                return _TermineListe;
             }
             set
             {
-                _termineListe = value;
+                _TermineListe = value;
                 RaisePropertyChanged("TermineListe");
             }
         }
-        private List<KalenderNextTerminModel> _kalenderAnzeige;
+        private List<KalenderNextTerminModel> _KalenderAnzeige;
         public List<KalenderNextTerminModel> KalenderAnzeige
         {
             get
             {
-                return _kalenderAnzeige;
+                return _KalenderAnzeige;
             }
             set
             {
-                _kalenderAnzeige = value;
+                _KalenderAnzeige = value;
                 RaisePropertyChanged("KalenderAnzeige");
             }
         }
