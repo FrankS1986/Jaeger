@@ -1,16 +1,8 @@
 ﻿using JaegerMeister.MvvmSample.Logic.Ui.Models;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
-using System.Data.SqlClient;
-using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Collections.ObjectModel;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 {
@@ -38,7 +30,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                     KalenderTermineModel termin = new KalenderTermineModel();
                     termin.Bezeichnung = tempTermin.Bezeichnung;
                     termin.DatumUhrzeit = tempTermin.DatumUhrzeit;
-                    kalenderTermine.Add((KalenderTermineModel)termin);
+                    kalenderTermine.Add(termin);
                 }
             }
             return kalenderTermine;
@@ -69,7 +61,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                     termin.DatumUhrzeit = tempTermin.DatumUhrzeit;
                     termin.Ort = tempTermin.Ort;
                     termin.Typ = tempTermin.Typ;
-                    nextTermin.Add((KalenderNextTerminModel)termin);
+                    nextTermin.Add(termin);
                 }
             }
             return nextTermin;

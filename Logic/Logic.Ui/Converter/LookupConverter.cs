@@ -1,18 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Data;
-using JaegerMeister.MvvmSample.Logic.Ui.Models;
-using JaegerMeister.MvvmSample.Logic.Ui.Services;
-
-
-
 namespace JaegerMeister.MvvmSample.Logic.Ui.Converter
 {
-    
     public class LookupConverter : IMultiValueConverter
     {
         /// <summary>

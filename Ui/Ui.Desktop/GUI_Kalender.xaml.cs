@@ -1,36 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using JaegerMeister.MvvmSample.Ui.Desktop;
- 
 
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
-    /// <summary>
-    /// Interaktionslogik für Kalender.xaml
-    /// </summary>
     public partial class GUI_Kalender : UserControl
     {
         public GUI_Kalender()
         {
             InitializeComponent();
-            
         }
-        private void TerminHinzufuegen_Click(object sender, RoutedEventArgs e)
+        private void TerminHinzufuegen(object sender, RoutedEventArgs e)
         {
-            GUI_TerminErstellen termin = new GUI_TerminErstellen();
-            ContentControlTerminErstellen.Content = termin;
+            GUI_TerminErstellen terminErstellenControl = new GUI_TerminErstellen();
+            ContentControlTerminErstellen.Content = terminErstellenControl;
         }
     }
 }
