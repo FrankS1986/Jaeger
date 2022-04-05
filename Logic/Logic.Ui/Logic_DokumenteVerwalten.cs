@@ -14,18 +14,18 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         DokumenteVerwaltenService serv = new DokumenteVerwaltenService();
         public Logic_DokumenteVerwalten()
         {
-            Dokumente = serv.DokumenteListe();
+            DokumenteListbox = serv.DokumenteListe();
             Messenger.Default.Register<string>(this, (prop) =>
             {
                 if (prop.Equals("DokumenteVerwaltenMessage"))
                 {
-                    Dokumente = serv.DokumenteListe();
+                    DokumenteListbox = serv.DokumenteListe();
                 }
             });
         }
         #region Properties
         private List<string> _DokumenteListbox;
-        public List<string> Dokumente
+        public List<string> DokumenteListbox
         {
             get
             {
@@ -75,7 +75,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                         if (SelectDokumentListbox != null)
                         {
                             Messenger.Default.Send<DokumenteVerwaltenLoeschenMessage>(new DokumenteVerwaltenLoeschenMessage { Dokument = SelectDokumentListbox });
-                           Dokumente= serv.DokumenteListe();
+                           DokumenteListbox= serv.DokumenteListe();
                         }
                     });
 
