@@ -72,8 +72,18 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     UebersichtAnstehendeTermine = ueber.TerminUebersicht();
                 }
                 ///<summary>
-                ///Nimmt die Informationen vom ausgewählten Termin und packt diese in die entsprechenden Boxen.
+                ///Wenn ein Termin ausgewählt wird, werden die entsprechenden Informationen dem Nutzer dargestellt.
                 ///</summary>
+                else if (prop.Equals("Select"))
+                {
+                    if (SelectedTermin != null)
+                    {
+                        UebersichtBezeichnung = SelectedTermin.Bezeichnung;
+                        UebersichtOrt = SelectedTermin.Ort;
+                        UebersichtDatum = SelectedTermin.DatumUhrzeit.ToString("f");
+                        UebersichtEingeladenePersonen = ueber.EingeladenePersonen(SelectedTermin.Termine_ID);
+                    }
+                }
                 else if (prop.Equals("Bearbeiten"))
                 {
                     if (SelectedTermin != null)
