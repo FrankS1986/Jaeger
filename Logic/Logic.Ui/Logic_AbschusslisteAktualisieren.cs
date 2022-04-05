@@ -1,118 +1,182 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
+using JaegerMeister.MvvmSample.Logic.Ui.Messages;
+using JaegerMeister.MvvmSample.Logic.Ui.Services;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Input;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
-    public class Logic_AbschusslisteAktualisieren : ViewModelBase , INotifyPropertyChanged
+    public class Logic_AbschusslisteAktualisieren : ViewModelBase, INotifyPropertyChanged
     {
-        
-       private  List<Jaeger> _listboxJaeger;
-       public List<Jaeger> ListboxJaeger
+        AbschusslisteAktualisierenService serv = new AbschusslisteAktualisierenService();
 
-        { 
-        
-           get
-            {
-                return _listboxJaeger;
-            }
-
-            set
-            {
-                _listboxJaeger = value;
-                RaisePropertyChanged("listboxJaeger");
-            }
-        
-        }
-
-        private List<Jaeger> _listboxTermine;
-        public List<Jaeger> ListboxTermine
-
+        /// <summary>
+        /// Befüllt den Datagrid und die Textbox
+        /// </summary>
+        public Logic_AbschusslisteAktualisieren()
         {
+            Tierart = serv.Tiere();
+            Termine = serv.Termine();
 
-            get
+            Messenger.Default.Register<string>(this, (prop) =>
             {
-                return _listboxTermine;
-            }
-
-            set
-            {
-                _listboxTermine = value;
-                RaisePropertyChanged("listboxTermine");
-            }
-
-        }
-
-
-        private List<Tierart> _comboBoxTierart;
-        public List<Tierart> ComboBoxTierart
-
-        {
-            get
-            {
-                return _comboBoxTierart;
-            }
-
-            set
-            {
-                _comboBoxTierart = value;
-                RaisePropertyChanged("comboBoxTierart");
-            }
-        }
-
-        private string _textboxAbschuesse;
-        public string TextboxAbschuesse
-
-        {
-            get
-            {
-                return _textboxAbschuesse;
-            }
-
-            set
-            {
-                _textboxAbschuesse = value;
-                RaisePropertyChanged("textboxAbschuesse");
-            }
-        }
-
-
-
-        private ICommand _btn_AbschusslisteAkualisieren;
-        public ICommand Btn_AbschusslisteAkualisieren
-        {
-            get
-            {
-                if (_btn_AbschusslisteAkualisieren == null)
+                if (prop.Equals("Abschussliste"))
                 {
-                    _btn_AbschusslisteAkualisieren = new RelayCommand(() =>
-                    {
-                        Logic_AbschusslisteAktualisieren logic = new Logic_AbschusslisteAktualisieren();
-
-
-                        ////
-                    });
-
+                    Abschuesse = 0;
                 }
-                return _btn_AbschusslisteAkualisieren;
+            });
+
+            Messenger.Default.Register<string>(this, (prop2) =>
+            {
+                if (prop2.Equals("JaegerListe"))
+                {
+                    if (SelectTermin != null)
+                    {
+                        Jaeger = serv.Jaeger(SelectTermin.Termine_ID);
+                    }
+                }
+            });
+        }
+        //Properties zur Erstellung eines neuen Abschusses
+
+        #region Properties
+        private List<tbl_Tiere> _tierart;
+        public List<tbl_Tiere> Tierart
+        {
+            get
+            {
+                return _tierart;
+            }
+            set
+            {
+                _tierart = value;
+                RaisePropertyChanged("Tierart");
             }
         }
 
-        public class Jaeger
+        private tbl_Termine _selectTermin;
+        public tbl_Termine SelectTermin
         {
-            public int ID { get; set; }
-            public int Vorname { get; set; }
-            public int Name { get; set; }
+            get
+            {
+                return _selectTermin;
+            }
+
+            set
+            {
+                _selectTermin = value;
+                RaisePropertyChanged("SelectTermin");
+            }
         }
 
-        public class Tierart
+        private List<tbl_Termine> _termine;
+        public List<tbl_Termine> Termine
         {
-            public int ID { get; set; }
-            
-            public int Name { get; set; }
+            get
+            {
+                return _termine;
+            }
+            set
+            {
+                _termine = value;
+                RaisePropertyChanged("Termine");
+            }
         }
 
+        private List<tbl_Jaeger> _jaeger;
+        public List<tbl_Jaeger> Jaeger
+
+        {
+            get
+            {
+                return _jaeger;
+            }
+            set
+            {
+                _jaeger = value;
+                RaisePropertyChanged("Jaeger");
+            }
+        }
+
+        private int _abschuesse;
+        public int Abschuesse
+        {
+            get
+            {
+                return _abschuesse;
+            }
+            set
+            {
+                _abschuesse = value;
+
+                RaisePropertyChanged("Abschuesse");
+            }
+        }
+
+        private tbl_Tiere _tierId;
+        public tbl_Tiere TierId
+
+        {
+            get
+            {
+                return _tierId;
+            }
+            set
+            {
+                _tierId = value;
+                RaisePropertyChanged("TierId");
+            }
+        }
+
+        private tbl_Jaeger _jaegerId;
+        public tbl_Jaeger JaegerId
+        {
+            get
+            {
+                return _jaegerId;
+            }
+            set
+            {
+                _jaegerId = value;
+                RaisePropertyChanged("JaegerId");
+            }
+        }
+        #endregion
+
+        /// <summary>
+        /// Speichert die bei erfolgreichen eingaben in der Datenbank
+        /// </summary>
+        private ICommand _AbschusslisteAktualisieren;
+        public ICommand AbschusslisteAktualisieren
+        {
+            get
+            {
+                if (_AbschusslisteAktualisieren == null)
+                {
+                    _AbschusslisteAktualisieren = new RelayCommand(() =>
+                    {
+                        if (JaegerId != null && SelectTermin != null && TierId != null && Abschuesse != 0)
+                        {
+                            var newitem = new tbl_Jagderfolge()
+                            {
+                                Jäger_ID = JaegerId.Jäger_ID,
+                                Termine_ID = SelectTermin.Termine_ID,
+                                Tiere_ID = TierId.Tiere_ID
+                            };
+                            Messenger.Default.Send<AbschusslisteAktualisierenSelectedMessage>(new AbschusslisteAktualisierenSelectedMessage { Abfrage = serv.InsertJagdErfolge(newitem, Abschuesse) });
+                            Abschuesse = 0;
+                        }
+                        else
+                        {
+                            Messenger.Default.Send<AbschusslisteAktualisierenSelectedMessage>(new AbschusslisteAktualisierenSelectedMessage { Abfrage = false });
+                        }
+                    });
+                }
+                return _AbschusslisteAktualisieren;
+            }
+        }
     }
 }

@@ -22,9 +22,9 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
     /// <summary>
     /// Interaktionslogik für Jaeger_Bearbeiten.xaml
     /// </summary>
-    public partial class Jaeger_Bearbeiten : UserControl
+    public partial class GUI_Jaeger_Bearbeiten : UserControl
     {
-        public Jaeger_Bearbeiten()
+        public GUI_Jaeger_Bearbeiten()
         {
             InitializeComponent();
             Messenger.Default.Register<JaegerBearbeitenErfolgsMessage>(this, (JaegerBearbeitenErfolgsMessage editSuccess) =>

@@ -1,6 +1,7 @@
 using CommonServiceLocator;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
+using JaegerMeister.MvvmSample.Logic.Ui.Converter;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
@@ -30,7 +31,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<Logic_DokumenteVerwalten>();
-            SimpleIoc.Default.Register<Logic_Urkunden_Erstellen>();
+            SimpleIoc.Default.Register<UrkundenErstellen>();
             SimpleIoc.Default.Register<Logic_Admin>();
             SimpleIoc.Default.Register<Logic_Termine>();
             SimpleIoc.Default.Register<Logic_Abschussliste>();
@@ -50,12 +51,13 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             SimpleIoc.Default.Register<Logic_PasswortAendern>();
             SimpleIoc.Default.Register<Logic_NeuesPasswort>();
             SimpleIoc.Default.Register<Logic_SicherheitsFragestellung>();
-            SimpleIoc.Default.Register<Logic_Kalender>();            
+            SimpleIoc.Default.Register<Logic_Kalender>();
+            SimpleIoc.Default.Register<Logic_Progressbar>();
         }
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
         public Logic_DokumenteVerwalten logic_DokumenteVerwalten => ServiceLocator.Current.GetInstance<Logic_DokumenteVerwalten>();
-        public Logic_Urkunden_Erstellen logic_UrkundenErstellen => ServiceLocator.Current.GetInstance<Logic_Urkunden_Erstellen>();
+        public UrkundenErstellen logic_UrkundenErstellen => ServiceLocator.Current.GetInstance<UrkundenErstellen>();
         public Logic_Admin logic_Admin => ServiceLocator.Current.GetInstance<Logic_Admin>();
         public Logic_Termine logic_Termine => ServiceLocator.Current.GetInstance<Logic_Termine>();
         public Logic_Abschussliste logic_Abschussliste => ServiceLocator.Current.GetInstance<Logic_Abschussliste>();        
@@ -75,6 +77,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         public Logic_Einladungsrueckmeldung logic_EinladungsRueckmeldung => ServiceLocator.Current.GetInstance<Logic_Einladungsrueckmeldung>();
         public Logic_SicherheitsFragestellung logic_SicherheitsFragestellung => ServiceLocator.Current.GetInstance<Logic_SicherheitsFragestellung>();
         public Logic_Kalender logic_Kalender => ServiceLocator.Current.GetInstance<Logic_Kalender>();
+
+        public Logic_Progressbar Progressbar => ServiceLocator.Current.GetInstance<Logic_Progressbar>();
 
 
         public static void Cleanup()
