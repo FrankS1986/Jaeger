@@ -84,6 +84,8 @@
     <Compile Include="Logic_Kalender.cs" />
     <Compile Include="Logic_Progressbar.cs" />
     <Compile Include="Logic_Sicherheitsfragestellung.cs" />
+    <Compile Include="Messages\JaegerBearbeitenErfolgsMessage.cs" />
+    <Compile Include="Services\JaegerBearbeitenService.cs" />
     <Compile Include="UrkundenErstellen.cs" />
     <Compile Include="Logic_Admin.cs" />
     <Compile Include="Logic_Termine.cs" />

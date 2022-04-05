@@ -291,6 +291,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+<None Include="App.Debug.config" >
+  <DependentUpon>App.config</DependentUpon>
+</None>
+<None Include="App.Home.config" >
+  <DependentUpon>App.config</DependentUpon>
+</None>
+<None Include="App.Release.config" >
+  <DependentUpon>App.config</DependentUpon>
+</None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Logic\Logic.Ui\Logic.Ui.csproj">
@@ -318,4 +327,20 @@
     <Resource Include="Pictures\TerminHinzufuegen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+ <UsingTask TaskName="TransformXml" AssemblyFile="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Web\Microsoft.Web.Publishing.Tasks.dll" />
+  <Target Name="BeforeBuild" Condition="Exists('App.$(Configuration).config')">
+    <!-- Generate transformed app config and replace it: will get the <runtime> node and assembly bindings properly populated -->
+    <TransformXml Source="App.config" Destination="App.config" Transform="App.$(Configuration).config" />
+  </Target>
+  <Target Name="AfterBuild" Condition="Exists('App.$(Configuration).config')">
+    <!-- Generate transformed app config in the intermediate directory: this will transform sections such as appSettings -->
+    <TransformXml Source="App.config" Destination="$(IntermediateOutputPath)$(TargetFileName).config" Transform="App.$(Configuration).config" />
+    <!-- Force build process to use the transformed configuration file from now on.-->
+    <ItemGroup>
+      <AppConfigWithTargetPath Remove="App.config" />
+      <AppConfigWithTargetPath Include="$(IntermediateOutputPath)$(TargetFileName).config">
+        <TargetPath>$(TargetFileName).config</TargetPath>
+      </AppConfigWithTargetPath>
+    </ItemGroup>
+  </Target>
 </Project>
