@@ -107,7 +107,6 @@
     <Compile Include="Messages\AdminAbfrage.cs" />
     <Compile Include="Messages\DokumenteVerwaltenLoeschenMessage.cs" />
     <Compile Include="Messages\EinladungenErstellenErfolgsMessage.cs" />
-    <Compile Include="Messages\JaegerBearbeitenErfolgsMessage.cs" />
     <Compile Include="Messages\JaegerHinzufuegenErfolgsMessage.cs" />
     <Compile Include="Messages\LoginProofMessage.cs" />
     <Compile Include="Messages\ProgressbarValueMessage.cs" />
@@ -128,7 +127,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\SharedAssemblyInfo.cs" />
     <Compile Include="Service.cs" />
-    <Compile Include="Services\JaegerBearbeitenService.cs" />
     <Compile Include="Services\DokumenteVerwaltenService.cs" />
     <Compile Include="Services\EinladungenErstellenService.cs" />
     <Compile Include="Services\JaegerHinzufuegenService.cs" />
@@ -240,7 +238,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="Service\" />
   </ItemGroup>
   <ItemGroup>
