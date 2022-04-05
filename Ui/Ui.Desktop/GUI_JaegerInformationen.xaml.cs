@@ -12,15 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Ui.Desktop;
 
 namespace JaegerMeister.MvvmSample.Ui.Desktop
 {
     /// <summary>
     /// Interaktionslogik für Jaeger_Informationen.xaml
     /// </summary>
-    public partial class Jaeger_Informationen : UserControl
+    public partial class GUI_JaegerInformationen : UserControl
     {
-        public Jaeger_Informationen()
+        public GUI_JaegerInformationen()
         {
             InitializeComponent();
         }
@@ -28,6 +29,13 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         private void Jaeger_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            GUI_JaegerHinzufuegen jaegerHinzufuegen = new GUI_JaegerHinzufuegen();
+
+            Content = jaegerHinzufuegen;
         }
     }
 }

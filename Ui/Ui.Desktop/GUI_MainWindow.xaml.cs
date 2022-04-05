@@ -54,7 +54,7 @@ namespace Ui.Desktop
 
         private void btn_Jaegerliste(object sender, RoutedEventArgs e)
         {
-            Jaeger_Informationen jaeger = new Jaeger_Informationen();
+            GUI_JaegerInformationen jaeger = new GUI_JaegerInformationen();
             Contmain.Content = jaeger;
         }
 

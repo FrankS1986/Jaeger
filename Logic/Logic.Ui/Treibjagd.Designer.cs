@@ -1,4 +1,4 @@
-﻿// Die T4-Codegenerierung ist für Modell 'C:\Users\frschroeder\source\repos\jaeger-projekt-master\Logic\Logic.Ui\Treibjagd.edmx' aktiviert. 
+﻿// Die T4-Codegenerierung ist für Modell 'C:\Users\JuKreikenbaum\source\repos\jaeger-projekt\projekt\Logic\Logic.Ui\Treibjagd.edmx' aktiviert. 
 // Um die Generierung von Legacycode zu aktivieren, ändern Sie den Wert der Designer-Eigenschaft 'Code Generation Strategy'
 // in 'Legacy ObjectContext'. Diese Eigenschaft wird im Eigenschaftenfenster angezeigt, wenn das Modell
 // im Designer geöffnet ist.
