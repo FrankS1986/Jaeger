@@ -64,7 +64,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_bestaetigen = new RelayCommand(() =>
                     {
-                        if (Cb_sicherheitsfrage != null && !string.IsNullOrEmpty(Tb_vorname) && !string.IsNullOrEmpty(Tb_nachname) && !string.IsNullOrEmpty(Tb_benutzername) && !string.IsNullOrEmpty(Tb_passwort) && !string.IsNullOrEmpty(Tb_sicherheitsfrage_antwort))
+                        if (SelectItem != null && !string.IsNullOrEmpty(Tb_vorname) && !string.IsNullOrEmpty(Tb_nachname) && !string.IsNullOrEmpty(Tb_benutzername) && !string.IsNullOrEmpty(Tb_passwort) && !string.IsNullOrEmpty(Tb_sicherheitsfrage_antwort))
                         {
                             var newItem = new tbl_Login()
                             {

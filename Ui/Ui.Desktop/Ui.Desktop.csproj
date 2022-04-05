@@ -34,6 +34,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Home|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Home\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommonServiceLocator, Version=2.0.6.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\..\packages\CommonServiceLocator.2.0.6\lib\net47\CommonServiceLocator.dll</HintPath>
@@ -98,8 +108,8 @@
     <Compile Include="GUI_TerminErstellen.xaml.cs">
       <DependentUpon>GUI_TerminErstellen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI_TermineUebersicht.xaml.cs">
-      <DependentUpon>GUI_TermineUebersicht.xaml</DependentUpon>
+    <Compile Include="GUI_TerminUebersicht.xaml.cs">
+      <DependentUpon>GUI_TerminUebersicht.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI_PasswortErneuern.xaml.cs">
       <DependentUpon>GUI_PasswortErneuern.xaml</DependentUpon>
@@ -175,7 +185,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GUI_TermineUebersicht.xaml">
+    <Page Include="GUI_TerminUebersicht.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

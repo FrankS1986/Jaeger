@@ -46,7 +46,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_Registrieren = new RelayCommand(() =>
                     {
-                        
+
                     });
 
                 }
@@ -64,10 +64,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     _btn_bestaetigen = new RelayCommand(() =>
                     {
+                        Messenger.Default.Send<LoginProofMessage>(new LoginProofMessage{proof = service.LoginSuccessful(tb_Benutzername, passwort) });
 
-                     Messenger.Default.Send < LoginProofMessage > (new LoginProofMessage { proof = service.LoginSuccessful(tb_Benutzername, passwort) });
-   
-
+                        Messenger.Default.Send<AdminAbfrage>(new AdminAbfrage { Abfrage = service.AdminSuccessful(tb_Benutzername) });
                     });
                 }
                 return _btn_bestaetigen;
@@ -116,11 +115,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 return _btn_passwortvergessen;
             }
         }
-        
+
         #endregion Properties
-
-
-           //
     }
 }
 
