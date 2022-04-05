@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using GalaSoft.MvvmLight;
 using System.ComponentModel;
 using System.Windows.Input;
@@ -16,119 +12,96 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
     public class Logic_DokumenteVerwalten : ViewModelBase, INotifyPropertyChanged
     {
         DokumenteVerwaltenService serv = new DokumenteVerwaltenService();
-
         public Logic_DokumenteVerwalten()
         {
             Dokumente = serv.DokumenteListe();
-
             Messenger.Default.Register<string>(this, (prop) =>
             {
                 if (prop.Equals("DokumenteVerwaltenMessage"))
                 {
-
-
                     Dokumente = serv.DokumenteListe();
-
                 }
             });
-
         }
-
-
-        private List<string> _dokumente;
+        #region Properties
+        private List<string> _DokumenteListbox;
         public List<string> Dokumente
         {
             get
             {
-                return _dokumente;
+                return _DokumenteListbox;
             }
-
             set
             {
-                _dokumente = value;
-                RaisePropertyChanged("Dokumente");
+                _DokumenteListbox = value;
+                RaisePropertyChanged("DokumenteListbox");
             }
         }
-
-        private string _selectDokument;
-        public string SelectDokument
+        private string _SelectDokumentListbox;
+        public string SelectDokumentListbox
         {
             get
             {
-                return _selectDokument;
+                return _SelectDokumentListbox;
             }
-
             set
             {
-                _selectDokument = value;
-                RaisePropertyChanged("SelectDokument");
+                _SelectDokumentListbox = value;
+                RaisePropertyChanged("SelectDokumentListbox");
             }
         }
-
-        private string _dateiname;
+        private string _DateinameTextbox;
         public string Dateiname
         {
             get
             {
-                return _dateiname;
+                return _DateinameTextbox;
             }
-
             set
             {
-                _dateiname = value;
+                _DateinameTextbox = value;
                 RaisePropertyChanged("Dateiname");
             }
         }
-
-
-        private ICommand _dokumentloeschen;
-        public ICommand Dokumentloeschen
+        private ICommand _DokumentloeschenButton;
+        public ICommand DokumentloeschenButton
         {
             get
             {
-                if (_dokumentloeschen == null)
+                if (_DokumentloeschenButton == null)
                 {
-                    _dokumentloeschen = new RelayCommand(() =>
+                    _DokumentloeschenButton = new RelayCommand(() =>
                     {
-                        if (SelectDokument != null)
+                        if (SelectDokumentListbox != null)
                         {
-
-                            Messenger.Default.Send<DokumenteVerwaltenLoeschenMessage>(new DokumenteVerwaltenLoeschenMessage { Dokument = SelectDokument });
-
+                            Messenger.Default.Send<DokumenteVerwaltenLoeschenMessage>(new DokumenteVerwaltenLoeschenMessage { Dokument = SelectDokumentListbox });
+                           Dokumente= serv.DokumenteListe();
                         }
-
-
-
                     });
 
                 }
-                return _dokumentloeschen;
+                return _DokumentloeschenButton;
             }
         }
-
-        private ICommand _dokumentBearbeiten;
-        public ICommand DokumentBearbeiten
+        private ICommand _DokumentBearbeitenButton;
+        public ICommand DokumentBearbeitenButton
         {
             get
             {
-                if (_dokumentBearbeiten == null)
+                if (_DokumentBearbeitenButton == null)
                 {
-                    _dokumentBearbeiten = new RelayCommand(() =>
+                    _DokumentBearbeitenButton = new RelayCommand(() =>
                     {
-                        if (SelectDokument != null)
+                        if (SelectDokumentListbox != null)
                         {
-                            serv.DokumenteBearbeiten(SelectDokument);
+                            serv.DokumenteBearbeiten(SelectDokumentListbox);
                         }
-
-
-
                     });
-
                 }
-                return _dokumentBearbeiten;
+                return _DokumentBearbeitenButton;
             }
         }
-
+        #endregion
     }
 
 }
