@@ -27,14 +27,16 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                     try
                     {
                         string[] zeitEinheit = zeit.Split(':');
-                        if (Convert.ToDouble(zeitEinheit[0]) >= 24)
+                        double stunde = Convert.ToDouble(zeitEinheit[0]);
+                        double minute = Convert.ToDouble(zeitEinheit[1]);
+                        if (stunde >= 24)
                         {
-                            MessageBox.Show("Ihre Zeitangabe ist ungültig!");
+                            MessageBox.Show("Ihre Stundenangabe ist ungültig!");
                             return false;
                         }
-                        else if (Convert.ToDouble(zeitEinheit[1]) >= 60)
+                        else if (minute >= 60)
                         {
-                            MessageBox.Show("Ihre Zeitangabe ist ungültig!");
+                            MessageBox.Show("Ihre Minutenangabe ist ungültig!");
                             return false;
                         }
                         else if (datum < DateTime.Today)
@@ -49,8 +51,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                         }
                         else
                         {
-                            datum = datum.AddHours(Convert.ToDouble(zeitEinheit[0]));
-                            datum = datum.AddMinutes(Convert.ToDouble(zeitEinheit[1]));
+                            datum = datum.AddHours(stunde);
+                            datum = datum.AddMinutes(minute);
                             tbl_Termine termin = new tbl_Termine
                             {
                                 Ort = ort,
@@ -77,14 +79,16 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                     try
                     {
                         string[] zeitEinheit = zeit.Split(':');
-                        if (Convert.ToDouble(zeitEinheit[0]) >= 24)
+                        double stunde = Convert.ToDouble(zeitEinheit[0]);
+                        double minute = Convert.ToDouble(zeitEinheit[1]);
+                        if (stunde >= 24)
                         {
-                            MessageBox.Show("Ihre Zeitangabe ist ungültig!");
+                            MessageBox.Show("Ihre Stundenangabe ist ungültig!");
                             return false;
                         }
-                        else if (Convert.ToDouble(zeitEinheit[1]) >= 60)
+                        else if (minute >= 60)
                         {
-                            MessageBox.Show("Ihre Zeitangabe ist ungültig!");
+                            MessageBox.Show("Ihre Minutenangabe ist ungültig!");
                             return false;
                         }
                         else if (datum < DateTime.Today)
@@ -99,8 +103,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
                         }
                         else
                         {
-                            datum = datum.AddHours(Convert.ToDouble(zeitEinheit[0]));
-                            datum = datum.AddMinutes(Convert.ToDouble(zeitEinheit[1]));
+                            datum = datum.AddHours(stunde);
+                            datum = datum.AddMinutes(minute);
                             foreach (var item in liste)
                             {
                                 item.Bezeichnung = bezeichnung;
