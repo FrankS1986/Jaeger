@@ -149,14 +149,14 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         /// <summary>
         /// Speichert die bei erfolgreichen eingaben in der Datenbank
         /// </summary>
-        private ICommand _abschusslisteAkualisieren;
-        public ICommand AbschusslisteAkualisieren
+        private ICommand _AbschusslisteAktualisieren;
+        public ICommand AbschusslisteAktualisieren
         {
             get
             {
-                if (_abschusslisteAkualisieren == null)
+                if (_AbschusslisteAktualisieren == null)
                 {
-                    _abschusslisteAkualisieren = new RelayCommand(() =>
+                    _AbschusslisteAktualisieren = new RelayCommand(() =>
                     {
                         if (JaegerId != null && SelectTermin != null && TierId != null && Abschuesse != 0)
                         {
@@ -175,7 +175,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                         }
                     });
                 }
-                return _abschusslisteAkualisieren;
+                return _AbschusslisteAktualisieren;
             }
         }
     }

@@ -86,7 +86,7 @@
                 <TextBox PreviewKeyDown="Abschuesse_PreviewKeyDown" x:Name="Abschuesse" PreviewTextInput="TextBox_PreviewTextInput" FontSize="12" Height="20"  FontFamily="Gill Sans MT Regular"  Text="{Binding Abschuesse}" Margin="5,5"></TextBox>
             </StackPanel>
             <StackPanel Grid.Row="3"  Grid.Column="3" Background="White" >
-                <Button Command="{Binding AbschusslisteAkualisieren}" FontSize="12" BorderBrush="#230C0F" Background="White" HorizontalAlignment="Stretch" Margin="10,10" Height="30" Content="Abschussliste aktualisieren"></Button>
+                <Button Command="{Binding AbschusslisteAktualisieren}" FontSize="12" BorderBrush="#230C0F" Background="White" HorizontalAlignment="Stretch" Margin="10,10" Height="30" Content="Abschussliste aktualisieren"></Button>
             </StackPanel>
         </Grid>
     </ContentControl>
