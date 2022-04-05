@@ -14,21 +14,21 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
     public class Logic_Termine : ViewModelBase, INotifyPropertyChanged
     {
-        public int id = 0;
+        int id = 0;
         TerminUebersichtService ueber = new TerminUebersichtService();
         TerminErstellenService erstell = new TerminErstellenService();
         public class Type
         {
-            private string terminTyp;
-            public string TerminTyp
+            private string typ;
+            public string Typ
             {
                 get
                 {
-                    return terminTyp;
+                    return typ;
                 }
                 set
                 {
-                    terminTyp = value;
+                    typ = value;
                 }
             }
         }
@@ -60,11 +60,11 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         {
             TerminTyp = new ObservableCollection<Type>()
             {
-                new Type() {TerminTyp="Treibjagd"},
-                new Type() {TerminTyp="Geburtstag"},
-                new Type() {TerminTyp="Treffen"},
-                new Type() {TerminTyp="Versammlung"},
-                new Type() {TerminTyp="Sonstige"}
+                new Type() {Typ="Treibjagd"},
+                new Type() {Typ="Geburtstag"},
+                new Type() {Typ="Treffen"},
+                new Type() {Typ="Versammlung"},
+                new Type() {Typ="Sonstige"}
             };
             Messenger.Default.Register<string>(this, (prop) =>
             {
@@ -72,6 +72,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     UebersichtAnstehendeTermine = ueber.TerminUebersicht();
                 }
+                ///<summary>
+                ///Wenn ein Termin ausgewählt wird, werden die entsprechenden Informationen dem Nutzer dargestellt.
+                ///</summary>
                 else if (prop.Equals("Select"))
                 {
                     if (SelectedTermin != null)
@@ -82,42 +85,22 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                         UebersichtEingeladenePersonen = ueber.EingeladenePersonen(SelectedTermin.Termine_ID);
                     }
                 }
-                //<summary
-                //Nimmt die Informationen vom ausgewählten Termin und packt diese in die entsprechenden Boxen.
-                //</summary>
+                ///<summary>
+                ///Nimmt die Informationen vom ausgewählten Termin und packt diese in die entsprechenden Boxen.
+                ///</summary>
                 else if (prop.Equals("Bearbeiten"))
                 {
                     if (SelectedTermin != null)
                     {
-                        int count = 0;
                         id = SelectedTermin.Termine_ID;
                         ErstellBezeichnung = SelectedTermin.Bezeichnung;
                         ErstellOrt = SelectedTermin.Ort;
-                        //<summary>
-                        //Wenn der Termin-Typ vorhanden ist, wird dieser in der ComboBox ausgewählt. Wenn nicht, dann wird ein neuer Termin-Typ erstellt und dieser wird dann ausgewählt.
-                        //</summary>
                         foreach (var typ in TerminTyp)
                         {
-                            if (typ.TerminTyp == SelectedTermin.Typ)
+                            if (typ.Typ == SelectedTermin.Typ)
                             {
                                 SelectedTerminTyp = typ;
                                 break;
-                            }
-                            else
-                            {
-                                count++;
-                            }
-                        }
-                        if (count == TerminTyp.Count)
-                        {
-                            TerminTyp.Add(new Type() { TerminTyp = SelectedTermin.Typ });
-                            foreach (var typ in TerminTyp)
-                            {
-                                if (typ.TerminTyp == SelectedTermin.Typ)
-                                {
-                                    SelectedTerminTyp = typ;
-                                    break;
-                                }
                             }
                         }
                         string[] zeit = SelectedTermin.DatumUhrzeit.ToString().Split();
@@ -125,6 +108,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                         ErstellUhrzeit = zeit[1];
                     }
                 }
+                ///<summary>
+                ///Beim Abbruch werden die Felder im Erstellen-Fenster geleert.
+                ///</summary>
                 else if (prop.Equals("Abbruch"))
                 {
                     id = 0;
@@ -286,7 +272,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                         }
                         else
                         {
-                            if (erstell.TerminErstellen(id, ErstellBezeichnung, ErstellOrt, ErstellUhrzeit, SelectedTerminTyp.TerminTyp, ErstellDatum))
+                            if (erstell.TerminErstellen(id, ErstellBezeichnung, ErstellOrt, ErstellUhrzeit, SelectedTerminTyp.Typ, ErstellDatum))
                             {
                                 Messenger.Default.Send("Richtig");
                                 UebersichtBezeichnung = "";

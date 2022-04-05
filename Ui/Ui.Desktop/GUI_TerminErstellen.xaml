@@ -33,7 +33,7 @@
                 <Label FontSize="16" Margin="20,0" FontFamily="Gill Sans MT regular">Bezeichnung</Label>
                 <TextBox Height="25" FontSize="12" Text="{Binding ErstellBezeichnung}" Margin="20,1" FontFamily="Gill sans MT Regular"></TextBox>
                 <Label FontSize="16" Margin="20,0" FontFamily="Gill Sans MT regular">Typ</Label>
-                <ComboBox Height="25" FontSize="12" ItemsSource="{Binding Typ}" SelectedItem="{Binding SelectedTyp}" DisplayMemberPath="Typ" IsSynchronizedWithCurrentItem="True" Margin="20,1" FontFamily="Gill sans MT Regular"></ComboBox>
+                <ComboBox Height="25" FontSize="12" ItemsSource="{Binding TerminTyp}" SelectedItem="{Binding SelectedTerminTyp}" DisplayMemberPath="Typ" IsSynchronizedWithCurrentItem="True" Margin="20,1" FontFamily="Gill sans MT Regular"></ComboBox>
                 <Label FontSize="16" Margin="20,0" FontFamily="Gill Sans MT Regular">Wo?</Label>
                 <TextBox Height="25" FontSize="12" Text="{Binding ErstellOrt}" Margin="20,1" FontFamily="Gill sans MT Regular"></TextBox>
                 <Label FontSize="16" Margin="20,0" FontFamily="Gill Sans MT Regular">Datum</Label>
