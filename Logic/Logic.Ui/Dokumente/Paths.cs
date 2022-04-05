@@ -13,5 +13,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Dokumente
             string appPath = AppDomain.CurrentDomain.BaseDirectory;
             return appPath + "..\\..\\..\\..\\" + file;
         }
+
+
     }
 }

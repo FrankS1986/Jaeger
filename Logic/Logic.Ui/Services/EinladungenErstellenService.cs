@@ -11,6 +11,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Services
 {
     public class EinladungenErstellenService
     {
+        //TODO: Ladebalken hinzufügen
         /// <summary>
         /// Es wird in der Tabelle Postaussgang ein eintrag hinzugefügt.
         /// </summary>
