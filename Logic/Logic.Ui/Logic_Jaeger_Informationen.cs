@@ -36,7 +36,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
                 if(_SelectedListItem != null)
                 {
-                    JaegerInformationSelectedModel result = serv.Selected(_SelectedListItem.Jäger_ID);
+                    JaegerInformationSelectedModel result = jaegerInformationenService.Selected(_SelectedListItem.Jäger_ID);
 
                     VornameLabel = result.Vorname;
                     NachnameLabel = result.Nachname;
@@ -170,7 +170,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 _StraßeLabel = value;
                 RaisePropertyChanged("StraßeLabel");
             }
-            set { }
+         
         }
 
         private string _HausnummerLabel;
@@ -185,7 +185,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 _HausnummerLabel = value;
                 RaisePropertyChanged("HausnummerLabel");
             }
-            set { }
+           
         }
 
         private string _AdresszusatzLabel;
@@ -200,7 +200,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 _AdresszusatzLabel = value;
                 RaisePropertyChanged("AdresszusatzLabel");
             }
-            set { }
+          
         }
 
         private string _PostleitzahlLabel;
@@ -229,7 +229,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 _WohnortLabel = value;
                 RaisePropertyChanged("Lab_wohnort");
             }
-            set { }
+           
         }
 
         private string _Telefonnummer1Label;
@@ -244,7 +244,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 _Telefonnummer1Label = value;
                 RaisePropertyChanged("Telefonnummer1Label");
             }
-            set { }
+            
         }
 
         private string _Telefonnummer2Label;
@@ -259,7 +259,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 _Telefonnummer2Label = value;
                 RaisePropertyChanged("Telefonnummer2Label");
             }
-            set { }
+
         }
 
         private string _Telefonnummer3Label;
@@ -274,7 +274,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 _Telefonnummer3Label = value;
                 RaisePropertyChanged("Telefonnummer3Label");
             }
-            set { }
+          
         }
 
         private string _EmailLabel;
@@ -289,7 +289,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 _EmailLabel = value;
                 RaisePropertyChanged("EmailLabel");
             }
-            set { }
+           
         }
 
         private string _FunktionLabel;
@@ -304,7 +304,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 _FunktionLabel = value;
                 RaisePropertyChanged("FunktionLabel");
             }
-            set { }
+         
         }
 
         private string _JagdhundeLabel;
@@ -319,7 +319,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 _JagdhundeLabel = value;
                 RaisePropertyChanged("JagdhundeLabel");
             }
-            set { }
+            
         }
         #endregion Properties
     }
