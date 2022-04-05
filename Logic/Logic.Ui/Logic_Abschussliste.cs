@@ -1,11 +1,6 @@
-﻿using System;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
 using System.Collections.Generic;
-using System.Windows.Input;
-using GalaSoft.MvvmLight.Command;
 using System.ComponentModel;
-using GalaSoft.MvvmLight.Messaging;
-using JaegerMeister.MvvmSample.Logic.Ui.Messages;
 using JaegerMeister.MvvmSample.Logic.Ui.Services;
 using JaegerMeister.MvvmSample.Logic.Ui.Models;
 

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace JaegerMeister.MvvmSample.Logic.Ui.Models
+﻿namespace JaegerMeister.MvvmSample.Logic.Ui.Models
 {
     //Die Klasse fuer den Bau der Abschussliste fuer Jaeger
     public class JaegerAbschussModel
@@ -22,10 +16,10 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Models
         public string Nachname
         {
             get
-            { return _nachname; } 
+            { return _nachname; }
             set { _nachname = value; }
         }
-        public int Abschüsse 
+        public int Abschüsse
         {
             get { return _abschuesse; }
             set { _abschuesse = value; }
@@ -36,6 +30,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Models
             _vorname = vorname;
             _nachname = nachname;
             _abschuesse = abschuesse;
-        }        
+        }
     }
 }
