@@ -2,13 +2,27 @@
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using JaegerMeister.MvvmSample.Logic.Ui.Services;
+using JaegerMeister.MvvmSample.Logic.Ui.Messages;
+using JaegerMeister.MvvmSample.Logic.Ui.Models;
+using System.Collections.Generic;
+using System;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
 
     public class Logic_Jaeger_Informationen : ViewModelBase, INotifyPropertyChanged
     {
+        JaegerInformationenService serv = new JaegerInformationenService();
 
+        public Logic_Jaeger_Informationen()
+        {
+            Dg_Jaeger = serv.Jaeger();
+        }
+
+        private List<JaegerInformationModel> _dg_Jaeger;
+        public List<JaegerInformationModel> Dg_Jaeger
+        
         private ICommand _JaegerHinzufuegen;
         public ICommand JaegerHinzufuegen
         {
@@ -235,6 +249,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
             set { }
         }
-
+        #endregion
     }
 }

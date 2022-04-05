@@ -31,11 +31,17 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnHinzufuegen(object sender, RoutedEventArgs e)
         {
             GUI_JaegerHinzufuegen jaegerHinzufuegen = new GUI_JaegerHinzufuegen();
+            ContentControl_JaegerInformation.Content = jaegerHinzufuegen;
+        }
 
-            Content = jaegerHinzufuegen;
+        private void BtnBearbeiten(object sender, RoutedEventArgs e)
+        {
+            GUI_JaegerBearbeiten jaeger_Bearbeiten = new GUI_JaegerBearbeiten();
+            ContentControl_JaegerInformation.Content = jaeger_Bearbeiten;
+
         }
     }
 }
