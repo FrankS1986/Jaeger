@@ -1,9 +1,6 @@
 ﻿using System.ComponentModel;
-using System.Windows.Input;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
 using JaegerMeister.MvvmSample.Logic.Ui.Services;
-using JaegerMeister.MvvmSample.Logic.Ui.Messages;
 using JaegerMeister.MvvmSample.Logic.Ui.Models;
 using System.Collections.Generic;
 using System;
@@ -13,300 +10,305 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
     public class Logic_Jaeger_Informationen : ViewModelBase, INotifyPropertyChanged
     {
-        JaegerInformationenService serv = new JaegerInformationenService();
+        /// <summary>
+        /// Interaktionslogik für Jaeger_Informationen.xaml
+        /// </summary>
+        JaegerInformationenService jaegerInformationenService = new JaegerInformationenService();
 
         public Logic_Jaeger_Informationen()
         {
-            Dg_Jaeger = serv.Jaeger();
+            PersonAnzeige = jaegerInformationenService.Jaeger();
         }
 
-        private List<JaegerInformationModel> _dg_Jaeger;
-        public List<JaegerInformationModel> Dg_Jaeger
-        {
-            get
-            {
-                return _dg_Jaeger;
-            }
-            set
-            {
-                
-                _dg_Jaeger = value;
-                RaisePropertyChanged("Dg_Jaeger");
-            }
-        }
-        //SelectedItem Anzeige der Labels
-        private JaegerInformationModel _selectedListItem;
+
+        #region properties Labels
+        private JaegerInformationModel _SelectedListItem;
         public JaegerInformationModel SelectedListItem
         {
             get
             {
-                return _selectedListItem;
+                return _SelectedListItem;
             }
             set
             {
-                _selectedListItem = value;
+                _SelectedListItem = value;
                 RaisePropertyChanged("SelectedListItem");
 
-                if(_selectedListItem != null)
+                if(_SelectedListItem != null)
                 {
-                    JaegerInformationSelectedModel result = serv.Selected(_selectedListItem.Jäger_ID);
+                    JaegerInformationSelectedModel result = serv.Selected(_SelectedListItem.Jäger_ID);
 
-                    Lab_vorname = result.Vorname;
-                    Lab_nachname = result.Nachname;
-                    Lab_anrede = result.Anrede;
-                    Lab_geburtstag = (DateTime)result.Geburtsdatum;
-                    Lab_straße = result.Straße;
-                    Lab_hausnummer = result.Hausnummer;
-                    Lab_adresszusatz = result.Adresszusatz;
-                    Lab_postleitzahl = result.Postleitzahl;
-                    Lab_wohnort = result.Wohnort;
-                    Lab_telefonnummer1 = result.Telefonnummer1;
-                    Lab_telefonnummer2 = result.Telefonnummer2;
-                    Lab_telefonnummer3 = result.Telefonnummer3;
-                    Lab_email = result.Email;
-                    Lab_funktion = result.Funktion;
-                    Lab_jagdhunde = result.Jagdhund;
-                    LabelVorname = result.Vorname;
-                    LabelNachname = result.Nachname; 
+                    VornameLabel = result.Vorname;
+                    NachnameLabel = result.Nachname;
+                    AnredeLabel = result.Anrede;
+                    GeburtstagLabel = (DateTime)result.Geburtsdatum;
+                    StraßeLabel = result.Straße;
+                    HausnummerLabel = result.Hausnummer;
+                    AdresszusatzLabel = result.Adresszusatz;
+                    PostleitzahlLabel = result.Postleitzahl;
+                    WohnortLabel = result.Wohnort;
+                    Telefonnummer1Label = result.Telefonnummer1;
+                    Telefonnummer2Label = result.Telefonnummer2;
+                    Telefonnummer3Label = result.Telefonnummer3;
+                    EmailLabel = result.Email;
+                    FunktionLabel = result.Funktion;
+                    JagdhundeLabel = result.Jagdhund;
+                    VornameHeader = result.Vorname;
+                    NachnameHeader = result.Nachname; 
                 }
             }
         }
-        #region properties Labels
-        private string _labelVorname;
-        public string LabelVorname
+        
+        private List<JaegerInformationModel> _PersonAnzeige;
+        public List<JaegerInformationModel> PersonAnzeige
         {
             get
             {
-                return _labelVorname;
+                return _PersonAnzeige;
             }
             set
             {
-                _labelVorname = value;
-                RaisePropertyChanged("LabelVorname");
+
+                _PersonAnzeige = value;
+                RaisePropertyChanged("PersonAnzeige");
             }
         }
 
-        private string _labelNachname;
-        public string LabelNachname
+        private string _VornameHeader;
+        public string VornameHeader
         {
             get
             {
-                return _labelNachname;
+                return _VornameHeader;
             }
             set
             {
-                _labelNachname = value;
-                RaisePropertyChanged("LabelNachname");
+                _VornameHeader = value;
+                RaisePropertyChanged("VornameHeader");
             }
         }
 
-        private string _lab_vorname;
-        public string Lab_vorname
+        private string _NachnameHeader;
+        public string NachnameHeader
         {
             get
             {
-                return _lab_vorname;
+                return _NachnameHeader;
             }
             set
             {
-                _lab_vorname = value;
-                RaisePropertyChanged("Lab_vorname");
+                _NachnameHeader = value;
+                RaisePropertyChanged("NachnameHeader");
             }
         }
 
-        private string _lab_nachname;
-        public string Lab_nachname
+        private string _VornameLabel;
+        public string VornameLabel
         {
             get
             {
-                return _lab_nachname;
+                return _VornameLabel;
             }
             set
             {
-                _lab_nachname = value;
-                RaisePropertyChanged("Lab_nachname");
+                _VornameLabel = value;
+                RaisePropertyChanged("VornameLabel");
             }
         }
 
-        private string _lab_anrede;
-        public string Lab_anrede
+        private string _NachnameLabel;
+        public string NachnameLabel
         {
             get
             {
-                return _lab_anrede;
+                return _NachnameLabel;
             }
             set
             {
-                _lab_anrede = value;
-                RaisePropertyChanged("Lab_anrede");
+                _NachnameLabel = value;
+                RaisePropertyChanged("NachnameLabel");
             }
         }
 
-        private DateTime _lab_geburtstag;
-        public DateTime Lab_geburtstag
+        private string _AnredeLabel;
+        public string AnredeLabel
         {
             get
             {
-                return _lab_geburtstag;
+                return _AnredeLabel;
             }
             set
             {
-                _lab_geburtstag = value;
-                RaisePropertyChanged("Lab_geburtstag");
+                _AnredeLabel = value;
+                RaisePropertyChanged("AnredeLabel");
             }
         }
 
-        private string _lab_straße;
-        public string Lab_straße
+        private DateTime _GeburtstagLabel;
+        public DateTime GeburtstagLabel
         {
             get
             {
-                return _lab_straße;
+                return _GeburtstagLabel;
             }
             set
             {
-                _lab_straße = value;
-                RaisePropertyChanged("Lab_Straße");
+                _GeburtstagLabel = value;
+                RaisePropertyChanged("GeburtstagLabel");
             }
         }
 
-        private string _lab_hausnummer;
-        public string Lab_hausnummer
+        private string _StraßeLabel;
+        public string StraßeLabel
         {
             get
             {
-                return _lab_hausnummer;
+                return _StraßeLabel;
             }
             set
             {
-                _lab_hausnummer = value;
-                RaisePropertyChanged("Lab_hausnummer");
+                _StraßeLabel = value;
+                RaisePropertyChanged("StraßeLabel");
             }
         }
 
-        private string _lab_adresszusatz;
-        public string Lab_adresszusatz
+        private string _HausnummerLabel;
+        public string HausnummerLabel
         {
             get
             {
-                return _lab_adresszusatz;
+                return _HausnummerLabel;
             }
             set
             {
-                _lab_adresszusatz = value;
-                RaisePropertyChanged("Lab_adresszusatz");
+                _HausnummerLabel = value;
+                RaisePropertyChanged("HausnummerLabel");
             }
         }
 
-        private string _lab_postleitzahl;
-        public string Lab_postleitzahl
+        private string _AdresszusatzLabel;
+        public string AdresszusatzLabel
         {
             get
             {
-                return _lab_postleitzahl;
+                return _AdresszusatzLabel;
             }
             set
             {
-                _lab_postleitzahl = value;
-                RaisePropertyChanged("Lab_postleitzahl");
+                _AdresszusatzLabel = value;
+                RaisePropertyChanged("AdresszusatzLabel");
             }
         }
 
-        private string _lab_wohnort;
-        public string Lab_wohnort
+        private string _PostleitzahlLabel;
+        public string PostleitzahlLabel
         {
             get
             {
-                return _lab_wohnort;
+                return _PostleitzahlLabel;
             }
             set
             {
-                _lab_wohnort = value;
+                _PostleitzahlLabel = value;
+                RaisePropertyChanged("PostleitzahlLabel");
+            }
+        }
+
+        private string _WohnortLabel;
+        public string WohnortLabel
+        {
+            get
+            {
+                return _WohnortLabel;
+            }
+            set
+            {
+                _WohnortLabel = value;
                 RaisePropertyChanged("Lab_wohnort");
             }
         }
 
-        private string _lab_telefonnummer1;
-        public string Lab_telefonnummer1
+        private string _Telefonnummer1Label;
+        public string Telefonnummer1Label
         {
             get
             {
-                return _lab_telefonnummer1;
+                return _Telefonnummer1Label;
             }
             set
             {
-                _lab_telefonnummer1 = value;
-                RaisePropertyChanged("Lab_telefonnummer1");
+                _Telefonnummer1Label = value;
+                RaisePropertyChanged("Telefonnummer1Label");
             }
         }
 
-        private string _lab_telefonnummer2;
-        public string Lab_telefonnummer2
+        private string _Telefonnummer2Label;
+        public string Telefonnummer2Label
         {
             get
             {
-                return _lab_telefonnummer2;
+                return _Telefonnummer2Label;
             }
             set
             {
-                _lab_telefonnummer2 = value;
-                RaisePropertyChanged("Lab_telefonnummer2");
+                _Telefonnummer2Label = value;
+                RaisePropertyChanged("Telefonnummer2Label");
             }
         }
 
-        private string _lab_telefonnummer3;
-        public string Lab_telefonnummer3
+        private string _Telefonnummer3Label;
+        public string Telefonnummer3Label
         {
             get
             {
-                return _lab_telefonnummer3;
+                return _Telefonnummer3Label;
             }
             set
             {
-                _lab_telefonnummer3 = value;
-                RaisePropertyChanged("Lab_telefonnummer3");
+                _Telefonnummer3Label = value;
+                RaisePropertyChanged("Telefonnummer3Label");
             }
         }
 
-        private string _lab_email;
-        public string Lab_email
+        private string _EmailLabel;
+        public string EmailLabel
         {
             get
             {
-                return _lab_email;
+                return _EmailLabel;
             }
             set
             {
-                _lab_email = value;
-                RaisePropertyChanged("Lab_email");
+                _EmailLabel = value;
+                RaisePropertyChanged("EmailLabel");
             }
         }
 
-        private string _lab_funktion;
-        public string Lab_funktion
+        private string _FunktionLabel;
+        public string FunktionLabel
         {
             get
             {
-                return _lab_funktion;
+                return _FunktionLabel;
             }
             set
             {
-                _lab_funktion = value;
-                RaisePropertyChanged("Lab_funktion");
+                _FunktionLabel = value;
+                RaisePropertyChanged("FunktionLabel");
             }
         }
 
-        private string _lab_jagdhunde;
-        public string Lab_jagdhunde
+        private string _JagdhundeLabel;
+        public string JagdhundeLabel
         {
             get
             {
-                return _lab_jagdhunde;
+                return _JagdhundeLabel;
             }
             set
             {
-                _lab_jagdhunde = value;
-                RaisePropertyChanged("Lab_jagdhunde");
+                _JagdhundeLabel = value;
+                RaisePropertyChanged("JagdhundeLabel");
             }
         }
         #endregion

@@ -24,14 +24,14 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.ColumnSpan="3" Grid.RowSpan="3" Margin="0,0,0,5" >
                 <Label Content="Personen" FontSize="22" FontFamily="Gill Sans MT Bold" Foreground="#E0CBA8" Background="#4F772D" HorizontalContentAlignment="Center" Height="40" />
-                <DataGrid ItemsSource="{Binding Dg_Jaeger}" Height="319" Grid.Row="1" Grid.RowSpan="2" Margin="0,0,0,5" SelectedItem="{Binding SelectedListItem}" IsReadOnly="True"
+                <DataGrid ItemsSource="{Binding PersonAnzeige}" Height="319" Grid.Row="1" Grid.RowSpan="2" Margin="0,0,0,5" SelectedItem="{Binding SelectedListItem}" IsReadOnly="True"
                           FontSize="16" FontFamily="Gill Sans MT Regular" CanUserResizeColumns="False" RowBackground="{x:Null}" SelectionMode="Single" ColumnWidth="80" GridLinesVisibility="None" >
                 </DataGrid>
             </StackPanel>
             <StackPanel  Grid.Column="4" Background="White"  Grid.RowSpan="2" Grid.ColumnSpan="2"   >
                 <WrapPanel Background="#4F772D" Height="40">
-                    <Label Content="{Binding LabelVorname}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Gill Sans MT Bold" Foreground="#E0CBA8"/>
-                    <Label Content="{Binding LabelNachname}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Gill Sans MT Bold" Foreground="#E0CBA8" />
+                    <Label Content="{Binding VornameHeader}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Gill Sans MT Bold" Foreground="#E0CBA8"/>
+                    <Label Content="{Binding NachnameHeader}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Gill Sans MT Bold" Foreground="#E0CBA8" />
                 </WrapPanel>
                 <DockPanel Margin="0,-5,0,0">
                     <Label Content="Vorname" FontSize="16"/>
@@ -39,15 +39,15 @@
                     <Label Content="Anrede" FontSize="16" Margin="65,0,0,0"/>
                 </DockPanel>
                 <DockPanel Margin="0,-13,0,0">
-                    <Label Content="{Binding Lab_vorname}" Width="120" Height="24" />
-                    <Label Content="{Binding Lab_nachname}" Width="120" Height="24"  Margin="50,0,0,0"/>
-                    <Label Content="{Binding Lab_anrede}" Height="24"  Margin="25,0,0,0"/>
+                    <Label Content="{Binding VornameLabel}" Width="120" Height="24" />
+                    <Label Content="{Binding NachnameLabel}" Width="120" Height="24"  Margin="50,0,0,0"/>
+                    <Label Content="{Binding AnredeLabel}" Height="24"  Margin="25,0,0,0"/>
                 </DockPanel>
                 <DockPanel Margin="0,5,0,0">
                     <Label Content="Geburtstag" FontSize="16"/>
                 </DockPanel>
                 <DockPanel Margin="0,-10,0,0">
-                    <Label Content="{Binding Lab_geburtstag}" Height="24" />
+                    <Label Content="{Binding GeburtstagLabel}" Height="24" />
                 </DockPanel>
                 <DockPanel Margin="0,5,0,0">
                     <Label Content="Straße" FontSize="16"/>
@@ -55,17 +55,17 @@
                     <Label Content="Adresszusatz" FontSize="16" Margin="50,0,0,0"/>
                 </DockPanel>
                 <DockPanel Margin="0,-13,0,0">
-                    <Label Content="{Binding Lab_straße}" Width="170" Height="24" />
-                    <Label Content="{Binding Lab_hausnummer}" Width="100" Height="24"  Margin="-5,0,0,0"/>
-                    <Label Content="{Binding Lab_adresszusatz}" Width="180" Height="24"  Margin="30,0,0,0"/>
+                    <Label Content="{Binding StraßeLabel}" Width="170" Height="24" />
+                    <Label Content="{Binding HausnummerLabel}" Width="100" Height="24"  Margin="-5,0,0,0"/>
+                    <Label Content="{Binding AdressenzusatzLabel}" Width="180" Height="24"  Margin="30,0,0,0"/>
                 </DockPanel>
                 <DockPanel Margin="0,5,0,0">
                     <Label Content="Postleitzahl" FontSize="16"/>
                     <Label Content="Wohnort" FontSize="16" Margin="80,0,0,0"/>
                 </DockPanel>
                 <DockPanel Margin="0,-13,0,0">
-                    <Label Content="{Binding Lab_postleitzahl}" Width="85" Height="24" />
-                    <Label Content="{Binding Lab_wohnort}" Height="24"  Margin="78,0,0,0"/>
+                    <Label Content="{Binding PostleitzahlLabel}" Width="85" Height="24" />
+                    <Label Content="{Binding WohnortLabel}" Height="24"  Margin="78,0,0,0"/>
                 </DockPanel>
                 <DockPanel Margin="0,5,0,0">
                     <Label Content="1. Telefonnummer" FontSize="16"/>
@@ -73,9 +73,9 @@
                     <Label Content="3. Telefonnummer" FontSize="16" Margin="17,0,0,0"/>
                 </DockPanel>
                 <DockPanel Margin="0,-13,0,0">
-                    <Label Content="{Binding Lab_telefonnummer1}" Width="160" Height="24" />
-                    <Label Content="{Binding Lab_telefonnummer2}" Width="150" Height="24"  Margin="3,0,0,0"/>
-                    <Label Content="{Binding Lab_telefonnummer3}" Width="150" Height="24"  Margin="-52,0,0,0"/>
+                    <Label Content="{Binding Telefonnummer1Label}" Width="160" Height="24" />
+                    <Label Content="{Binding Telefonnummer2Label}" Width="150" Height="24"  Margin="3,0,0,0"/>
+                    <Label Content="{Binding Telefonnummer3Label}" Width="150" Height="24"  Margin="-52,0,0,0"/>
                 </DockPanel>
                 <DockPanel Margin="0,5,0,0">
                     <Label Content="Email-Adresse" FontSize="16"/>
@@ -83,13 +83,13 @@
                     <Label Content="Anzahl der Jagdhunde" FontSize="16" Margin="83,0,0,0"/>
                 </DockPanel>
                 <DockPanel Margin="0,-13,0,0">
-                    <Label Content="{Binding Lab_email}" Width="160" Height="24" />
-                    <Label Content="{Binding Lab_funktion}" Width="60" Height="24" Margin="0,0,0,0"/>
-                    <Label Content="{Binding Lab_jagdhunde}" Width="50" Height="24" Margin="-65,0,0,0"/>
+                    <Label Content="{Binding EmailLabel}" Width="160" Height="24" />
+                    <Label Content="{Binding FunktionLabel}" Width="60" Height="24" Margin="0,0,0,0"/>
+                    <Label Content="{Binding JagdhundeLabel}" Width="50" Height="24" Margin="-65,0,0,0"/>
                 </DockPanel>
             </StackPanel>
-            <Button Click="BtnBearbeiten" Grid.Column="4" Content="Bearbeiten" Background="White" BorderBrush="#230C0F" Margin="0,0,5,0" Height="30" HorizontalAlignment="Stretch" Grid.Row="2"  />
-            <Button Grid.Column="5" Grid.Row="2" Content="Hinzufügen" Background="White" BorderBrush="#230C0F"  HorizontalAlignment="Stretch" Height="30" Margin="5,0,0,0"  Click="BtnHinzufuegen" Grid.ColumnSpan="2"/>
+            <Button Click="BearbeitenButton" Grid.Column="4" Content="Bearbeiten" Background="White" BorderBrush="#230C0F" Margin="0,0,5,0" Height="30" HorizontalAlignment="Stretch" Grid.Row="2"  />
+            <Button Grid.Column="5" Grid.Row="2" Content="Hinzufügen" Background="White" BorderBrush="#230C0F"  HorizontalAlignment="Stretch" Height="30" Margin="5,0,0,0"  Click="HinzufuegenButton" Grid.ColumnSpan="2"/>
             <!--<Button Grid.Row="3"  Content="Entfernen" Background="White" BorderBrush="#230C0F" Height="30" HorizontalAlignment="Stretch"  />-->
         </Grid>
     </ContentControl>
