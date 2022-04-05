@@ -20,8 +20,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             Dg_Jaeger = serv.Jaeger();
         }
 
+        #region Properties
         private List<JaegerInformationModel> _dg_Jaeger;
-        public List<JaegerInformationModel> Dg_Jaeger
+        public List<JaegerInformationModel> Dg_Jaeger;
         
         private ICommand _JaegerHinzufuegen;
         public ICommand JaegerHinzufuegen
@@ -249,6 +250,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             }
             set { }
         }
-        #endregion
+        #endregion Properties
     }
 }
