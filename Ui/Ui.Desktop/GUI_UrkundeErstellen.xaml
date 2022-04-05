@@ -55,7 +55,7 @@
                 </DataGrid.Columns>
             </DataGrid>
             <Button Background="White" Grid.Row="2" Grid.Column="4" Content="Abbrechen" HorizontalAlignment="Stretch" FontSize="12" Click="Button_Click" Height="30"  Grid.ColumnSpan="2" Margin="5"/>
-            <Button ToolTip="Teilnahmeurkunden werden erstellt,Standardehrungen und Siegesehrungen werden nur erstellt wenn die Checkbox aus ein Hacken hat" Background="White" Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="2" Content="Urkunden erstellen" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="12" Height="30"  Margin="5" Command="{Binding UrkundenErstellen}"/>
+            <Button ToolTip="Teilnahmeurkunden werden erstellt,Standardehrungen und Siegesehrungen werden nur erstellt wenn die Checkbox aus ein Hacken hat" Background="White" Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="2" Content="Urkunden erstellen" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="12" Height="30"  Margin="5" Command="{Binding UrkundenErstellenCommand}"/>
             <Button ToolTip="Wer soll eine Ehrung erhalten Checkbox Hacken setzen und Button klicken" Background="White" Grid.Column="2" FontSize="12" Grid.Row="2" Command="{Binding Jaegerbewegen}" Content="Hizufügen →" Height="30" Margin="5" />
         </Grid>
     </ContentControl>
