@@ -3,47 +3,47 @@
     //Klasse für den Bau der Liste, wie oft eine Tierart erlegt wurde, für die Abschussliste
     public class TierAbschussModel
     {
-        private string _tierart;
-        private int _abschuesse;
-        private int _wildunfaelle;
+        private string _Tierart;
+        private int _Abschuesse;
+        private int _Wildunfaelle;
         public string Tierart
         {
             get
             {
-                return _tierart;
+                return _Tierart;
             }
             set
             {
-                _tierart = value;
+                _Tierart = value;
             }
         }
         public int Abschüsse
         {
             get
             {
-                return _abschuesse;
+                return _Abschuesse;
             }
             set
             {
-                _abschuesse = value;
+                _Abschuesse = value;
             }
         }
         public int Wildunfälle
         {
             get
             {
-                return _wildunfaelle;
+                return _Wildunfaelle;
             }
             set
             {
-                _wildunfaelle = value;
+                _Wildunfaelle = value;
             }
         }
         public TierAbschussModel(string tierart, int abschuesse, int wildunfaelle)
         {
-            _tierart = tierart;
-            _abschuesse = abschuesse;
-            _wildunfaelle = wildunfaelle;
+            _Tierart = tierart;
+            _Abschuesse = abschuesse;
+            _Wildunfaelle = wildunfaelle;
         }
         
     }

@@ -3,33 +3,33 @@
     //Die Klasse fuer den Bau der Abschussliste fuer Jaeger
     public class JaegerAbschussModel
     {
-        private string _vorname;
-        private string _nachname;
-        private int _abschuesse = 0;
+        private string _Vorname;
+        private string _Nachname;
+        private int _Abschuesse = 0;
 
 
         public string Vorname
         {
-            get { return _vorname; }
-            set { _vorname = value; }
+            get { return _Vorname; }
+            set { _Vorname = value; }
         }
         public string Nachname
         {
             get
-            { return _nachname; }
-            set { _nachname = value; }
+            { return _Nachname; }
+            set { _Nachname = value; }
         }
         public int Abschüsse
         {
-            get { return _abschuesse; }
-            set { _abschuesse = value; }
+            get { return _Abschuesse; }
+            set { _Abschuesse = value; }
         }
 
         public JaegerAbschussModel(string vorname, string nachname, int abschuesse)
         {
-            _vorname = vorname;
-            _nachname = nachname;
-            _abschuesse = abschuesse;
+            _Vorname = vorname;
+            _Nachname = nachname;
+            _Abschuesse = abschuesse;
         }
     }
 }
