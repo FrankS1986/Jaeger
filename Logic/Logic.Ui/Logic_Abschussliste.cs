@@ -9,6 +9,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
     public class Logic_Abschussliste : ViewModelBase, INotifyPropertyChanged
     {
         //TODO: Jahreszahl einfügen
+        //TODO: XAML Abschussliste Breite anpassen
         //Die Menge an gesamten geschossenen Tieren
         int _Abschuesse = 0;
         Service_Abschussliste service_Abschussliste = new Service_Abschussliste();
