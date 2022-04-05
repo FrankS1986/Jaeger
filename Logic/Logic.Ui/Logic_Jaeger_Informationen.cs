@@ -9,294 +9,231 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
     public class Logic_Jaeger_Informationen : ViewModelBase, INotifyPropertyChanged
     {
 
-        private ICommand _btn_jaeger_hinzufuegen;
-
-        public ICommand Btn_jaeger_hinzufuegen
+        private ICommand _JaegerHinzufuegen;
+        public ICommand JaegerHinzufuegen
         {
             get
             {
-                if (_btn_jaeger_hinzufuegen == null)
+                if (_JaegerHinzufuegen == null)
                 {
-                    _btn_jaeger_hinzufuegen = new RelayCommand(() =>
+                    _JaegerHinzufuegen = new RelayCommand(() =>
                     {
                         Logic_Jaeger_Informationen logic = new Logic_Jaeger_Informationen();
 
-                        //Hier Logik einfügen
+                     
                     });
 
                 }
-                return _btn_jaeger_hinzufuegen;
+                return _JaegerHinzufuegen;
             }
         }
 
-        private ICommand _btn_jaeger_entfernen;
+        private ICommand _JaegerEntfernen;
 
-        public ICommand Btn_jaeger_entfernen
+        public ICommand JaegerEntfernen
         {
             get
             {
-                if (_btn_jaeger_entfernen == null)
+                if (_JaegerEntfernen == null)
                 {
-                    _btn_jaeger_entfernen = new RelayCommand(() =>
+                    _JaegerEntfernen = new RelayCommand(() =>
                     {
                         Logic_Jaeger_Informationen logic = new Logic_Jaeger_Informationen();
 
-                        //Hier Logik einfügen
                     });
 
                 }
-                return _btn_jaeger_entfernen;
+                return _JaegerEntfernen;
             }
         }
 
-        private ICommand _btn_bearbeiten;
+        private ICommand _Bearbeiten;
 
-        public ICommand Btn_bearbeiten
+        public ICommand Bearbeiten
         {
             get
             {
-                if (_btn_bearbeiten == null)
+                if (_Bearbeiten == null)
                 {
-                    _btn_bearbeiten = new RelayCommand(() =>
+                    _Bearbeiten = new RelayCommand(() =>
                     {
                         Logic_Jaeger_Informationen logic = new Logic_Jaeger_Informationen();
 
-                        //Hier Logik einfügen
+
                     });
 
                 }
-                return _btn_bearbeiten;
+                return _Bearbeiten;
             }
         }
 
-        private string _lab_vor_und_nachname;
+        private string _VorUndNachname;
 
-        public string Lab_vor_und_nachname
+        public string VorUndNachname
         {
             get
             {
-                return _lab_vor_und_nachname;
+                return _VorUndNachname;
             }
-            set
-            {
-                //Datenbankverbindung benötigt
-            }
+            set { }
         }
 
-        private string _lab_vorname;
+        private string _Vorname;
 
-        public string Lab_vorname
+        public string Vorname
         {
             get
             {
-                return _lab_vorname;
+                return _Vorname;
             }
-            set
-            {
-                //Datenbankverbindung benötigt
-            }
+            set { }
         }
 
-        private string _lab_nachname;
+        private string _Nachname;
 
-        public string Lab_nachname
+        public string Nachname
         {
             get
             {
-                return _lab_nachname;
+                return _Nachname;
             }
-            set
-            {
-                //Datenbankverbindung benötigt
-            }
+            set { }
         }
 
-        private string _lab_anrede;
-
-        public string Lab_anrede
+        private string _Anrede;
+        public string Anrede
         {
             get
             {
-                return _lab_anrede;
+                return _Anrede;
             }
-            set
+            set { }
+        }
+        private string _Geburtstag;
+        public string Geburtstag
+        {
+            get
             {
-                //Datenbankverbindung benötigt
+                return _Geburtstag;
             }
+            set { }
         }
 
-        private string _lab_geburtstag;
-
-        public string Lab_geburtstag
+        private string _Straße;
+        public string Straße
         {
             get
             {
-                return _lab_geburtstag;
+                return _Straße;
             }
-            set
-            {
-                //Datenbankverbindung benötigt
-            }
+            set { }
         }
 
-        private string _lab_straße;
+        private string _Hausnummer;
 
-        public string Lab_straße
+        public string Hausnummer
         {
             get
             {
-                return _lab_straße;
+                return _Hausnummer;
             }
-            set
-            {
-                //Datenbankverbindung benötigt
-            }
+            set { }
         }
 
-        private string _lab_hausnummer;
+        private string _Adresszusatz;
 
-        public string Lab_hausnummer
+        public string Adresszusatz
         {
             get
             {
-                return _lab_hausnummer;
+                return _Adresszusatz;
             }
-            set
-            {
-                //Datenbankverbindung benötigt
-            }
+            set { }
         }
 
-        private string _lab_adresszusatz;
+        private int _Postleitzahl;
 
-        public string Lab_adresszusatz
+        public int Postleitzahl
         {
             get
             {
-                return _lab_adresszusatz;
+                return _Postleitzahl;
             }
             set
-            {
-                //Datenbankverbindung benötigt
-            }
+            { }
         }
 
-        private int _lab_postleitzahl;
-
-        public int Lab_postleitzahl
+        private string _Wohnort;
+        public string Wohnort
         {
             get
             {
-                return _lab_postleitzahl;
+                return _Wohnort;
             }
-            set
-            {
-                //Datenbankverbindung benötigt
-            }
+            set { }
         }
 
-        private string _lab_wohnort;
+        private string _Telefonnummer1;
 
-        public string Lab_wohnort
+        public string Telefonnummer1
         {
             get
             {
-                return _lab_wohnort;
+                return _Telefonnummer1;
             }
-            set
-            {
-                //Datenbankverbindung benötigt
-            }
+            set { }
         }
 
-        private string _lab_telefonnummer1;
+        private string _Telefonnummer2;
 
-        public string Lab_telefonnummer1
+        public string Telefonnummer2
         {
             get
             {
-                return _lab_telefonnummer1;
+                return _Telefonnummer2;
             }
-            set
-            {
-                //Datenbankverbindung benötigt
-            }
+            set { }
         }
 
-        private string _lab_telefonnummer2;
+        private string _Telefonnummer3;
 
-        public string Lab_telefonnummer2
+        public string Telefonnummer3
         {
             get
             {
-                return _lab_telefonnummer2;
+                return _Telefonnummer3;
             }
-            set
-            {
-                //Datenbankverbindung benötigt
-            }
+            set { }
         }
 
-        private string _lab_telefonnummer3;
-
-        public string Lab_telefonnummer3
+        private string _Email;
+        public string Email
         {
             get
             {
-                return _lab_telefonnummer3;
+                return _Email;
             }
-            set
-            {
-                //Datenbankverbindung benötigt
-            }
+            set { }
         }
 
-
-
-        private string _lab_email;
-
-        public string Lab_email
+        private string _Funktion;
+        public string Funktion
         {
             get
             {
-                return _lab_email;
+                return _Funktion;
             }
-            set
-            {
-                //Datenbankverbindung benötigt
-            }
+            set { }
         }
 
-
-
-        private string _lab_funktion;
-
-        public string Lab_funktion
+        private int _Jagdhunde;
+        public int Jagdhunde
         {
             get
             {
-                return _lab_funktion;
+                return Jagdhunde;
             }
-            set
-            {
-                //Datenbankverbindung benötigt
-            }
-        }
-
-
-
-        private int _lab_jagdhunde;
-
-        public int Lab_jagdhunde
-        {
-            get
-            {
-                return _lab_jagdhunde;
-            }
-            set
-            {
-                //Datenbankverbindung benötigt
-            }
+            set { }
         }
 
     }
