@@ -2,6 +2,7 @@
 
 namespace JaegerMeister.MvvmSample.Logic.Ui.Models
 {
+    //Klasse die genutzt wird die Felder zu fuellen wenn im Jaegerinformationsfenster ein Jaeger ausgewaehlt wird
     public class JaegerInformationSelectedModel
     {
         public int Jäger_ID { get; set; }
@@ -20,6 +21,5 @@ namespace JaegerMeister.MvvmSample.Logic.Ui.Models
         public string Email { get; set; }
         public string Jagdhund { get; set; }
         public Nullable<System.DateTime> Geburtsdatum { get; set; }
-
     }
 }
