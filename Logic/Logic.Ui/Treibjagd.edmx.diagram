@@ -29,6 +29,8 @@
         <AssociationConnector Association="TreibjagdTestModel.FK_Jagderfolge_Tiere" ManuallyRouted="false" />
         <AssociationConnector Association="TreibjagdTestModel.FK_Postausgang_Termine" ManuallyRouted="false" />
         <AssociationConnector Association="TreibjagdTestModel.FK_tbl_Rueckmeldung_tbl_Termine" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TreibjagdTestModel.tbl_Anrede" Width="1.5" PointX="8.375" PointY="4.75" />
+        <EntityTypeShape EntityType="TreibjagdTestModel.tbl_Funktionen" Width="1.5" PointX="10.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

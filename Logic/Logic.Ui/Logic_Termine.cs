@@ -73,7 +73,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                     UebersichtAnstehendeTermine = ueber.TerminUebersicht();
                 }
                 ///<summary>
-                ///Wenn ein Termin ausgewählt wird, werden die entsprechenden Informationen dem Nutzer dargestellt.
+                ///Bei der Auswahl eines Termines werden die entsprechenden Informationen in Textboxen dargestellt.
                 ///</summary>
                 else if (prop.Equals("Select"))
                 {
@@ -199,6 +199,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 return uebersichtTerminhinzufuegen;
             }
         }
+        /// <summary>
+        /// Prüft, ob es möglich ist, den Termin zu löschen.
+        /// </summary>
         private ICommand uebersichtLoeschen;
         public ICommand UebersichtLoeschen
         {
@@ -208,9 +211,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 {
                     uebersichtLoeschen = new RelayCommand(() =>
                     {
-                        var result = MessageBox.Show("Möchten Sie wirklich den Termin '" + SelectedTermin.Bezeichnung + "' löschen?", "Termin löschen?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                        MessageBoxResult checkDelete = MessageBox.Show("Möchten Sie wirklich den Termin '" + SelectedTermin.Bezeichnung + "' löschen?", "Termin löschen?", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
-                        if (result == MessageBoxResult.Yes)
+                        if (checkDelete == MessageBoxResult.Yes)
                         {
                             if (ueber.TerminLoeschen(SelectedTermin.Termine_ID))
                             {
