@@ -14,57 +14,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
     public class Logic_Termine : ViewModelBase, INotifyPropertyChanged
     {
-        int id = 0;
         TerminUebersichtService ueber = new TerminUebersichtService();
-        public class Type
-        {
-            private string typ;
-            public string Typ
-            {
-                get
-                {
-                    return typ;
-                }
-                set
-                {
-                    typ = value;
-                }
-            }
-        }
-        private ObservableCollection<Type> terminTyp;
-        public ObservableCollection<Type> TerminTyp
-        {
-            get
-            {
-                return terminTyp;
-            }
-            set
-            {
-                terminTyp = value;
-            }
-        }
-        private Type selectedTerminTyp;
-        public Type SelectedTerminTyp
-        {
-            get
-            {
-                return selectedTerminTyp;
-            }
-            set
-            {
-                selectedTerminTyp = value;
-            }
-        }
         public Logic_Termine()
         {
-            TerminTyp = new ObservableCollection<Type>()
-            {
-                new Type() {Typ="Treibjagd"},
-                new Type() {Typ="Geburtstag"},
-                new Type() {Typ="Treffen"},
-                new Type() {Typ="Versammlung"},
-                new Type() {Typ="Sonstige"}
-            };
             Messenger.Default.Register<string>(this, (prop) =>
             {
                 if (prop.Equals("Termine"))
@@ -83,42 +35,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                         UebersichtDatum = SelectedTermin.DatumUhrzeit.ToString("f");
                         UebersichtEingeladenePersonen = ueber.EingeladenePersonen(SelectedTermin.Termine_ID);
                     }
-                }
-                else if (prop.Equals("Bearbeiten"))
-                {
-                    if (SelectedTermin != null)
-                    {
-                        id = SelectedTermin.Termine_ID;
-                        ErstellBezeichnung = SelectedTermin.Bezeichnung;
-                        ErstellOrt = SelectedTermin.Ort;
-                        foreach (var typ in TerminTyp)
-                        {
-                            if (typ.Typ == SelectedTermin.Typ)
-                            {
-                                SelectedTerminTyp = typ;
-                                break;
-                            }
-                        }
-                        string[] zeit = SelectedTermin.DatumUhrzeit.ToString().Split();
-                        ErstellDatum = Convert.ToDateTime(zeit[0]);
-                        ErstellUhrzeit = zeit[1];
-                    }
-                }
-                ///<summary>
-                ///Beim Abbruch werden die Felder im Erstellen-Fenster geleert.
-                ///</summary>
-                else if (prop.Equals("Abbruch"))
-                {
-                    id = 0;
-                    ErstellBezeichnung = "";
-                    ErstellOrt = "";
-                    SelectedTerminTyp = null;
-                    ErstellDatum = DateTime.Today;
-                    ErstellUhrzeit = "";
-                }
-                else if (prop.Equals("Termin"))
-                {
-                    ErstellDatum = DateTime.Today;
                 }
             });
         }
