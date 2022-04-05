@@ -1,134 +1,107 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using GalaSoft.MvvmLight;
 using System.ComponentModel;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
+using JaegerMeister.MvvmSample.Logic.Ui.Services;
+using GalaSoft.MvvmLight.Messaging;
+using JaegerMeister.MvvmSample.Logic.Ui.Messages;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
     public class Logic_DokumenteVerwalten : ViewModelBase, INotifyPropertyChanged
     {
-        private List<Dokumente> _listboxDokumnete;
-        public List<Dokumente> listboxDokumente
+        DokumenteVerwaltenService serv = new DokumenteVerwaltenService();
+        public Logic_DokumenteVerwalten()
+        {
+            DokumenteListbox = serv.DokumenteListe();
+            Messenger.Default.Register<string>(this, (prop) =>
+            {
+                if (prop.Equals("DokumenteVerwaltenMessage"))
+                {
+                    DokumenteListbox = serv.DokumenteListe();
+                }
+            });
+        }
+        #region Properties
+        private List<string> _DokumenteListbox;
+        public List<string> DokumenteListbox
         {
             get
             {
-                return _listboxDokumnete;
+                return _DokumenteListbox;
             }
-
             set
             {
-                _listboxDokumnete = value;
-                RaisePropertyChanged("listboxDokumnete");
+                _DokumenteListbox = value;
+                RaisePropertyChanged("DokumenteListbox");
             }
         }
-
-          public class Dokumente
-        {
-                 public int ID { get; set; }
-                 public int Name { get; set; }
-        }
-
-
-        private ICommand _btn_dokumenteUnbenennen;
-        public ICommand btn_dokumenteUnbenennen
+        private string _SelectDokumentListbox;
+        public string SelectDokumentListbox
         {
             get
             {
-                if (_btn_dokumenteUnbenennen == null)
-                {
-                    _btn_dokumenteUnbenennen = new RelayCommand(() =>
-                    {
-                        Logic_DokumenteVerwalten logic = new Logic_DokumenteVerwalten();
-
-
-                        
-                    });
-
-                }
-                return _btn_dokumenteUnbenennen;
+                return _SelectDokumentListbox;
             }
-        }
-
-        private ICommand _btn_dokumentErsetzen;
-        public ICommand btn_dokumentErsetzen
-        {
-            get
-            {
-                if (_btn_dokumentErsetzen == null)
-                {
-                    _btn_dokumentErsetzen = new RelayCommand(() =>
-                    {
-                        Logic_DokumenteVerwalten logic = new Logic_DokumenteVerwalten();
-
-
-
-                    });
-
-                }
-                return _btn_dokumentErsetzen;
-            }
-        }
-
-        private ICommand _btn_dokumentHizufuegen;
-        public ICommand btn_dokumentHizufuegen
-        {
-            get
-            {
-                if (_btn_dokumentHizufuegen == null)
-                {
-                    _btn_dokumentHizufuegen = new RelayCommand(() =>
-                    {
-                        Logic_DokumenteVerwalten logic = new Logic_DokumenteVerwalten();
-
-
-
-                    });
-
-                }
-                return _btn_dokumentHizufuegen;
-            }
-        }
-        private ICommand _btn_dateipfad;
-        public ICommand btn_dateipfad
-        {
-            get
-            {
-                if (_btn_dateipfad == null)
-                {
-                    _btn_dateipfad = new RelayCommand(() =>
-                    {
-                        Logic_DokumenteVerwalten logic = new Logic_DokumenteVerwalten();
-
-
-
-                    });
-
-                }
-                return _btn_dateipfad;
-            }
-        }
-
-        private string _textboxDateiName;
-        public string textboxDateiName
-        {
-            get
-            {
-                return _textboxDateiName;
-            }
-
             set
             {
-                _textboxDateiName = value;
-                RaisePropertyChanged("textboxDateiName");
+                _SelectDokumentListbox = value;
+                RaisePropertyChanged("SelectDokumentListbox");
             }
         }
+        private string _DateinameTextbox;
+        public string Dateiname
+        {
+            get
+            {
+                return _DateinameTextbox;
+            }
+            set
+            {
+                _DateinameTextbox = value;
+                RaisePropertyChanged("Dateiname");
+            }
+        }
+        private ICommand _DokumentloeschenButton;
+        public ICommand DokumentloeschenButton
+        {
+            get
+            {
+                if (_DokumentloeschenButton == null)
+                {
+                    _DokumentloeschenButton = new RelayCommand(() =>
+                    {
+                        if (SelectDokumentListbox != null)
+                        {
+                            Messenger.Default.Send<DokumenteVerwaltenLoeschenMessage>(new DokumenteVerwaltenLoeschenMessage { Dokument = SelectDokumentListbox });
+                           DokumenteListbox= serv.DokumenteListe();
+                        }
+                    });
 
-
+                }
+                return _DokumentloeschenButton;
+            }
+        }
+        private ICommand _DokumentBearbeitenButton;
+        public ICommand DokumentBearbeitenButton
+        {
+            get
+            {
+                if (_DokumentBearbeitenButton == null)
+                {
+                    _DokumentBearbeitenButton = new RelayCommand(() =>
+                    {
+                        if (SelectDokumentListbox != null)
+                        {
+                            serv.DokumenteBearbeiten(SelectDokumentListbox);
+                        }
+                    });
+                }
+                return _DokumentBearbeitenButton;
+            }
+        }
+        #endregion
     }
 
 }

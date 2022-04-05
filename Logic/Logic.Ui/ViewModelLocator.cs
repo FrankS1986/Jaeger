@@ -1,6 +1,7 @@
 using CommonServiceLocator;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
+using JaegerMeister.MvvmSample.Logic.Ui.Converter;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {

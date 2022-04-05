@@ -13,5 +13,12 @@ namespace Ui.Desktop
     /// </summary>
     public partial class App : Application
     {
+
+        public App()
+        {
+            FrameworkElement.LanguageProperty.OverrideMetadata(typeof(FrameworkElement),
+            new FrameworkPropertyMetadata(System.Windows.Markup.XmlLanguage.GetLanguage
+           (System.Globalization.CultureInfo.CurrentCulture.IetfLanguageTag)));
+        }
     }
 }
