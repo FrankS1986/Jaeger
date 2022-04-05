@@ -32,7 +32,7 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
                 if (loginProof.Erfolg == true)
                 {
                     // Öffnet den Ladebildschirm
-                    GUI_ProgressbarWindow window = new GUI_ProgressbarWindow();
+                    ProgressbarWindow window = new ProgressbarWindow();
 
                     window.Show();
                 }

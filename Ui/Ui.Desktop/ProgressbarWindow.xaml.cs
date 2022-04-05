@@ -21,9 +21,9 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
     /// <summary>
     /// Interaktionslogik für GUI_ProgressbarWindow.xaml
     /// </summary>
-    public partial class GUI_ProgressbarWindow : Window
+    public partial class ProgressbarWindow : Window
     {
-        public GUI_ProgressbarWindow()
+        public ProgressbarWindow()
         {
             InitializeComponent();
             // Beendet die Seite GUI_ProgressbarWindow

@@ -70,7 +70,7 @@
     <Compile Include="Logic_Kalender.cs" />
     <Compile Include="Logic_Progressbar.cs" />
     <Compile Include="Logic_Sicherheitsfragestellung.cs" />
-    <Compile Include="Logic_Urkunden_Erstellen.cs" />
+    <Compile Include="UrkundenErstellen.cs" />
     <Compile Include="Logic_Admin.cs" />
     <Compile Include="Logic_Termine.cs" />
     <Compile Include="Logic_Wildunfaelle.cs" />

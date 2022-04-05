@@ -9,15 +9,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using static JaegerMeister.MvvmSample.Logic.Ui.Services.UrkundenerstellenService;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
-    public class Logic_Urkunden_Erstellen : ViewModelBase, INotifyPropertyChanged
+    public class UrkundenErstellen : ViewModelBase, INotifyPropertyChanged
     {
 
         UrkundenerstellenService serv = new UrkundenerstellenService();
@@ -25,7 +22,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         /// <summary>
         /// Leert die Listen
         /// </summary>
-        public Logic_Urkunden_Erstellen()
+        public UrkundenErstellen()
         {
             Termin = serv.TermineListe();
             Messenger.Default.Register<UrkundenErstellenErfolgsMessage>(this, (UrkundenErstellenErfolgsMessage loginProof) =>
@@ -49,67 +46,67 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
             });
         }
 
-        private int _laden;
+        private int _Laden;
         public int Laden
         {
             get
             {
-                return _laden;
+                return _Laden;
             }
 
             set
             {
-                _laden = value;
+                _Laden = value;
                 RaisePropertyChanged("Laden");
             }
         }
-        private ICommand _jaegerbewegen;
+        private ICommand _Jaegerbewegen;
 
         public ICommand Jaegerbewegen
         {
             get
             {
-                if (_jaegerbewegen == null)
+                if (_Jaegerbewegen == null)
                 {
-                    _jaegerbewegen = new RelayCommand(() =>
+                    _Jaegerbewegen = new RelayCommand(() =>
                     {
 
                         Ehrungen = serv.EhrungenErstellen(Jaegerliste);
 
                     });
                 }
-                return _jaegerbewegen;
+                return _Jaegerbewegen;
             }
         }
-        private ICommand _abbrechen;
+        private ICommand _Abbrechen;
 
         public ICommand Abbrechen
         {
             get
             {
-                if (_abbrechen == null)
+                if (_Abbrechen == null)
                 {
-                    _abbrechen = new RelayCommand(() =>
+                    _Abbrechen = new RelayCommand(() =>
                     {
 
 
                     });
                 }
-                return _abbrechen;
+                return _Abbrechen;
             }
         }
 
 
 
-        private ICommand _urkundenErstellen;
+        private ICommand _UrkundenErstellenCommand;
 
-        public ICommand UrkundenErstellen
+        public ICommand UrkundenErstellenCommand
         {
             get
             {
-                if (_urkundenErstellen == null)
+                if (_UrkundenErstellenCommand == null)
                 {
-                    _urkundenErstellen = new RelayCommand(() =>
+                    _UrkundenErstellenCommand = new RelayCommand(() =>
                     {
                         Messenger.Default.Send<UrkundenErstellenProgressbarStartenMessage>(new UrkundenErstellenProgressbarStartenMessage { Erfolg = true });
 
@@ -133,7 +130,7 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
                     });
                 }
-                return _urkundenErstellen;
+                return _UrkundenErstellenCommand;
             }
         }
 
@@ -238,33 +235,33 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
         }
 
-        private tbl_Termine _selectedTermin;
+        private tbl_Termine _SelectedTermin;
 
         public tbl_Termine SelectedTermin
         {
             get
             {
-                return _selectedTermin;
+                return _SelectedTermin;
             }
             set
             {
-                _selectedTermin = value;
+                _SelectedTermin = value;
                 RaisePropertyChanged("SelectedTermin");
             }
         }
 
 
-        private Teilname _selectedJaeger;
+        private Teilname _SelectedJaeger;
 
         public Teilname SelectedJaeger
         {
             get
             {
-                return _selectedJaeger;
+                return _SelectedJaeger;
             }
             set
             {
-                _selectedJaeger = value;
+                _SelectedJaeger = value;
                 RaisePropertyChanged("SelectedJaeger");
             }
         }
@@ -273,47 +270,47 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
 
        
 
-        private List<tbl_Termine> _termine;
+        private List<tbl_Termine> _Termine;
         public List<tbl_Termine> Termin
         {
             get
             {
-                return _termine;
+                return _Termine;
             }
 
             set
             {
-                _termine = value;
+                _Termine = value;
                 RaisePropertyChanged("Termin");
             }
         }
 
-        private List<Teilname> _jaegerliste;
+        private List<Teilname> _Jaegerliste;
         public List<Teilname> Jaegerliste
         {
             get
             {
-                return _jaegerliste;
+                return _Jaegerliste;
             }
 
             set
             {
-                _jaegerliste = value;
+                _Jaegerliste = value;
                 RaisePropertyChanged("Jaegerliste");
             }
         }
 
-        private List<Urkunden> _ehrungen;
+        private List<Urkunden> _Ehrungen;
         public List<Urkunden> Ehrungen
         {
             get
             {
-                return _ehrungen;
+                return _Ehrungen;
             }
 
             set
             {
-                _ehrungen = value;
+                _Ehrungen = value;
                 RaisePropertyChanged("Ehrungen");
             }
         }
