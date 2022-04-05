@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Collections.Generic;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
+using JaegerMeister.MvvmSample.Logic.Ui.Messages;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
@@ -14,6 +15,9 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
         /// 
+
+        Service serv = new Service();
+
         public string WindowTitle { get; private set; }
         public MainViewModel()
         {
@@ -28,13 +32,6 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
                 WindowTitle = "MvvSample";
 
             }
-
-
-
         }
-
-
-
-
     }
 }

@@ -9,11 +9,12 @@
         Width="800"
         MinHeight="450" 
         MinWidth="800"
-      DataContext="{Binding logic_SicherheitsfrageFragestellung, Source={StaticResource Locator}}"
+      DataContext="{Binding logic_SicherheitsFragestellung, Source={StaticResource Locator}}"
       Title="Sicherheitsfrage" Background="#7F7C81" FontFamily="Gill Sans MT Regular">
 
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -26,19 +27,18 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         
-        <Label VerticalAlignment="Stretch" Grid.ColumnSpan="4" Content="" HorizontalContentAlignment="Center" Background="#4F772D" FontFamily="Gill Sans MT Bold" FontSize="32"/>
-        <Label VerticalAlignment="Center" Grid.ColumnSpan="4" Content="Sicherheitsfragen" HorizontalContentAlignment="Center" Background="#4F772D" Foreground="#E0CBA8" FontFamily="Gill Sans MT Bold" FontSize="32"/>
-       
+        <Label VerticalAlignment="Stretch" Grid.ColumnSpan="5" Content="" HorizontalContentAlignment="Center" Background="#4F772D" FontFamily="Gill Sans MT Bold" FontSize="32"/>
+        <Label VerticalAlignment="Center" Grid.ColumnSpan="5" Content="Sicherheitsfragen" HorizontalContentAlignment="Center" Background="#4F772D" Foreground="#E0CBA8" FontFamily="Gill Sans MT Bold" FontSize="32"/>
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalAlignment="Center">
             <Label Content="Benutzername:" FontFamily="Gill Sans MT Regular" FontSize="16"></Label>
-            <TextBox Text="{Binding tb_benutzername}" HorizontalAlignment="Stretch"  Height="25" FontSize="12"></TextBox>
-            <Button Command="{Binding btn_benutzernameBestaetigen}" Content="Benutzername übernehmen" Height="30"  Margin="190,5,0,5" Background="White" BorderBrush="#230C0F" FontSize="12"/>
-            <Label Content="{Binding lb_Sicherheitsfrage}" FontFamily="Gill Sans MT Regular" FontSize="16" Height="25"/>
-            <TextBox Text="{Binding tb_antwort}"   Height="25" FontSize="12" IsEnabled="{Binding tb_antwortEnable}" ></TextBox>
+            <TextBox Text="{Binding Benutzername}" IsEnabled="{Binding BenutzerEnable}" HorizontalAlignment="Stretch"  Height="25" FontSize="12"></TextBox>
+            <Button Command="{Binding BenutzernameBestaetigen}" Content="Benutzername übernehmen" Height="30"  Margin="190,5,0,5" Background="White" BorderBrush="#230C0F" FontSize="12"/>
+            <Label Margin="0,0,-300,0"  Content="{Binding Sicherheitsfrage}" FontFamily="Gill Sans MT Regular" FontSize="16" Height="25"/>
+            <TextBox Text="{Binding Antwort}"   Height="25" FontSize="12" IsEnabled="{Binding AntwortEnable}" ></TextBox>
             
         </StackPanel>
-        <Button Height="30" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Stretch" Content="Bestätigen" Background="White" BorderBrush="#230C0F" Command="{Binding btn_bestaetigen}" FontSize="12" Margin="5,5,5,5"/>
-        <Button Height="30" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Stretch" Content="Abbruch" Background="White" BorderBrush="#230C0F" Command="{Binding btn_abbrechen}" FontSize="12" Margin="0,5,10,5"/>
+        <Button x:Name="bestaetigen"  Height="30" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Stretch" Content="Bestätigen" Background="White" BorderBrush="#230C0F" Command="{Binding btn_bestaetigen}" FontSize="12" Margin="5,5,5,5"/>
+        <Button x:Name="abbruch" Click="abbruch_Click" Height="30" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Stretch" Content="Abbruch"  Background="White" BorderBrush="#230C0F" Command="{Binding Abbrechen}" FontSize="12" Margin="0,5,10,5"/>
 
 
     </Grid>

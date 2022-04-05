@@ -1,303 +1,326 @@
 ﻿using System.ComponentModel;
-using System.Windows.Input;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
+using JaegerMeister.MvvmSample.Logic.Ui.Services;
+using JaegerMeister.MvvmSample.Logic.Ui.Models;
+using System.Collections.Generic;
+using System;
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
 
     public class Logic_Jaeger_Informationen : ViewModelBase, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Interaktionslogik für Jaeger_Informationen.xaml
+        /// </summary>
+        JaegerInformationenService jaegerInformationenService = new JaegerInformationenService();
 
-        private ICommand _btn_jaeger_hinzufuegen;
+        public Logic_Jaeger_Informationen()
+        {
+            PersonAnzeige = jaegerInformationenService.Jaeger();
+        }
 
-        public ICommand Btn_jaeger_hinzufuegen
+
+        #region properties Labels
+        private JaegerInformationModel _SelectedListItem;
+        public JaegerInformationModel SelectedListItem
         {
             get
             {
-                if (_btn_jaeger_hinzufuegen == null)
+                return _SelectedListItem;
+            }
+            set
+            {
+                _SelectedListItem = value;
+                RaisePropertyChanged("SelectedListItem");
+
+                if(_SelectedListItem != null)
                 {
-                    _btn_jaeger_hinzufuegen = new RelayCommand(() =>
-                    {
-                        Logic_Jaeger_Informationen logic = new Logic_Jaeger_Informationen();
+                    JaegerInformationSelectedModel result = jaegerInformationenService.Selected(_SelectedListItem.Jäger_ID);
 
-                        //Hier Logik einfügen
-                    });
-
+                    VornameLabel = result.Vorname;
+                    NachnameLabel = result.Nachname;
+                    AnredeLabel = result.Anrede;
+                    GeburtstagLabel = (DateTime)result.Geburtsdatum;
+                    StraßeLabel = result.Straße;
+                    HausnummerLabel = result.Hausnummer;
+                    AdresszusatzLabel = result.Adresszusatz;
+                    PostleitzahlLabel = result.Postleitzahl;
+                    WohnortLabel = result.Wohnort;
+                    Telefonnummer1Label = result.Telefonnummer1;
+                    Telefonnummer2Label = result.Telefonnummer2;
+                    Telefonnummer3Label = result.Telefonnummer3;
+                    EmailLabel = result.Email;
+                    FunktionLabel = result.Funktion;
+                    JagdhundeLabel = result.Jagdhund;
+                    VornameHeader = result.Vorname;
+                    NachnameHeader = result.Nachname; 
                 }
-                return _btn_jaeger_hinzufuegen;
             }
         }
-
-        private ICommand _btn_jaeger_entfernen;
-
-        public ICommand Btn_jaeger_entfernen
+        
+        private List<JaegerInformationModel> _PersonAnzeige;
+        public List<JaegerInformationModel> PersonAnzeige
         {
             get
             {
-                if (_btn_jaeger_entfernen == null)
-                {
-                    _btn_jaeger_entfernen = new RelayCommand(() =>
-                    {
-                        Logic_Jaeger_Informationen logic = new Logic_Jaeger_Informationen();
-
-                        //Hier Logik einfügen
-                    });
-
-                }
-                return _btn_jaeger_entfernen;
-            }
-        }
-
-        private ICommand _btn_bearbeiten;
-
-        public ICommand Btn_bearbeiten
-        {
-            get
-            {
-                if (_btn_bearbeiten == null)
-                {
-                    _btn_bearbeiten = new RelayCommand(() =>
-                    {
-                        Logic_Jaeger_Informationen logic = new Logic_Jaeger_Informationen();
-
-                        //Hier Logik einfügen
-                    });
-
-                }
-                return _btn_bearbeiten;
-            }
-        }
-
-        private string _lab_vor_und_nachname;
-
-        public string Lab_vor_und_nachname
-        {
-            get
-            {
-                return _lab_vor_und_nachname;
+                return _PersonAnzeige;
             }
             set
             {
-                //Datenbankverbindung benötigt
+
+                _PersonAnzeige = value;
+                RaisePropertyChanged("PersonAnzeige");
             }
         }
 
-        private string _lab_vorname;
-
-        public string Lab_vorname
+        private string _VornameHeader;
+        public string VornameHeader
         {
             get
             {
-                return _lab_vorname;
+                return _VornameHeader;
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _VornameHeader = value;
+                RaisePropertyChanged("VornameHeader");
             }
         }
 
-        private string _lab_nachname;
-
-        public string Lab_nachname
+        private string _NachnameHeader;
+        public string NachnameHeader
         {
             get
             {
-                return _lab_nachname;
+                return _NachnameHeader;
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _NachnameHeader = value;
+                RaisePropertyChanged("NachnameHeader");
             }
         }
 
-        private string _lab_anrede;
-
-        public string Lab_anrede
+        private string _VornameLabel;
+        public string VornameLabel
         {
             get
             {
-                return _lab_anrede;
+                return _VornameLabel;
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _VornameLabel = value;
+                RaisePropertyChanged("VornameLabel");
             }
         }
 
-        private string _lab_geburtstag;
-
-        public string Lab_geburtstag
+        private string _NachnameLabel;
+        public string NachnameLabel
         {
             get
             {
-                return _lab_geburtstag;
+                return _NachnameLabel;
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _NachnameLabel = value;
+                RaisePropertyChanged("NachnameLabel");
             }
         }
 
-        private string _lab_straße;
-
-        public string Lab_straße
+        private string _AnredeLabel;
+        public string AnredeLabel
         {
             get
             {
-                return _lab_straße;
+                return _AnredeLabel;
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _AnredeLabel = value;
+                RaisePropertyChanged("AnredeLabel");
             }
         }
 
-        private string _lab_hausnummer;
-
-        public string Lab_hausnummer
+        private DateTime _GeburtstagLabel;
+        public DateTime GeburtstagLabel
         {
             get
             {
-                return _lab_hausnummer;
+                return _GeburtstagLabel;
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _GeburtstagLabel = value;
+                RaisePropertyChanged("GeburtstagLabel");
             }
         }
 
-        private string _lab_adresszusatz;
-
-        public string Lab_adresszusatz
+        private string _StraßeLabel;
+        public string StraßeLabel
         {
             get
             {
-                return _lab_adresszusatz;
+                return _StraßeLabel;
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _StraßeLabel = value;
+                RaisePropertyChanged("StraßeLabel");
             }
+         
         }
 
-        private int _lab_postleitzahl;
-
-        public int Lab_postleitzahl
+        private string _HausnummerLabel;
+        public string HausnummerLabel
         {
             get
             {
-                return _lab_postleitzahl;
+                return _HausnummerLabel;
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _HausnummerLabel = value;
+                RaisePropertyChanged("HausnummerLabel");
             }
+           
         }
 
-        private string _lab_wohnort;
-
-        public string Lab_wohnort
+        private string _AdresszusatzLabel;
+        public string AdresszusatzLabel
         {
             get
             {
-                return _lab_wohnort;
+                return _AdresszusatzLabel;
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _AdresszusatzLabel = value;
+                RaisePropertyChanged("AdresszusatzLabel");
             }
+          
         }
 
-        private string _lab_telefonnummer1;
-
-        public string Lab_telefonnummer1
+        private string _PostleitzahlLabel;
+        public string PostleitzahlLabel
         {
             get
             {
-                return _lab_telefonnummer1;
+                return _PostleitzahlLabel;
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _PostleitzahlLabel = value;
+                RaisePropertyChanged("PostleitzahlLabel");
             }
         }
 
-        private string _lab_telefonnummer2;
-
-        public string Lab_telefonnummer2
+        private string _WohnortLabel;
+        public string WohnortLabel
         {
             get
             {
-                return _lab_telefonnummer2;
+                return _WohnortLabel;
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _WohnortLabel = value;
+                RaisePropertyChanged("Lab_wohnort");
             }
+           
         }
 
-        private string _lab_telefonnummer3;
-
-        public string Lab_telefonnummer3
+        private string _Telefonnummer1Label;
+        public string Telefonnummer1Label
         {
             get
             {
-                return _lab_telefonnummer3;
+                return _Telefonnummer1Label;
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _Telefonnummer1Label = value;
+                RaisePropertyChanged("Telefonnummer1Label");
             }
+            
         }
 
-
-
-        private string _lab_email;
-
-        public string Lab_email
+        private string _Telefonnummer2Label;
+        public string Telefonnummer2Label
         {
             get
             {
-                return _lab_email;
+                return _Telefonnummer2Label;
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _Telefonnummer2Label = value;
+                RaisePropertyChanged("Telefonnummer2Label");
             }
+
         }
 
-
-
-        private string _lab_funktion;
-
-        public string Lab_funktion
+        private string _Telefonnummer3Label;
+        public string Telefonnummer3Label
         {
             get
             {
-                return _lab_funktion;
+                return _Telefonnummer3Label;
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _Telefonnummer3Label = value;
+                RaisePropertyChanged("Telefonnummer3Label");
             }
+          
         }
 
-
-
-        private int _lab_jagdhunde;
-
-        public int Lab_jagdhunde
+        private string _EmailLabel;
+        public string EmailLabel
         {
             get
             {
-                return _lab_jagdhunde;
+                return _EmailLabel;
             }
             set
             {
-                //Datenbankverbindung benötigt
+                _EmailLabel = value;
+                RaisePropertyChanged("EmailLabel");
             }
+           
         }
 
+        private string _FunktionLabel;
+        public string FunktionLabel
+        {
+            get
+            {
+                return _FunktionLabel;
+            }
+            set
+            {
+                _FunktionLabel = value;
+                RaisePropertyChanged("FunktionLabel");
+            }
+         
+        }
+
+        private string _JagdhundeLabel;
+        public string JagdhundeLabel
+        {
+            get
+            {
+                return _JagdhundeLabel;
+            }
+            set
+            {
+                _JagdhundeLabel = value;
+                RaisePropertyChanged("JagdhundeLabel");
+            }
+            
+        }
+        #endregion Properties
     }
 }

@@ -1,63 +1,78 @@
 ﻿using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
+using JaegerMeister.MvvmSample.Logic.Ui.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+using JaegerMeister.MvvmSample.Logic.Ui.Models;
+
 
 namespace JaegerMeister.MvvmSample.Logic.Ui
 {
-    public class Logic_Kalender: ViewModelBase, INotifyPropertyChanged
+    /// <summary>
+    /// Interaktionslogik für Kalender.xaml
+    /// </summary>
+    public class Logic_Kalender : ViewModelBase, INotifyPropertyChanged
     {
-        private ICommand _btn_TerminHinzufuegen;
-        public ICommand Btn_TerminHinzufuegen
+        /// <summary>
+        /// Aufruf der Klasse Kalenderservice.
+        /// </summary>
+        KalenderService kalenderService = new KalenderService();
+        /// <summary>
+        /// Aufruf der Liste DateTime(LookUpConverter).
+        /// </summary>
+        public List<DateTime> Dates { get; } = new List<DateTime>();
+        public Logic_Kalender()
+        {
+            TermineListe = kalenderService.Termine();
+            KalenderAnzeige = kalenderService.NextTermin(DateTime.Now);
+            foreach (KalenderTermineModel termin in TermineListe)
+            {
+                DateTime dateTime = new DateTime(termin.DatumUhrzeit.Year, termin.DatumUhrzeit.Month, termin.DatumUhrzeit.Day);
+                Dates.Add(dateTime);
+            }
+        }
+        #region Properties
+        private DateTime _SelectedDates;
+        public DateTime SelectedDates
         {
             get
             {
-                if (_btn_TerminHinzufuegen == null)
-                {
-                    _btn_TerminHinzufuegen = new RelayCommand(() =>
-                    {
-                        Logic_Kalender logic = new Logic_Kalender();
-                    });
-                }
-                return _btn_TerminHinzufuegen;
+                return _SelectedDates;
             }
-        
+            set
+            {
+                _SelectedDates = value;
+                KalenderAnzeige = kalenderService.NextTermin(value);
+                RaisePropertyChanged("SelectedDates");
+            }
         }
-        private ICommand _dg_TermineKalender;
-        public ICommand Dg_TermineKalender
+        private List<KalenderTermineModel> _TermineListe;
+        public List<KalenderTermineModel> TermineListe
         {
             get
             {
-                if (_dg_TermineKalender == null)
-                {
-                    _dg_TermineKalender = new RelayCommand(() =>
-                    {
-                        Logic_Kalender logic = new Logic_Kalender();
-                    });
-                }
-                return _dg_TermineKalender;
+                return _TermineListe;
+            }
+            set
+            {
+                _TermineListe = value;
+                RaisePropertyChanged("TermineListe");
             }
         }
-        private ICommand _dg_KalenderAnzeige;
-        public ICommand Dg_KalenderAnzeige
+        private List<KalenderNextTerminModel> _KalenderAnzeige;
+        public List<KalenderNextTerminModel> KalenderAnzeige
         {
             get
             {
-                if (_dg_KalenderAnzeige == null)
-                {
-                    _dg_KalenderAnzeige = new RelayCommand(() =>
-                    {
-                        Logic_Kalender logic = new Logic_Kalender();
-                    });
-                }
-                return _dg_KalenderAnzeige;
+                return _KalenderAnzeige;
+            }
+            set
+            {
+                _KalenderAnzeige = value;
+                RaisePropertyChanged("KalenderAnzeige");
             }
         }
-
+        #endregion
     }
 }
+

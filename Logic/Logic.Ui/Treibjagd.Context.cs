@@ -40,6 +40,8 @@ namespace JaegerMeister.MvvmSample.Logic.Ui
         public virtual DbSet<tbl_Sicherheitsfragen> tbl_Sicherheitsfragen { get; set; }
         public virtual DbSet<tbl_Termine> tbl_Termine { get; set; }
         public virtual DbSet<tbl_Tiere> tbl_Tiere { get; set; }
+        public virtual DbSet<tbl_Anrede> tbl_Anrede { get; set; }
+        public virtual DbSet<tbl_Funktionen> tbl_Funktionen { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
