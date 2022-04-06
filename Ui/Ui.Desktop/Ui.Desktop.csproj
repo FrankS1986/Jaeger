@@ -142,6 +142,9 @@
       <DependentUpon>GUI_NeuesPasswort.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\SharedAssemblyInfo.cs" />
+    <Compile Include="SicherheitsfrageZuruecksetzen.xaml.cs">
+      <DependentUpon>SicherheitsfrageZuruecksetzen.xaml</DependentUpon>
+    </Compile>
     <Page Include="GUI_DokumenteVerwalten.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -260,6 +263,10 @@
     <Page Include="GUI_Sicherheitsfrage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SicherheitsfrageZuruecksetzen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
