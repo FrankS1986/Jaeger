@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Messaging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,13 @@ namespace JaegerMeister.MvvmSample.Ui.Desktop
         public GUIEinladungsuebersicht()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            GUIEinladungErstellen erstellen = new GUIEinladungErstellen();
+            ContenControlEinladungsuebersicht.Content = erstellen;
+            
         }
     }
 }
